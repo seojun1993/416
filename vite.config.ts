@@ -12,7 +12,7 @@ export default defineConfig({
     alias: [
       {
         find: "@",
-        replacement: path,
+        replacement: path.resolve(process.cwd(), "src"),
       },
     ],
   },
