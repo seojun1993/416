@@ -2,19 +2,38 @@
 
 import { css, useTheme } from "@emotion/react";
 import CircleButton from "../common/circle-button";
+import { useCallback, useEffect, useRef } from "react";
 
 // TODO : 공통 좌우 패딩
 // TODO : 공통 그림자 스타일 필요
 const BottomBar = () => {
+  const bottomRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
+  const handleWindowResize = useCallback(() => {
+    if (bottomRef.current) {
+      document.documentElement.style.setProperty(
+        "--bottom-height",
+        `${bottomRef.current.clientHeight}px`
+      );
+    }
+  }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    handleWindowResize();
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   return (
     <div
+      ref={bottomRef}
       css={{
-        height: 160,
         boxShadow: "0px -10px 10px rgba(0,0,0,0.1)",
-        padding: "0 1.6rem",
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(33dvw, 1fr))",
+        padding: "0.5rem 1.6rem",
+        display: "flex",
+        justifyContent: "space-between",
+        // display: "grid",
+        // gridTemplateColumns: "repeat(3, minmax(33dvw, 1fr))",
       }}
     >
       <div

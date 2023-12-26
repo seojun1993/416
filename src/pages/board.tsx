@@ -89,13 +89,7 @@ const Board = () => {
   }, []);
 
   return (
-    <MainShell
-      css={css`
-        display: flex;
-        padding: 2.5rem 1.6rem;
-        height: 100%;
-      `}
-    >
+    <MainShell>
       <section
         css={css`
           flex: 1;

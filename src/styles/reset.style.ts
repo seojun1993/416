@@ -16,14 +16,14 @@ const reset = css`
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
   }
-  canvas,
+  /* canvas,
   img,
   picture,
   svg,
   video {
     display: block;
     max-width: 100%;
-  }
+  } */
   button,
   input,
   select,
@@ -39,10 +39,21 @@ const reset = css`
   p {
     overflow-wrap: break-word;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    line-break: anywhere;
+  }
   #__next,
   #root {
     isolation: isolate;
     height: 100%;
+    max-height: 100dvh;
   }
   html {
     width: 100dvw;

@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "SangSangFlowerRoad";
+  src: local("SangSangFlowerRoad"),
+    url("./SangSangFlowerRoad.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -3,7 +3,7 @@ import "@/assets/static/styles/index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { Global, Theme, ThemeProvider } from "@emotion/react";
+import { Global, ThemeProvider } from "@emotion/react";
 import { router } from "./router.tsx";
 import style from "@/styles";
 
@@ -11,6 +11,9 @@ const theme = {
   color: {
     primary: {
       foreground: "#FFFBE2",
+    },
+    secondary: {
+      foreground: "#DBD5AD",
     },
     button: {
       active: "#FB950A",
