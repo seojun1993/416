@@ -3,12 +3,14 @@
 import { css, useTheme } from "@emotion/react";
 import CircleButton from "../common/circle-button";
 import { useCallback, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 // TODO : 공통 좌우 패딩
 // TODO : 공통 그림자 스타일 필요
 const BottomBar = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
+  const navigation = useNavigate();
   const handleWindowResize = useCallback(() => {
     if (bottomRef.current) {
       document.documentElement.style.setProperty(
@@ -32,8 +34,6 @@ const BottomBar = () => {
         padding: "0.5rem 1.6rem",
         display: "flex",
         justifyContent: "space-between",
-        // display: "grid",
-        // gridTemplateColumns: "repeat(3, minmax(33dvw, 1fr))",
       }}
     >
       <div
@@ -44,6 +44,7 @@ const BottomBar = () => {
         })}
       >
         <CircleButton
+          onClick={() => navigation("/")}
           icon={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +63,7 @@ const BottomBar = () => {
           }
         />
         <CircleButton
+          onClick={() => navigation("cloud")}
           icon={
             <svg
               xmlns="http://www.w3.org/2000/svg"

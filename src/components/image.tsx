@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { HTMLAttributes } from "react";
 
 const ImageWrapper = styled.div`
   height: 100%;
@@ -9,12 +10,12 @@ const StyledImage = styled.img`
   object-fit: cover;
 `;
 
-interface ImageProps {
+interface ImageProps extends HTMLAttributes<HTMLDivElement> {
   src: string;
 }
-const ImageX = ({ src }: ImageProps) => {
+const ImageX = ({ src, ...rest }: ImageProps) => {
   return (
-    <ImageWrapper>
+    <ImageWrapper {...rest}>
       <StyledImage src={src} />
     </ImageWrapper>
   );

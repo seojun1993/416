@@ -2,10 +2,10 @@ import "./vitals.ts";
 import "@/assets/static/styles/index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Global, ThemeProvider } from "@emotion/react";
-import { router } from "./router.tsx";
 import style from "@/styles";
+import App from "./root";
 
 const theme = {
   color: {
@@ -27,7 +27,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Global styles={style.reset} />
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<App />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );

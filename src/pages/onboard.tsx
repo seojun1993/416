@@ -7,6 +7,7 @@ import styled from "@emotion/styled";
 import EmblaCarousel from "@/components/carousel";
 import { EmblaOptionsType } from "embla-carousel-react";
 import avatar from "@/assets/images/avatar.png";
+import 김예은 from "@/assets/images/김예은/main.png";
 import Card from "@/components/pages/onboard/card";
 const Saver = styled.div`
   flex: 1;
@@ -86,9 +87,10 @@ const OnBoard = () => {
               `}
             >
               <Card
-                image={avatar}
+                href="board?name='김예은'"
+                image={김예은}
                 birth="97.05.00"
-                title="고해인"
+                title="김예은"
                 description={`엄마가 힘들다고 하면 해바라기 같은 웃음을 띠고 꼭 안아주는,
                 세계여행을 가고 싶어하던 해인이는 간호사라는 꿈을 가지고 있었습니다.`}
               />

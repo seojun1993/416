@@ -32,7 +32,7 @@ const EmblaCarousel = <T,>({
 }: EmblaCarouselProps<T>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({
-      delay: 10000,
+      delay: 5000,
     }),
   ]);
 

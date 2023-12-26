@@ -7,9 +7,10 @@ import sub4Image from "@/assets/images/김예은/sub4.png";
 import sub5Image from "@/assets/images/김예은/sub5.png";
 import { MainShell } from "@/styles/main-shell.styled";
 import { css } from "@emotion/react";
-
+import bg from "@/assets/images/노란리본.png";
 import { useMemo, useRef, useEffect } from "react";
 import RotateImage from "@/components/rotate-image";
+import ImageX from "@/components/image";
 
 const Board = () => {
   const subImages = useMemo(
@@ -89,7 +90,24 @@ const Board = () => {
   }, []);
 
   return (
-    <MainShell>
+    <MainShell
+      css={css`
+        position: relative;
+        &::after {
+          z-index: 0;
+          content: "";
+          background: url("/assets/노란리본.png");
+          opacity: 0.3;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      `}
+    >
       <section
         css={css`
           flex: 1;
@@ -97,6 +115,7 @@ const Board = () => {
           display: flex;
           justify-content: center;
           align-items: center;
+          z-index: 1;
         `}
       >
         <img
@@ -121,9 +140,7 @@ const Board = () => {
         css={css`
           flex: 1;
         `}
-      >
-        1
-      </section>
+      ></section>
     </MainShell>
   );
 };
