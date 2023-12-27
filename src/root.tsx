@@ -9,7 +9,6 @@ const Board = Loadable(lazy(() => import("./pages/board")));
 const Cloud = Loadable(lazy(() => import("./pages/cloud")));
 function Root() {
   const location = useLocation();
-  console.log(location, "<<location");
   return (
     <AppShell>
       <AnimatePresence mode="wait">

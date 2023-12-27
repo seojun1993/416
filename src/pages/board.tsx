@@ -7,10 +7,8 @@ import sub4Image from "@/assets/images/김예은/sub4.png";
 import sub5Image from "@/assets/images/김예은/sub5.png";
 import { MainShell } from "@/styles/main-shell.styled";
 import { css } from "@emotion/react";
-import bg from "@/assets/images/노란리본.png";
 import { useMemo, useRef, useEffect } from "react";
 import RotateImage from "@/components/rotate-image";
-import ImageX from "@/components/image";
 
 const Board = () => {
   const subImages = useMemo(

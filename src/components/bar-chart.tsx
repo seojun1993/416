@@ -13,21 +13,21 @@ const BarChart = () => {
       return { nodes, links };
     };
 
-    const drag = (simulation) => {
-      function dragstarted(event, d) {
+    const drag = (simulation: any) => {
+      function dragstarted(event: any, d: any) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         d.fx = d.x;
         d.fy = d.y;
         d.isDragging = true;
       }
 
-      function dragged(event, d) {
+      function dragged(event: any, d: any) {
         d.fx = event.x;
         d.fy = event.y;
         d.isDragging = true;
       }
 
-      function dragended(event, d) {
+      function dragended(event: any, d: any) {
         if (!event.active) simulation.alphaTarget(0);
         d.fx = null;
         d.fy = null;
@@ -46,7 +46,7 @@ const BarChart = () => {
       .force("charge", d3.forceManyBody())
       .force(
         "link",
-        d3.forceLink().id((d) => d.id)
+        d3.forceLink().id((d: any) => d.id)
       )
       .force("x", d3.forceX())
       .force("y", d3.forceY())
@@ -85,8 +85,8 @@ const BarChart = () => {
       svg
         .selectAll("text")
         // .attr("r", (d) => d.radius)
-        .attr("x", (d) => d.x)
-        .attr("y", (d) => d.y)
+        .attr("x", (d: any) => d.x)
+        .attr("y", (d: any) => d.y)
         .attr("fill", "teal");
 
       // 노드에 무작위 움직임 추가
@@ -96,36 +96,39 @@ const BarChart = () => {
       // });
 
       link
-        .attr("x1", (d) => d.source.x)
-        .attr("y1", (d) => d.source.y)
-        .attr("x2", (d) => d.target.x)
-        .attr("y2", (d) => d.target.y);
+        .attr("x1", (d: any) => d.source.x)
+        .attr("y1", (d: any) => d.source.y)
+        .attr("x2", (d: any) => d.target.x)
+        .attr("y2", (d: any) => d.target.y);
     }
 
-    const chart = Object.assign(svg.node(), {
-      update({ nodes, links }) {
+    const chart = Object.assign(svg.node() as any, {
+      update({ nodes, links }: any) {
         console.log(count);
         // Make a shallow copy to protect against mutation, while
         // recycling old nodes to preserve position and velocity.
-        const old = new Map(node.data().map((d) => [d.id, d]));
-        nodes = nodes.map((d) => ({ ...old.get(d.id), ...d }));
-        links = links.map((d) => ({ ...d }));
+        const old = new Map(node.data().map((d: any) => [d.id, d]));
+        nodes = nodes.map((d: any) => ({ ...(old.get(d.id) as any), ...d }));
+        links = links.map((d: any) => ({ ...d }));
         node = node
-          .data(nodes, (d) => d.id)
+          .data(nodes, (d: any) => d.id)
           .join((enter) => {
             return enter
               .append("text")
               .attr("r", 5)
-              .text((d) => {
+              .text((d: any) => {
                 return d.text;
               })
-              .call(drag(simulation))
-              .call((node) => node.append("title").text((d) => d.id));
+              .call(drag(simulation) as any)
+              .call((node) => node.append("title").text((d: any) => d.id));
           });
 
-        link = link.data(links, (d) => [d.source, d.target]).join("line");
+        link = link
+          .data(links, (d: any) => [d.source, d.target] as any)
+          .join("line");
 
         simulation.nodes(nodes);
+        //@ts-ignore
         simulation.force("link").links(links);
         simulation.alpha(1).restart().tick();
         ticked(); // render now!
