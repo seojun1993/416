@@ -46,6 +46,7 @@ const CircleButtonStyle = styled.button<{ hasChild: boolean }>`
     background-color: gray;
     svg * {
       fill: white;
+      stroke: white;
     }
     color: white;
   }

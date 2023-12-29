@@ -104,7 +104,6 @@ const BarChart = () => {
 
     const chart = Object.assign(svg.node() as any, {
       update({ nodes, links }: any) {
-        console.log(count);
         // Make a shallow copy to protect against mutation, while
         // recycling old nodes to preserve position and velocity.
         const old = new Map(node.data().map((d: any) => [d.id, d]));

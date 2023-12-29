@@ -1,14 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
-import { css, useTheme } from "@emotion/react";
+import { css } from "@emotion/react";
 import CircleButton from "../common/circle-button";
 import { useCallback, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import styled from "@emotion/styled";
 
 const BottomBar = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
-  const theme = useTheme();
   const navigation = useNavigate();
   const handleWindowResize = useCallback(() => {
     if (bottomRef.current) {
@@ -91,6 +90,67 @@ const BottomBar = () => {
       >
         메뉴
       </CircleButton>
+      <div
+        css={css`
+          display: flex;
+          column-gap: 0.4em;
+        `}
+      >
+        <CircleButton
+          onClick={() => {
+            if (window.history.state.idx !== 0) {
+              navigation(-1);
+            }
+          }}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35.656"
+              height="61.312"
+              viewBox="0 0 35.656 61.312"
+            >
+              <path
+                id="prev_icon"
+                d="M435.533,2062.63l-26,25,26,25"
+                transform="translate(-405.533 -2056.974)"
+                fill="none"
+                style={{
+                  fill: "none",
+                }}
+                stroke="#666"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="8"
+              />
+            </svg>
+          }
+        />
+        <CircleButton
+          onClick={() => window.history.forward()}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35.656"
+              height="61.312"
+              viewBox="0 0 35.656 61.312"
+            >
+              <path
+                id="next_icon"
+                d="M409.533,2062.63l26,25-26,25"
+                transform="translate(-403.878 -2056.974)"
+                fill="none"
+                stroke="#666"
+                style={{
+                  fill: "none",
+                }}
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="8"
+              />
+            </svg>
+          }
+        />
+      </div>
       <CircleButton
         icon={
           <svg
