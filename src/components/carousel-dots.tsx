@@ -56,14 +56,6 @@ interface DotButtonProps extends PropsWithChildren<HTMLMotionProps<"button">> {
   isSelected?: boolean;
 }
 
-const Buttons = styled(motion.button)`
-  border-radius: 9999px;
-  border: none;
-  & + button {
-    margin-left: 0.5rem;
-  }
-`;
-
 export const DotButton = (props: DotButtonProps) => {
   const { children, isSelected, ...restProps } = props;
   const controls = useAnimation();
@@ -90,3 +82,13 @@ export const DotButton = (props: DotButtonProps) => {
     </Buttons>
   );
 };
+
+const Buttons = styled(motion.button)`
+  border-radius: 9999px;
+  border: none;
+  /* height: 100%; */
+  aspect-ratio: 1/1;
+  & + button {
+    margin-left: 0.5rem;
+  }
+`;

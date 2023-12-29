@@ -60,7 +60,8 @@ const reset = css`
     width: 100dvw;
     height: 100dvh;
     /* 50px : 3840px기준 */
-    font-size: 1.303dvw;
+    /* font-size: 1.303dvw; */
+    font-size: 2.3dvh;
     font-family: "Pretendard";
   }
 `;

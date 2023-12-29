@@ -65,10 +65,9 @@ const EmblaCarousel = <T,>({
           {slides.map((_, index) => (
             <DotButton
               key={index}
-              css={css({
-                height: "0.95rem",
-                aspectRatio: 1 / 1,
-              })}
+              css={css`
+                height: 0.95rem;
+              `}
               onClick={() => onDotButtonClick(index)}
               isSelected={index === selectedIndex}
             />
