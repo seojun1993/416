@@ -15,6 +15,7 @@ const reset = css`
   body {
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
+    overflow: clip;
   }
   /* canvas,
   img,

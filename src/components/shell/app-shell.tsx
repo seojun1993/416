@@ -4,6 +4,16 @@ import styled from "@emotion/styled";
 
 type AppShellProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>;
 
+const AppShell = ({ children, ...props }: AppShellProps) => {
+  return (
+    <Shell {...props}>
+      <ShellContent>{children}</ShellContent>
+      <BottomBar />
+    </Shell>
+  );
+};
+
+export default AppShell;
 const Shell = styled.div({
   display: "flex",
   flexDirection: "column",
@@ -12,16 +22,6 @@ const Shell = styled.div({
 
 const ShellContent = styled.div`
   flex-grow: 1;
+  overflow: hidden;
   background-color: ${(props) => props.theme.color.primary.foreground};
 `;
-
-const AppShell = ({ children, ...props }: AppShellProps) => {
-  return (
-    <Shell {...props}>
-      <ShellContent>{children}</ShellContent>
-      <BottomBar></BottomBar>
-    </Shell>
-  );
-};
-
-export default AppShell;
