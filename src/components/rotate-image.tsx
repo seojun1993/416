@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { SerializedStyles, css } from "@emotion/react";
 import { useRef, useEffect } from "react";
 interface RotateImageProps {
   image: string;
@@ -7,8 +7,9 @@ interface RotateImageProps {
     x: number;
     y: number;
   };
+  cssProps?: SerializedStyles;
 }
-const RotateImage = ({ image, point }: RotateImageProps) => {
+const RotateImage = ({ image, point, cssProps }: RotateImageProps) => {
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -32,12 +33,11 @@ const RotateImage = ({ image, point }: RotateImageProps) => {
         then = now - (delta % interval);
         angle += 0.01;
 
-        // startX += radius * Math.cos(angle);
-        startX = Math.cos(angle) * 10;
-        startY = Math.sin(angle) * 10;
+        startX = Math.cos(angle) * 25;
+        startY = Math.sin(angle) * 25;
         const offsetX = startX;
         const offsetY = startY;
-        element.style.transform = `perspective(5000px) scale(3) translate(${
+        element.style.transform = `perspective(5000px) scale(0.5) translate(${
           point.x + offsetX
         }px,${
           point.y + offsetY
@@ -53,12 +53,17 @@ const RotateImage = ({ image, point }: RotateImageProps) => {
     <img
       ref={imageRef}
       src={image}
-      css={css({
-        position: "absolute",
-        transformStyle: "preserve-3d",
-        transition: "transform 0.1s ease-in-out",
-        transform: `perspective(5000px) scale(3) translate(${point.x}px,${point.y}px)`,
-      })}
+      css={css`
+        position: absolute;
+        transform-style: preserve-3d;
+        z-index: -1;
+        width: 100%;
+        transition: transform 0.1s ease-in-out;
+        transform: perspective(5000px) scale(0.5)
+          translate(${point.x}px, ${point.y}px);
+        object-fit: contain;
+        ${cssProps && cssProps.styles.toString()}
+      `}
     />
   );
 };

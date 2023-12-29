@@ -83,7 +83,7 @@ const CardContentHeader = styled.div`
   display: inline-flex;
   align-items: center;
   line-height: 1.3rem;
-  > span:first-child {
+  > span:first-of-type {
     display: inline-flex;
     position: relative;
     &::after {

@@ -31,7 +31,7 @@ const OnBoard = () => {
           renderItem={(item) => (
             <CarouselCardContent>
               <Card
-                href="board?name='김예은'"
+                href="board?name=김예은"
                 image={김예은}
                 birth="97.05.00"
                 title="김예은"

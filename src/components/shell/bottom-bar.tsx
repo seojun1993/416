@@ -118,9 +118,9 @@ const BottomBar = () => {
                   fill: "none",
                 }}
                 stroke="#666"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="8"
               />
             </svg>
           }
@@ -143,9 +143,9 @@ const BottomBar = () => {
                 style={{
                   fill: "none",
                 }}
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="8"
               />
             </svg>
           }

@@ -1,10 +1,11 @@
+/** @jsxImportSource @emotion/react */
 import { ReactNode, useCallback } from "react";
 import useEmblaCarousel, {
   EmblaCarouselType,
   EmblaOptionsType,
 } from "embla-carousel-react";
 import { DotButton, useDotButton } from "./carousel-dots";
-import { css } from "@emotion/react";
+import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -12,6 +13,7 @@ interface EmblaCarouselProps<T> {
   slides: T[];
   options?: EmblaOptionsType;
   renderItem: (item: T) => ReactNode;
+  cssSlide?: SerializedStyles;
 }
 
 const Viewport = styled.div`
@@ -29,6 +31,7 @@ const EmblaCarousel = <T,>({
   slides,
   options,
   renderItem,
+  cssSlide,
 }: EmblaCarouselProps<T>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({
@@ -46,17 +49,11 @@ const EmblaCarousel = <T,>({
     onButtonClick
   );
   return (
-    <div className="embla" style={{ position: "relative" }}>
+    <div css={cssSlide} className="embla" style={{ position: "relative" }}>
       <Viewport className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((item, index) => (
-            <div
-              className="embla__slide"
-              key={index}
-              // style={{
-              //   ...(tweenValues.length && { opacity: tweenValues[index] }),
-              // }}
-            >
+            <div className="embla__slide" key={index}>
               {renderItem(item)}
             </div>
           ))}
