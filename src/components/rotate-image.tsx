@@ -33,8 +33,8 @@ const RotateImage = ({ image, point, cssProps }: RotateImageProps) => {
         then = now - (delta % interval);
         angle += 0.01;
 
-        startX = Math.cos(angle) * 25;
-        startY = Math.sin(angle) * 25;
+        startX = Math.cos(angle) * 10;
+        startY = Math.sin(angle) * 10;
         const offsetX = startX;
         const offsetY = startY;
         element.style.transform = `perspective(5000px) scale(0.5) translate(${

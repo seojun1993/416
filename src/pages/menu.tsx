@@ -11,8 +11,7 @@ import { Link, LinkProps } from "react-router-dom";
 const Menu = () => {
   const theme = useTheme();
   const [emblaRef] = useEmblaCarousel({
-    skipSnaps: true,
-    containScroll: "trimSnaps",
+    // skipSnaps: true,
   });
   return (
     <MainShell
@@ -57,31 +56,31 @@ const Menu = () => {
               to="/"
               title="기억 공간"
               description={`메뉴에 대한 설명이 들어갑니다.\n메뉴에 대한 설명이 들어갑니다.`}
-              img="/assets/기억공간.png"
+              img="https://placehold.co/800x800"
             />
             <MenuCard
               to="/"
               title="기억 명단"
               description={`메뉴에 대한 설명이 들어갑니다.\n메뉴에 대한 설명이 들어갑니다.`}
-              img="/assets/기억명단.png"
+              img="https://placehold.co/800x800"
             />
             <MenuCard
               to="/cloud"
               title="워드클라우드"
               description="메뉴에 대한 설명이 들어갑니다.메뉴에 대한 설명이 들어갑니다."
-              img="/assets/기억공간.png"
+              img="https://placehold.co/800x800"
             />
             <MenuCard
               to="/"
               title="순례길"
               description="메뉴에 대한 설명이 들어갑니다.메뉴에 대한 설명이 들어갑니다."
-              img="/assets/기억명단.png"
+              img="https://placehold.co/800x800"
             />
             <MenuCard
               to="/"
               title="공간 안내"
               description="메뉴에 대한 설명이 들어갑니다.메뉴에 대한 설명이 들어갑니다."
-              img="/assets/기억명단.png"
+              img="https://placehold.co/800x800"
             />
           </div>
         </div>
@@ -141,6 +140,8 @@ function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
         css={css`
           height: 16rem;
           aspect-ratio: 1/1;
+          border-radius: 0.8rem;
+          overflow: hidden;
         `}
       />
     </Link>
