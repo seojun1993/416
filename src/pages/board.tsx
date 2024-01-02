@@ -14,6 +14,7 @@ import RotateImage from "@/components/rotate-image";
 import { useSearchParams } from "react-router-dom";
 import styled from "@emotion/styled";
 import useEmblaCarousel from "embla-carousel-react";
+import { Header } from "@/components/common/header";
 const WEIGHT = 1.3;
 
 const Board = () => {
@@ -143,15 +144,7 @@ const Board = () => {
           z-index: 1;
         `}
       >
-        <h1
-          css={css`
-            font-size: 2.4rem;
-            height: 2.4rem;
-            display: inline-flex;
-            align-items: center;
-            font-weight: extrabold;
-          `}
-        >
+        <Header>
           <img
             src={Students}
             css={css`
@@ -160,7 +153,7 @@ const Board = () => {
             `}
           />
           {name}
-        </h1>
+        </Header>
         <div
           css={css`
             position: relative;

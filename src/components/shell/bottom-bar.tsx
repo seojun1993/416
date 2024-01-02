@@ -3,12 +3,12 @@
 import { css } from "@emotion/react";
 import CircleButton from "../common/circle-button";
 import { useCallback, useEffect, useRef } from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 
 const BottomBar = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const handleWindowResize = useCallback(() => {
     if (bottomRef.current) {
       document.documentElement.style.setProperty(
@@ -27,7 +27,7 @@ const BottomBar = () => {
   return (
     <BottomWrapper ref={bottomRef}>
       <CircleButton
-        onClick={() => navigation("/")}
+        onClick={() => navigate("/")}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const BottomBar = () => {
         홈화면
       </CircleButton>
       <CircleButton
-        onClick={() => navigation("cloud")}
+        onClick={() => navigate("menu")}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const BottomBar = () => {
         <CircleButton
           onClick={() => {
             if (window.history.state.idx !== 0) {
-              navigation(-1);
+              navigate(-1);
             }
           }}
           icon={

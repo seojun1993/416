@@ -73,7 +73,7 @@ export const DotButton = (props: DotButtonProps) => {
           backgroundColor: theme.color.button.active,
         },
         initial: {
-          backgroundColor: theme.color.secondary.foreground,
+          backgroundColor: theme.color.button.disable,
         },
       }}
       {...restProps}

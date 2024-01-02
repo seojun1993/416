@@ -14,7 +14,7 @@ export const MainShell = ({
       transition={{ duration: 0.2 }}
       css={css`
         display: flex;
-        padding: 2.5rem 1.6rem;
+        padding: 1.6rem;
         height: 100%;
         max-height: calc(100dvh - var(--bottom-height));
         overflow-y: clip;

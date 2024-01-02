@@ -53,7 +53,7 @@ const CardLink = styled(Link)`
   border: 1px solid #eeeeee;
   border-radius: 0.5rem;
   padding: 1rem 1.4rem;
-  background-color: white;
+  background-color: ${(props) => props.theme.color.secondary.foreground};
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   column-gap: 0.8rem;
   text-decoration: none;
