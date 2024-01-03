@@ -26,7 +26,6 @@ const Card = ({ birth, description, image, title, href }: CardProps) => {
   return (
     <CardLink to={href ?? ""}>
       <CardAvatar src={image} />
-
       <CardContent>
         <CardContentHeader>
           <span>{title}</span>
@@ -36,6 +35,8 @@ const Card = ({ birth, description, image, title, href }: CardProps) => {
           css={css`
             color: #666666;
             white-space: normal;
+            line-height: 1.3rem;
+            white-space-collapse: preserve-breaks;
           `}
         >
           {description}
@@ -48,11 +49,10 @@ const Card = ({ birth, description, image, title, href }: CardProps) => {
 export default Card;
 
 const CardLink = styled(Link)`
-  display: flex;
-  align-items: center;
+  width: 18.1em;
   border: 1px solid #eeeeee;
-  border-radius: 0.5rem;
-  padding: 1rem 1.4rem;
+  border-radius: 0.7em;
+  overflow: hidden;
   background-color: ${(props) => props.theme.color.secondary.foreground};
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   column-gap: 0.8rem;
@@ -61,28 +61,23 @@ const CardLink = styled(Link)`
 `;
 
 const CardAvatar = styled(ImageX)`
-  /* height: 100%; */
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  width: 5em;
-  height: 5em;
+  height: fit-content;
+  aspect-ratio: 9/8;
 `;
-/* const CardAvatar = styled.img`
-  height: 100%;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-`; */
 
 const CardContent = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  padding: 1.2em 1.8em 1.2em;
+  text-align: center;
+  row-gap: 0.5em;
 `;
 
 const CardContentHeader = styled.div`
   display: inline-flex;
   align-items: center;
   line-height: 1.3rem;
+  margin: 0 auto;
   > span:first-of-type {
     display: inline-flex;
     position: relative;

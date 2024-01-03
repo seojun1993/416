@@ -27,6 +27,13 @@ const DotPosition = styled.div`
   transform: translateX(-50%);
 `;
 
+const Container = styled.div`
+  backface-visibility: hidden;
+  touch-action: pan-y;
+  display: flex;
+  justify-content: flex-start;
+`;
+
 const EmblaCarousel = <T,>({
   slides,
   options,
@@ -35,44 +42,100 @@ const EmblaCarousel = <T,>({
 }: EmblaCarouselProps<T>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({
-      delay: 5000,
+      delay: 2000,
     }),
   ]);
 
-  const onButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
-    const { autoplay } = emblaApi.plugins();
-    if (!autoplay) return;
-    if (autoplay.options.stopOnInteraction !== false) autoplay.stop?.();
-  }, []);
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
-    emblaApi,
-    onButtonClick
-  );
   return (
-    <div css={cssSlide} className="embla" style={{ position: "relative" }}>
-      <Viewport className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <div css={cssSlide} style={{ position: "relative" }}>
+      <Viewport ref={emblaRef}>
+        <Container>
           {slides.map((item, index) => (
             <div className="embla__slide" key={index}>
               {renderItem(item)}
             </div>
           ))}
-        </div>
-        <DotPosition>
-          {slides.map((_, index) => (
-            <DotButton
-              key={index}
-              css={css`
-                height: 0.95rem;
-              `}
-              onClick={() => onDotButtonClick(index)}
-              isSelected={index === selectedIndex}
+        </Container>
+        <LeftButton>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54.482"
+            height="96.969"
+            viewBox="0 0 54.482 96.969"
+          >
+            <path
+              id="prev_icon"
+              d="M-20078.957-17310.031l-40,40,40,40"
+              transform="translate(20124.955 17318.516)"
+              fill="none"
+              stroke="#fb950a"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="12"
             />
-          ))}
-        </DotPosition>
+          </svg>
+        </LeftButton>
+        <RightButton>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54.486"
+            height="96.969"
+            viewBox="0 0 54.486 96.969"
+          >
+            <path
+              id="naxt_icon"
+              d="M-20118.957-17310.031l40,40-40,40"
+              transform="translate(20127.441 17318.516)"
+              fill="none"
+              stroke="#fb950a"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="12"
+            />
+          </svg>
+        </RightButton>
       </Viewport>
     </div>
   );
 };
 
 export default EmblaCarousel;
+
+const LeftButton = styled.button`
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: white;
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+`;
+const RightButton = styled.button`
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: white;
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+`;
