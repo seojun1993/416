@@ -1,4 +1,4 @@
-import BarChart from "@/components/bar-chart";
+import LoadGraphWithHook from "@/hooks/graph";
 
 const Cloud = () => {
   const data = [
@@ -8,11 +8,8 @@ const Cloud = () => {
     { label: "D", value: 30 },
     { label: "E", value: 10 },
   ];
-  return (
-    <div>
-      <BarChart />
-    </div>
-  );
+  return <LoadGraphWithHook />;
 };
 
+// {/* <BarChart /> */}
 export default Cloud;
