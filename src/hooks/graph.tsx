@@ -11,10 +11,10 @@ import { Canvas, ThreeEvent, useFrame } from "@react-three/fiber";
 import {
   Billboard,
   BillboardProps,
+  OrbitControls,
   Text,
   TrackballControls,
 } from "@react-three/drei";
-import { m, LazyMotion, domAnimation } from "framer-motion";
 import { generate } from "random-words";
 
 function Word({
@@ -53,7 +53,7 @@ function Word({
   }, [hovered]);
   // Tie component to the render-loop
   return (
-    <Billboard {...props} follow lockX>
+    <Billboard {...props} follow>
       <Text
         ref={ref}
         onPointerOver={over}
@@ -92,24 +92,22 @@ function Cloud({ count = 4, radius = 20 }) {
   ));
 }
 
-const Layout = m(Canvas);
 export default function App() {
   return (
-    <LazyMotion features={domAnimation}>
-      <Layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        dpr={[1, 2]}
-        camera={{ position: [0, 0, 35], fov: 90 }}
-      >
-        {/* <fog attach="fog" args={["white", 0, 10]} /> */}
-        <Suspense fallback={null}>
-          <group rotation={[10, 10.5, 10]}>
-            <Cloud count={8} radius={22} />
-          </group>
-        </Suspense>
-        <TrackballControls />
-      </Layout>
-    </LazyMotion>
+    <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
+      <fog attach="fog" args={["#c9c9c9", 0, 70]} />
+      <Suspense fallback={null}>
+        <group rotation={[10, 10.5, 10]}>
+          <Cloud count={8} radius={22} />
+        </group>
+      </Suspense>
+      {/* <TrackballControls /> */}
+      <OrbitControls
+        makeDefault
+        maxZoom={1.5}
+        minZoom={0.5}
+        // enablePan={false}
+      />
+    </Canvas>
   );
 }
