@@ -1,14 +1,25 @@
-import LoadGraphWithHook from "@/hooks/graph";
+import WordCloud from "@/components/word-cloud";
+import { useUserStore } from "@/contexts/word-cloud.store";
+import styled from "@emotion/styled";
+
+const CloudContainer = styled.section`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 const Cloud = () => {
-  const data = [
-    { label: "A", value: 25 },
-    { label: "B", value: 45 },
-    { label: "C", value: 60 },
-    { label: "D", value: 30 },
-    { label: "E", value: 10 },
-  ];
-  return <LoadGraphWithHook />;
+  const { user } = useUserStore();
+  return (
+    <CloudContainer>
+      <WordCloud />
+      <ul style={{ flex: 1 }}>
+        {user.map((i) => (
+          <li key={i}>{i}</li>
+        ))}
+      </ul>
+    </CloudContainer>
+  );
 };
 
 // {/* <BarChart /> */}
