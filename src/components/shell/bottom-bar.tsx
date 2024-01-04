@@ -5,8 +5,10 @@ import CircleButton from "../common/circle-button";
 import { useCallback, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
+import { useThemeMode } from "@/hooks/use-theme-mode";
 
 const BottomBar = () => {
+  const [theme, toggleTheme] = useThemeMode();
   const bottomRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const handleWindowResize = useCallback(() => {
@@ -152,6 +154,7 @@ const BottomBar = () => {
         />
       </div>
       <CircleButton
+        onClick={toggleTheme}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"

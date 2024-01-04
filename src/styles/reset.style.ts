@@ -1,12 +1,17 @@
 import { css } from "@emotion/react";
-const reset = css`
+const reset = (zoom: number) => css`
   *,
   :after,
   :before {
     box-sizing: border-box;
   }
-  * {
+  *,
+  ::after,
+  ::before {
     margin: 0;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
+      color 0.5s ease-in-out, background-color 0.5s ease-in-out,
+      background 0.5s ease-in-out;
   }
   body,
   html {
@@ -61,7 +66,7 @@ const reset = css`
     height: 100dvh;
     /* 50px : 3840px기준 */
     /* font-size: 1.303dvw; */
-    font-size: 2.3dvh;
+    font-size: calc(2.3dvh * ${zoom});
     font-family: "Pretendard";
   }
 `;

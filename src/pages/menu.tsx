@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Header } from "@/components/common/header";
-
+import { useThemeMode } from "@/hooks/use-theme-mode";
 import { MainShell } from "@/styles/main-shell.styled";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -20,7 +20,7 @@ const Menu = () => {
         position: relative;
         &::after {
           right: 0;
-          bottom: -1%;
+          bottom: 0%;
           position: absolute;
           content: "";
           height: 100%;
@@ -100,6 +100,7 @@ type MenuCardProps = LinkProps &
 
 function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
   const theme = useTheme();
+  const [mode] = useThemeMode();
 
   return (
     <Link
@@ -112,6 +113,10 @@ function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
         position: relative;
         max-width: 18rem;
         text-decoration: none;
+        transition: outline 0.5s ease-in-out;
+        ${mode === "dark"
+          ? "outline: 1px solid white;"
+          : "outline: 1px solid transparent;"}
       `}
     >
       <h2

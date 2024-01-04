@@ -16,9 +16,6 @@ import styled from "@emotion/styled";
 import { Header } from "@/components/common/header";
 import LinesEllipsis from "react-lines-ellipsis";
 import { m, LazyMotion, domAnimation, LayoutGroup } from "framer-motion";
-import { WithBlur } from "@/components/common/with-blur";
-
-const WEIGHT = 1.3;
 
 const Board = () => {
   const imageRef = useRef<HTMLImageElement>(null);

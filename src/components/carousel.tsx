@@ -69,9 +69,9 @@ const EmblaCarousel = <T,>({
               transform="translate(20124.955 17318.516)"
               fill="none"
               stroke="#fb950a"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="12"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="12"
             />
           </svg>
         </LeftButton>
@@ -88,9 +88,9 @@ const EmblaCarousel = <T,>({
               transform="translate(20127.441 17318.516)"
               fill="none"
               stroke="#fb950a"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="12"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="12"
             />
           </svg>
         </RightButton>

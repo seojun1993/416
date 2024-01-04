@@ -63,6 +63,7 @@ const OnBoardTitle = styled.h1`
   font-size: 3rem;
   font-weight: normal;
   padding-left: 1.6rem;
+  color: ${(props) => props.theme.color.text.main};
 `;
 
 const CarouselCardContent = styled.div`
@@ -89,7 +90,7 @@ const Saver = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 100dvw;
-  &::after {
+  /* &::after {
     right: -1%;
     top: 0;
     position: absolute;
@@ -97,7 +98,7 @@ const Saver = styled.div`
     height: 100%;
     width: 15%;
     background: ${(props) =>
-      `linear-gradient(to right, transparent, ${props.theme.color.primary.foreground} 90%)`};
+    `linear-gradient(to right, transparent, ${props.theme.color.primary.foreground} 90%)`};
   }
   &::before {
     left: -1%;
@@ -108,6 +109,6 @@ const Saver = styled.div`
     width: 15%;
     z-index: 1;
     background: ${(props) =>
-      `linear-gradient(to left, transparent, ${props.theme.color.primary.foreground} 90%)`};
-  }
+    `linear-gradient(to left, transparent, ${props.theme.color.primary.foreground} 90%)`};
+  } */
 `;

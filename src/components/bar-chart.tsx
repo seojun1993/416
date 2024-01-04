@@ -68,7 +68,7 @@ const BarChart = () => {
     let node = svg
       .append("g")
       .attr("stroke", "#fff")
-      .attr("stroke-width", 1.5)
+      .attr("strokeWidth", 1.5)
       .selectAll("text");
     let count = 0;
     function ticked() {
