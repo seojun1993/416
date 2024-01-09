@@ -4,11 +4,16 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Loadable from "./components/common/loadable";
 import { lazy } from "react";
 import { AnimatePresence } from "framer-motion";
+import OnBoard from "./pages/onboard";
+import Board from "./pages/board";
+import Cloud from "./pages/cloud";
+import Menu from "./pages/menu";
+import Search from "./pages/search";
 
-const OnBoard = Loadable(lazy(() => import("./pages/onboard")));
-const Board = Loadable(lazy(() => import("./pages/board")));
-const Cloud = Loadable(lazy(() => import("./pages/cloud")));
-const Menu = Loadable(lazy(() => import("./pages/menu")));
+// const OnBoard = Loadable(lazy(() => import("./pages/onboard")));
+// const Board = Loadable(lazy(() => import("./pages/board")));
+// const Cloud = Loadable(lazy(() => import("./pages/cloud")));
+// const Menu = Loadable(lazy(() => import("./pages/menu")));
 
 function Root() {
   const location = useLocation();
@@ -20,6 +25,7 @@ function Root() {
           <Route path="board" element={<Board />} />
           <Route path="cloud" element={<Cloud />} />
           <Route path="menu" element={<Menu />} />
+          <Route path="search" element={<Search />} />
         </Routes>
       </AnimatePresence>
     </AppShell>

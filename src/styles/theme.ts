@@ -1,17 +1,27 @@
 export const lightTheme = {
   color: {
     text: {
-      main: "#000000",
+      main: "#222222",
       sub: "#666666",
     },
     primary: {
-      foreground: "#FFFBE2",
+      foreground: "#1A254C",
+    },
+    background: {
+      card: "rgba(255,255,255,0.2)",
+      secondary: "white",
+    },
+    shadow: {
+      card: {
+        border: "rgba(255,255,255,0.8)",
+        inner: "rgba(0,0,0,0.15)",
+      },
     },
     secondary: {
       foreground: "white",
     },
     accent: {
-      foreground: "#65B741",
+      foreground: "#8080FF",
     },
     button: {
       active: "#FB950A",
@@ -23,7 +33,17 @@ export const darkTheme: typeof lightTheme = {
   color: {
     text: {
       main: "#ffffff",
-      sub: "#666666",
+      sub: "#ffffff",
+    },
+    background: {
+      card: "rgba(0,0,0,0.5)",
+      secondary: "#222222",
+    },
+    shadow: {
+      card: {
+        border: "rgba(255,255,255,0.8)",
+        inner: "rgba(0,0,0,0.15)",
+      },
     },
     primary: {
       foreground: "#111111",
@@ -32,7 +52,7 @@ export const darkTheme: typeof lightTheme = {
       foreground: "black",
     },
     accent: {
-      foreground: "#65B741",
+      foreground: "#FFF500",
     },
     button: {
       active: "#FB950A",

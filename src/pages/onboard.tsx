@@ -6,18 +6,18 @@ import avatar1 from "@/assets/images/avatar/1.png";
 import avatar2 from "@/assets/images/avatar/2.png";
 import avatar3 from "@/assets/images/avatar/3.png";
 import Card from "@/components/pages/onboard/card";
+import { useTheme } from "@emotion/react";
+import OnBoardTitle from "@/components/pages/onboard/onboard-title";
 
 const SLIDES = [{ text: "1" }];
 
 const OnBoard = () => {
   const OPTIONS: EmblaOptionsType = { loop: true };
+  const theme = useTheme();
   return (
     <OnBoardShell>
       <Saver>
-        <OnBoardTitle>
-          하늘의 별이 된 아이들아,&nbsp;
-          <ActivedSpan>생일 축하해</ActivedSpan>
-        </OnBoardTitle>
+        <OnBoardTitle />
         <EmblaCarousel
           slides={SLIDES}
           options={OPTIONS}
@@ -58,22 +58,10 @@ const OnBoard = () => {
 
 export default OnBoard;
 
-const OnBoardTitle = styled.h1`
-  font-family: "SangSangFlowerRoad";
-  font-size: 3rem;
-  font-weight: normal;
-  padding-left: 1.6rem;
-  color: ${(props) => props.theme.color.text.main};
-`;
-
 const CarouselCardContent = styled.div`
-  margin: 2.5rem 1.6rem;
+  margin: 1.8rem 1.6rem;
   column-gap: 1.8rem;
   display: flex;
-`;
-
-const ActivedSpan = styled.strong`
-  color: ${(props) => props.theme.color.button.active};
 `;
 
 const OnBoardShell = styled(MainShell)`

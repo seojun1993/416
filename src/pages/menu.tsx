@@ -11,12 +11,13 @@ import { Link, LinkProps } from "react-router-dom";
 const Menu = () => {
   const theme = useTheme();
   const [emblaRef] = useEmblaCarousel({
-    // skipSnaps: true,
+    skipSnaps: true,
+    dragFree: true,
   });
   return (
     <MainShell
+      padding={false}
       css={css`
-        background-image: url("/assets/메뉴_배경.png");
         position: relative;
         &::after {
           right: 0;
@@ -35,7 +36,13 @@ const Menu = () => {
           width: 100%;
         `}
       >
-        <Header>메뉴</Header>
+        <Header
+          css={css`
+            padding: 0 1.6rem;
+          `}
+        >
+          메뉴
+        </Header>
         <div
           ref={emblaRef}
           css={css`
@@ -44,7 +51,7 @@ const Menu = () => {
         >
           <div
             css={css`
-              padding: 0.8rem 0;
+              padding: 0.8em 1.6em;
               column-gap: 2.6rem;
               backface-visibility: hidden;
               display: flex;
@@ -106,55 +113,63 @@ function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
     <Link
       {...rest}
       css={css`
-        padding: 1rem;
-        background-color: ${theme.color.secondary.foreground};
+        background-color: ${theme.color.background.card};
         border-radius: 0.8rem;
-        box-shadow: 0px 0px 0.4rem rgba(0, 0, 0, 0.15);
-        position: relative;
-        max-width: 18rem;
+        box-shadow: 0px 0px 0.4rem ${theme.color.shadow.card.border};
+        border: 0.15rem solid white;
         text-decoration: none;
-        transition: outline 0.5s ease-in-out;
-        ${mode === "dark"
-          ? "outline: 1px solid white;"
-          : "outline: 1px solid transparent;"}
       `}
     >
-      <h2
+      <div
         css={css`
-          color: ${theme.color.text.main};
-          font-size: 1.6rem;
-          padding-top: 0.6rem;
-          padding-bottom: 0.8rem;
-        `}
-      >
-        {title}
-      </h2>
-      <Divider />
-      <p
-        css={css`
-          color: ${theme.color.text.sub};
-          padding-top: 0.8rem;
-          margin-bottom: 4rem;
-          white-space: pre-line;
-        `}
-      >
-        {description}
-      </p>
-      <img
-        src={img}
-        css={css`
-          height: 16rem;
-          aspect-ratio: 1/1;
+          padding: 1.4rem 1rem;
+          width: 18rem;
+          position: relative;
+          display: flex;
+          flex-direction: column;
           border-radius: 0.8rem;
-          overflow: hidden;
+          box-shadow: inset 0px 0px 0.4rem ${theme.color.shadow.card.inner};
         `}
-      />
+      >
+        <h2
+          css={css`
+            color: ${theme.color.text.main};
+            line-height: 1;
+            font-size: 1.6rem;
+            padding-top: 0.6rem;
+            padding-bottom: 0.8rem;
+          `}
+        >
+          {title}
+        </h2>
+        <Divider />
+        <p
+          css={css`
+            color: white;
+            padding-top: 1.6rem;
+            margin-bottom: 4rem;
+            white-space: pre-line;
+          `}
+        >
+          {description}
+        </p>
+        <img
+          src={img}
+          css={css`
+            height: 15.3em;
+            margin: 0 auto;
+            aspect-ratio: 1/1;
+            border-radius: 0.8rem;
+            overflow: hidden;
+          `}
+        />
+      </div>
     </Link>
   );
 }
 
 const DividerCss = styled(m.div)`
-  background-color: ${(props) => props.theme.color.accent.foreground};
+  background-color: white;
   height: 0.24rem;
 `;
 
