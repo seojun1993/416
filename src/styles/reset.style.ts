@@ -9,9 +9,9 @@ const reset = (zoom: number) => css`
   ::after,
   ::before {
     margin: 0;
-    transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
-      color 0.5s ease-in-out, background-color 0.5s ease-in-out,
-      background 0.5s ease-in-out;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+      color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+      background 0.2s ease-in-out;
   }
   body,
   html {

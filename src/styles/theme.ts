@@ -27,6 +27,12 @@ export const lightTheme = {
       active: "#FB950A",
       disable: "#DBD5AD",
     },
+    switch: {
+      chip: "#ffffff",
+      enable: "#8080FF",
+      "disable/30": "rgba(153,153,153,0.3)",
+      disable: "#999999",
+    },
   },
 };
 export const darkTheme: typeof lightTheme = {
@@ -57,6 +63,12 @@ export const darkTheme: typeof lightTheme = {
     button: {
       active: "#FB950A",
       disable: "#DBD5AD",
+    },
+    switch: {
+      chip: "#222222",
+      enable: "#FFF500",
+      disable: "#ffffff",
+      "disable/30": "rgba(153,153,153,0.3)",
     },
   },
 };

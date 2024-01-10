@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
+import Ranger from "../ranger";
 
 const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
@@ -349,9 +350,96 @@ const BottomBar = () => {
       <div
         css={css`
           display: flex;
+          align-items: center;
+          padding: 0.4em 0;
+          column-gap: 1.5em;
+          justify-content: flex-end;
         `}
       >
-        <Switch />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            width: 3.85em;
+          `}
+        >
+          <Switch />
+          <span
+            css={css`
+              font-size: 0.68em;
+              line-height: 1.22em;
+              font-weight: bold;
+              color: ${theme.color.text.main};
+              text-align: center;
+            `}
+          >
+            음성지원
+          </span>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            width: 3.85em;
+          `}
+        >
+          <Ranger />
+          <span
+            css={css`
+              font-size: 0.68em;
+              line-height: 1.22em;
+              font-weight: bold;
+              color: ${theme.color.text.main};
+              text-align: center;
+            `}
+          >
+            음량조절
+          </span>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            width: 3.85em;
+          `}
+        >
+          <Ranger />
+          <span
+            css={css`
+              font-size: 0.68em;
+              line-height: 1.22em;
+              font-weight: bold;
+              color: ${theme.color.text.main};
+              text-align: center;
+            `}
+          >
+            음성속도
+          </span>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            width: 3.85em;
+          `}
+        >
+          <Switch />
+          <span
+            css={css`
+              font-size: 0.68em;
+              line-height: 1.22em;
+              font-weight: bold;
+              color: ${theme.color.text.main};
+              text-align: center;
+            `}
+          >
+            수어
+          </span>
+        </div>
       </div>
     </BottomWrapper>
   );
@@ -368,8 +456,8 @@ const BottomWrapper = styled.div`
   position: relative;
   box-shadow: 0px -0.15em 0.15em rgba(0, 0, 0, 0.1);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  padding: 2.5dvh 2.1dvw;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  padding: 0 2.1dvw;
   font-size: 3dvh;
   /* gap: 0.6em; */
   flex-wrap: wrap;
@@ -377,4 +465,5 @@ const BottomWrapper = styled.div`
   width: 100%;
   align-items: center;
   background-color: ${(props) => props.theme.color.background.secondary};
+  max-height: 3.4em;
 `;
