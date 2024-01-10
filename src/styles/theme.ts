@@ -67,8 +67,8 @@ export const darkTheme: typeof lightTheme = {
     switch: {
       chip: "#222222",
       enable: "#FFF500",
-      disable: "#ffffff",
-      "disable/30": "rgba(153,153,153,0.3)",
+      disable: "#999999",
+      "disable/30": "#ffffff",
     },
   },
 };
