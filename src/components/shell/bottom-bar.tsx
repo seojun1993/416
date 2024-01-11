@@ -8,6 +8,7 @@ import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
 import Ranger from "../ranger";
+import ScreenSizeSlider from "./bottom-slider/screen-size-slider";
 
 const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
@@ -31,10 +32,11 @@ const BottomBar = () => {
   }, []);
   return (
     <BottomWrapper ref={bottomRef}>
+      <ScreenSizeSlider />
       <div
         css={css`
           display: flex;
-          column-gap: 0.6rem;
+          column-gap: 0.46em;
         `}
       >
         <CircleButton
@@ -109,7 +111,7 @@ const BottomBar = () => {
         >
           <CircleButton
             css={css`
-              margin-left: 0.6rem;
+              margin-left: 0.4em;
             `}
             onClick={() => {
               if (window.history.state.idx !== 0) {
@@ -141,7 +143,7 @@ const BottomBar = () => {
           />
           <CircleButton
             css={css`
-              margin-right: 0.6rem;
+              margin-left: 0.4em;
             `}
             onClick={() => window.history.forward()}
             icon={
@@ -364,7 +366,7 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Switch />
+          <Switch tabIndex={1} />
           <span
             css={css`
               font-size: 0.68em;
@@ -385,7 +387,7 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Ranger />
+          <Ranger tabIndex={2} />
           <span
             css={css`
               font-size: 0.68em;
@@ -406,7 +408,7 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Ranger />
+          <Ranger tabIndex={3} />
           <span
             css={css`
               font-size: 0.68em;
@@ -427,7 +429,7 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Switch />
+          <Switch tabIndex={4} />
           <span
             css={css`
               font-size: 0.68em;
@@ -446,11 +448,6 @@ const BottomBar = () => {
 };
 
 export default BottomBar;
-
-const ScreenSizeSettingTool = styled.div`
-  position: absolute;
-  top: -50px;
-`;
 
 const BottomWrapper = styled.div`
   position: relative;

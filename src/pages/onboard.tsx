@@ -6,14 +6,12 @@ import avatar1 from "@/assets/images/avatar/1.png";
 import avatar2 from "@/assets/images/avatar/2.png";
 import avatar3 from "@/assets/images/avatar/3.png";
 import Card from "@/components/pages/onboard/card";
-import { useTheme } from "@emotion/react";
 import OnBoardTitle from "@/components/pages/onboard/onboard-title";
 
 const SLIDES = [{ text: "1" }];
 
 const OnBoard = () => {
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const theme = useTheme();
   return (
     <OnBoardShell>
       <Saver>

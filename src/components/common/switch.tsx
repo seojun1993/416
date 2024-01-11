@@ -1,45 +1,62 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
-import { useEffect, useRef, useState } from "react";
+import {
+  HTMLAttributes,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { motion } from "framer-motion";
 import { useThemeMode } from "@/hooks/use-theme-mode";
-const Switch = () => {
-  const ref = useRef<HTMLDivElement>(null);
+
+interface SwitchProps extends HTMLAttributes<HTMLLabelElement> {}
+
+const Switch = ({ ...rest }: SwitchProps) => {
+  const ref = useRef<HTMLLabelElement>(null);
   const [isOn, setIsOn] = useState(false);
   const [mode] = useThemeMode();
   const theme = useTheme();
 
-  const toggleSwitch = () => setIsOn(!isOn);
-  const handleKeyDown = (event: KeyboardEvent) => {
+  const toggleSwitch = () => setIsOn((prev) => !prev);
+  const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
-      setIsOn((prev) => !prev);
+      ref.current?.focus();
     }
-  };
+  }, []);
+  const handleKeyUp = useCallback((event: KeyboardEvent) => {
+    if (event.code === "Space" || event.code === "Enter") {
+      toggleSwitch();
+    }
+  }, []);
 
   useEffect(() => {
     if (ref.current) {
       const refs = ref.current;
+      refs.addEventListener("keyup", handleKeyUp);
       refs.addEventListener("keydown", handleKeyDown);
       return () => {
+        refs.removeEventListener("keyup", handleKeyUp);
         refs.removeEventListener("keydown", handleKeyDown);
       };
     }
   }, []);
   return (
-    <div
+    <label
+      {...rest}
       ref={ref}
-      tabIndex={1}
       css={css`
-        height: 2rem;
+        forced-color-adjust: none;
+        height: 1.54em;
         background-color: ${isOn
           ? theme.color.switch.enable
           : theme.color.switch["disable/30"]};
         display: flex;
         align-items: center;
         border-radius: 1rem;
-        padding: 0.2rem;
+        padding: 0.15em;
         cursor: pointer;
-        column-gap: 1rem;
+        column-gap: 0.77em;
 
         &[data-isOn="true"] {
           flex-direction: row-reverse;
@@ -63,7 +80,7 @@ const Switch = () => {
           /* transition: left 0.1s ease-in-out, right 0.1s ease-in-out; */
         }
       `}
-      data-isOn={isOn}
+      data-ison={isOn}
       onClick={toggleSwitch}
     >
       <motion.div
@@ -73,8 +90,8 @@ const Switch = () => {
       />
       <span
         css={css`
-          padding: 0.4rem 0;
-          ${isOn ? "padding-left: 0.4rem;" : "padding-right: 0.4rem;"}
+          padding: 0.45em 0;
+          ${isOn ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
           font-size: 0.68em;
           line-height: 1.22em;
           font-weight: bold;
@@ -83,7 +100,7 @@ const Switch = () => {
       >
         {isOn ? "켜짐" : "꺼짐"}
       </span>
-    </div>
+    </label>
   );
 };
 

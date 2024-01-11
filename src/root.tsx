@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import AppShell from "@/components/shell/app-shell";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Loadable from "./components/common/loadable";
-import { lazy } from "react";
 import { AnimatePresence } from "framer-motion";
 import OnBoard from "./pages/onboard";
 import Board from "./pages/board";

@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "NanumSquareRoundOTF";
+  font-weight: 300;
+  font-display: swap;
+  src: local("NanumSquareRoundOTFL"),
+    url(./woff2/NanumSquareRoundOTFL.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundOTF";
+  font-weight: 400;
+  font-display: swap;
+  src: local("NanumSquareRoundOTFR"),
+    url(./woff2/NanumSquareRoundOTFR.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundOTF";
+  font-weight: 700;
+  font-display: swap;
+  src: local("NanumSquareRoundOTFB"),
+    url(./woff2/NanumSquareRoundOTFB.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundOTF";
+  font-weight: 800;
+  font-display: swap;
+  src: local("NanumSquareRoundOTFEB"),
+    url(./woff2/NanumSquareRoundOTFEB.woff2) format("woff2");
+}

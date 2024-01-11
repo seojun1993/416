@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import ImageX from "@/components/image";
+import { useCheckClick } from "@/hooks/use-check-click";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 
 interface CardProps {
@@ -15,6 +16,7 @@ interface CardProps {
 
 const Card = ({ birth, description, image, title, href }: CardProps) => {
   const theme = useTheme();
+  const ref = useRef<HTMLAnchorElement>(null);
   const getBirthText = useCallback((birth: Date) => {
     const year = birth.getFullYear();
     const month = birth.getMonth();
@@ -24,8 +26,9 @@ const Card = ({ birth, description, image, title, href }: CardProps) => {
     ).padStart(2, "0")}`;
   }, []);
   const birthText = birth instanceof Date ? getBirthText(birth) : birth;
+  useCheckClick({ ref });
   return (
-    <CardLink to={href ?? ""}>
+    <CardLink to={href ?? ""} ref={ref}>
       <CardAvatar src={image} />
       <CardContent>
         <CardContentHeader>

@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { create } from "zustand";
 
 import type { StateCreator } from "zustand";
@@ -27,3 +28,10 @@ export const useSettingStore = create<ZoomSlice & ThemeSlice>()((...a) => ({
   ...createThemeSlice(...a),
   ...createZoomSlice(...a),
 }));
+
+export const useZoomSelctor = (keys: (keyof (ZoomSlice & ThemeSlice))[]) => {
+  const seletorFunction = useCallback((state: ZoomSlice & ThemeSlice) => {
+    return keys.map((key) => state[key]);
+  }, []);
+  return useSettingStore(seletorFunction);
+};

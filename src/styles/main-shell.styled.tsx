@@ -7,6 +7,7 @@ export const MainShell = ({
   padding = true,
   ...rest
 }: PropsWithChildren<HTMLMotionProps<"main"> & { padding?: boolean }>) => {
+  const paddingHorizontal = padding ? "1.6em" : "0";
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -15,7 +16,7 @@ export const MainShell = ({
       transition={{ duration: 0.2 }}
       css={css`
         display: flex;
-        padding: 1.6em ${padding ? "1.6em" : "0"};
+        padding: 2.4rem ${paddingHorizontal} 0 ${paddingHorizontal};
         height: 100%;
         max-height: calc(100dvh - var(--bottom-height));
         overflow-y: clip;

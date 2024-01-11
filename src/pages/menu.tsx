@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Header } from "@/components/common/header";
+import { H1, H4, P4 } from "@/components/ui/text";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { MainShell } from "@/styles/main-shell.styled";
 import { css, useTheme } from "@emotion/react";
@@ -36,13 +37,14 @@ const Menu = () => {
           width: 100%;
         `}
       >
-        <Header
+        <H1
           css={css`
             padding: 0 1.6rem;
+            margin-bottom: 0.8rem;
           `}
         >
           메뉴
-        </Header>
+        </H1>
         <div
           ref={emblaRef}
           css={css`
@@ -107,7 +109,6 @@ type MenuCardProps = LinkProps &
 
 function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
   const theme = useTheme();
-  const [mode] = useThemeMode();
 
   return (
     <Link
@@ -131,28 +132,25 @@ function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
           box-shadow: inset 0px 0px 0.4rem ${theme.color.shadow.card.inner};
         `}
       >
-        <h2
+        <H4
           css={css`
             color: ${theme.color.text.main};
-            line-height: 1;
-            font-size: 1.6rem;
             padding-top: 0.6rem;
-            padding-bottom: 0.8rem;
           `}
         >
           {title}
-        </h2>
+        </H4>
         <Divider />
-        <p
+        <P4
+          variant="secondary"
           css={css`
             color: white;
-            padding-top: 1.6rem;
             margin-bottom: 4rem;
             white-space: pre-line;
           `}
         >
           {description}
-        </p>
+        </P4>
         <img
           src={img}
           css={css`
@@ -171,6 +169,7 @@ function MenuCard({ title, description, img, ...rest }: MenuCardProps) {
 const DividerCss = styled(m.div)`
   background-color: white;
   height: 0.24rem;
+  margin: 0.8rem 0;
 `;
 
 function Divider() {
