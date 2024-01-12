@@ -34,7 +34,7 @@ const CircleButtonStyle = styled.button<{ hasChild: boolean }>`
   transition: background-color 0.1s ease-in-out;
   > * {
     transition: background-color 0.1s ease-in-out;
-    width: 100%;
+    width: 100;
   }
   > svg {
     max-height: 0.68em;

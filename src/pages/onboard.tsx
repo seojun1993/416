@@ -1,12 +1,11 @@
-import { MainShell } from "@/styles/main-shell.styled";
+import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
-import EmblaCarousel from "@/components/carousel";
+import EmblaCarousel from "@/components/ui/carousel";
 import { EmblaOptionsType } from "embla-carousel-react";
 import avatar1 from "@/assets/images/avatar/1.png";
 import avatar2 from "@/assets/images/avatar/2.png";
 import avatar3 from "@/assets/images/avatar/3.png";
-import Card from "@/components/pages/onboard/card";
-import OnBoardTitle from "@/components/pages/onboard/onboard-title";
+import OnboardCompoents from "@/components/pages/onboard";
 
 const SLIDES = [{ text: "1" }];
 
@@ -15,13 +14,13 @@ const OnBoard = () => {
   return (
     <OnBoardShell>
       <Saver>
-        <OnBoardTitle />
+        <OnboardCompoents.OnBoardTitle />
         <EmblaCarousel
           slides={SLIDES}
           options={OPTIONS}
           renderItem={(item) => (
             <CarouselCardContent>
-              <Card
+              <OnboardCompoents.Card
                 href="board?name=김예은"
                 image={avatar1}
                 birth="97.05.00"
@@ -29,7 +28,7 @@ const OnBoard = () => {
                 description={`엄마가 힘들다고 하면 해바라기 같은 웃음을 띠고 꼭 안아주는,
                 세계여행을 가고 싶어하던 해인이는 간호사라는 꿈을 가지고 있었습니다.`}
               />
-              <Card
+              <OnboardCompoents.Card
                 image={avatar2}
                 birth={new Date("1997-09-01")}
                 title="김민지"
@@ -37,7 +36,7 @@ const OnBoard = () => {
                 단원고 2학년 1반, 아빠의 보배였던
                 민지는 가수를 꿈꾸고 있었습니다.`}
               />
-              <Card
+              <OnboardCompoents.Card
                 image={avatar3}
                 birth="97.04.00"
                 title="김민희"

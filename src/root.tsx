@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import AppShell from "@/components/shell/app-shell";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -7,11 +6,6 @@ import Board from "./pages/board";
 import Cloud from "./pages/cloud";
 import Menu from "./pages/menu";
 import Search from "./pages/search";
-
-// const OnBoard = Loadable(lazy(() => import("./pages/onboard")));
-// const Board = Loadable(lazy(() => import("./pages/board")));
-// const Cloud = Loadable(lazy(() => import("./pages/cloud")));
-// const Menu = Loadable(lazy(() => import("./pages/menu")));
 
 function Root() {
   const location = useLocation();

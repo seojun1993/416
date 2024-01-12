@@ -47,7 +47,7 @@ const EmblaCarousel = <T,>({
   ]);
 
   return (
-    <div css={cssSlide} style={{ position: "relative" }}>
+    <div css={cssSlide}>
       <Viewport ref={emblaRef}>
         <Container>
           {slides.map((item, index) => (

@@ -5,7 +5,7 @@ import {
   Ranger as RangerType,
   useRanger,
 } from "@tanstack/react-ranger";
-import React, { HTMLAttributes, useMemo } from "react";
+import React, { HTMLAttributes } from "react";
 
 interface RangerProps extends HTMLAttributes<HTMLDivElement> {
   options?: Omit<RangerOptions<HTMLDivElement>, "getRangerElement"> &

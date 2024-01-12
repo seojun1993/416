@@ -13,6 +13,13 @@ const reset = (zoom: number) => css`
       color 0.2s ease-in-out, background-color 0.2s ease-in-out,
       background 0.2s ease-in-out;
   }
+  * {
+    min-width: 0;
+  }
+
+  :root {
+    --font-size: calc(2.3dvh * ${0.8 + zoom * 0.2});
+  }
   body,
   html {
     height: 100%;
@@ -21,6 +28,16 @@ const reset = (zoom: number) => css`
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
     overflow: clip;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -ms-content-zooming: none;
+    -ms-touch-action: none;
+    content-zooming: none;
+    touch-action: nones;
   }
   /* canvas,
   img,
@@ -66,7 +83,7 @@ const reset = (zoom: number) => css`
     height: 100dvh;
     /* 50px : 3840px기준 */
     /* font-size: 1.303dvw; */
-    font-size: calc(2.3dvh * ${zoom});
+    font-size: 2.3dvh;
     font-family: "Pretendard";
   }
 `;

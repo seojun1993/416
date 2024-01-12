@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
-import Ranger from "../ranger";
+import Ranger from "../ui/ranger";
 import ScreenSizeSlider from "./bottom-slider/screen-size-slider";
 
 const BottomBar = () => {
