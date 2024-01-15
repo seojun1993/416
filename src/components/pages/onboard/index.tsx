@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import ImageX from "@/components/ui/image";
+import { H4 } from "@/components/ui/text";
 import { useCheckClick } from "@/hooks/use-check-click";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -1664,11 +1665,9 @@ interface CardProps {
   image: string;
   title: string;
   birth: string | Date;
-  description: string;
   href?: string;
 }
-export const Card = ({ birth, description, image, title, href }: CardProps) => {
-  const theme = useTheme();
+export const Card = ({ birth, image, title, href }: CardProps) => {
   const ref = useRef<HTMLAnchorElement>(null);
   const getBirthText = useCallback((birth: Date) => {
     const year = birth.getFullYear();
@@ -1679,7 +1678,9 @@ export const Card = ({ birth, description, image, title, href }: CardProps) => {
     ).padStart(2, "0")}`;
   }, []);
   const birthText = birth instanceof Date ? getBirthText(birth) : birth;
-  useCheckClick({ ref });
+  useCheckClick({
+    ref,
+  });
   return (
     <CardLink to={href ?? ""} ref={ref}>
       <CardAvatar src={image} />
@@ -1688,52 +1689,47 @@ export const Card = ({ birth, description, image, title, href }: CardProps) => {
           <span>{title}</span>
           <span>{birthText}</span>
         </CardContentHeader>
-        <p
-          css={css`
-            color: ${theme.color.text.sub};
-            white-space: normal;
-            line-height: 1.3rem;
-            white-space-collapse: preserve-breaks;
-            font-size: var(--font-size);
-          `}
-        >
-          {description}
-        </p>
       </CardContent>
     </CardLink>
   );
 };
 
 const CardLink = styled(Link)`
-  width: 23.42dvw;
-  height: 63dvh;
-  border: 1px solid #eeeeee;
+  width: 18.1em;
+  aspect-ratio: 25/ 32;
+  outline: 1px solid #eeeeee;
   border-radius: 0.7em;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background-color: ${(props) => props.theme.color.background.secondary};
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   column-gap: 0.8rem;
   text-decoration: none;
   color: ${(props) => props.theme.color.text.main};
+
+  & > div + div {
+    border-top: 0.13dvw solid #999999;
+  }
 `;
 
 const CardAvatar = styled(ImageX)`
-  height: fit-content;
-  aspect-ratio: 9/8;
+  height: 946px;
+  object-fit: fill;
 `;
 
 const CardContent = styled.div`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  padding: 1.2em 1.8em 3.8em 1.8em;
   text-align: center;
   row-gap: 0.5em;
 `;
 
-const CardContentHeader = styled.div`
+const CardContentHeader = styled(H4)`
   display: inline-flex;
   align-items: center;
-  line-height: 1.3rem;
+  flex-grow: 1;
   margin: 0 auto;
   color: ${(props) => props.theme.color.text.main};
   > span:first-of-type {

@@ -17,6 +17,8 @@ interface EmblaCarouselProps<T> {
 }
 
 const Viewport = styled.div`
+  width: 80dvw;
+  overflow: hidden;
   position: relative;
 `;
 
@@ -42,7 +44,7 @@ const EmblaCarousel = <T,>({
 }: EmblaCarouselProps<T>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({
-      delay: 2000,
+      delay: 5000,
     }),
   ]);
 
@@ -51,12 +53,22 @@ const EmblaCarousel = <T,>({
       <Viewport ref={emblaRef}>
         <Container>
           {slides.map((item, index) => (
-            <div className="embla__slide" key={index}>
+            <div
+              className="embla__slide"
+              css={css`
+                flex: 0 0 100%;
+              `}
+              key={index}
+            >
               {renderItem(item)}
             </div>
           ))}
         </Container>
-        <LeftButton>
+        <LeftButton
+          onClick={() => {
+            emblaApi?.scrollPrev();
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="54.482"
@@ -75,7 +87,11 @@ const EmblaCarousel = <T,>({
             />
           </svg>
         </LeftButton>
-        <RightButton>
+        <RightButton
+          onClick={() => {
+            emblaApi?.scrollNext();
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="54.486"

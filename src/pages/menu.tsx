@@ -10,6 +10,7 @@ const Menu = () => {
     skipSnaps: true,
     dragFree: true,
   });
+  const a = "123";
   return (
     <MainShell
       padding={false}

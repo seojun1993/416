@@ -2,3 +2,11 @@
 @import "../fonts/pretendard/pretendard.css";
 @import "../fonts/SangSangFlowerRoad/SangSangFlowerRoad.css";
 @import "../fonts/NanumSquareRound/NanumSquareRoundOTF.css";
+
+.__focussed {
+  outline: 12px solid #fff500 !important;
+}
+
+.__focussed-target {
+  transition: outline 0.1s ease-in-out;
+}

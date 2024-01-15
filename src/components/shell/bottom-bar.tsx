@@ -8,7 +8,6 @@ import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
 import Ranger from "../ui/ranger";
-import ScreenSizeSlider from "./bottom-slider/screen-size-slider";
 
 const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
@@ -32,7 +31,7 @@ const BottomBar = () => {
   }, []);
   return (
     <BottomWrapper ref={bottomRef}>
-      <ScreenSizeSlider />
+      {/* <ScreenSizeSlider /> */}
       <div
         css={css`
           display: flex;

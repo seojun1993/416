@@ -1,5 +1,6 @@
 export const lightTheme = {
   color: {
+    yellow: "#FFF500",
     text: {
       main: "#222222",
       sub: "#666666",
@@ -37,6 +38,7 @@ export const lightTheme = {
 };
 export const darkTheme: typeof lightTheme = {
   color: {
+    yellow: "#FFF500",
     text: {
       main: "#ffffff",
       sub: "#ffffff",

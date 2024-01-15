@@ -2,12 +2,11 @@ import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
 import EmblaCarousel from "@/components/ui/carousel";
 import { EmblaOptionsType } from "embla-carousel-react";
-import avatar1 from "@/assets/images/avatar/1.png";
-import avatar2 from "@/assets/images/avatar/2.png";
-import avatar3 from "@/assets/images/avatar/3.png";
+import avatar1 from "@/assets/images/avatar/img.png";
+
 import OnboardCompoents from "@/components/pages/onboard";
 
-const SLIDES = [{ text: "1" }];
+const SLIDES = [{ text: "1" }, { text: "1" }, { text: "1" }];
 
 const OnBoard = () => {
   const OPTIONS: EmblaOptionsType = { loop: true };
@@ -25,25 +24,16 @@ const OnBoard = () => {
                 image={avatar1}
                 birth="97.05.00"
                 title="고해인"
-                description={`엄마가 힘들다고 하면 해바라기 같은 웃음을 띠고 꼭 안아주는,
-                세계여행을 가고 싶어하던 해인이는 간호사라는 꿈을 가지고 있었습니다.`}
               />
               <OnboardCompoents.Card
-                image={avatar2}
+                image={avatar1}
                 birth={new Date("1997-09-01")}
                 title="김민지"
-                description={`아빠의 보배, 아빠의 가장 친한 친구이자 끝없는 잔소리꾼인 '꽁민지'
-                단원고 2학년 1반, 아빠의 보배였던
-                민지는 가수를 꿈꾸고 있었습니다.`}
               />
               <OnboardCompoents.Card
-                image={avatar3}
+                image={avatar1}
                 birth="97.04.00"
                 title="김민희"
-                description={`초등학교 때 점토 교육강사 자격증을
-                딸 정도로 손재주가 좋고 만들기를
-                좋아하는, 민희는 사서가 되고 싶은
-                꿈을 가지고 있었습니다.`}
               />
             </CarouselCardContent>
           )}
@@ -59,12 +49,13 @@ const CarouselCardContent = styled.div`
   margin: 1.8rem 1.6rem;
   column-gap: 1.8rem;
   display: flex;
+  justify-content: center;
 `;
 
 const OnBoardShell = styled(MainShell)`
   justify-content: space-between;
   overflow: clip;
-  padding-left: 0;
+  /* padding-left: 0; */
 `;
 
 const Saver = styled.div`
@@ -72,7 +63,6 @@ const Saver = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   max-width: 100dvw;
   /* &::after {

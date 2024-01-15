@@ -3,11 +3,7 @@ import React from "react";
 import BottomSlider from "./bottom-slider";
 import { P4 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
-import {
-  RangerOptions,
-  Ranger as RangerType,
-  useRanger,
-} from "@tanstack/react-ranger";
+import { Ranger as RangerType } from "@tanstack/react-ranger";
 import { useCustomRanger } from "@/hooks/use-custom-ranger";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { useSettingStore } from "@/contexts/setting.store";
@@ -16,7 +12,6 @@ const ScreenSizeSlider = () => {
     state.zoom,
     state.setZoom,
   ]);
-  const [values, setValues] = React.useState<ReadonlyArray<number>>([1]);
   const rangerRef = React.useRef<HTMLDivElement>(null);
   const theme = useTheme();
   const [mode] = useThemeMode();
@@ -35,7 +30,6 @@ const ScreenSizeSlider = () => {
     onChange: (instance) => {},
     onDrag: (instance: RangerType<HTMLDivElement>) => {
       setZoom(instance.sortedValues[0]);
-      console.log(instance.sortedValues);
     },
   });
 

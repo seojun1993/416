@@ -37,7 +37,6 @@ export const WithBlur = styled.div<{ direction?: DIRECTION }>`
   position: relative;
   &::after {
     ${(props) => {
-      console.log(props.direction);
       return getStylesFromDirection(props.direction ?? "right");
     }}
     position: absolute;
