@@ -19,6 +19,7 @@
     "embla-carousel-autoplay": "^8.0.0-rc17",
     "embla-carousel-react": "^8.0.0-rc17",
     "framer-motion": "^10.16.16",
+    "hangul-js": "^0.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lines-ellipsis": "^0.15.4",

@@ -3,7 +3,16 @@
 import { P3 } from "@/components/ui/text";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
+import * as hg from "hangul-js";
+type SpecificKeyTypes =
+  | "Enter"
+  | "Backspace"
+  | "Space"
+  | "Shift"
+  | "Tab"
+  | "None";
+
 interface SizeOptions {
   aspect: number;
   gapWithAspect: string;
@@ -11,6 +20,7 @@ interface SizeOptions {
 }
 interface Key {
   icon: ReactNode;
+  keyType?: SpecificKeyTypes;
   aspect?: number;
   renderItem?: (item: KeyWithSizeOption) => ReactNode;
 }
@@ -40,6 +50,7 @@ const SearchButton = (props: KeyWithSizeOption) => {
   const { aspect, gapWithAspect, icon } = props;
   return (
     <SearchButtonKey
+      type="button"
       css={css`
         width: calc(2rem * ${aspect} + ${gapWithAspect});
       `}
@@ -96,11 +107,13 @@ const keyMap: Key[][] = [
     },
     {
       icon: "<",
+      keyType: "Backspace",
     },
   ],
   [
     {
       icon: ">",
+      keyType: "Tab",
     },
     {
       icon: "ㅂ",
@@ -240,15 +253,115 @@ const keyMap: Key[][] = [
         </div>
       ),
       renderItem: SearchButton,
+      keyType: "Enter",
+      aspect: 2,
+    },
+  ],
+  [
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="41"
+          viewBox="0 0 38 41"
+        >
+          <g
+            id="그룹_73"
+            data-name="그룹 73"
+            transform="translate(-1240 -1514)"
+          >
+            <rect
+              id="사각형_59"
+              data-name="사각형 59"
+              width="16"
+              height="19"
+              transform="translate(1251 1536)"
+            />
+            <path
+              id="다각형_1"
+              data-name="다각형 1"
+              d="M19,0,38,22H0Z"
+              transform="translate(1240 1514)"
+              fill="#222"
+            />
+          </g>
+        </svg>
+      ),
+      keyType: "Shift",
+    },
+    { icon: "ㅋ" },
+    { icon: "ㅌ" },
+    { icon: "ㅊ" },
+    { icon: "ㅍ" },
+    { icon: "ㅠ" },
+    { icon: "ㅜ" },
+    { icon: "ㅡ" },
+    { icon: "," },
+    { icon: "." },
+    { icon: "/" },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="41"
+          viewBox="0 0 38 41"
+        >
+          <g
+            id="그룹_73"
+            data-name="그룹 73"
+            transform="translate(-1240 -1514)"
+          >
+            <rect
+              id="사각형_59"
+              data-name="사각형 59"
+              width="16"
+              height="19"
+              transform="translate(1251 1536)"
+            />
+            <path
+              id="다각형_1"
+              data-name="다각형 1"
+              d="M19,0,38,22H0Z"
+              transform="translate(1240 1514)"
+              fill="#222"
+            />
+          </g>
+        </svg>
+      ),
+      keyType: "Shift",
+    },
+  ],
+  [
+    {
+      icon: "",
+      aspect: 8,
+      keyType: "Space",
+    },
+    {
+      icon: "한/영",
       aspect: 2,
     },
   ],
 ];
-const Keyboard = ({ options }: { options?: KeyboardOptions }) => {
-  const { keyboardItem, gap } = options ?? {
+const Keyboard = (
+  options: Partial<
+    KeyboardOptions & {
+      defaultValue: string;
+      onChange: (value: string) => void;
+    }
+  >
+) => {
+  const defaultOptions = {
     keyboardItem: keyMap,
     gap: "0.16rem",
   };
+  const { keyboardItem, gap, defaultValue } = {
+    ...defaultOptions,
+    ...options,
+  };
+  const inputValue = useRef<string>(defaultValue ?? "");
   return (
     <div
       css={css`
@@ -269,13 +382,24 @@ const Keyboard = ({ options }: { options?: KeyboardOptions }) => {
             `}
             key={idx}
           >
-            {keys?.map((item) => {
+            {keys?.map((item, idx) => {
               const aspect = item.aspect ?? 1;
               const gapWithAspect = aspect > 1 ? gap + ` * ${aspect - 1}` : "0";
               return item.renderItem ? (
                 item.renderItem({ ...item, gap, gapWithAspect, aspect })
               ) : (
                 <button
+                  type="button"
+                  onClick={() => {
+                    const prev = hg.disassemble(inputValue.current);
+                    if (item.keyType !== "Backspace") {
+                      prev.push(item.icon?.toString() ?? "");
+                    } else {
+                      prev.pop();
+                    }
+                    inputValue.current = hg.assemble(prev);
+                    options?.onChange?.(inputValue.current);
+                  }}
                   css={css`
                     grid-column: span 2;
                     aspect-ratio: 1/1;
@@ -286,10 +410,16 @@ const Keyboard = ({ options }: { options?: KeyboardOptions }) => {
                     justify-content: center;
                     padding: 0.4rem;
                     border-radius: 0.2rem;
-                    box-shadow: inset 0 -0.12rem 0.6rem rgba(0, 0, 0, 0.15);
+                    background-color: white;
+                    box-shadow: inset 0 -0.12rem 0.06rem rgba(0, 0, 0, 0.15);
                     border: none;
+                    transition: opacity 0.1s ease-in-out;
+
+                    &:active {
+                      opacity: 0.8;
+                    }
                   `}
-                  key={item.icon?.toString()}
+                  key={idx + "button"}
                 >
                   {item.icon}
                 </button>

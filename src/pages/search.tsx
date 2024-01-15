@@ -3,17 +3,14 @@ import { MainShell } from "@/components/common/main-shell";
 import Keyboard from "@/components/pages/search/keyboard";
 import { H1, H4, P1 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import * as hg from "hangul-js";
 const Search = () => {
   const theme = useTheme();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [input, setInput] = useState("");
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.value += "E";
-    }
-  }, []);
+  useEffect(() => {}, []);
+
   return (
     <MainShell
       css={css`
@@ -85,7 +82,6 @@ const Search = () => {
         <div
           onSubmit={(event) => {
             event.preventDefault();
-            console.log("???");
           }}
           css={css`
             width: 50rem;
@@ -102,7 +98,8 @@ const Search = () => {
           `}
         >
           <input
-            ref={inputRef}
+            value={input}
+            disabled
             css={css`
               font-size: 1.6rem;
               font-family: "NanumSquareRoundOTF";
@@ -130,11 +127,10 @@ const Search = () => {
               border: none;
               color: ${theme.color.background.secondary};
               fill: ${theme.color.background.secondary};
-              transition: opacity 0.1s ease-in-out,
-                transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+              transition: opacity 0.1s ease-in-out;
+
               &:active {
                 opacity: 0.8;
-                transform: scale(0.995);
               }
             `}
           >
@@ -146,8 +142,7 @@ const Search = () => {
               css={css`
                 margin-right: 0.3rem;
                 aspect-ratio: 1/1;
-                height: 100%;
-                width: fit-content;
+                width: 2rem;
               `}
             >
               <g
@@ -192,7 +187,11 @@ const Search = () => {
             <H4>검색</H4>
           </button>
         </div>
-        <Keyboard />
+        <Keyboard
+          onChange={(value) => {
+            setInput(value);
+          }}
+        />
       </form>
     </MainShell>
   );
