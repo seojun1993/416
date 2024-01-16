@@ -3,13 +3,25 @@ import { MainShell } from "@/components/common/main-shell";
 import Keyboard from "@/components/pages/search/keyboard";
 import { H1, H4, P1 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
-import { useEffect, useRef, useState } from "react";
-import * as hg from "hangul-js";
+import { FormEventHandler, useEffect, useRef } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 const Search = () => {
   const theme = useTheme();
-  const [input, setInput] = useState("");
-
-  useEffect(() => {}, []);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [searchParam, setSearchParam] = useSearchParams();
+  const navigate = useNavigate();
+  const handleSubmit: FormEventHandler = (event) => {
+    event.preventDefault();
+    if (!inputRef.current) return;
+    setSearchParam({ keyword: inputRef.current.value });
+    navigate(`/cloud?keyword=${inputRef.current.value}`);
+  };
+  useEffect(() => {
+    const defaultKeyword = searchParam.get("keyword");
+    if (defaultKeyword && inputRef.current) {
+      inputRef.current.value = defaultKeyword;
+    }
+  }, []);
 
   return (
     <MainShell
@@ -19,9 +31,7 @@ const Search = () => {
       `}
     >
       <form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
+        onSubmit={handleSubmit}
         css={css`
           display: flex;
           flex-direction: column;
@@ -98,7 +108,8 @@ const Search = () => {
           `}
         >
           <input
-            value={input}
+            name="keyword"
+            ref={inputRef}
             disabled
             css={css`
               font-size: 1.6rem;
@@ -123,8 +134,8 @@ const Search = () => {
               justify-content: center;
               border-radius: 9999rem;
               height: 100%;
-              background-color: ${theme.color.accent.foreground};
               border: none;
+              background-color: ${theme.color.accent.foreground};
               color: ${theme.color.background.secondary};
               fill: ${theme.color.background.secondary};
               transition: opacity 0.1s ease-in-out;
@@ -188,8 +199,11 @@ const Search = () => {
           </button>
         </div>
         <Keyboard
+          defaultValue={searchParam.get("keyword") ?? ""}
           onChange={(value) => {
-            setInput(value);
+            if (inputRef.current) {
+              inputRef.current.value = value;
+            }
           }}
         />
       </form>

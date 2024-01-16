@@ -9,6 +9,7 @@ import Search from "./pages/search";
 
 function Root() {
   const location = useLocation();
+
   return (
     <AppShell>
       <AnimatePresence mode="wait">

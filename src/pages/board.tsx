@@ -1,399 +1,349 @@
 /** @jsxImportSource @emotion/react */
-import mainImage from "@/assets/images/김예은/main.png";
-import sub1Image from "@/assets/images/김예은/sub1.png";
-import sub2Image from "@/assets/images/김예은/sub2.png";
-import sub3Image from "@/assets/images/김예은/sub3.png";
-import sub4Image from "@/assets/images/김예은/sub4.png";
-import sub5Image from "@/assets/images/김예은/sub5.png";
-import Students from "@/assets/icons/students.png";
-import 방명록 from "@/assets/icons/방명록.png";
+import Book from "@/assets/images/board/book.png";
 import { MainShell } from "@/components/common/main-shell";
-import { css } from "@emotion/react";
-import { useMemo, useRef, useEffect, useState } from "react";
-import RotateImage from "@/components/rotate-image";
-import { useSearchParams } from "react-router-dom";
+import { H1 } from "@/components/ui/text";
+import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { Header } from "@/components/common/header";
-import LinesEllipsis from "react-lines-ellipsis";
-import { m, LazyMotion, domAnimation, LayoutGroup } from "framer-motion";
+import {
+  PropsWithChildren,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import HTMLFlipBook from "react-pageflip";
+import { useSearchParams } from "react-router-dom";
+
+import 김예은 from "@/assets/images/김예은/main.png";
+import 약전 from "@/assets/images/김예은/약전.png";
 
 const Board = () => {
-  const imageRef = useRef<HTMLImageElement>(null);
-  const [imagePosition, setImagePosition] = useState<DOMRect | null>();
+  const bookRef = useRef<HTMLDivElement>(null);
+  const animatedBookRef = useRef<any>(null);
+  const [bookSize, setBookSize] = useState([0, 0]);
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get("name");
-  const subImages = useMemo(
-    () => [sub1Image, sub4Image, sub3Image, sub2Image, sub5Image],
-    []
-  );
-  const circlePoints = useMemo(() => {
-    if (imagePosition) {
-      // 원의 중심 좌표와 반지름 설정
-      const radius = imagePosition.width; // 반지름
-      const centerX = -imagePosition.width * 2; // 중심 X 좌표
-      const centerY = imagePosition.y + imagePosition.height / 5; // 중심 Y 좌표
-
-      // 포인트 수 설정
-      const numPoints = subImages.length;
-
-      // 포인트를 저장할 배열
-      const points = [];
-
-      // 각도 단위를 계산 (360도를 numPoints로 나눔)
-      const angleStep = (2 * Math.PI) / numPoints;
-
-      // 원 위의 포인트 계산
-      for (let i = 0; i < numPoints; i++) {
-        // 각도 계산
-        const angle = i * angleStep + Math.random() * 0.3;
-
-        // 포인트의 X 좌표 계산
-        const x = centerX + radius * Math.cos(angle);
-
-        // 포인트의 Y 좌표 계산
-        const y = centerY + radius * Math.sin(angle);
-
-        // 포인트를 배열에 추가
-        points.push({ x, y });
-      }
-
-      // 결과 출력
-
-      return points;
+  const theme = useTheme();
+  const handleBookResize = () => {
+    console.log(bookRef.current);
+    if (bookRef.current) {
+      const width = bookRef.current.clientWidth;
+      const height = bookRef.current.clientHeight;
+      console.log([width, height]);
+      setBookSize([width, height]);
     }
-    return [];
-  }, [imagePosition]);
+  };
 
-  const calculateImageWidth = () => {
-    if (imageRef.current) {
-      const rect = imageRef.current.getBoundingClientRect();
-      setImagePosition(rect);
+  const handlePrevClick = () => {
+    if (animatedBookRef.current?.pageFlip?.().flipPrev) {
+      animatedBookRef.current?.pageFlip?.().flipPrev?.();
+    }
+  };
+  const handleNextClick = () => {
+    if (animatedBookRef.current?.pageFlip?.().flipPrev) {
+      animatedBookRef.current?.pageFlip?.().flipNext?.();
     }
   };
 
   useEffect(() => {
-    const dpr = devicePixelRatio > 1 ? 2 : 1;
-    const interval = 1000 / 60;
-
-    let animationId: number;
-
-    if (imageRef.current) {
-      const element = imageRef.current;
-      let now, delta;
-      let then = Date.now();
-      let startX = 0;
-      let startY = 0;
-
-      let angle = Math.random();
-
-      const frame = () => {
-        animationId = requestAnimationFrame(frame);
-        now = Date.now();
-        delta = now - then;
-        if (delta < interval) return;
-        then = now - (delta % interval);
-        angle += 0.01;
-
-        startX = Math.cos(angle) * 2;
-        startY = Math.sin(angle) * 2;
-        element.style.transform = `perspective(5000px) translate(${startX}px,${startY}px) rotateX(${startX}deg) rotateY(${startY}deg)`;
+    handleBookResize();
+    if (bookRef.current) {
+      const ref = bookRef.current;
+      ref.addEventListener("resize", handleBookResize);
+      return () => {
+        ref.removeEventListener("resize", handleBookResize);
       };
-      animationId = requestAnimationFrame(frame);
-      imageRef.current.addEventListener("load", calculateImageWidth);
     }
-    return () => {
-      cancelAnimationFrame(animationId);
-      imageRef.current?.removeEventListener("load", calculateImageWidth);
-    };
   }, []);
-
   return (
     <MainShell
       css={css`
-        position: relative;
+        flex-direction: column;
+        align-items: center;
       `}
     >
-      <section
+      <div
         css={css`
-          /* flex: 1; */
-          position: relative;
           display: flex;
-          flex-direction: column;
-          width: 100%;
-          z-index: 1;
+          align-items: center;
+          column-gap: 0.61em;
         `}
       >
-        <Header>
-          <img
-            src={Students}
-            css={css`
-              height: 100%;
-              margin-right: 0.1em;
-            `}
-          />
-          {name}
-        </Header>
-        <div
-          css={css`
-            position: relative;
-            width: 50%;
-            margin: auto;
-          `}
+        <svg
+          id="그룹_456"
+          data-name="그룹 456"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          width="140"
+          height="140"
+          viewBox="0 0 140 140"
         >
-          <img
-            ref={imageRef}
-            css={css({
-              zIndex: 3,
-              width: "100%",
-            })}
-            src={mainImage}
-          />
-          {circlePoints.map((point, index) => {
-            return (
-              <RotateImage
-                key={index}
-                image={subImages[index]}
-                point={point}
-                cssProps={css({
-                  maxHeight: imagePosition ? imagePosition.height : "100%",
-                  borderRadius: 9999,
-                  overflow: "hidden",
-                })}
+          <defs>
+            <clipPath id="clip-path">
+              <rect
+                id="사각형_701"
+                data-name="사각형 701"
+                width="140"
+                height="140"
+                fill="#fff500"
               />
-            );
-          })}
-        </div>
-      </section>
-      <section
+            </clipPath>
+          </defs>
+          <g id="그룹_455" data-name="그룹 455" clipPath="url(#clip-path)">
+            <path
+              id="패스_1167"
+              data-name="패스 1167"
+              d="M66.1,0a8.16,8.16,0,1,0,8.161,8.16A8.17,8.17,0,0,0,66.1,0"
+              transform="translate(2.684)"
+              fill="#fff500"
+            />
+            <path
+              id="패스_1168"
+              data-name="패스 1168"
+              d="M131.436,65.559a1.456,1.456,0,0,0-1.973.59A41.018,41.018,0,0,1,103.2,86.555a37.361,37.361,0,0,1-27.306-3.9,48.55,48.55,0,0,0,6.859-10.336,51.487,51.487,0,0,0,4.592-18.955c.511-7.339-.338-13.626-2.6-19.228a19.538,19.538,0,0,0-6.225-8.455,18.293,18.293,0,0,0-10.278-3.734,17.688,17.688,0,0,0-10.915,3.145,21.546,21.546,0,0,0-7.086,8.718,41.953,41.953,0,0,0-3.367,20.265A47.815,47.815,0,0,0,59.707,83.785a38.392,38.392,0,0,1-9.625,3.345,37.85,37.85,0,0,1-16.171-.523c-10.831-2.65-20.4-10.115-26.264-20.479l0-.006a1.464,1.464,0,0,0-1.632-.686,1.457,1.457,0,0,0-1.044,1.771c3.179,12.52,13.591,23.367,26.522,27.63A46.894,46.894,0,0,0,41.5,96.931,42.979,42.979,0,0,0,51.8,96.483,39.25,39.25,0,0,0,67.369,90.2a42.928,42.928,0,0,0,17.978,6.735,42.459,42.459,0,0,0,5.786.393,44.778,44.778,0,0,0,14.521-2.442,42.786,42.786,0,0,0,16.837-10.81,40.764,40.764,0,0,0,9.653-16.836,1.463,1.463,0,0,0-.708-1.679M56.846,53.15a36.128,36.128,0,0,1,1.515-15.914,15,15,0,0,1,3.776-6.011,10.4,10.4,0,0,1,6.209-2.62q.5-.047,1-.047A12.056,12.056,0,0,1,80.26,36.142c2.814,5.9,2.811,12.386,2.317,16.781A36.488,36.488,0,0,1,76.954,68.97a45.04,45.04,0,0,1-7.812,8.6,40.737,40.737,0,0,1-12.3-24.418"
+              transform="translate(0.228 1.016)"
+              fill="#fff500"
+            />
+            <path
+              id="패스_1169"
+              data-name="패스 1169"
+              d="M132.339,63.056a5.241,5.241,0,0,0-5.236,5.236,58.316,58.316,0,0,1-116.632,0A5.235,5.235,0,1,0,0,68.292a68.787,68.787,0,0,0,137.575,0,5.241,5.241,0,0,0-5.236-5.236"
+              transform="translate(0 2.921)"
+              fill="#fff500"
+            />
+          </g>
+        </svg>
+        <H1 css={css``}>{name}의 다이어리</H1>
+      </div>
+      <div
+        ref={bookRef}
         css={css`
-          width: 100%;
-          display: flex;
-          flex-direction: column;
+          position: relative;
+          width: 80%;
+          flex: 0 0 80%;
+          /* outline: 8px solid ${theme.color.accent.foreground}; */
         `}
       >
-        <h1
-          css={css`
-            font-size: 2.4rem;
-            height: 2.4rem;
-            display: inline-flex;
-            align-items: center;
-            font-weight: extrabold;
-          `}
-        >
-          <img
-            src={방명록}
-            css={css`
-              height: 100%;
-              margin-right: 0.1em;
-            `}
-          />
-          방명록
-        </h1>
-        <BoardScroller />
-        <Writer>
-          <Blur />
-          <WriteButton
-            onClick={() => {
-              console.log("?>??");
+        {bookSize[1] > 1 ? (
+          <HTMLFlipBook
+            flippingTime={500}
+            ref={(ref) => (animatedBookRef.current = ref)}
+            drawShadow={false}
+            style={{
+              /* transform: "scaleX(0.94) scaleY(0.98) translate(0.3%,-0.5%)", */
+              zIndex: 1,
             }}
+            mobileScrollSupport={false}
+            size="stretch"
+            width={bookSize[0]}
+            height={bookSize[1]}
+            maxShadowOpacity={0.5}
+            startPage={1}
+            className={""}
+            minWidth={0}
+            maxWidth={0}
+            minHeight={0}
+            maxHeight={bookSize[1]}
+            usePortrait={false}
+            startZIndex={0}
+            autoSize
+            showCover={false}
+            clickEventForward={false}
+            useMouseEvents={false}
+            swipeDistance={0}
+            showPageCorners={false}
+            disableFlipByClick={false}
           >
-            작성하기
-          </WriteButton>
-        </Writer>
-      </section>
+            <Page>
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 100%;
+                  height: 100%;
+                `}
+              >
+                <img
+                  css={css`
+                    height: 100%;
+                    object-fit: contain;
+                    margin: 0 auto;
+                  `}
+                  src={김예은}
+                />
+              </div>
+            </Page>
+            <Page>
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 100%;
+                  height: 100%;
+                `}
+              >
+                <img
+                  css={css`
+                    height: 100%;
+                    object-fit: contain;
+                    margin: 0 auto;
+                  `}
+                  src={약전}
+                />
+              </div>
+            </Page>
+            <Page>
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 100%;
+                  height: 100%;
+                `}
+              >
+                <img
+                  css={css`
+                    height: 100%;
+                    object-fit: contain;
+                    margin: 0 auto;
+                  `}
+                  src={약전}
+                />
+              </div>
+            </Page>
+            <Page>
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 100%;
+                  height: 100%;
+                `}
+              >
+                <img
+                  css={css`
+                    height: 100%;
+                    object-fit: contain;
+                    margin: 0 auto;
+                  `}
+                  src={약전}
+                />
+              </div>
+            </Page>
+          </HTMLFlipBook>
+        ) : null}
+        <img
+          src={Book}
+          css={css`
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          `}
+        />
+        <LeftButton onClick={handlePrevClick}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54.482"
+            height="96.969"
+            viewBox="0 0 54.482 96.969"
+          >
+            <path
+              id="prev_icon"
+              d="M-20078.957-17310.031l-40,40,40,40"
+              transform="translate(20124.955 17318.516)"
+              fill="none"
+              stroke="#fb950a"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="12"
+            />
+          </svg>
+        </LeftButton>
+        <RightButton onClick={handleNextClick}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54.486"
+            height="96.969"
+            viewBox="0 0 54.486 96.969"
+          >
+            <path
+              id="naxt_icon"
+              d="M-20118.957-17310.031l40,40-40,40"
+              transform="translate(20127.441 17318.516)"
+              fill="none"
+              stroke="#fb950a"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="12"
+            />
+          </svg>
+        </RightButton>
+      </div>
     </MainShell>
   );
 };
 
 export default Board;
 
-const Writer = styled.div`
-  position: relative;
-  & + {
-    margin-top: 1rem;
-  }
-`;
-const WriteButton = styled.div`
-  width: 100%;
-  background-color: ${(props) => props.theme.color.button.active};
-  padding: 0.2rem;
-  text-align: center;
-  color: ${(props) => props.theme.color.secondary.foreground};
-  border-radius: 9999rem;
-`;
-
-const Blur = styled.div`
-  position: absolute;
-  top: -4.9rem;
-  height: 5rem;
-  width: 100%;
-  background: ${(props) =>
-    `linear-gradient(to bottom, transparent, ${props.theme.color.primary.foreground} 90%)`};
-`;
-
-const BoardScroller = () => {
+const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
   return (
-    <Scroller
+    <div
+      {...props}
+      ref={ref}
       css={css`
-        padding: 1em 0.5rem 1rem 0.5rem;
-        position: relative;
-        display: block;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
+        background-color: #ffffff;
+        box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.4);
+        color: black;
       `}
     >
-      <LayoutGroup>
-        <ScrollerContent>
-          {[
-            {
-              text: `비나리 도서관 사과 아슬라 그루잠 달볓 소솜 책방 여우비 바나나
-                가온누리 늘품 책방 책방 아름드리 미쁘다 바람꽃 산들림 미리내
-                나래 이플 컴퓨터 우리는 아슬라 다솜 아리아 그루잠 옅구름
-                미쁘다 옅구름 별빛 아슬 비나리 도서관 사과 아슬라 그루잠 달볓 소솜 책방 여우비 바나나
-                가온누리 늘품 책방 책방 아름드리 미쁘다 바람꽃 산들림 미리내
-                나래 이플 컴퓨터 우리는 아슬라 다솜 아리아 그루잠 옅구름
-                미쁘다 옅구름 별빛 아슬...비나리 도서관 사과 아슬라 그루잠 달볓 소솜 책방 여우비 바나나
-                가온누리 늘품 책방 책방 아름드리 미쁘다 바람꽃 산들림 미리내
-                나래 이플 컴퓨터 우리는 아슬라 다솜 아리아 그루잠 옅구름
-                미쁘다 옅구름 별빛 아슬...`,
-            },
-            {
-              text: `아슬라 별빛 예그리나 소솜 바람꽃 아슬라 책방 도르레 별하
-                아리아 감또개 별하 다솜 이플 소록소록 아슬라 바나나 사과
-                도서관 우리는 감또개 산들림 도서 나래 도서 소록소록 그루잠
-                곰다시 아름드리 도르레 아름드 ...`,
-            },
-            {
-              text: `비나리 도서관 사과 아슬라 그루잠 달볓 소솜 책방 여우비 바나나
-                가온누리 늘품 책방 책방 아름드리 미쁘다 바람꽃 산들림 미리내
-                나래 이플 컴퓨터 우리는 아슬라 다솜 아리아 그루잠 옅구름
-                미쁘다 옅구름 별빛 아슬...`,
-            },
-            {
-              text: `아슬라 별빛 예그리나 소솜 바람꽃 아슬라 책방 도르레 별하
-                아리아 감또개 별하 다솜 이플 소록소록 아슬라 바나나 사과
-                도서관 우리는 감또개 산들림 도서 나래 도서 소록소록 그루잠
-                곰다시 아름드리 도르레 아름드 ...`,
-            },
-            {
-              text: `비나리 도서관 사과 아슬라 그루잠 달볓 소솜 책방 여우비 바나나
-                가온누리 늘품 책방 책방 아름드리 미쁘다 바람꽃 산들림 미리내
-                나래 이플 컴퓨터 우리는 아슬라 다솜 아리아 그루잠 옅구름
-                미쁘다 옅구름 별빛 아슬...`,
-            },
-            {
-              text: `아슬라 별빛 예그리나 소솜 바람꽃 아슬라 책방 도르레 별하
-                아리아 감또개 별하 다솜 이플 소록소록 아슬라 바나나 사과
-                도서관 우리는 감또개 산들림 도서 나래 도서 소록소록 그루잠
-                곰다시 아름드리 도르레 아름드 ...`,
-            },
-            {
-              text: `아슬라 별빛 예그리나 소솜 바람꽃 아슬라 책방 도르레 별하
-                아리아 감또개 별하 다솜 이플 소록소록 아슬라 바나나 사과
-                도서관 우리는 감또개 산들림 도서 나래 도서 소록소록 그루잠
-                곰다시 아름드리 도르레 아름드 ...`,
-            },
-            {
-              text: `비나리 도서관 사과 아슬라 그루잠 달볓 소솜 책방 여우비 바나나
-                가온누리 늘품 책방 책방 아름드리 미쁘다 바람꽃 산들림 미리내
-                나래 이플 컴퓨터 우리는 아슬라 다솜 아리아 그루잠 옅구름
-                미쁘다 옅구름 별빛 아슬...`,
-            },
-            {
-              text: `아슬라 별빛 예그리나 소솜 바람꽃 아슬라 책방 도르레 별하
-                아리아 감또개 별하 다솜 이플 소록소록 아슬라 바나나 사과
-                도서관 우리는 감또개 산들림 도서 나래 도서 소록소록 그루잠
-                곰다시 아름드리 도르레 아름드 ...`,
-            },
-          ].map((item, index) => (
-            <BoardItem key={index} text={item.text} />
-          ))}
-        </ScrollerContent>
-      </LayoutGroup>
-    </Scroller>
+      {props.children}
+    </div>
   );
-};
+});
 
-const Scroller = styled.div`
-  position: relative;
-  flex: 1;
-  overflow-y: hidden;
-
-  & {
-    -ms-overflow-style: none;
-  }
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
-const ScrollerContent = styled(m.div)`
+const LeftButton = styled.button`
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
-  row-gap: 1em;
-  touch-action: pan-y;
-  min-height: 0;
-  backface-visibility: hidden;
-
-  & {
-    -ms-overflow-style: none;
-  }
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
-const Card = styled(m.div)`
-  flex: 0 0 50%;
-  border: 1px solid #eeeeee;
-  border-radius: 0.5rem;
-  padding: 1rem 1.4rem;
-  background-color: white;
-  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  color: black;
-  max-height: 20rem;
-`;
-
-const More = styled.button`
-  display: block;
-  margin-left: auto;
-  color: ${(props) => props.theme.color.button.active};
-  background-color: transparent;
+  justify-content: center;
+  align-items: center;
   border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: white;
+  z-index: 2;
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
 `;
-
-interface BoardItemProps {
-  text: string;
-}
-
-function BoardItem({ text }: BoardItemProps) {
-  const [open, setOpen] = useState(false);
-  const isClamped = useRef<boolean | null>(null);
-
-  return (
-    <LazyMotion features={domAnimation}>
-      <Card
-        layout
-        transition={{
-          type: "tween",
-        }}
-      >
-        <LinesEllipsis
-          onReflow={(props) => {
-            if (isClamped.current === null) {
-              isClamped.current = props.clamped;
-            }
-          }}
-          text={text}
-          maxLine={open ? 100 : 2}
-          ellipsis="..."
-        />
-        {isClamped.current && (
-          <More onClick={() => setOpen((prev) => !prev)}>
-            {open ? "닫기" : "더보기"}
-          </More>
-        )}
-      </Card>
-    </LazyMotion>
-  );
-}
+const RightButton = styled.button`
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: white;
+  z-index: 2;
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+`;

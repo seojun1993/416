@@ -3,17 +3,22 @@
 import { css, useTheme } from "@emotion/react";
 import CircleButton from "../common/circle-button";
 import { useCallback, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
 import Ranger from "../ui/ranger";
+import IncreaseButton from "../ui/increase-button";
+import { P3 } from "../ui/text";
 
 const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
   const theme = useTheme();
   const bottomRef = useRef<HTMLDivElement>(null);
+
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   const handleWindowResize = useCallback(() => {
     if (bottomRef.current) {
       document.documentElement.style.setProperty(
@@ -24,6 +29,12 @@ const BottomBar = () => {
   }, []);
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
+    window.addEventListener("popstate", (event) => {
+      console.log(event);
+    });
+    window.addEventListener("pushstate", (event) => {
+      console.log(event);
+    });
     handleWindowResize();
     return () => {
       window.removeEventListener("resize", handleWindowResize);
@@ -105,13 +116,10 @@ const BottomBar = () => {
         <div
           css={css`
             display: flex;
-            column-gap: 0.4em;
+            column-gap: 0.3em;
           `}
         >
           <CircleButton
-            css={css`
-              margin-left: 0.4em;
-            `}
             onClick={() => {
               if (window.history.state.idx !== 0) {
                 navigate(-1);
@@ -141,9 +149,6 @@ const BottomBar = () => {
             }
           />
           <CircleButton
-            css={css`
-              margin-left: 0.4em;
-            `}
             onClick={() => window.history.forward()}
             icon={
               <svg
@@ -184,6 +189,7 @@ const BottomBar = () => {
                   display: flex;
                   align-items: center;
                   max-height: 1em;
+                  width: fit-content;
                 `}
               >
                 <svg
@@ -237,6 +243,7 @@ const BottomBar = () => {
                 viewBox="0 0 73.999 70"
                 style={{
                   maxHeight: "1em",
+                  width: "fit-content",
                   aspectRatio: 1 / 1,
                 }}
               >
@@ -296,64 +303,103 @@ const BottomBar = () => {
         `}
       >
         <CircleButton
-          onClick={() => navigate("search")}
+          key="searchButton"
+          css={
+            pathname === "/search"
+              ? css`
+                  background-color: ${theme.color.accent.foreground};
+                  color: ${theme.color.background.secondary};
+                  fill: ${theme.color.background.secondary};
+                `
+              : ""
+          }
+          onClick={() =>
+            pathname === "/search" ? navigate(-1) : navigate("search")
+          }
           icon={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="63.414"
-              height="60"
-              viewBox="0 0 63.414 60"
-            >
-              <g
-                id="그룹_7"
-                data-name="그룹 7"
-                transform="translate(-1816 -2051)"
+            pathname === "/search" ? (
+              <svg
+                id="그룹_136"
+                data-name="그룹 136"
+                xmlns="http://www.w3.org/2000/svg"
+                width="59.999"
+                height="60"
+                viewBox="0 0 59.999 60"
+              >
+                <rect
+                  id="사각형_95"
+                  data-name="사각형 95"
+                  width="9.428"
+                  height="75.423"
+                  rx="4.714"
+                  transform="translate(0 6.668) rotate(-45)"
+                />
+                <rect
+                  id="사각형_96"
+                  data-name="사각형 96"
+                  width="9.428"
+                  height="75.423"
+                  rx="4.714"
+                  transform="translate(53.332 0) rotate(45)"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="63.414"
+                height="60"
+                viewBox="0 0 63.414 60"
               >
                 <g
-                  id="타원_2"
-                  data-name="타원 2"
-                  transform="translate(1816 2051)"
-                  fill="none"
-                  stroke="#666"
-                  strokeWidth="8"
+                  id="그룹_7"
+                  data-name="그룹 7"
+                  transform="translate(-1816 -2051)"
                 >
-                  <ellipse
-                    cx="26.417"
-                    cy="26.02"
-                    rx="26.417"
-                    ry="26.02"
-                    stroke="none"
-                  />
-                  <ellipse
-                    cx="26.417"
-                    cy="26.02"
-                    rx="22.417"
-                    ry="22.02"
+                  <g
+                    id="타원_2"
+                    data-name="타원 2"
+                    transform="translate(1816 2051)"
                     fill="none"
+                    stroke="#666"
+                    strokeWidth="8"
+                  >
+                    <ellipse
+                      cx="26.417"
+                      cy="26.02"
+                      rx="26.417"
+                      ry="26.02"
+                      stroke="none"
+                    />
+                    <ellipse
+                      cx="26.417"
+                      cy="26.02"
+                      rx="22.417"
+                      ry="22.02"
+                      fill="none"
+                    />
+                  </g>
+                  <rect
+                    id="사각형_14"
+                    data-name="사각형 14"
+                    width="8"
+                    height="26"
+                    rx="4"
+                    transform="translate(1855.373 2092.615) rotate(-45)"
+                    fill="#666"
                   />
                 </g>
-                <rect
-                  id="사각형_14"
-                  data-name="사각형 14"
-                  width="8"
-                  height="26"
-                  rx="4"
-                  transform="translate(1855.373 2092.615) rotate(-45)"
-                  fill="#666"
-                />
-              </g>
-            </svg>
+              </svg>
+            )
           }
         >
-          학생검색
+          {pathname === "/search" ? "검색닫기" : "희생자검색"}
         </CircleButton>
       </div>
       <div
         css={css`
           display: flex;
           align-items: center;
-          padding: 0.4em 0;
-          column-gap: 1.5em;
+          column-gap: 0.617em;
           justify-content: flex-end;
         `}
       >
@@ -365,39 +411,18 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Switch tabIndex={1} />
-          <span
+          <IncreaseButton tabIndex={0} />
+          <P3
             css={css`
-              font-size: 0.68em;
-              line-height: 1.22em;
-              font-weight: bold;
+              font-size: 0.865em;
+              line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
-            `}
-          >
-            음성지원
-          </span>
-        </div>
-        <div
-          css={css`
-            display: flex;
-            flex-direction: column;
-            row-gap: 0.23em;
-            width: 3.85em;
-          `}
-        >
-          <Ranger tabIndex={2} />
-          <span
-            css={css`
-              font-size: 0.68em;
-              line-height: 1.22em;
-              font-weight: bold;
-              color: ${theme.color.text.main};
-              text-align: center;
+              font-weight: 700;
             `}
           >
             음량조절
-          </span>
+          </P3>
         </div>
         <div
           css={css`
@@ -407,18 +432,60 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Ranger tabIndex={3} />
-          <span
+          <Switch tabIndex={1} />
+          <P3
             css={css`
-              font-size: 0.68em;
-              line-height: 1.22em;
-              font-weight: bold;
+              font-size: 0.865em;
+              line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
+              font-weight: 700;
+            `}
+          >
+            음성지원
+          </P3>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            width: 3.85em;
+          `}
+        >
+          <IncreaseButton tabIndex={2} />
+          <P3
+            css={css`
+              font-size: 0.865em;
+              line-height: 1.2;
+              color: ${theme.color.text.main};
+              text-align: center;
+              font-weight: 700;
+            `}
+          >
+            음량조절
+          </P3>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            width: 3.85em;
+          `}
+        >
+          <IncreaseButton tabIndex={3} />
+          <P3
+            css={css`
+              font-size: 0.865em;
+              line-height: 1.2;
+              color: ${theme.color.text.main};
+              text-align: center;
+              font-weight: 700;
             `}
           >
             음성속도
-          </span>
+          </P3>
         </div>
         <div
           css={css`
@@ -429,17 +496,17 @@ const BottomBar = () => {
           `}
         >
           <Switch tabIndex={4} />
-          <span
+          <P3
             css={css`
-              font-size: 0.68em;
-              line-height: 1.22em;
-              font-weight: bold;
+              font-size: 0.865em;
+              line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
+              font-weight: 700;
             `}
           >
             수어
-          </span>
+          </P3>
         </div>
       </div>
     </BottomWrapper>
@@ -452,8 +519,8 @@ const BottomWrapper = styled.div`
   position: relative;
   box-shadow: 0px -0.15em 0.15em rgba(0, 0, 0, 0.1);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-  padding: 0 2.1dvw;
+  grid-template-columns: 1fr fit-content(30%) 1fr;
+  padding: 1.85dvh 2.1dvw 1.4dvh;
   font-size: 3dvh;
   /* gap: 0.6em; */
   flex-wrap: wrap;
@@ -461,5 +528,5 @@ const BottomWrapper = styled.div`
   width: 100%;
   align-items: center;
   background-color: ${(props) => props.theme.color.background.secondary};
-  max-height: 3.4em;
+  max-height: 4em;
 `;

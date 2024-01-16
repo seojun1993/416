@@ -4,9 +4,14 @@
 @import "../fonts/NanumSquareRound/NanumSquareRoundOTF.css";
 
 .__focussed {
-  outline: 12px solid #fff500 !important;
+  outline: 0.26em solid #fff500 !important;
 }
 
 .__focussed-target {
   transition: outline 0.1s ease-in-out;
+}
+.stf__block {
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
 }

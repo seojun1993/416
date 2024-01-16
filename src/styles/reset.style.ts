@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { Theme, css } from "@emotion/react";
 const reset = (zoom: number) => css`
   *,
   :after,

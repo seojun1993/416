@@ -9,6 +9,7 @@ import {
 } from "react";
 import { motion } from "framer-motion";
 import { useThemeMode } from "@/hooks/use-theme-mode";
+import { P3 } from "../ui/text";
 
 interface SwitchProps extends HTMLAttributes<HTMLLabelElement> {}
 
@@ -47,6 +48,7 @@ const Switch = ({ ...rest }: SwitchProps) => {
       ref={ref}
       css={css`
         forced-color-adjust: none;
+        width: fit-content;
         height: 1.54em;
         background-color: ${isOn
           ? theme.color.switch.enable
@@ -56,7 +58,7 @@ const Switch = ({ ...rest }: SwitchProps) => {
         border-radius: 1rem;
         padding: 0.15em;
         cursor: pointer;
-        column-gap: 0.77em;
+        column-gap: 0.5em;
 
         &[data-isOn="true"] {
           flex-direction: row-reverse;
@@ -70,8 +72,8 @@ const Switch = ({ ...rest }: SwitchProps) => {
 
         .handle {
           position: relative;
-          height: 100%;
-          aspect-ratio: 1/1;
+          width: 1.24em;
+          height: 1.24em;
           background-color: white;
           ${mode === "dark" && "filter: invert(1);"}
           border-radius: 9999rem;
@@ -88,18 +90,18 @@ const Switch = ({ ...rest }: SwitchProps) => {
         layout
         transition={{ type: "spring", stiffness: 700, damping: 30 }}
       />
-      <span
+      <P3
         css={css`
-          padding: 0.45em 0;
+          color: white;
+          font-size: 0.865em;
+          white-space: nowrap;
           ${isOn ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
-          font-size: 0.68em;
-          line-height: 1.22em;
           font-weight: bold;
           ${mode === "dark" && "filter: invert(1);"}
         `}
       >
         {isOn ? "켜짐" : "꺼짐"}
-      </span>
+      </P3>
     </label>
   );
 };

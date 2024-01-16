@@ -4,13 +4,13 @@ import { H1 } from "@/components/ui/text";
 import { MainShell } from "@/components/common/main-shell";
 import { css, useTheme } from "@emotion/react";
 import useEmblaCarousel from "embla-carousel-react";
+import { menuContent } from "@/constants/menu";
 const Menu = () => {
   const theme = useTheme();
   const [emblaRef] = useEmblaCarousel({
     skipSnaps: true,
     dragFree: true,
   });
-  const a = "123";
   return (
     <MainShell
       padding={false}
@@ -57,36 +57,15 @@ const Menu = () => {
               min-width: 0;
             `}
           >
-            <MenuComponents.MenuCard
-              to="/"
-              title="기억 공간"
-              description={`메뉴에 대한 설명이 들어갑니다.\n메뉴에 대한 설명이 들어갑니다.`}
-              img="https://placehold.co/800x800"
-            />
-            <MenuComponents.MenuCard
-              to="/"
-              title="기억 명단"
-              description={`메뉴에 대한 설명이 들어갑니다.\n메뉴에 대한 설명이 들어갑니다.`}
-              img="https://placehold.co/800x800"
-            />
-            <MenuComponents.MenuCard
-              to="/cloud"
-              title="워드클라우드"
-              description="메뉴에 대한 설명이 들어갑니다.메뉴에 대한 설명이 들어갑니다."
-              img="https://placehold.co/800x800"
-            />
-            <MenuComponents.MenuCard
-              to="/"
-              title="순례길"
-              description="메뉴에 대한 설명이 들어갑니다.메뉴에 대한 설명이 들어갑니다."
-              img="https://placehold.co/800x800"
-            />
-            <MenuComponents.MenuCard
-              to="/"
-              title="공간 안내"
-              description="메뉴에 대한 설명이 들어갑니다.메뉴에 대한 설명이 들어갑니다."
-              img="https://placehold.co/800x800"
-            />
+            {Object.entries(menuContent).map((메뉴) => (
+              <MenuComponents.MenuCard
+                to="/"
+                title={메뉴[1].title}
+                description={메뉴[1].description}
+                img={메뉴[1].src}
+                painter={메뉴[1].imagePainter}
+              />
+            ))}
           </div>
         </div>
       </section>

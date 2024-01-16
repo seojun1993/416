@@ -3,8 +3,9 @@
 import { P3 } from "@/components/ui/text";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import * as hg from "hangul-js";
+import { noop } from "@/../libs/utils";
 type SpecificKeyTypes =
   | "Enter"
   | "Backspace"
@@ -12,11 +13,13 @@ type SpecificKeyTypes =
   | "Shift"
   | "Tab"
   | "None";
+type Position = [number, number];
 
 interface SizeOptions {
   aspect: number;
   gapWithAspect: string;
   gap: string;
+  position: Position;
 }
 interface Key {
   icon: ReactNode;
@@ -47,10 +50,11 @@ const SearchButtonKey = styled.button`
 `;
 
 const SearchButton = (props: KeyWithSizeOption) => {
-  const { aspect, gapWithAspect, icon } = props;
+  const { aspect, gapWithAspect, icon, position } = props;
   return (
     <SearchButtonKey
-      type="button"
+      type="submit"
+      data-position={position}
       css={css`
         width: calc(2rem * ${aspect} + ${gapWithAspect});
       `}
@@ -69,6 +73,7 @@ const keyMap: Key[][] = [
     {
       icon: "1",
     },
+
     {
       icon: "2",
     },
@@ -106,13 +111,47 @@ const keyMap: Key[][] = [
       icon: "₩",
     },
     {
-      icon: "<",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="56"
+          height="38"
+          viewBox="0 0 56 38"
+        >
+          <g id="back" transform="translate(2 2)">
+            <path
+              id="패스"
+              d="M1581.813,449l-17.189,17,17.189,17h34.811V449Z"
+              transform="translate(-1564.624 -449)"
+              fill="none"
+              stroke="#222"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="4"
+            />
+            <path
+              id="패스-2"
+              data-name="패스"
+              d="M1583.446,471.773l-2.462-2.408,14.9-14.572,2.462,2.408Z"
+              transform="translate(-1556.214 -446.283)"
+              fill="#222"
+            />
+            <path
+              id="패스-3"
+              data-name="패스"
+              d="M2.408,17.357,0,14.9,14.572,0,16.98,2.461Z"
+              transform="translate(24.77 25.49) rotate(-90)"
+              fill="#222"
+            />
+          </g>
+        </svg>
+      ),
       keyType: "Backspace",
     },
   ],
   [
     {
-      icon: ">",
+      icon: "→",
       keyType: "Tab",
     },
     {
@@ -353,6 +392,7 @@ const Keyboard = (
     }
   >
 ) => {
+  const keyboardContainerRef = useRef<HTMLDivElement>(null);
   const defaultOptions = {
     keyboardItem: keyMap,
     gap: "0.16rem",
@@ -362,8 +402,80 @@ const Keyboard = (
     ...options,
   };
   const inputValue = useRef<string>(defaultValue ?? "");
+
+  const handleArrowKeyDown = (event: KeyboardEvent) => {
+    const target = event.target as any;
+    const [x, y] = target.dataset.position.split(",").map(Number);
+    const keyHandler: {
+      ArrowUp: (position: Position) => [number, number] | null;
+      ArrowDown: (position: Position) => [number, number] | null;
+      ArrowRight: (position: Position) => [number, number] | null;
+      ArrowLeft: (position: Position) => [number, number] | null;
+    } = {
+      ArrowUp: ([argX, argY]) => (argX > 0 ? [argX - 1, argY] : null),
+      ArrowDown: ([argX, argY]) =>
+        argX < keyboardItem.length - 1 ? [argX + 1, argY] : null,
+      ArrowRight: ([argX, argY]) =>
+        y < keyboardItem[argX].length - 1 ? [argX, argY + 1] : null,
+      ArrowLeft: ([argX, argY]) => (argY > 0 ? [argX, argY - 1] : null),
+    };
+    if (Object.hasOwn(keyHandler, event.key)) {
+      const position = keyHandler[event.key as keyof typeof keyHandler]([x, y]);
+      if (position) {
+        const nextRef = document.querySelector(
+          `[data-position="${position[0]},${position[1]}"]`
+        ) as HTMLButtonElement;
+        if (nextRef) {
+          nextRef.focus();
+        }
+      }
+    }
+  };
+
+  const getSpecificKeyPressHandler = (keyType?: SpecificKeyTypes) => {
+    const key = keyType ?? "None";
+    const specificKeyPressHandler: {
+      [key in Exclude<SpecificKeyTypes, "None">]: (value: string) => string;
+    } & { None: (value: string, newValue: string) => string } = {
+      Backspace: (value) => {
+        const disassembled = hg.disassemble(value);
+        disassembled.pop();
+        return hg.assemble(disassembled);
+      },
+      Enter: (value) => value,
+      None: (value, newValue) => {
+        const disassembled = hg.disassemble(value);
+        disassembled.push(newValue);
+        return hg.assemble(disassembled);
+      },
+      Shift: (value) => value,
+      Space: (value) => {
+        const disassembled = hg.disassemble(value);
+        disassembled.push(" ");
+        return hg.assemble(disassembled);
+      },
+      Tab: (value) => {
+        const disassembled = hg.disassemble(value);
+        disassembled.push(" ");
+        return hg.assemble(disassembled);
+      },
+    };
+
+    return specificKeyPressHandler[key];
+  };
+
+  useEffect(() => {
+    if (keyboardContainerRef.current) {
+      const ref = keyboardContainerRef.current;
+      ref.addEventListener("keydown", handleArrowKeyDown);
+      return () => {
+        ref.removeEventListener("keydown", handleArrowKeyDown);
+      };
+    }
+  }, []);
   return (
     <div
+      ref={keyboardContainerRef}
       css={css`
         margin-top: 2rem;
         display: flex;
@@ -373,32 +485,40 @@ const Keyboard = (
         gap: ${gap};
       `}
     >
-      {keyboardItem.map((keys, idx) => {
+      {keyboardItem.map((keys, x) => {
         return (
           <div
             css={css`
               display: flex;
               column-gap: ${gap};
             `}
-            key={idx}
+            key={x}
           >
-            {keys?.map((item, idx) => {
+            {keys?.map((item, y) => {
               const aspect = item.aspect ?? 1;
               const gapWithAspect = aspect > 1 ? gap + ` * ${aspect - 1}` : "0";
               return item.renderItem ? (
-                item.renderItem({ ...item, gap, gapWithAspect, aspect })
+                item.renderItem({
+                  ...item,
+                  gap,
+                  gapWithAspect,
+                  aspect,
+                  position: [x, y],
+                })
               ) : (
                 <button
+                  data-position={[x, y]}
                   type="button"
                   onClick={() => {
                     const prev = hg.disassemble(inputValue.current);
-                    if (item.keyType !== "Backspace") {
-                      prev.push(item.icon?.toString() ?? "");
-                    } else {
-                      prev.pop();
-                    }
-                    inputValue.current = hg.assemble(prev);
-                    options?.onChange?.(inputValue.current);
+                    const handler = getSpecificKeyPressHandler(item.keyType);
+                    const newValue = handler(
+                      inputValue.current,
+                      item.icon?.toString() ?? ""
+                    );
+
+                    inputValue.current = newValue;
+                    options?.onChange?.(newValue);
                   }}
                   css={css`
                     grid-column: span 2;
@@ -419,7 +539,7 @@ const Keyboard = (
                       opacity: 0.8;
                     }
                   `}
-                  key={idx + "button"}
+                  key={x + y + "button"}
                 >
                   {item.icon}
                 </button>

@@ -16,6 +16,9 @@ export const OnBoardTitle = () => {
       width="2074"
       height="218"
       viewBox="0 0 2074 218"
+      css={css`
+        height: 4.216rem;
+      `}
     >
       <defs>
         <clipPath id="clipPath">
@@ -1714,7 +1717,7 @@ const CardLink = styled(Link)`
 `;
 
 const CardAvatar = styled(ImageX)`
-  height: 946px;
+  height: 19rem;
   object-fit: fill;
 `;
 
