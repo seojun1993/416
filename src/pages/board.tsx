@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Book from "@/assets/images/board/book.png";
 import { MainShell } from "@/components/common/main-shell";
-import { H1 } from "@/components/ui/text";
+import { H1, H4 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
@@ -16,6 +16,7 @@ import { useSearchParams } from "react-router-dom";
 
 import 김예은 from "@/assets/images/김예은/main.png";
 import 약전 from "@/assets/images/김예은/약전.png";
+import InformationModal from "@/components/ui/information-modal";
 
 const Board = () => {
   const bookRef = useRef<HTMLDivElement>(null);
@@ -25,12 +26,11 @@ const Board = () => {
   const name = searchParams.get("name");
   const theme = useTheme();
   const handleBookResize = () => {
-    console.log(bookRef.current);
     if (bookRef.current) {
       const width = bookRef.current.clientWidth;
       const height = bookRef.current.clientHeight;
-      console.log([width, height]);
-      setBookSize([width, height]);
+
+      setBookSize([width, height * 2.2]);
     }
   };
 
@@ -60,6 +60,8 @@ const Board = () => {
       css={css`
         flex-direction: column;
         align-items: center;
+        padding-bottom: 1.6em;
+        row-gap: 1.57em;
       `}
     >
       <div
@@ -67,6 +69,7 @@ const Board = () => {
           display: flex;
           align-items: center;
           column-gap: 0.61em;
+          height: 2.85em;
         `}
       >
         <svg
@@ -77,6 +80,11 @@ const Board = () => {
           width="140"
           height="140"
           viewBox="0 0 140 140"
+          css={css`
+            height: 2.85em;
+            width: 2.85em;
+            aspect-ratio: 1/1;
+          `}
         >
           <defs>
             <clipPath id="clip-path">
@@ -116,175 +124,304 @@ const Board = () => {
         <H1 css={css``}>{name}의 다이어리</H1>
       </div>
       <div
-        ref={bookRef}
         css={css`
-          position: relative;
           width: 80%;
           flex: 0 0 80%;
           /* outline: 8px solid ${theme.color.accent.foreground}; */
         `}
       >
-        {bookSize[1] > 1 ? (
-          <HTMLFlipBook
-            flippingTime={500}
-            ref={(ref) => (animatedBookRef.current = ref)}
-            drawShadow={false}
-            style={{
-              /* transform: "scaleX(0.94) scaleY(0.98) translate(0.3%,-0.5%)", */
-              zIndex: 1,
-            }}
-            mobileScrollSupport={false}
-            size="stretch"
-            width={bookSize[0]}
-            height={bookSize[1]}
-            maxShadowOpacity={0.5}
-            startPage={1}
-            className={""}
-            minWidth={0}
-            maxWidth={0}
-            minHeight={0}
-            maxHeight={bookSize[1]}
-            usePortrait={false}
-            startZIndex={0}
-            autoSize
-            showCover={false}
-            clickEventForward={false}
-            useMouseEvents={false}
-            swipeDistance={0}
-            showPageCorners={false}
-            disableFlipByClick={false}
-          >
-            <Page>
-              <div
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  width: 100%;
-                  height: 100%;
-                `}
-              >
-                <img
-                  css={css`
-                    height: 100%;
-                    object-fit: contain;
-                    margin: 0 auto;
-                  `}
-                  src={김예은}
-                />
-              </div>
-            </Page>
-            <Page>
-              <div
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  width: 100%;
-                  height: 100%;
-                `}
-              >
-                <img
-                  css={css`
-                    height: 100%;
-                    object-fit: contain;
-                    margin: 0 auto;
-                  `}
-                  src={약전}
-                />
-              </div>
-            </Page>
-            <Page>
-              <div
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  width: 100%;
-                  height: 100%;
-                `}
-              >
-                <img
-                  css={css`
-                    height: 100%;
-                    object-fit: contain;
-                    margin: 0 auto;
-                  `}
-                  src={약전}
-                />
-              </div>
-            </Page>
-            <Page>
-              <div
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  width: 100%;
-                  height: 100%;
-                `}
-              >
-                <img
-                  css={css`
-                    height: 100%;
-                    object-fit: contain;
-                    margin: 0 auto;
-                  `}
-                  src={약전}
-                />
-              </div>
-            </Page>
-          </HTMLFlipBook>
-        ) : null}
-        <img
-          src={Book}
+        <div
+          ref={bookRef}
           css={css`
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            position: relative;
+            /* padding: 10px 74px 10px 94px; */
+            padding: 0.46dvh 1.925dvw 0.46dvh 2.45dvw;
             height: 100%;
+            background: url(${Book});
+            background-size: cover;
+            background-repeat: no-repeat;
           `}
-        />
-        <LeftButton onClick={handlePrevClick}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54.482"
-            height="96.969"
-            viewBox="0 0 54.482 96.969"
-          >
-            <path
-              id="prev_icon"
-              d="M-20078.957-17310.031l-40,40,40,40"
-              transform="translate(20124.955 17318.516)"
-              fill="none"
-              stroke="#fb950a"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="12"
-            />
-          </svg>
-        </LeftButton>
-        <RightButton onClick={handleNextClick}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54.486"
-            height="96.969"
-            viewBox="0 0 54.486 96.969"
-          >
-            <path
-              id="naxt_icon"
-              d="M-20118.957-17310.031l40,40-40,40"
-              transform="translate(20127.441 17318.516)"
-              fill="none"
-              stroke="#fb950a"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="12"
-            />
-          </svg>
-        </RightButton>
+        >
+          {bookSize[1] > 1 ? (
+            <HTMLFlipBook
+              flippingTime={500}
+              ref={(ref) => (animatedBookRef.current = ref)}
+              drawShadow={false}
+              style={{
+                /* transform: "scaleX(0.94) scaleY(0.98) translate(0.3%,-0.5%)", */
+                zIndex: 1,
+              }}
+              mobileScrollSupport={false}
+              size="stretch"
+              width={bookSize[0]}
+              height={bookSize[1]}
+              maxShadowOpacity={0.5}
+              startPage={1}
+              className={""}
+              minWidth={0}
+              maxWidth={bookSize[0]}
+              minHeight={0}
+              maxHeight={bookSize[1]}
+              usePortrait={false}
+              startZIndex={0}
+              autoSize
+              showCover={false}
+              clickEventForward={false}
+              useMouseEvents={false}
+              swipeDistance={0}
+              showPageCorners={false}
+              disableFlipByClick={false}
+            >
+              <Page>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                  `}
+                >
+                  <img
+                    css={css`
+                      height: 100%;
+                      object-fit: contain;
+                      margin: 0 auto;
+                    `}
+                    src={김예은}
+                  />
+                </div>
+              </Page>
+              <Page>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                  `}
+                >
+                  <img
+                    css={css`
+                      height: 100%;
+                      object-fit: contain;
+                      margin: 0 auto;
+                    `}
+                    src={약전}
+                  />
+                </div>
+              </Page>
+              <Page>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                  `}
+                >
+                  <img
+                    css={css`
+                      height: 100%;
+                      object-fit: contain;
+                      margin: 0 auto;
+                    `}
+                    src={약전}
+                  />
+                </div>
+              </Page>
+              <Page>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                  `}
+                >
+                  <img
+                    css={css`
+                      height: 100%;
+                      object-fit: contain;
+                      margin: 0 auto;
+                    `}
+                    src={약전}
+                  />
+                </div>
+              </Page>
+            </HTMLFlipBook>
+          ) : null}
+          <LeftButton onClick={handlePrevClick}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="54.482"
+              height="96.969"
+              viewBox="0 0 54.482 96.969"
+            >
+              <path
+                id="prev_icon"
+                d="M-20078.957-17310.031l-40,40,40,40"
+                transform="translate(20124.955 17318.516)"
+                fill="none"
+                stroke="#fb950a"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="12"
+              />
+            </svg>
+          </LeftButton>
+          <RightButton onClick={handleNextClick}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="54.486"
+              height="96.969"
+              viewBox="0 0 54.486 96.969"
+            >
+              <path
+                id="naxt_icon"
+                d="M-20118.957-17310.031l40,40-40,40"
+                transform="translate(20127.441 17318.516)"
+                fill="none"
+                stroke="#fb950a"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="12"
+              />
+            </svg>
+          </RightButton>
+        </div>
       </div>
+      <InformationModal>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+          `}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+          >
+            <defs>
+              <clipPath id="clip-path">
+                <rect
+                  id="사각형_538"
+                  data-name="사각형 538"
+                  width="100"
+                  height="100"
+                  fill="none"
+                  stroke="#fff"
+                  strokeWidth="5"
+                />
+              </clipPath>
+            </defs>
+            <g id="icon" transform="translate(0 0)">
+              <g
+                id="그룹_434"
+                data-name="그룹 434"
+                transform="translate(0 0)"
+                clipPath="url(#clip-path)"
+              >
+                <path
+                  id="패스_1160"
+                  data-name="패스 1160"
+                  d="M67.443,28.039V19.613c0-4.21,4.216-7.654,8.429-7.654a7.68,7.68,0,0,1,7.663,7.654V55.722A17.931,17.931,0,0,1,65.6,73.647H30.4A17.938,17.938,0,0,1,14.267,63.554L8.514,51.714A18.341,18.341,0,0,1,13.4,29.5l5.676-4.644"
+                  transform="translate(13.044 23.397)"
+                  fill="none"
+                  stroke="#fff"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <path
+                  id="패스_1161"
+                  data-name="패스 1161"
+                  d="M37.872,32.864V18.525c0-4.21-3.831-7.654-8.044-7.654s-8.044,3.444-8.044,7.654V32.864"
+                  transform="translate(42.616 21.269)"
+                  fill="none"
+                  stroke="#fff"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <path
+                  id="패스_1162"
+                  data-name="패스 1162"
+                  d="M16.34,32.954V18.479c0-4.21,3.831-7.654,8.044-7.654s8.047,3.444,8.047,7.654V32.954"
+                  transform="translate(31.967 21.179)"
+                  fill="none"
+                  stroke="#fff"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <path
+                  id="패스_1163"
+                  data-name="패스 1163"
+                  d="M10.9,59V10.479c0-4.21,3.831-7.654,8.044-7.654s8.047,3.444,8.047,7.654V48.6"
+                  transform="translate(21.321 5.528)"
+                  fill="none"
+                  stroke="#fff"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <path
+                  id="패스_1164"
+                  data-name="패스 1164"
+                  d="M20.436.825,37.681,12.65,20.436,24.476"
+                  transform="translate(39.981 1.614)"
+                  fill="none"
+                  stroke="#fff500"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <line
+                  id="선_2"
+                  data-name="선 2"
+                  x2="29.564"
+                  transform="translate(49.276 14.067)"
+                  fill="none"
+                  stroke="#fff500"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <path
+                  id="패스_1165"
+                  data-name="패스 1165"
+                  d="M15.371,24.476,1,12.65,15.371.825"
+                  transform="translate(1.956 1.614)"
+                  fill="none"
+                  stroke="#fff500"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <line
+                  id="선_3"
+                  data-name="선 3"
+                  x1="29.564"
+                  transform="translate(1.974 14.067)"
+                  fill="none"
+                  stroke="#fff500"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+              </g>
+            </g>
+          </svg>
+          <H4
+            css={css`
+              color: white;
+            `}
+          >
+            화면을 움직여서 이야기를 넘겨보세요
+          </H4>
+        </div>
+      </InformationModal>
     </MainShell>
   );
 };
@@ -298,7 +435,7 @@ const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
       ref={ref}
       css={css`
         background-color: #ffffff;
-        box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.4);
+        box-shadow: inset -7px 0 10px -7px rgba(0, 0, 0, 0.4);
         color: black;
       `}
     >
