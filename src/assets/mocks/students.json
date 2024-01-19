@@ -1,0 +1,5308 @@
+{
+  "data": [
+    {
+      "id": "fdd445f7-5355-43fc-bdd1-9db6e0930be7",
+      "name": "고해인",
+      "416_id": 8,
+      "memory_id": 5170,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=8",
+      "mgmt_id": 1,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5170",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "60d099e5-8277-4df0-a459-b1e297914713",
+          "keywordName": "베스트프랜드"
+        },
+        {
+          "id": "cfe3c8c7-0eff-40eb-a9f0-2ac648eb2629",
+          "keywordName": "여행가"
+        },
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        },
+        {
+          "id": "c8aafc66-823c-47b3-9c51-960c9fb64510",
+          "keywordName": "미소천사"
+        }
+      ]
+    },
+    {
+      "id": "9d2ca2ec-3cf4-409d-9df7-c7e15ddc85dd",
+      "name": "김민지",
+      "416_id": 11,
+      "memory_id": 5176,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=11",
+      "mgmt_id": 2,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5176",
+      "title_keyword_id": "fab88626-b46f-4e6d-bde5-a320b8892728",
+      "keywords": [
+        {
+          "id": "ba315b15-83cf-4494-88fc-db19fcf0b1e1",
+          "keywordName": "잔소리꾼"
+        },
+        { "id": "fab88626-b46f-4e6d-bde5-a320b8892728", "keywordName": "가수" },
+        {
+          "id": "47fc22a2-5f35-45a1-9e63-a539e2f5c5a0",
+          "keywordName": "아빠의 보물"
+        }
+      ]
+    },
+    {
+      "id": "297809f1-9da3-4193-986e-c8f1a406068c",
+      "name": "김민희",
+      "416_id": 9,
+      "memory_id": 5225,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=9",
+      "mgmt_id": 3,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5225",
+      "title_keyword_id": "43963b9c-0b8d-4c11-8f2d-a7e3f3ed1898",
+      "keywords": [
+        {
+          "id": "0ffcda2b-b60a-4c5d-a61e-e5c2f39dec86",
+          "keywordName": "클레이"
+        },
+        {
+          "id": "fd83147c-e24e-4aec-9694-413ad00ad810",
+          "keywordName": "자격증"
+        },
+        { "id": "43963b9c-0b8d-4c11-8f2d-a7e3f3ed1898", "keywordName": "사서" },
+        { "id": "751309a2-995f-4678-a5a3-6bb589b11374", "keywordName": "점토" },
+        {
+          "id": "f73b9d6e-4cb3-43a1-abc6-9bcd9f26cf7e",
+          "keywordName": "교육강사"
+        }
+      ]
+    },
+    {
+      "id": "22dfb829-80e5-49f6-b0db-d242a62ec9a7",
+      "name": "김수경",
+      "416_id": 16,
+      "memory_id": 5227,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=16",
+      "mgmt_id": 4,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5227",
+      "title_keyword_id": "22392223-a5e9-4f5f-a19d-8f403073996a",
+      "keywords": [
+        {
+          "id": "d7855994-2fb2-4f36-b7bb-c8227a219456",
+          "keywordName": "분위기 메이커"
+        },
+        {
+          "id": "53b70e84-fecf-4c31-9078-77e0d3d53e94",
+          "keywordName": "고민상담사"
+        },
+        {
+          "id": "22392223-a5e9-4f5f-a19d-8f403073996a",
+          "keywordName": "국가정보요원"
+        }
+      ]
+    },
+    {
+      "id": "91c6d067-e555-4d87-be3a-8ef2ecc33bb5",
+      "name": "김수진",
+      "416_id": 2,
+      "memory_id": 5229,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=2",
+      "mgmt_id": 5,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5229",
+      "title_keyword_id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+      "keywords": [
+        {
+          "id": "391d7250-c57c-4244-b3a6-2c5d6b2ea11c",
+          "keywordName": "별명 부자"
+        },
+        {
+          "id": "c89ec9d0-83c1-4195-8aab-4525d12f1a67",
+          "keywordName": "인기녀"
+        },
+        {
+          "id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+          "keywordName": "요리사"
+        }
+      ]
+    },
+    {
+      "id": "6c736fa3-d091-4b84-ab83-679382efedfe",
+      "name": "김영경",
+      "416_id": 4,
+      "memory_id": 5231,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=4",
+      "mgmt_id": 6,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5231",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "b0f5da4e-e460-4c1d-ad9a-9489efbaa5f5",
+          "keywordName": "소방관"
+        },
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        },
+        {
+          "id": "31462b0a-52d6-4f5f-bb4e-c7e5a2fb00df",
+          "keywordName": "해결사"
+        }
+      ]
+    },
+    {
+      "id": "9edefca6-426d-4b0e-be15-0b9acc9e713b",
+      "name": "김예은",
+      "416_id": 6,
+      "memory_id": 5233,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=6",
+      "mgmt_id": 7,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5233",
+      "title_keyword_id": "fab88626-b46f-4e6d-bde5-a320b8892728",
+      "keywords": [
+        { "id": "fab88626-b46f-4e6d-bde5-a320b8892728", "keywordName": "가수" },
+        {
+          "id": "9c305607-3444-4840-8fa7-459bfe92f18b",
+          "keywordName": "걸그룹"
+        }
+      ]
+    },
+    {
+      "id": "2f17da1a-0be1-42a4-8297-06d1d8276017",
+      "name": "김주아",
+      "416_id": 10,
+      "memory_id": 5234,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=10",
+      "mgmt_id": 8,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5234",
+      "title_keyword_id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f",
+      "keywords": [
+        {
+          "id": "a26e19b6-7e7c-4a65-9b3a-28f5db55f10d",
+          "keywordName": "시각 디자이너"
+        },
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" },
+        {
+          "id": "36df0007-fcf5-426d-ab9c-d2ed374e2cb0",
+          "keywordName": "가구 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "645c2689-5c7a-416c-8847-fe1e7b6a2a85",
+      "name": "김현정",
+      "416_id": 5,
+      "memory_id": 5237,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=5",
+      "mgmt_id": 9,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5237",
+      "title_keyword_id": "b620b9e1-7d46-4a4b-a232-4da37471c9e1",
+      "keywords": [
+        {
+          "id": "ac4bb740-3fe0-4cc8-a41f-08ebd6e14a9c",
+          "keywordName": "애니메이션"
+        },
+        {
+          "id": "b620b9e1-7d46-4a4b-a232-4da37471c9e1",
+          "keywordName": "일본어 교사"
+        },
+        {
+          "id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+          "keywordName": "만화가"
+        },
+        {
+          "id": "fcf62f26-3c4f-4dae-a07d-c166da03e334",
+          "keywordName": "수다쟁이"
+        },
+        {
+          "id": "a3dfda5b-ace4-4317-b0e4-58060719ec68",
+          "keywordName": "웹툰작가"
+        }
+      ]
+    },
+    {
+      "id": "69e2349d-fb99-4f0a-8d55-041328a1c630",
+      "name": "문지성",
+      "416_id": 12,
+      "memory_id": 5239,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=12",
+      "mgmt_id": 10,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5239",
+      "title_keyword_id": "3c260fbb-cb51-45da-ad2f-6ef4f829b869",
+      "keywords": [
+        {
+          "id": "3c260fbb-cb51-45da-ad2f-6ef4f829b869",
+          "keywordName": "스튜어디스"
+        }
+      ]
+    },
+    {
+      "id": "a919a482-5ebd-4cba-ad64-fe4b5d62900c",
+      "name": "박성빈",
+      "416_id": 1,
+      "memory_id": 5241,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=1",
+      "mgmt_id": 11,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5241",
+      "title_keyword_id": "e6e20d7d-dda5-412d-941c-1010067e055a",
+      "keywords": [
+        {
+          "id": "5f412142-603d-4f14-800d-f00cbe556390",
+          "keywordName": "사회적약자 보호"
+        },
+        {
+          "id": "d02a855e-c599-44a8-b23a-1c074d9e1a06",
+          "keywordName": "정의 실천"
+        },
+        { "id": "e6e20d7d-dda5-412d-941c-1010067e055a", "keywordName": "판사" }
+      ]
+    },
+    {
+      "id": "eeb44a66-1f41-41a1-9fab-92c82a5cb598",
+      "name": "우소영",
+      "416_id": 3,
+      "memory_id": 5242,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=3",
+      "mgmt_id": 12,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5242",
+      "title_keyword_id": "39327a10-e041-4c6a-87bf-0d1975ebc10a",
+      "keywords": [
+        {
+          "id": "bb4741a5-0f71-45ca-a589-feb3583d5c8a",
+          "keywordName": "손편지"
+        },
+        {
+          "id": "712c4081-6ff5-4708-9b3f-dff810bdc13d",
+          "keywordName": "캘리그래피"
+        },
+        {
+          "id": "39327a10-e041-4c6a-87bf-0d1975ebc10a",
+          "keywordName": "일러스트레이터"
+        }
+      ]
+    },
+    {
+      "id": "038607a3-abc7-4020-8871-f64ec9efc2e4",
+      "name": "유미지",
+      "416_id": 14,
+      "memory_id": 5243,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=14",
+      "mgmt_id": 13,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5243",
+      "title_keyword_id": "2af99241-51f6-4aec-920e-23d59b0db88c",
+      "keywords": [
+        {
+          "id": "c65e3bc8-2067-481e-933e-5556f0d6eaf3",
+          "keywordName": "의료봉사"
+        },
+        { "id": "2af99241-51f6-4aec-920e-23d59b0db88c", "keywordName": "의사" },
+        {
+          "id": "cb6256d2-5f19-4a77-9fb0-388645585da2",
+          "keywordName": "국제구호활동가"
+        }
+      ]
+    },
+    {
+      "id": "7f380c02-45e8-4913-8e39-ea991b81fe6a",
+      "name": "이수연",
+      "416_id": 15,
+      "memory_id": 5245,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=15",
+      "mgmt_id": 14,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5245",
+      "title_keyword_id": "1e357ecc-76ac-4725-9915-9e3be1bf8924",
+      "keywords": [
+        {
+          "id": "1e357ecc-76ac-4725-9915-9e3be1bf8924",
+          "keywordName": "국어선생님"
+        },
+        {
+          "id": "9cf7bdde-070e-4704-aa57-68b8f10dd2fd",
+          "keywordName": "노력파"
+        },
+        {
+          "id": "8cbf5d72-9a47-47fb-b964-c76b2c876ad9",
+          "keywordName": "문구 수집가"
+        }
+      ]
+    },
+    {
+      "id": "c644f36d-7d32-4eed-9d58-d5ada7afe40d",
+      "name": "이연화",
+      "416_id": 17,
+      "memory_id": 5248,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=17",
+      "mgmt_id": 15,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5248",
+      "title_keyword_id": "f0e6ba0f-7856-4cea-86a2-0957633ac2be",
+      "keywords": [
+        {
+          "id": "f0e6ba0f-7856-4cea-86a2-0957633ac2be",
+          "keywordName": "네일 아티스트"
+        },
+        {
+          "id": "0213e20c-2177-4f0b-8033-f230db72c74d",
+          "keywordName": "책임감"
+        }
+      ]
+    },
+    {
+      "id": "e8548db4-7114-4eb7-a688-ad2f08741bfc",
+      "name": "정가현",
+      "416_id": 13,
+      "memory_id": 5249,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=13",
+      "mgmt_id": 16,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5249",
+      "title_keyword_id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+      "keywords": [
+        {
+          "id": "4b2c5778-725f-4758-bca9-01cddf974926",
+          "keywordName": "삼총사"
+        },
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        }
+      ]
+    },
+    {
+      "id": "e4e9a88e-6d8d-4069-9320-be874bc6685b",
+      "name": "조은화",
+      "416_id": 7,
+      "memory_id": 5251,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=7",
+      "mgmt_id": 17,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5251",
+      "title_keyword_id": "630ad328-e83c-4ab5-bfd2-e0f1a4af3e6b",
+      "keywords": [
+        {
+          "id": "fcf62f26-3c4f-4dae-a07d-c166da03e334",
+          "keywordName": "수다쟁이"
+        },
+        {
+          "id": "630ad328-e83c-4ab5-bfd2-e0f1a4af3e6b",
+          "keywordName": "엄마 껌딱지"
+        }
+      ]
+    },
+    {
+      "id": "5c3eb225-9521-437d-bd33-fac50762cf80",
+      "name": "한고운",
+      "416_id": 18,
+      "memory_id": 5254,
+      "class_name": "2학년 1반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=18",
+      "mgmt_id": 18,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5254",
+      "title_keyword_id": "77cef46c-7204-4e13-b269-8e75d5903763",
+      "keywords": [
+        {
+          "id": "77cef46c-7204-4e13-b269-8e75d5903763",
+          "keywordName": "카메라 감독"
+        },
+        {
+          "id": "ac18e219-f7f4-4a97-a353-f9535064496c",
+          "keywordName": "에너자이저"
+        }
+      ]
+    },
+    {
+      "id": "9f3164fc-d041-4231-bea7-f4a477f2b310",
+      "name": "강수정",
+      "416_id": 26,
+      "memory_id": 5350,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=26",
+      "mgmt_id": 19,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5350",
+      "title_keyword_id": "9c320915-f1d7-4fcc-8259-69e4625a54b3",
+      "keywords": [
+        {
+          "id": "9c305607-3444-4840-8fa7-459bfe92f18b",
+          "keywordName": "걸그룹"
+        },
+        {
+          "id": "9c320915-f1d7-4fcc-8259-69e4625a54b3",
+          "keywordName": "웨딩드레스 디자이너"
+        },
+        {
+          "id": "7c24e97e-bb6b-4371-ab5b-e357a9ca298f",
+          "keywordName": "댄스동아리"
+        }
+      ]
+    },
+    {
+      "id": "4fb54fbf-f052-4343-9567-ca6563b8bc07",
+      "name": "강우영",
+      "416_id": 33,
+      "memory_id": 5351,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=33",
+      "mgmt_id": 20,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5351",
+      "title_keyword_id": "14b4e7f8-f0f4-4e79-add0-525061f9a9b5",
+      "keywords": [
+        {
+          "id": "70fc5221-bb33-498e-8b68-4ca68a7896b1",
+          "keywordName": "봉사활동가"
+        },
+        { "id": "14b4e7f8-f0f4-4e79-add0-525061f9a9b5", "keywordName": "군인" },
+        {
+          "id": "60daf4ca-dbac-4302-9fad-9ae0b1da121e",
+          "keywordName": "축구광"
+        }
+      ]
+    },
+    {
+      "id": "0fc79fd0-c192-4a14-94ee-14f45339b5ce",
+      "name": "길채원",
+      "416_id": 27,
+      "memory_id": 5352,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=27",
+      "mgmt_id": 21,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5352",
+      "title_keyword_id": "e0d7b552-3ae8-4afe-ac5e-f960a31e5eb8",
+      "keywords": [
+        {
+          "id": "38cf2eb2-027d-4315-9ed2-d096df1de9c8",
+          "keywordName": "디즈니 만화"
+        },
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        },
+        {
+          "id": "e0d7b552-3ae8-4afe-ac5e-f960a31e5eb8",
+          "keywordName": "연예인"
+        },
+        {
+          "id": "e2c7f375-ef32-4c16-914d-996b109f82a3",
+          "keywordName": "개그우먼"
+        }
+      ]
+    },
+    {
+      "id": "256773e4-d36d-4688-8f7b-46ea647ce6d9",
+      "name": "김민지",
+      "416_id": 30,
+      "memory_id": 5353,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=30",
+      "mgmt_id": 22,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5353",
+      "title_keyword_id": "42ef1e79-e766-4d88-aa12-4f1e965143f2",
+      "keywords": [
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" },
+        {
+          "id": "426e7211-d38b-49f4-ba1d-6ff347af173c",
+          "keywordName": "볼링 선수"
+        },
+        {
+          "id": "42ef1e79-e766-4d88-aa12-4f1e965143f2",
+          "keywordName": "의상 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "4a20e6b8-0628-4f54-9f37-67d659a4a97b",
+      "name": "김소정",
+      "416_id": 41,
+      "memory_id": 5354,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=41",
+      "mgmt_id": 23,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5354",
+      "title_keyword_id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f",
+      "keywords": [
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" },
+        {
+          "id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+          "keywordName": "만화가"
+        }
+      ]
+    },
+    {
+      "id": "c9fcd8f3-bb8d-417a-8096-35ebc955be4c",
+      "name": "김수정",
+      "416_id": 20,
+      "memory_id": 5355,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=20",
+      "mgmt_id": 24,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5355",
+      "title_keyword_id": "ee6231be-243b-42e2-bff5-6f596960401d",
+      "keywords": [
+        {
+          "id": "b6b3e4fd-922d-4169-9a36-de18c08ad7b4",
+          "keywordName": "영상제작"
+        },
+        {
+          "id": "ee6231be-243b-42e2-bff5-6f596960401d",
+          "keywordName": "비디오 저널리스트"
+        },
+        {
+          "id": "1a66ede7-2dee-4a8e-b13b-6469b81496e2",
+          "keywordName": "동아리활동"
+        }
+      ]
+    },
+    {
+      "id": "6e3beb35-87f0-40fd-981c-7232dbd8cdf1",
+      "name": "김주희",
+      "416_id": 32,
+      "memory_id": 5356,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=32",
+      "mgmt_id": 25,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5356",
+      "title_keyword_id": "392b59a4-0f77-4007-bb06-7e89445eb3f1",
+      "keywords": [
+        {
+          "id": "392b59a4-0f77-4007-bb06-7e89445eb3f1",
+          "keywordName": "광고 디자이너"
+        },
+        {
+          "id": "77cd7b61-9701-406b-8402-465dd472f29d",
+          "keywordName": "광고그래픽 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "1ae2fc8f-9c55-40d5-b736-17387cd9ec96",
+      "name": "김지윤",
+      "416_id": 37,
+      "memory_id": 5357,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=37",
+      "mgmt_id": 26,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5357",
+      "title_keyword_id": "e5083166-a77e-4574-b3af-ed80c4d14220",
+      "keywords": [
+        {
+          "id": "d267c0a2-32f6-401e-9257-beb7d81d23c5",
+          "keywordName": "종교인"
+        },
+        {
+          "id": "e5083166-a77e-4574-b3af-ed80c4d14220",
+          "keywordName": "영어 선생님"
+        }
+      ]
+    },
+    {
+      "id": "571abe38-8469-42b7-8e7e-0b7d30e0429e",
+      "name": "남수빈",
+      "416_id": 23,
+      "memory_id": 5358,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=23",
+      "mgmt_id": 27,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5358",
+      "title_keyword_id": "6be5a28d-a38b-482e-ab91-3f877ec54104",
+      "keywords": [
+        {
+          "id": "15605ffc-f3d4-4245-946a-761863dfccd5",
+          "keywordName": "성균관대"
+        },
+        {
+          "id": "6be5a28d-a38b-482e-ab91-3f877ec54104",
+          "keywordName": "역사학자"
+        }
+      ]
+    },
+    {
+      "id": "7a782bf1-609f-45d3-a12e-f6a21526ee7b",
+      "name": "남지현",
+      "416_id": 24,
+      "memory_id": 5359,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=24",
+      "mgmt_id": 28,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5359",
+      "title_keyword_id": "b3a0bc00-8b3f-40c4-b4fe-02d8eb8369f4",
+      "keywords": [
+        {
+          "id": "b3a0bc00-8b3f-40c4-b4fe-02d8eb8369f4",
+          "keywordName": "방송 작가"
+        },
+        {
+          "id": "ac7f8068-5abc-4c58-a8ba-7727cebb7a60",
+          "keywordName": "행복 전도사"
+        },
+        {
+          "id": "096db1c5-3925-4ec4-a182-1e106bc94b3f",
+          "keywordName": "방송국 PD"
+        }
+      ]
+    },
+    {
+      "id": "11e408d8-d2cf-48b3-b77b-7705893d1859",
+      "name": "박정은",
+      "416_id": 22,
+      "memory_id": 5360,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=22",
+      "mgmt_id": 29,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5360",
+      "title_keyword_id": "096db1c5-3925-4ec4-a182-1e106bc94b3f",
+      "keywords": [
+        {
+          "id": "096db1c5-3925-4ec4-a182-1e106bc94b3f",
+          "keywordName": "방송국 PD"
+        },
+        {
+          "id": "7637f867-1642-49c9-bb4d-46cf179c052b",
+          "keywordName": "방송 연출가"
+        }
+      ]
+    },
+    {
+      "id": "91d768f9-cd8a-4244-b158-5acf1c826bda",
+      "name": "박주희",
+      "416_id": 38,
+      "memory_id": 5361,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=38",
+      "mgmt_id": 30,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5361",
+      "title_keyword_id": "5dff41fc-1d29-4387-bdb3-71fadc145f94",
+      "keywords": [
+        {
+          "id": "35deb029-65d9-4094-9bbd-6b4e54b3235c",
+          "keywordName": "나눔의부자"
+        },
+        {
+          "id": "5dff41fc-1d29-4387-bdb3-71fadc145f94",
+          "keywordName": "사업가"
+        },
+        { "id": "c35815e0-1762-4c22-973d-a0bba7cef70c", "keywordName": "교회" }
+      ]
+    },
+    {
+      "id": "8250b599-6fe0-496d-8915-df85ae4261cd",
+      "name": "박혜선",
+      "416_id": 19,
+      "memory_id": 5362,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=19",
+      "mgmt_id": 31,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5362",
+      "title_keyword_id": "1e357ecc-76ac-4725-9915-9e3be1bf8924",
+      "keywords": [
+        {
+          "id": "e1112fb9-94c4-48e6-8326-80ec06f5b4a0",
+          "keywordName": "엄마 친구"
+        },
+        {
+          "id": "b3a0bc00-8b3f-40c4-b4fe-02d8eb8369f4",
+          "keywordName": "방송 작가"
+        },
+        {
+          "id": "1e357ecc-76ac-4725-9915-9e3be1bf8924",
+          "keywordName": "국어선생님"
+        }
+      ]
+    },
+    {
+      "id": "e6e6d2db-dda6-40b2-9105-97564d39405f",
+      "name": "송지나",
+      "416_id": 40,
+      "memory_id": 5363,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=40",
+      "mgmt_id": 32,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5363",
+      "title_keyword_id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+      "keywords": [
+        {
+          "id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+          "keywordName": "소설가"
+        },
+        {
+          "id": "1b7ab444-f02b-4dcd-9af7-7a0e6fa53998",
+          "keywordName": "웹툰 작가"
+        }
+      ]
+    },
+    {
+      "id": "ce1e8c03-d713-42e2-8a08-49bc3632e8c7",
+      "name": "양온유",
+      "416_id": 21,
+      "memory_id": 5364,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=21",
+      "mgmt_id": 33,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5364",
+      "title_keyword_id": "f542a7b2-2073-42c0-af0e-be38090ec92c",
+      "keywords": [
+        {
+          "id": "f542a7b2-2073-42c0-af0e-be38090ec92c",
+          "keywordName": "음악 심리치료사"
+        },
+        {
+          "id": "f4c5ab52-fcf0-47a9-8165-266014392979",
+          "keywordName": "피아노 연주자"
+        }
+      ]
+    },
+    {
+      "id": "24746380-eb16-40c0-a944-6b1aba39d1de",
+      "name": "오유정",
+      "416_id": 43,
+      "memory_id": 5365,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=43",
+      "mgmt_id": 34,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5365",
+      "title_keyword_id": "78b97410-51f7-44c0-a29b-1af3f5ab7fdc",
+      "keywords": [
+        {
+          "id": "349dcfa8-97e3-4596-81ab-5c29bc0974f8",
+          "keywordName": "빵집 운영"
+        },
+        {
+          "id": "78b97410-51f7-44c0-a29b-1af3f5ab7fdc",
+          "keywordName": "제과제빵사"
+        }
+      ]
+    },
+    {
+      "id": "a956a515-f578-43d3-b815-26dc82d1a925",
+      "name": "윤민지",
+      "416_id": 25,
+      "memory_id": 5366,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=25",
+      "mgmt_id": 35,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5366",
+      "title_keyword_id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+      "keywords": [
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        }
+      ]
+    },
+    {
+      "id": "b32f0c96-db18-452d-9c12-592649754a91",
+      "name": "윤솔",
+      "416_id": 39,
+      "memory_id": 5367,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=39",
+      "mgmt_id": 36,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5367",
+      "title_keyword_id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+      "keywords": [
+        {
+          "id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+          "keywordName": "경찰관"
+        },
+        {
+          "id": "7485d130-4dcb-4b27-82e7-8a41ae5e2749",
+          "keywordName": "아빠 판박이"
+        }
+      ]
+    },
+    {
+      "id": "f24ad0fb-12ca-4fa9-94ae-edcee88847b2",
+      "name": "이혜경",
+      "416_id": 36,
+      "memory_id": 5368,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=36",
+      "mgmt_id": 37,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5368",
+      "title_keyword_id": "a31d72ac-2ba5-41b5-a0fa-80a02508ca4e",
+      "keywords": [
+        {
+          "id": "a31d72ac-2ba5-41b5-a0fa-80a02508ca4e",
+          "keywordName": "메이크업 아티스트"
+        },
+        { "id": "c2e384b6-44f2-4ff9-9493-6da7fab83083", "keywordName": "효녀" }
+      ]
+    },
+    {
+      "id": "7d1f3a2c-ed97-4002-87c7-846deb15bfcf",
+      "name": "전하영",
+      "416_id": 29,
+      "memory_id": 5369,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=29",
+      "mgmt_id": 38,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5369",
+      "title_keyword_id": "d32e4016-65b0-4470-80de-e85be8fb95fe",
+      "keywords": [
+        {
+          "id": "d32e4016-65b0-4470-80de-e85be8fb95fe",
+          "keywordName": "국제 구호활동가"
+        },
+        {
+          "id": "70fc5221-bb33-498e-8b68-4ca68a7896b1",
+          "keywordName": "봉사활동가"
+        }
+      ]
+    },
+    {
+      "id": "05fad047-25fc-442f-8842-d9a65bdea047",
+      "name": "정지아",
+      "416_id": 31,
+      "memory_id": 5370,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=31",
+      "mgmt_id": 39,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5370",
+      "title_keyword_id": "af70af79-098c-4c4a-904e-6310108e3bd0",
+      "keywords": [
+        {
+          "id": "53b70e84-fecf-4c31-9078-77e0d3d53e94",
+          "keywordName": "고민상담사"
+        },
+        { "id": "07f46c95-c5c9-463e-9046-7f489ed57efe", "keywordName": "시인" },
+        {
+          "id": "af70af79-098c-4c4a-904e-6310108e3bd0",
+          "keywordName": "박물관 큐레이터"
+        },
+        {
+          "id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+          "keywordName": "소설가"
+        }
+      ]
+    },
+    {
+      "id": "bd5ea5f5-cf8d-4775-b6d2-a7b9bab29255",
+      "name": "조서우",
+      "416_id": 28,
+      "memory_id": 5371,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=28",
+      "mgmt_id": 40,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5371",
+      "title_keyword_id": "83e8b922-8e2a-4718-a1e0-0249f514c6e2",
+      "keywords": [
+        {
+          "id": "8c35cb06-015c-4319-8635-387a112c5720",
+          "keywordName": "청각장애인"
+        },
+        {
+          "id": "cfe3c8c7-0eff-40eb-a9f0-2ac648eb2629",
+          "keywordName": "여행가"
+        },
+        {
+          "id": "3c260fbb-cb51-45da-ad2f-6ef4f829b869",
+          "keywordName": "스튜어디스"
+        },
+        {
+          "id": "83e8b922-8e2a-4718-a1e0-0249f514c6e2",
+          "keywordName": "수화통역사"
+        }
+      ]
+    },
+    {
+      "id": "66034f45-fb13-4df4-b795-5aed905f8a84",
+      "name": "한세영",
+      "416_id": 34,
+      "memory_id": 5372,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=34",
+      "mgmt_id": 41,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5372",
+      "title_keyword_id": "7d2abaa4-1b58-4c8d-9640-561ead375591",
+      "keywords": [
+        { "id": "c85f6615-d27b-498d-9cf7-e9f0f8214eda", "keywordName": "미소" },
+        {
+          "id": "7d2abaa4-1b58-4c8d-9640-561ead375591",
+          "keywordName": "한문 선생님"
+        }
+      ]
+    },
+    {
+      "id": "73ca7bf6-ef3c-4878-bf5b-232c5f7c3765",
+      "name": "허다윤",
+      "416_id": 42,
+      "memory_id": 5373,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=42",
+      "mgmt_id": 42,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5373",
+      "title_keyword_id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+      "keywords": [
+        { "id": "acfbb644-abec-4d25-a1ad-03b236ee2ac5", "keywordName": "깜비" },
+        {
+          "id": "2dc7e615-56bf-4a50-8c31-05f9cba14e34",
+          "keywordName": "흥부자"
+        },
+        {
+          "id": "5da5e4e2-bae1-4333-8530-0c585122b992",
+          "keywordName": "재롱둥이"
+        },
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        }
+      ]
+    },
+    {
+      "id": "ca76dca3-ea4b-47b9-a95c-ae2ccbd70658",
+      "name": "허유림",
+      "416_id": 35,
+      "memory_id": 5374,
+      "class_name": "2학년 2반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=35",
+      "mgmt_id": 43,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5374",
+      "title_keyword_id": "6e148bc0-ebef-412b-9ab8-89617a392547",
+      "keywords": [
+        {
+          "id": "80369a42-9ee0-494b-a89b-4106c281d5bf",
+          "keywordName": "거울공주"
+        },
+        {
+          "id": "6e148bc0-ebef-412b-9ab8-89617a392547",
+          "keywordName": "온라인 패션몰 운영"
+        }
+      ]
+    },
+    {
+      "id": "c7641198-7918-4750-a226-258035c5cf83",
+      "name": "김담비",
+      "416_id": 49,
+      "memory_id": 5375,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=49",
+      "mgmt_id": 44,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5375",
+      "title_keyword_id": "dd7963ff-2980-488f-89a8-cf93670f5d7e",
+      "keywords": [
+        {
+          "id": "c9f554de-248f-4f3d-ae54-aa71d69e265d",
+          "keywordName": "약자 배려"
+        },
+        {
+          "id": "dd7963ff-2980-488f-89a8-cf93670f5d7e",
+          "keywordName": "변호사"
+        }
+      ]
+    },
+    {
+      "id": "112a7b41-f04d-488c-8462-8f911185632a",
+      "name": "김도언",
+      "416_id": 45,
+      "memory_id": 5376,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=45",
+      "mgmt_id": 45,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5376",
+      "title_keyword_id": "186dc200-de33-4e24-9eb5-dabef3aa0616",
+      "keywords": [
+        {
+          "id": "c89ec9d0-83c1-4195-8aab-4525d12f1a67",
+          "keywordName": "인기녀"
+        },
+        {
+          "id": "186dc200-de33-4e24-9eb5-dabef3aa0616",
+          "keywordName": "선생님"
+        },
+        {
+          "id": "61f82d79-69b6-43b1-a087-3b4709dbc035",
+          "keywordName": "열정소녀"
+        }
+      ]
+    },
+    {
+      "id": "1a796a6f-be8d-4066-8df2-7f7fd56ed133",
+      "name": "김빛나라",
+      "416_id": 65,
+      "memory_id": 5377,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=65",
+      "mgmt_id": 46,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5377",
+      "title_keyword_id": "9aafedb1-b74f-4691-8b79-f28e92f05eaf",
+      "keywords": [
+        { "id": "c0e825fc-29ea-4e56-87c5-cf951a12af08", "keywordName": "작가" },
+        {
+          "id": "9aafedb1-b74f-4691-8b79-f28e92f05eaf",
+          "keywordName": "연극배우"
+        },
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" }
+      ]
+    },
+    {
+      "id": "3d28dae1-4972-4c67-918c-452e211edd4c",
+      "name": "김소연",
+      "416_id": 66,
+      "memory_id": 5378,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=66",
+      "mgmt_id": 47,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5378",
+      "title_keyword_id": "096db1c5-3925-4ec4-a182-1e106bc94b3f",
+      "keywords": [
+        {
+          "id": "ab8ebfb5-3903-4ca6-b0c2-832d9d9efaf9",
+          "keywordName": "장학생"
+        },
+        {
+          "id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+          "keywordName": "역사 선생님"
+        },
+        {
+          "id": "096db1c5-3925-4ec4-a182-1e106bc94b3f",
+          "keywordName": "방송국 PD"
+        }
+      ]
+    },
+    {
+      "id": "56b8f90d-eb65-404b-a0f2-92ea759e3157",
+      "name": "김수경",
+      "416_id": 55,
+      "memory_id": 5379,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=55",
+      "mgmt_id": 48,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5379",
+      "title_keyword_id": "d32e4016-65b0-4470-80de-e85be8fb95fe",
+      "keywords": [
+        {
+          "id": "d32e4016-65b0-4470-80de-e85be8fb95fe",
+          "keywordName": "국제 구호활동가"
+        },
+        {
+          "id": "b7d357cd-17f1-4e28-a757-901957ff0a7f",
+          "keywordName": "김간호사"
+        }
+      ]
+    },
+    {
+      "id": "68dfb829-a2e6-47b9-b0b1-5f950ffffe4c",
+      "name": "김시연",
+      "416_id": 47,
+      "memory_id": 5380,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=47",
+      "mgmt_id": 49,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5380",
+      "title_keyword_id": "0b57a2ca-42bf-41f2-8afa-1ee4ee319938",
+      "keywords": [
+        {
+          "id": "0b57a2ca-42bf-41f2-8afa-1ee4ee319938",
+          "keywordName": "음악 선생님"
+        },
+        {
+          "id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+          "keywordName": "작곡가"
+        }
+      ]
+    },
+    {
+      "id": "26b60caa-c418-48cd-802a-f8ca55a31828",
+      "name": "김영은",
+      "416_id": 68,
+      "memory_id": 5381,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=68",
+      "mgmt_id": 50,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5381",
+      "title_keyword_id": "cd30424e-78ab-4810-be80-26cc996a2b9b",
+      "keywords": [
+        { "id": "cd30424e-78ab-4810-be80-26cc996a2b9b", "keywordName": "얄루" },
+        {
+          "id": "515f4bf5-75c9-4418-b913-ae287eb46a87",
+          "keywordName": "유쾌한 웃음소리"
+        },
+        {
+          "id": "26c008ad-51d0-4400-9b50-0cd0f3305471",
+          "keywordName": "라디오출연"
+        }
+      ]
+    },
+    {
+      "id": "dc39bfa0-dc22-4049-a039-310acddcb982",
+      "name": "김주은",
+      "416_id": 59,
+      "memory_id": 5382,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=59",
+      "mgmt_id": 51,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5382",
+      "title_keyword_id": "acf226b7-407e-4bad-b5a2-cfce1db1911c",
+      "keywords": [
+        {
+          "id": "acf226b7-407e-4bad-b5a2-cfce1db1911c",
+          "keywordName": "디자이너"
+        },
+        {
+          "id": "35c8dc13-677a-4b49-b51a-5bd15580b872",
+          "keywordName": "의상제작자"
+        }
+      ]
+    },
+    {
+      "id": "9839cbe5-368a-4ab7-8e7d-e0b11ebed77a",
+      "name": "김지인",
+      "416_id": 57,
+      "memory_id": 5383,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=57",
+      "mgmt_id": 52,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5383",
+      "title_keyword_id": "4b2c84d3-8793-49cc-8375-162191aff5f8",
+      "keywords": [
+        {
+          "id": "4cb79e00-511f-4b1e-bbbf-d6734e640362",
+          "keywordName": "호기심 천국"
+        },
+        {
+          "id": "4b2c84d3-8793-49cc-8375-162191aff5f8",
+          "keywordName": "음악가"
+        },
+        {
+          "id": "d95185d8-13b3-4341-b351-13067ac4caf4",
+          "keywordName": "물음표 대마왕"
+        }
+      ]
+    },
+    {
+      "id": "dc084702-ee0c-45a5-9d99-c1c67b1285ac",
+      "name": "박영란",
+      "416_id": 61,
+      "memory_id": 5384,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=61",
+      "mgmt_id": 53,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5384",
+      "title_keyword_id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+      "keywords": [
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        },
+        {
+          "id": "4c7d830c-0ef3-44a2-b2e1-f658324ccf61",
+          "keywordName": "살림꾼"
+        }
+      ]
+    },
+    {
+      "id": "2c96f224-600f-4e76-b06f-ffd745372d1b",
+      "name": "박예슬",
+      "416_id": 63,
+      "memory_id": 5385,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=63",
+      "mgmt_id": 54,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5385",
+      "title_keyword_id": "263605be-1717-4026-ac4d-38866c6b38b4",
+      "keywords": [
+        {
+          "id": "263605be-1717-4026-ac4d-38866c6b38b4",
+          "keywordName": "구두 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "0d186fe1-836f-4674-833b-8b90f26090a9",
+      "name": "박지우",
+      "416_id": 54,
+      "memory_id": 5386,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=54",
+      "mgmt_id": 55,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5386",
+      "title_keyword_id": "463e4955-fd66-49d7-88e2-197f0001537d",
+      "keywords": [
+        {
+          "id": "750a32c0-d445-4f4e-9b82-2973a772f40d",
+          "keywordName": "초콜릿 케이크"
+        },
+        {
+          "id": "463e4955-fd66-49d7-88e2-197f0001537d",
+          "keywordName": "유학생"
+        }
+      ]
+    },
+    {
+      "id": "0ba542e5-4666-436c-af1e-fb6260ce7fff",
+      "name": "박지윤",
+      "416_id": 58,
+      "memory_id": 5387,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=58",
+      "mgmt_id": 56,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5387",
+      "title_keyword_id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+      "keywords": [
+        {
+          "id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+          "keywordName": "만화가"
+        },
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" }
+      ]
+    },
+    {
+      "id": "2ba25cc3-865d-4e02-9dfd-ce9006073bd6",
+      "name": "박채연",
+      "416_id": 44,
+      "memory_id": 5388,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=44",
+      "mgmt_id": 57,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5388",
+      "title_keyword_id": "dff6ef2f-8cf9-4f3c-90b8-988e2798b986",
+      "keywords": [
+        {
+          "id": "47fc22a2-5f35-45a1-9e63-a539e2f5c5a0",
+          "keywordName": "아빠의 보물"
+        },
+        {
+          "id": "dff6ef2f-8cf9-4f3c-90b8-988e2798b986",
+          "keywordName": "패션 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "12ccb718-5597-4314-ac40-8b9ae7b95395",
+      "name": "백지숙",
+      "416_id": 67,
+      "memory_id": 5389,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=67",
+      "mgmt_id": 58,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5389",
+      "title_keyword_id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+      "keywords": [
+        {
+          "id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+          "keywordName": "경찰관"
+        },
+        {
+          "id": "7485d130-4dcb-4b27-82e7-8a41ae5e2749",
+          "keywordName": "아빠 판박이"
+        }
+      ]
+    },
+    {
+      "id": "37fdf323-d886-4d0b-ba28-6524ee8b1fcc",
+      "name": "신승희",
+      "416_id": 64,
+      "memory_id": 5390,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=64",
+      "mgmt_id": 59,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5390",
+      "title_keyword_id": "735236c1-1a90-47b5-89dd-bef6e2d30552",
+      "keywords": [
+        { "id": "c2e384b6-44f2-4ff9-9493-6da7fab83083", "keywordName": "효녀" },
+        {
+          "id": "ab8ebfb5-3903-4ca6-b0c2-832d9d9efaf9",
+          "keywordName": "장학생"
+        },
+        {
+          "id": "735236c1-1a90-47b5-89dd-bef6e2d30552",
+          "keywordName": "세무 공무원"
+        }
+      ]
+    },
+    {
+      "id": "e43cfc1a-bda4-4581-bc12-66ccb19f8ec4",
+      "name": "유예은",
+      "416_id": 48,
+      "memory_id": 5391,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=48",
+      "mgmt_id": 60,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5391",
+      "title_keyword_id": "c6ef57cc-4a84-4d9f-ac3a-e657b6e1bf49",
+      "keywords": [
+        {
+          "id": "c6ef57cc-4a84-4d9f-ac3a-e657b6e1bf49",
+          "keywordName": "뮤지컬 배우"
+        }
+      ]
+    },
+    {
+      "id": "be24ca8d-bb04-4521-8c06-4c14599d6593",
+      "name": "유혜원",
+      "416_id": 50,
+      "memory_id": 5392,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=50",
+      "mgmt_id": 61,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5392",
+      "title_keyword_id": "b3a0bc00-8b3f-40c4-b4fe-02d8eb8369f4",
+      "keywords": [
+        {
+          "id": "8069e187-f3ca-4543-9a19-e66c3bb66afa",
+          "keywordName": "팔색조"
+        },
+        {
+          "id": "04d5dc89-7ca7-4b54-8d69-859e8963f818",
+          "keywordName": "의리녀"
+        },
+        {
+          "id": "b3a0bc00-8b3f-40c4-b4fe-02d8eb8369f4",
+          "keywordName": "방송 작가"
+        }
+      ]
+    },
+    {
+      "id": "0df3f4db-6c36-43c8-a784-a950a257d6eb",
+      "name": "이지민",
+      "416_id": 62,
+      "memory_id": 5393,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=62",
+      "mgmt_id": 62,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5393",
+      "title_keyword_id": "64605950-7afc-4bdf-827d-e8c72e4df718",
+      "keywords": [
+        {
+          "id": "204e9915-d220-4d21-ad58-f57c13750817",
+          "keywordName": "주황덕후"
+        },
+        { "id": "64605950-7afc-4bdf-827d-e8c72e4df718", "keywordName": "여군" }
+      ]
+    },
+    {
+      "id": "7fd4d72b-cbbb-4fbc-a77c-379c6350a9b2",
+      "name": "장주이",
+      "416_id": 51,
+      "memory_id": 5394,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=51",
+      "mgmt_id": 63,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5394",
+      "title_keyword_id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f",
+      "keywords": [
+        {
+          "id": "aaa97a5a-0bb3-4340-b7af-0b8bf3a29f85",
+          "keywordName": "금구모"
+        },
+        { "id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f", "keywordName": "장교" },
+        { "id": "f71c5ae6-53c5-4a83-bf8b-d66000e860c7", "keywordName": "기타" }
+      ]
+    },
+    {
+      "id": "bcb44390-4084-4d27-8b00-dc3775dbff80",
+      "name": "전영수",
+      "416_id": 46,
+      "memory_id": 5395,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=46",
+      "mgmt_id": 64,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5395",
+      "title_keyword_id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+          "keywordName": "역사 선생님"
+        }
+      ]
+    },
+    {
+      "id": "358dabd7-185b-45ee-8813-03b0653469a5",
+      "name": "정예진",
+      "416_id": 60,
+      "memory_id": 5396,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=60",
+      "mgmt_id": 65,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5396",
+      "title_keyword_id": "c6ef57cc-4a84-4d9f-ac3a-e657b6e1bf49",
+      "keywords": [
+        {
+          "id": "c6ef57cc-4a84-4d9f-ac3a-e657b6e1bf49",
+          "keywordName": "뮤지컬 배우"
+        },
+        {
+          "id": "e0d7b552-3ae8-4afe-ac5e-f960a31e5eb8",
+          "keywordName": "연예인"
+        }
+      ]
+    },
+    {
+      "id": "39e63785-7ecc-4c2b-8dc5-e1a353bae4f7",
+      "name": "최수희",
+      "416_id": 53,
+      "memory_id": 5397,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=53",
+      "mgmt_id": 66,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5397",
+      "title_keyword_id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+      "keywords": [
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        },
+        {
+          "id": "7c52a9e7-e2ed-4fc8-87d3-fd6c1d923bb4",
+          "keywordName": "별명부자"
+        }
+      ]
+    },
+    {
+      "id": "79c72bf2-04dc-47ce-a5a2-9005285caade",
+      "name": "최윤민",
+      "416_id": 56,
+      "memory_id": 5398,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=56",
+      "mgmt_id": 67,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5398",
+      "title_keyword_id": "acc7a89f-ad34-43a4-afa9-e63e29fe2d47",
+      "keywords": [
+        {
+          "id": "acc7a89f-ad34-43a4-afa9-e63e29fe2d47",
+          "keywordName": "사색가"
+        },
+        {
+          "id": "7b1b26c7-8416-4654-a337-26329313baf2",
+          "keywordName": "봉사자"
+        }
+      ]
+    },
+    {
+      "id": "7fa01bfd-fee8-462e-be85-ab5daa7fa288",
+      "name": "한은지",
+      "416_id": 69,
+      "memory_id": 5399,
+      "class_name": "2학년 3반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=69",
+      "mgmt_id": 68,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5399",
+      "title_keyword_id": "e72e3eff-95ea-4c45-9ebd-268040e10093",
+      "keywords": [
+        { "id": "c0e825fc-29ea-4e56-87c5-cf951a12af08", "keywordName": "작가" },
+        {
+          "id": "e72e3eff-95ea-4c45-9ebd-268040e10093",
+          "keywordName": "사회복지사"
+        }
+      ]
+    },
+    {
+      "id": "c47f9404-de74-429b-b82a-6a006fc252cc",
+      "name": "황지현",
+      "416_id": 52,
+      "memory_id": 5400,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=52",
+      "mgmt_id": 69,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5400",
+      "title_keyword_id": "8596406a-a52a-4461-853f-b4289a80051d",
+      "keywords": [
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" },
+        {
+          "id": "8596406a-a52a-4461-853f-b4289a80051d",
+          "keywordName": "중국어 번역가"
+        }
+      ]
+    },
+    {
+      "id": "c15345e4-8e1b-4039-8a0a-04053d91d496",
+      "name": "강승묵",
+      "416_id": 87,
+      "memory_id": 5401,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=87",
+      "mgmt_id": 70,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5401",
+      "title_keyword_id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+      "keywords": [
+        {
+          "id": "4b2c84d3-8793-49cc-8375-162191aff5f8",
+          "keywordName": "음악가"
+        },
+        {
+          "id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+          "keywordName": "작곡가"
+        }
+      ]
+    },
+    {
+      "id": "ad2e1d2e-66f7-4f5b-bf40-3567d6cba39b",
+      "name": "강신욱",
+      "416_id": 91,
+      "memory_id": 5402,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=91",
+      "mgmt_id": 71,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5402",
+      "title_keyword_id": "fe8126ce-fffe-4f9f-a586-fa2d66da0152",
+      "keywords": [
+        {
+          "id": "f2b0bf94-efc5-43fd-b862-a86dc2070869",
+          "keywordName": "신개념 슈퍼마켓 경영"
+        },
+        {
+          "id": "fe8126ce-fffe-4f9f-a586-fa2d66da0152",
+          "keywordName": "경영인"
+        }
+      ]
+    },
+    {
+      "id": "fc832a6b-e13e-43a1-94f8-0f160d5657d5",
+      "name": "강혁",
+      "416_id": 77,
+      "memory_id": 5403,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=77",
+      "mgmt_id": 72,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5403",
+      "title_keyword_id": "2640e310-89ff-4fc0-a7ea-7a93b51eecc2",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "014c8b48-dd91-48a3-8627-cc99471e6496",
+          "keywordName": "가업승계"
+        },
+        {
+          "id": "dc38e06d-08bd-44ff-bc71-2f550662a9a4",
+          "keywordName": "요식업"
+        }
+      ]
+    },
+    {
+      "id": "6fc0e557-4699-4e5b-8f83-da3d75558f09",
+      "name": "권오천",
+      "416_id": 79,
+      "memory_id": 5404,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=79",
+      "mgmt_id": 73,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5404",
+      "title_keyword_id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+      "keywords": [
+        {
+          "id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+          "keywordName": "체육 선생님"
+        },
+        {
+          "id": "fd7464fc-e525-4902-94a9-db86b3c83401",
+          "keywordName": "운동 선수"
+        }
+      ]
+    },
+    {
+      "id": "b489a8dd-8a9a-4bcc-ae68-1f16029d5b57",
+      "name": "김건우",
+      "416_id": 96,
+      "memory_id": 5405,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=96",
+      "mgmt_id": 74,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5405",
+      "title_keyword_id": "26a89338-df4f-40a0-ba57-a97c008bab48",
+      "keywords": [
+        {
+          "id": "84d29c0f-062b-47bc-aff5-e56c55b4201c",
+          "keywordName": "아빠 바라기"
+        },
+        {
+          "id": "2f2307fc-2b86-46bb-9aff-7974265c5daa",
+          "keywordName": "별명 김건모"
+        },
+        {
+          "id": "ec337e97-c15d-472a-a63f-285f4b250dba",
+          "keywordName": "평범한 가장"
+        }
+      ]
+    },
+    {
+      "id": "81f27c4f-c2ba-49e7-be60-711cec23ecf3",
+      "name": "김대희",
+      "416_id": 97,
+      "memory_id": 5406,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=97",
+      "mgmt_id": 75,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5406",
+      "title_keyword_id": "4be0fb96-1dcf-4f1c-beaa-fc597239e832",
+      "keywords": [
+        {
+          "id": "4be0fb96-1dcf-4f1c-beaa-fc597239e832",
+          "keywordName": "칼리 아르니스 무술 사범"
+        },
+        {
+          "id": "33d67716-a51e-4c12-b6e6-03620df45fb3",
+          "keywordName": "사랑쟁이"
+        }
+      ]
+    },
+    {
+      "id": "033b20e8-1e4f-4ab6-b844-55740005b879",
+      "name": "김동혁",
+      "416_id": 75,
+      "memory_id": 5407,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=75",
+      "mgmt_id": 76,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5407",
+      "title_keyword_id": "f7baedf2-c949-4359-af6f-37d26752b296",
+      "keywords": [
+        {
+          "id": "a349b9a6-b5fa-4f9b-8730-8d4351029011",
+          "keywordName": "농구선수"
+        },
+        {
+          "id": "aa7f0c08-2c20-46f7-8c05-5ef36cb0d651",
+          "keywordName": "프로게이머"
+        },
+        {
+          "id": "f7baedf2-c949-4359-af6f-37d26752b296",
+          "keywordName": "웹 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "22be137a-832f-4bd8-91c4-d7e383e1bf2a",
+      "name": "김범수",
+      "416_id": 78,
+      "memory_id": 5408,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=78",
+      "mgmt_id": 77,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5408",
+      "title_keyword_id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f",
+      "keywords": [
+        {
+          "id": "fd025239-a614-42f2-93a6-8bcf3f9329b2",
+          "keywordName": "형 바라기"
+        },
+        { "id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f", "keywordName": "장교" }
+      ]
+    },
+    {
+      "id": "560802db-72bd-4edd-b98a-154ad1505900",
+      "name": "김용진",
+      "416_id": 86,
+      "memory_id": 5409,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=86",
+      "mgmt_id": 78,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5409",
+      "title_keyword_id": "a2c78345-a7ff-4202-9589-5eb6a0abf4b3",
+      "keywords": [
+        {
+          "id": "a2c78345-a7ff-4202-9589-5eb6a0abf4b3",
+          "keywordName": "마술사"
+        }
+      ]
+    },
+    {
+      "id": "3d262a96-2db8-4b3a-8ecc-448714f03cdd",
+      "name": "김웅기",
+      "416_id": 72,
+      "memory_id": 5410,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=72",
+      "mgmt_id": 79,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5410",
+      "title_keyword_id": "f25ffecf-8dfc-4f4b-a0db-3f2c77b10c83",
+      "keywords": [
+        { "id": "f25ffecf-8dfc-4f4b-a0db-3f2c77b10c83", "keywordName": "법관" }
+      ]
+    },
+    {
+      "id": "8cad1183-c532-4573-a858-3605968b1b13",
+      "name": "김윤수",
+      "416_id": 89,
+      "memory_id": 5411,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=89",
+      "mgmt_id": 80,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5411",
+      "title_keyword_id": "e1e7d452-28ab-4a29-86bd-f68657bf73cc",
+      "keywords": [
+        {
+          "id": "e1e7d452-28ab-4a29-86bd-f68657bf73cc",
+          "keywordName": "방송작가"
+        },
+        {
+          "id": "833b59ca-dc9e-4106-87cf-e15af190d36d",
+          "keywordName": "독서왕"
+        }
+      ]
+    },
+    {
+      "id": "acff8324-abef-4659-b521-87a6485012a6",
+      "name": "김정현",
+      "416_id": 71,
+      "memory_id": 5412,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=71",
+      "mgmt_id": 81,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5412",
+      "title_keyword_id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+          "keywordName": "역사 선생님"
+        }
+      ]
+    },
+    {
+      "id": "08c91e60-7827-4d3b-932e-b064a891efd7",
+      "name": "김호연",
+      "416_id": 85,
+      "memory_id": 5413,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=85",
+      "mgmt_id": 82,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5413",
+      "title_keyword_id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+      "keywords": [
+        {
+          "id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+          "keywordName": "경찰관"
+        },
+        {
+          "id": "22cd2aaa-a659-4a6b-9f52-5254cafb3299",
+          "keywordName": "만능스포츠맨"
+        },
+        {
+          "id": "dc22ca50-70bb-4a57-b7d8-2893d528eeb5",
+          "keywordName": "개그맨"
+        }
+      ]
+    },
+    {
+      "id": "8d3d25a2-950e-4726-b4a9-15a428f2ca85",
+      "name": "박수현",
+      "416_id": 82,
+      "memory_id": 5414,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=82",
+      "mgmt_id": 83,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5414",
+      "title_keyword_id": "49b20411-eb30-4956-80ec-f10036f94daa",
+      "keywords": [
+        {
+          "id": "810738b2-bdd8-4fe0-80ee-2e5c67504822",
+          "keywordName": "일본어 번역가"
+        },
+        {
+          "id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+          "keywordName": "작곡가"
+        },
+        {
+          "id": "49b20411-eb30-4956-80ec-f10036f94daa",
+          "keywordName": "ADHD 밴드 리더"
+        }
+      ]
+    },
+    {
+      "id": "d26148bf-d829-446f-8c6f-ca5d38cde886",
+      "name": "박정훈",
+      "416_id": 93,
+      "memory_id": 5415,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=93",
+      "mgmt_id": 84,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5415",
+      "title_keyword_id": "d33c5d1d-2898-429a-865c-1b5435c3fda0",
+      "keywords": [
+        {
+          "id": "d33c5d1d-2898-429a-865c-1b5435c3fda0",
+          "keywordName": "축구 선수"
+        },
+        {
+          "id": "fd7464fc-e525-4902-94a9-db86b3c83401",
+          "keywordName": "운동 선수"
+        }
+      ]
+    },
+    {
+      "id": "204b918c-d87a-49d7-a4df-66bb199d52b6",
+      "name": "빈하용",
+      "416_id": 90,
+      "memory_id": 5416,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=90",
+      "mgmt_id": 85,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5416",
+      "title_keyword_id": "bb036ca2-e439-4aba-9887-13edafdf6c18",
+      "keywords": [
+        {
+          "id": "5a34cafd-e2bd-4231-abb9-122f29c77e0e",
+          "keywordName": "그래피티예술가"
+        },
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" },
+        {
+          "id": "bb036ca2-e439-4aba-9887-13edafdf6c18",
+          "keywordName": "예술가"
+        }
+      ]
+    },
+    {
+      "id": "492d3c5d-5fdd-4fcb-b4a2-4360e563eea2",
+      "name": "슬라바",
+      "416_id": 88,
+      "memory_id": 5417,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=88",
+      "mgmt_id": 86,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5417",
+      "title_keyword_id": "593237db-fca3-4c14-b50a-e0bbf1b506ff",
+      "keywords": [
+        { "id": "593237db-fca3-4c14-b50a-e0bbf1b506ff", "keywordName": "모델" },
+        {
+          "id": "5587dfd5-720e-4188-9a80-d255dd3cf724",
+          "keywordName": "러시아"
+        },
+        {
+          "id": "1c81084e-2657-4f8d-8a73-3b49d007842e",
+          "keywordName": "수영선수"
+        }
+      ]
+    },
+    {
+      "id": "04d54ad2-3610-434d-852f-c8f1f4ebde7d",
+      "name": "안준혁",
+      "416_id": 70,
+      "memory_id": 5418,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=70",
+      "mgmt_id": 87,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5418",
+      "title_keyword_id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+      "keywords": [
+        {
+          "id": "222b1007-5431-4e6f-9e9e-ba2663fb7743",
+          "keywordName": "고깃집 사장"
+        },
+        {
+          "id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+          "keywordName": "요리사"
+        },
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "f074c91c-5233-418f-891a-e7d9ee6c57ec",
+          "keywordName": "중국 전문가"
+        }
+      ]
+    },
+    {
+      "id": "49b7c29c-3cbe-46f9-ad37-7ba6b27583e1",
+      "name": "안형준",
+      "416_id": 92,
+      "memory_id": 5419,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=92",
+      "mgmt_id": 88,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5419",
+      "title_keyword_id": "dbe169d8-2633-45c6-add4-d1ccd338b077",
+      "keywords": [
+        {
+          "id": "dbe169d8-2633-45c6-add4-d1ccd338b077",
+          "keywordName": "중국어 능력자"
+        },
+        {
+          "id": "868f6f45-de4e-4d50-93ba-2a94f28b7d33",
+          "keywordName": "농구 선수"
+        }
+      ]
+    },
+    {
+      "id": "2b7a245e-dd82-4023-9c8c-cb89d0229353",
+      "name": "임경빈",
+      "416_id": 73,
+      "memory_id": 5420,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=73",
+      "mgmt_id": 89,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5420",
+      "title_keyword_id": "869ce5ca-fb11-4f74-b5d7-b8024d01b045",
+      "keywords": [
+        {
+          "id": "869ce5ca-fb11-4f74-b5d7-b8024d01b045",
+          "keywordName": "태권도 사범"
+        },
+        {
+          "id": "dd7963ff-2980-488f-89a8-cf93670f5d7e",
+          "keywordName": "변호사"
+        },
+        { "id": "0d5f183e-97da-451c-938d-508374f89eca", "keywordName": "검사" }
+      ]
+    },
+    {
+      "id": "e5a79846-cde2-49ab-b316-76086dcfc36e",
+      "name": "임요한",
+      "416_id": 74,
+      "memory_id": 5421,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=74",
+      "mgmt_id": 90,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5421",
+      "title_keyword_id": "abd656bc-d7fa-45d0-a42c-1a700ac149ca",
+      "keywords": [
+        {
+          "id": "fb05feed-8009-4923-8cc2-da0c3f40b123",
+          "keywordName": "신앙인"
+        },
+        {
+          "id": "d267c0a2-32f6-401e-9257-beb7d81d23c5",
+          "keywordName": "종교인"
+        },
+        { "id": "abd656bc-d7fa-45d0-a42c-1a700ac149ca", "keywordName": "목사" }
+      ]
+    },
+    {
+      "id": "50fa5d0e-550e-4fd1-bbf6-9fe79b43440b",
+      "name": "장진용",
+      "416_id": 95,
+      "memory_id": 5422,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=95",
+      "mgmt_id": 91,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5422",
+      "title_keyword_id": "2d2f4b39-0553-456e-b0f9-a37cb276bdc1",
+      "keywords": [
+        {
+          "id": "2d2f4b39-0553-456e-b0f9-a37cb276bdc1",
+          "keywordName": "패셔니스타"
+        },
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        { "id": "3c967a81-5820-4efe-96b9-37bb1c734e3e", "keywordName": "쾌남" }
+      ]
+    },
+    {
+      "id": "1b4962a6-19fb-4178-a138-c940a510466d",
+      "name": "정차웅",
+      "416_id": 76,
+      "memory_id": 5423,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=76",
+      "mgmt_id": 92,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5423",
+      "title_keyword_id": "21dafc01-3d9e-4613-a964-39af4cd9584d",
+      "keywords": [
+        {
+          "id": "5ba1df8a-8541-4132-97af-7892d9378c21",
+          "keywordName": "짱구 춤"
+        },
+        {
+          "id": "21dafc01-3d9e-4613-a964-39af4cd9584d",
+          "keywordName": "검도 사범"
+        }
+      ]
+    },
+    {
+      "id": "68854595-c123-41fb-9b91-b4728e5cfed4",
+      "name": "정휘범",
+      "416_id": 94,
+      "memory_id": 5424,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=94",
+      "mgmt_id": 93,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5424",
+      "title_keyword_id": "17910c24-dc71-4e62-a5c2-f05f37cb8acc",
+      "keywords": [
+        { "id": "b6c2d235-8b6b-4a55-87f9-3af5b6403c0f", "keywordName": "화가" },
+        {
+          "id": "17910c24-dc71-4e62-a5c2-f05f37cb8acc",
+          "keywordName": "자동차 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "60f1b848-b2f9-40fe-a72a-7ba975d4d11a",
+      "name": "진우혁",
+      "416_id": 80,
+      "memory_id": 5425,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=80",
+      "mgmt_id": 94,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5425",
+      "title_keyword_id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+      "keywords": [
+        {
+          "id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+          "keywordName": "만화가"
+        },
+        {
+          "id": "622d95e2-c0ac-4a95-be33-eec034f9f16d",
+          "keywordName": "진라면"
+        },
+        {
+          "id": "d7bc3df4-1e57-45b9-aa9a-980b4fcb96be",
+          "keywordName": "시각디자이너"
+        }
+      ]
+    },
+    {
+      "id": "5b27676f-205d-40ba-81d4-e0b548e2a823",
+      "name": "최성호",
+      "416_id": 81,
+      "memory_id": 5426,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=81",
+      "mgmt_id": 95,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5426",
+      "title_keyword_id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+      "keywords": [
+        { "id": "c0e825fc-29ea-4e56-87c5-cf951a12af08", "keywordName": "작가" },
+        {
+          "id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+          "keywordName": "소설가"
+        }
+      ]
+    },
+    {
+      "id": "4fedb25c-ee86-46b8-aa5b-3c6a30e4033d",
+      "name": "한정무",
+      "416_id": 84,
+      "memory_id": 5427,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=84",
+      "mgmt_id": 96,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5427",
+      "title_keyword_id": "f5245d73-adaf-48cf-bd27-1b0d6e584d4b",
+      "keywords": [
+        {
+          "id": "fd7464fc-e525-4902-94a9-db86b3c83401",
+          "keywordName": "운동 선수"
+        },
+        {
+          "id": "f5245d73-adaf-48cf-bd27-1b0d6e584d4b",
+          "keywordName": "합기도"
+        }
+      ]
+    },
+    {
+      "id": "d63cbf7b-7704-46c1-a30e-110e4a06c1a4",
+      "name": "홍순영",
+      "416_id": 83,
+      "memory_id": 5428,
+      "class_name": "2학년 4반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=83",
+      "mgmt_id": 97,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5428",
+      "title_keyword_id": "98c8375f-4950-4181-95d4-0d5073eca696",
+      "keywords": [
+        {
+          "id": "ffc11d0e-1a9c-4e75-a651-45c990efd6bc",
+          "keywordName": "한의사"
+        },
+        {
+          "id": "98c8375f-4950-4181-95d4-0d5073eca696",
+          "keywordName": "애니메이션 감독"
+        }
+      ]
+    },
+    {
+      "id": "6aae77f1-c0d6-49aa-9ca5-7e90996ef373",
+      "name": "김건우",
+      "416_id": 108,
+      "memory_id": 5429,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=108",
+      "mgmt_id": 98,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5429",
+      "title_keyword_id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+      "keywords": [
+        {
+          "id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+          "keywordName": "체육 선생님"
+        },
+        {
+          "id": "b31db59f-16e6-4b15-9e70-2f31917f6a54",
+          "keywordName": "줄넘기선수"
+        }
+      ]
+    },
+    {
+      "id": "93a71c2c-8a1e-49ae-b685-ca65fd7b5138",
+      "name": "김건우",
+      "416_id": 115,
+      "memory_id": 5430,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=115",
+      "mgmt_id": 99,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5430",
+      "title_keyword_id": "7d68ba06-eacc-438e-8ae6-24ba3cdd05c6",
+      "keywords": [
+        {
+          "id": "7949b76e-e52b-4ce9-8c77-61d8192961fb",
+          "keywordName": "뮤지션"
+        },
+        {
+          "id": "7d68ba06-eacc-438e-8ae6-24ba3cdd05c6",
+          "keywordName": "심리학자"
+        }
+      ]
+    },
+    {
+      "id": "815ca3fc-d2c1-4712-b74e-718cb9655401",
+      "name": "김도현",
+      "416_id": 114,
+      "memory_id": 5431,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=114",
+      "mgmt_id": 100,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5431",
+      "title_keyword_id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+      "keywords": [
+        {
+          "id": "ae4a2b71-1e45-4ede-97ef-f0cc7d9aa27f",
+          "keywordName": "절대음감"
+        },
+        {
+          "id": "73334458-bdb7-46b5-ae09-a5a7e4a3b38b",
+          "keywordName": "피아니스트"
+        },
+        {
+          "id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+          "keywordName": "작곡가"
+        }
+      ]
+    },
+    {
+      "id": "39871db6-0661-4397-9274-4e06c4e6e5f2",
+      "name": "김민석",
+      "416_id": 116,
+      "memory_id": 5432,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=116",
+      "mgmt_id": 101,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5432",
+      "title_keyword_id": "53bb874c-c5c3-4470-b498-a42d3e74d798",
+      "keywords": [
+        {
+          "id": "4476b968-0223-48af-9c1a-7195a94cfbfd",
+          "keywordName": "성실맨"
+        },
+        {
+          "id": "53bb874c-c5c3-4470-b498-a42d3e74d798",
+          "keywordName": "교과 도우미"
+        }
+      ]
+    },
+    {
+      "id": "611058cd-4eeb-4e1c-b0fd-c54597174220",
+      "name": "김민성",
+      "416_id": 123,
+      "memory_id": 5433,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=123",
+      "mgmt_id": 102,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5433",
+      "title_keyword_id": "43038c83-4517-42b2-b610-2dfecb7d0ad0",
+      "keywords": [
+        {
+          "id": "43038c83-4517-42b2-b610-2dfecb7d0ad0",
+          "keywordName": "특수부대 군인"
+        },
+        {
+          "id": "bc8ff441-c256-4e9b-8c2b-a4acf1cf2691",
+          "keywordName": "특공 무술"
+        }
+      ]
+    },
+    {
+      "id": "6219734a-1ebd-44e5-be56-2ee1225b5df8",
+      "name": "김성현",
+      "416_id": 104,
+      "memory_id": 5434,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=104",
+      "mgmt_id": 103,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5434",
+      "title_keyword_id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+          "keywordName": "역사 선생님"
+        }
+      ]
+    },
+    {
+      "id": "f0fb1d9a-af50-420c-854c-ecb78f8118ed",
+      "name": "김완준",
+      "416_id": 124,
+      "memory_id": 5435,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=124",
+      "mgmt_id": 104,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5435",
+      "title_keyword_id": "264f24a2-464d-4fee-bccb-79d51109fa60",
+      "keywords": [
+        {
+          "id": "9d7e3c29-e614-4aa2-9d85-ce9623fe45aa",
+          "keywordName": "프로파일러"
+        },
+        {
+          "id": "264f24a2-464d-4fee-bccb-79d51109fa60",
+          "keywordName": "범죄심리분석관"
+        }
+      ]
+    },
+    {
+      "id": "2c86feb9-85c7-4f92-87d2-d9384dafaa0e",
+      "name": "김인호",
+      "416_id": 112,
+      "memory_id": 5436,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=112",
+      "mgmt_id": 105,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5436",
+      "title_keyword_id": "9b397141-73dc-4805-bc7a-1cc199adc4d3",
+      "keywords": [
+        {
+          "id": "9b397141-73dc-4805-bc7a-1cc199adc4d3",
+          "keywordName": "사육사"
+        },
+        {
+          "id": "22cd2aaa-a659-4a6b-9f52-5254cafb3299",
+          "keywordName": "만능스포츠맨"
+        }
+      ]
+    },
+    {
+      "id": "36588ef0-1faa-47fe-a6e6-07c9cb84c130",
+      "name": "김진광",
+      "416_id": 113,
+      "memory_id": 5437,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=113",
+      "mgmt_id": 106,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5437",
+      "title_keyword_id": "2fa626c9-036f-47a0-bfc6-079924bb4d5b",
+      "keywords": [
+        {
+          "id": "2fa626c9-036f-47a0-bfc6-079924bb4d5b",
+          "keywordName": "합기도 관장"
+        },
+        {
+          "id": "53b70e84-fecf-4c31-9078-77e0d3d53e94",
+          "keywordName": "고민상담사"
+        }
+      ]
+    },
+    {
+      "id": "015c1d2c-9853-4cb0-b28e-c6654de23e00",
+      "name": "김한별",
+      "416_id": 110,
+      "memory_id": 5438,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=110",
+      "mgmt_id": 107,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5438",
+      "title_keyword_id": "aa7f0c08-2c20-46f7-8c05-5ef36cb0d651",
+      "keywords": [
+        {
+          "id": "aa7f0c08-2c20-46f7-8c05-5ef36cb0d651",
+          "keywordName": "프로게이머"
+        }
+      ]
+    },
+    {
+      "id": "b0d8afe9-190f-4ed2-aa36-ead02010eac2",
+      "name": "문중식",
+      "416_id": 106,
+      "memory_id": 5439,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=106",
+      "mgmt_id": 108,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5439",
+      "title_keyword_id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+      "keywords": [
+        {
+          "id": "124179af-b597-48a3-97f6-abfaa575f588",
+          "keywordName": "복싱선수"
+        },
+        {
+          "id": "32d5e6b1-22b8-4d98-8685-96aebc6a3187",
+          "keywordName": "생활체육인"
+        },
+        {
+          "id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+          "keywordName": "경호원"
+        }
+      ]
+    },
+    {
+      "id": "d8936efa-a436-496c-b814-cbf85d514ed8",
+      "name": "박성호",
+      "416_id": 107,
+      "memory_id": 5440,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=107",
+      "mgmt_id": 109,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5440",
+      "title_keyword_id": "528879ad-770c-400d-baf3-08fa417680f3",
+      "keywords": [
+        {
+          "id": "9dce091b-a8bc-4566-b748-d01eb008ced5",
+          "keywordName": "평화주의자"
+        },
+        { "id": "528879ad-770c-400d-baf3-08fa417680f3", "keywordName": "사제" },
+        {
+          "id": "293e6bfc-4707-4ae9-b538-673c5bee8a8c",
+          "keywordName": "성직자"
+        }
+      ]
+    },
+    {
+      "id": "196021b2-7c7e-44c9-8bc3-0232d714020c",
+      "name": "박준민",
+      "416_id": 105,
+      "memory_id": 5441,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=105",
+      "mgmt_id": 110,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5441",
+      "title_keyword_id": "4c708d81-69ef-4a1d-b15c-1c3d00e552bb",
+      "keywords": [
+        {
+          "id": "4c708d81-69ef-4a1d-b15c-1c3d00e552bb",
+          "keywordName": "바리스타"
+        }
+      ]
+    },
+    {
+      "id": "5eb42b2b-a995-46ca-99c0-bead08f19847",
+      "name": "박진리",
+      "416_id": 121,
+      "memory_id": 5442,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=121",
+      "mgmt_id": 111,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5442",
+      "title_keyword_id": "5b66cd22-0193-451e-9a6b-8dd53caf1a78",
+      "keywords": [
+        {
+          "id": "d267c0a2-32f6-401e-9257-beb7d81d23c5",
+          "keywordName": "종교인"
+        },
+        {
+          "id": "5b66cd22-0193-451e-9a6b-8dd53caf1a78",
+          "keywordName": "대건 안드레아"
+        }
+      ]
+    },
+    {
+      "id": "ae95890a-be45-49bd-84a7-f3eb63f43c95",
+      "name": "박홍래",
+      "416_id": 120,
+      "memory_id": 5443,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=120",
+      "mgmt_id": 112,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5443",
+      "title_keyword_id": "6d933064-8a02-4f66-894a-5747eff435e1",
+      "keywords": [
+        {
+          "id": "d9074c5d-d748-4898-9d7c-b1a9037ae074",
+          "keywordName": "운동선수"
+        },
+        {
+          "id": "6d933064-8a02-4f66-894a-5747eff435e1",
+          "keywordName": "이종격투기 선수"
+        }
+      ]
+    },
+    {
+      "id": "3a8a2d5d-0ceb-4505-b2a9-c715e6486a97",
+      "name": "서동진",
+      "416_id": 117,
+      "memory_id": 5444,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=117",
+      "mgmt_id": 113,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5444",
+      "title_keyword_id": "fab88626-b46f-4e6d-bde5-a320b8892728",
+      "keywords": [
+        {
+          "id": "e9c131f9-5de9-4c42-be13-73ca80ea6e5a",
+          "keywordName": "명랑 소년"
+        },
+        { "id": "fab88626-b46f-4e6d-bde5-a320b8892728", "keywordName": "가수" },
+        {
+          "id": "e0d7b552-3ae8-4afe-ac5e-f960a31e5eb8",
+          "keywordName": "연예인"
+        }
+      ]
+    },
+    {
+      "id": "87ef7287-0a0f-42ef-9388-7b117f9ecf2d",
+      "name": "오준영",
+      "416_id": 122,
+      "memory_id": 5445,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=122",
+      "mgmt_id": 114,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5445",
+      "title_keyword_id": "735236c1-1a90-47b5-89dd-bef6e2d30552",
+      "keywords": [
+        {
+          "id": "735236c1-1a90-47b5-89dd-bef6e2d30552",
+          "keywordName": "세무 공무원"
+        },
+        {
+          "id": "07d4e4bc-700c-44f8-8164-7cf06238c79b",
+          "keywordName": "애교쟁이"
+        }
+      ]
+    },
+    {
+      "id": "736a737c-b500-4066-8efc-38f09ea050bb",
+      "name": "이석준",
+      "416_id": 103,
+      "memory_id": 5446,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=103",
+      "mgmt_id": 115,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5446",
+      "title_keyword_id": "fdf196d7-8953-401f-8b37-17c7601d2023",
+      "keywords": [
+        {
+          "id": "fdf196d7-8953-401f-8b37-17c7601d2023",
+          "keywordName": "관광 가이드"
+        },
+        {
+          "id": "8ba5c35f-d32a-4174-a2c3-3ad9b95f0e4e",
+          "keywordName": "세계여행가"
+        }
+      ]
+    },
+    {
+      "id": "49f35ed1-fb5a-4ed3-a153-544861dc025c",
+      "name": "이진환",
+      "416_id": 102,
+      "memory_id": 5447,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=102",
+      "mgmt_id": 116,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5447",
+      "title_keyword_id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+          "keywordName": "체육 선생님"
+        }
+      ]
+    },
+    {
+      "id": "4992f93a-a938-40cf-97e2-5628b4a6d28f",
+      "name": "이창현",
+      "416_id": 100,
+      "memory_id": 5448,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=100",
+      "mgmt_id": 117,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5448",
+      "title_keyword_id": "0459ad5a-f499-4d06-a62c-fb98aa73d844",
+      "keywords": [
+        {
+          "id": "a0132078-f268-46a0-8bc2-8ba9c031b1cc",
+          "keywordName": "펭귄덕후"
+        },
+        { "id": "cf01766a-c097-4224-a08d-727c59de936f", "keywordName": "운동" },
+        {
+          "id": "8b9053c3-c85c-4a8f-ac38-d37322aff875",
+          "keywordName": "의리남"
+        },
+        {
+          "id": "0459ad5a-f499-4d06-a62c-fb98aa73d844",
+          "keywordName": "국밥집 사장님"
+        }
+      ]
+    },
+    {
+      "id": "20dc89aa-32bd-4400-86df-69dfd39172c7",
+      "name": "이홍승",
+      "416_id": 98,
+      "memory_id": 5449,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=98",
+      "mgmt_id": 118,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5449",
+      "title_keyword_id": "acc1ee3d-8c8d-4886-a2d2-28bdf9c593a8",
+      "keywords": [
+        {
+          "id": "6a30e099-339d-47d7-b33e-d4718e9e372d",
+          "keywordName": "의상디자이너"
+        },
+        {
+          "id": "acc1ee3d-8c8d-4886-a2d2-28bdf9c593a8",
+          "keywordName": "헤어디자이너"
+        }
+      ]
+    },
+    {
+      "id": "bf5198be-0b68-4d5f-890f-4c589bb5982c",
+      "name": "인태범",
+      "416_id": 101,
+      "memory_id": 5450,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=101",
+      "mgmt_id": 119,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5450",
+      "title_keyword_id": "41552355-2912-4b5b-8953-95de53c958a8",
+      "keywords": [
+        {
+          "id": "41552355-2912-4b5b-8953-95de53c958a8",
+          "keywordName": "실용미술"
+        },
+        {
+          "id": "b9f7df38-6c58-45c3-be2f-7697b3c9a16d",
+          "keywordName": "다정다감"
+        }
+      ]
+    },
+    {
+      "id": "9b6da04c-0803-4d5a-95c1-e320d98a7765",
+      "name": "정이삭",
+      "416_id": 109,
+      "memory_id": 5451,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=109",
+      "mgmt_id": 120,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5451",
+      "title_keyword_id": "e72e3eff-95ea-4c45-9ebd-268040e10093",
+      "keywords": [
+        {
+          "id": "e72e3eff-95ea-4c45-9ebd-268040e10093",
+          "keywordName": "사회복지사"
+        }
+      ]
+    },
+    {
+      "id": "81e610c5-1318-49b0-bab4-88f5602a8380",
+      "name": "조성원",
+      "416_id": 119,
+      "memory_id": 5452,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=119",
+      "mgmt_id": 121,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5452",
+      "title_keyword_id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+      "keywords": [
+        {
+          "id": "3a087c37-c6fe-438d-af81-6e7221bd91ba",
+          "keywordName": "마이콜"
+        },
+        {
+          "id": "3c901e3d-f03c-4c36-98ba-d23d209e1295",
+          "keywordName": "역사 선생님"
+        }
+      ]
+    },
+    {
+      "id": "06b929d1-128d-41ca-8815-c958ba8b23b6",
+      "name": "천인호",
+      "416_id": 99,
+      "memory_id": 5453,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=99",
+      "mgmt_id": 122,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5453",
+      "title_keyword_id": "78b97410-51f7-44c0-a29b-1af3f5ab7fdc",
+      "keywords": [
+        {
+          "id": "b1d65bb7-2d76-44df-8849-dd3a233efaec",
+          "keywordName": "빵나눔 봉사"
+        },
+        {
+          "id": "78b97410-51f7-44c0-a29b-1af3f5ab7fdc",
+          "keywordName": "제과제빵사"
+        }
+      ]
+    },
+    {
+      "id": "7ab4fce0-e822-405e-9de4-55667718dca0",
+      "name": "최남혁",
+      "416_id": 118,
+      "memory_id": 5454,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=118",
+      "mgmt_id": 123,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5454",
+      "title_keyword_id": "0d5f183e-97da-451c-938d-508374f89eca",
+      "keywords": [
+        { "id": "0d5f183e-97da-451c-938d-508374f89eca", "keywordName": "검사" }
+      ]
+    },
+    {
+      "id": "b5b51e66-34f3-443e-be52-d3de57e72c54",
+      "name": "최민석",
+      "416_id": 111,
+      "memory_id": 5455,
+      "class_name": "2학년 5반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=111",
+      "mgmt_id": 124,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5455",
+      "title_keyword_id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+      "keywords": [
+        {
+          "id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+          "keywordName": "경찰관"
+        },
+        {
+          "id": "ac4bb740-3fe0-4cc8-a41f-08ebd6e14a9c",
+          "keywordName": "애니메이션"
+        },
+        { "id": "218d5905-4554-4a9a-9970-ae003de4168d", "keywordName": "독서" }
+      ]
+    },
+    {
+      "id": "c40e7ed7-b481-4b3a-8d5c-683cd843a435",
+      "name": "구태민",
+      "416_id": 148,
+      "memory_id": 5456,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=148",
+      "mgmt_id": 125,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5456",
+      "title_keyword_id": "76ee4101-8d18-4c7f-8e81-1ec6f4cac96c",
+      "keywords": [
+        {
+          "id": "d810ea86-1400-4134-856d-bfce923547ec",
+          "keywordName": "카투사"
+        },
+        {
+          "id": "53b70e84-fecf-4c31-9078-77e0d3d53e94",
+          "keywordName": "고민상담사"
+        },
+        { "id": "76ee4101-8d18-4c7f-8e81-1ec6f4cac96c", "keywordName": "ROTC" }
+      ]
+    },
+    {
+      "id": "aa444660-f7c4-46f9-8d5c-2ae733aab613",
+      "name": "권순범",
+      "416_id": 144,
+      "memory_id": 5457,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=144",
+      "mgmt_id": 126,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5457",
+      "title_keyword_id": "593237db-fca3-4c14-b50a-e0bbf1b506ff",
+      "keywords": [
+        { "id": "593237db-fca3-4c14-b50a-e0bbf1b506ff", "keywordName": "모델" },
+        {
+          "id": "4926fdfa-c26d-4cf7-b62e-67feb3167ee3",
+          "keywordName": "가정적인 사람"
+        }
+      ]
+    },
+    {
+      "id": "f7b41ae1-bd28-4482-81f5-089316cffeaf",
+      "name": "김동영",
+      "416_id": 135,
+      "memory_id": 5458,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=135",
+      "mgmt_id": 127,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5458",
+      "title_keyword_id": "6101f0eb-0685-4fca-8286-0f4f5b28087d",
+      "keywords": [
+        {
+          "id": "6101f0eb-0685-4fca-8286-0f4f5b28087d",
+          "keywordName": "공무원"
+        }
+      ]
+    },
+    {
+      "id": "361ef63b-628c-42e6-8118-a4d22272268f",
+      "name": "김동협",
+      "416_id": 129,
+      "memory_id": 5459,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=129",
+      "mgmt_id": 128,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5459",
+      "title_keyword_id": "9aafedb1-b74f-4691-8b79-f28e92f05eaf",
+      "keywords": [
+        {
+          "id": "9aafedb1-b74f-4691-8b79-f28e92f05eaf",
+          "keywordName": "연극배우"
+        }
+      ]
+    },
+    {
+      "id": "7254b989-0b70-4363-aeb0-40a98943a705",
+      "name": "김민규",
+      "416_id": 147,
+      "memory_id": 5460,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=147",
+      "mgmt_id": 129,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5460",
+      "title_keyword_id": "5dff41fc-1d29-4387-bdb3-71fadc145f94",
+      "keywords": [
+        {
+          "id": "5dff41fc-1d29-4387-bdb3-71fadc145f94",
+          "keywordName": "사업가"
+        }
+      ]
+    },
+    {
+      "id": "1dfa2680-da1a-45b0-a110-2d382b97f362",
+      "name": "김승태",
+      "416_id": 145,
+      "memory_id": 5461,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=145",
+      "mgmt_id": 130,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5461",
+      "title_keyword_id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+      "keywords": [
+        { "id": "fab88626-b46f-4e6d-bde5-a320b8892728", "keywordName": "가수" },
+        {
+          "id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+          "keywordName": "체육 선생님"
+        }
+      ]
+    },
+    {
+      "id": "0f7fa948-01a8-43c9-94a8-732874f9928a",
+      "name": "김승혁",
+      "416_id": 132,
+      "memory_id": 5462,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=132",
+      "mgmt_id": 131,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5462",
+      "title_keyword_id": "5871b3ff-7632-4cd9-bab7-ac0ef7135b15",
+      "keywords": [
+        {
+          "id": "5bb5c97d-77be-4d84-8c8e-6022e092c766",
+          "keywordName": "건축디자이너"
+        },
+        {
+          "id": "5871b3ff-7632-4cd9-bab7-ac0ef7135b15",
+          "keywordName": "건축 설계사"
+        }
+      ]
+    },
+    {
+      "id": "5a98761b-695f-4714-8b5e-0c3e385ce74b",
+      "name": "김승환",
+      "416_id": 137,
+      "memory_id": 5463,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=137",
+      "mgmt_id": 132,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5463",
+      "title_keyword_id": "4426a3c6-a69f-4d5c-a6c8-7b2a3b675d74",
+      "keywords": [
+        {
+          "id": "f98e73df-1450-4f0b-a6bd-3a733565114e",
+          "keywordName": "보컬활동"
+        },
+        {
+          "id": "4426a3c6-a69f-4d5c-a6c8-7b2a3b675d74",
+          "keywordName": "헤어아티스트"
+        }
+      ]
+    },
+    {
+      "id": "21e0eb8f-43ce-4de9-a275-2742f01baabb",
+      "name": "남현철",
+      "416_id": 138,
+      "memory_id": 5464,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=138",
+      "mgmt_id": 133,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5464",
+      "title_keyword_id": "e5083166-a77e-4574-b3af-ed80c4d14220",
+      "keywords": [
+        {
+          "id": "89bc6338-e2a2-4bdd-93f0-2379867598ef",
+          "keywordName": "작곡가"
+        },
+        {
+          "id": "e43722a8-07cd-4579-9bbf-0fc2f7eb307a",
+          "keywordName": "기타리스트"
+        },
+        {
+          "id": "e5083166-a77e-4574-b3af-ed80c4d14220",
+          "keywordName": "영어 선생님"
+        }
+      ]
+    },
+    {
+      "id": "e69d7550-d799-4fba-8a69-508514496bd2",
+      "name": "박새도",
+      "416_id": 142,
+      "memory_id": 5465,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=142",
+      "mgmt_id": 134,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5465",
+      "title_keyword_id": "15c47cdb-2e4e-46ff-8d03-f82a1a343330",
+      "keywords": [
+        {
+          "id": "2960688d-0a2c-4bea-865a-93f4abf734cd",
+          "keywordName": "특수학교 교사"
+        },
+        { "id": "15c47cdb-2e4e-46ff-8d03-f82a1a343330", "keywordName": "육상" },
+        { "id": "cf01766a-c097-4224-a08d-727c59de936f", "keywordName": "운동" },
+        {
+          "id": "d4ddfd7e-1f18-4440-b273-dd32ceaf2229",
+          "keywordName": "용접공"
+        }
+      ]
+    },
+    {
+      "id": "e298b1ec-4bcc-4571-8b9c-e52c13269b65",
+      "name": "박영인",
+      "416_id": 125,
+      "memory_id": 5466,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=125",
+      "mgmt_id": 135,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5466",
+      "title_keyword_id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        { "id": "8082d79c-1d13-47ce-9a56-0a0035bb97b5", "keywordName": "볼링" },
+        {
+          "id": "5905d0bd-e12b-4143-9f8a-74f4b3855a40",
+          "keywordName": "운동마니아"
+        }
+      ]
+    },
+    {
+      "id": "712a562c-176b-4c2d-96a2-0ee1e63ad142",
+      "name": "서재능",
+      "416_id": 140,
+      "memory_id": 5467,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=140",
+      "mgmt_id": 136,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5467",
+      "title_keyword_id": "6836ef8c-fd88-4d82-9d03-a924e71d96bd",
+      "keywords": [
+        {
+          "id": "6836ef8c-fd88-4d82-9d03-a924e71d96bd",
+          "keywordName": "외교관"
+        },
+        { "id": "cf01766a-c097-4224-a08d-727c59de936f", "keywordName": "운동" }
+      ]
+    },
+    {
+      "id": "98502ff5-a26f-4ce8-b7b1-cd03a465426f",
+      "name": "선우진",
+      "416_id": 149,
+      "memory_id": 5468,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=149",
+      "mgmt_id": 137,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5468",
+      "title_keyword_id": "47aaed37-441e-445b-be75-6d623152ed39",
+      "keywords": [
+        {
+          "id": "47aaed37-441e-445b-be75-6d623152ed39",
+          "keywordName": "축구 해설가"
+        }
+      ]
+    },
+    {
+      "id": "6a0397a3-e85e-44e7-9396-c47e23c5a13a",
+      "name": "신호성",
+      "416_id": 131,
+      "memory_id": 5469,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=131",
+      "mgmt_id": 138,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5469",
+      "title_keyword_id": "b2fc95d1-23a3-4d13-85ad-dc3038e4396e",
+      "keywords": [
+        {
+          "id": "b2fc95d1-23a3-4d13-85ad-dc3038e4396e",
+          "keywordName": "국어 선생님"
+        },
+        { "id": "c0e825fc-29ea-4e56-87c5-cf951a12af08", "keywordName": "작가" }
+      ]
+    },
+    {
+      "id": "1a2a8be1-fd56-47ec-a645-f2d9b66a3e04",
+      "name": "이건계",
+      "416_id": 128,
+      "memory_id": 5470,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=128",
+      "mgmt_id": 139,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5470",
+      "title_keyword_id": "5e051e94-6b1f-4fda-a7ef-3c08c699ae15",
+      "keywords": [
+        {
+          "id": "5e051e94-6b1f-4fda-a7ef-3c08c699ae15",
+          "keywordName": "그래픽 디자이너"
+        },
+        {
+          "id": "c8aafc66-823c-47b3-9c51-960c9fb64510",
+          "keywordName": "미소천사"
+        }
+      ]
+    },
+    {
+      "id": "3c5b1a8e-47ce-495e-8093-dfb5a5b6094e",
+      "name": "이다운",
+      "416_id": 126,
+      "memory_id": 5471,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=126",
+      "mgmt_id": 140,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5471",
+      "title_keyword_id": "7949b76e-e52b-4ce9-8c77-61d8192961fb",
+      "keywords": [
+        {
+          "id": "65784483-d44d-490d-9ef2-dc39722f9e7a",
+          "keywordName": "에너지 발전소"
+        },
+        {
+          "id": "7949b76e-e52b-4ce9-8c77-61d8192961fb",
+          "keywordName": "뮤지션"
+        }
+      ]
+    },
+    {
+      "id": "084ee08f-32d6-4b83-8312-25d4689726fc",
+      "name": "이세현",
+      "416_id": 146,
+      "memory_id": 5472,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=146",
+      "mgmt_id": 141,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5472",
+      "title_keyword_id": "407f3e73-f9de-4ec5-aa6b-20a171c991de",
+      "keywords": [
+        {
+          "id": "407f3e73-f9de-4ec5-aa6b-20a171c991de",
+          "keywordName": "회계사"
+        }
+      ]
+    },
+    {
+      "id": "c9d252c9-630a-4435-91aa-7311f73322e1",
+      "name": "이영만",
+      "416_id": 127,
+      "memory_id": 5473,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=127",
+      "mgmt_id": 142,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5473",
+      "title_keyword_id": "1ab12cd5-c4a9-4c75-ab7a-2c7e3a0c4199",
+      "keywords": [
+        {
+          "id": "1ab12cd5-c4a9-4c75-ab7a-2c7e3a0c4199",
+          "keywordName": "우주 과학자"
+        },
+        {
+          "id": "c8aafc66-823c-47b3-9c51-960c9fb64510",
+          "keywordName": "미소천사"
+        }
+      ]
+    },
+    {
+      "id": "344246b5-3a75-4f0a-a132-ff95067efc30",
+      "name": "이장환",
+      "416_id": 130,
+      "memory_id": 5474,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=130",
+      "mgmt_id": 143,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5474",
+      "title_keyword_id": "dff6ef2f-8cf9-4f3c-90b8-988e2798b986",
+      "keywords": [
+        {
+          "id": "a9365ce4-ed7a-4919-9316-435ed6fa5760",
+          "keywordName": "어른 공경"
+        },
+        {
+          "id": "dff6ef2f-8cf9-4f3c-90b8-988e2798b986",
+          "keywordName": "패션 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "bc9e2eca-5289-485b-a1af-fb94d6abcaaa",
+      "name": "이태민",
+      "416_id": 143,
+      "memory_id": 5475,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=143",
+      "mgmt_id": 144,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5475",
+      "title_keyword_id": "9f350402-cdc9-42e2-a856-1ab9f215b203",
+      "keywords": [
+        {
+          "id": "9f350402-cdc9-42e2-a856-1ab9f215b203",
+          "keywordName": "호텔 요리사"
+        },
+        {
+          "id": "43616516-12bf-4645-9b8d-40a9acfc7bd1",
+          "keywordName": "행복한 요리사"
+        }
+      ]
+    },
+    {
+      "id": "51bd96c1-c3ce-4111-b6d2-62740c8065fe",
+      "name": "전현탁",
+      "416_id": 136,
+      "memory_id": 5476,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=136",
+      "mgmt_id": 145,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5476",
+      "title_keyword_id": "412b0a97-f8c1-4005-a768-a8ad131e14c9",
+      "keywords": [
+        {
+          "id": "412b0a97-f8c1-4005-a768-a8ad131e14c9",
+          "keywordName": "아나운서"
+        }
+      ]
+    },
+    {
+      "id": "3d541a4b-1f24-4d66-94e3-02f891c83eb0",
+      "name": "정원석",
+      "416_id": 134,
+      "memory_id": 5477,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=134",
+      "mgmt_id": 146,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5477",
+      "title_keyword_id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f",
+      "keywords": [
+        {
+          "id": "5ee60965-a920-4b6e-b8c7-220668418dfe",
+          "keywordName": "엄마의 보디가드"
+        },
+        { "id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f", "keywordName": "장교" }
+      ]
+    },
+    {
+      "id": "fa034b3b-d07e-4225-a1e0-eccde7956a4f",
+      "name": "최덕하",
+      "416_id": 139,
+      "memory_id": 5478,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=139",
+      "mgmt_id": 147,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5478",
+      "title_keyword_id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+      "keywords": [
+        {
+          "id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+          "keywordName": "경호원"
+        }
+      ]
+    },
+    {
+      "id": "88b7bf5a-67a2-4543-ad56-c80b70d1a44d",
+      "name": "홍종영",
+      "416_id": 133,
+      "memory_id": 5479,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=133",
+      "mgmt_id": 148,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5479",
+      "title_keyword_id": "f25ffecf-8dfc-4f4b-a0db-3f2c77b10c83",
+      "keywords": [
+        {
+          "id": "8e238141-b3ab-4454-9ac6-a86ea93e468b",
+          "keywordName": "법조인"
+        },
+        { "id": "f25ffecf-8dfc-4f4b-a0db-3f2c77b10c83", "keywordName": "법관" }
+      ]
+    },
+    {
+      "id": "cc2bb04f-9552-49d0-8c1f-dbe68a8a6337",
+      "name": "황민우",
+      "416_id": 141,
+      "memory_id": 5480,
+      "class_name": "2학년 6반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=141",
+      "mgmt_id": 149,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5480",
+      "title_keyword_id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+      "keywords": [
+        {
+          "id": "e0257330-b9f7-401e-bdcc-f9a1d2fe468a",
+          "keywordName": "체육 선생님"
+        }
+      ]
+    },
+    {
+      "id": "0e74ff51-80c7-4b0f-a03b-cbf3c2a48574",
+      "name": "곽수인",
+      "416_id": 175,
+      "memory_id": 5481,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=175",
+      "mgmt_id": 150,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5481",
+      "title_keyword_id": "b3222e15-39a9-4f92-8568-4f5416345f57",
+      "keywords": [
+        {
+          "id": "b3222e15-39a9-4f92-8568-4f5416345f57",
+          "keywordName": "다국적 기업 취직"
+        },
+        {
+          "id": "8ba5c35f-d32a-4174-a2c3-3ad9b95f0e4e",
+          "keywordName": "세계여행가"
+        }
+      ]
+    },
+    {
+      "id": "2580097e-2215-412d-a43b-17e137daf964",
+      "name": "국승현",
+      "416_id": 170,
+      "memory_id": 5482,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=170",
+      "mgmt_id": 151,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5482",
+      "title_keyword_id": "25f47c04-1a68-4a15-93be-603debe59cbe",
+      "keywords": [
+        {
+          "id": "f902ace2-59b3-4621-86d4-54139ad3318e",
+          "keywordName": "수학 좋아함"
+        },
+        { "id": "ac3f03f1-9f93-41e6-9d07-012bed1bfa71", "keywordName": "농구" },
+        {
+          "id": "5b2bae9a-9c02-49f4-9f1a-e8ae2884438c",
+          "keywordName": "보라색"
+        },
+        {
+          "id": "25f47c04-1a68-4a15-93be-603debe59cbe",
+          "keywordName": "과학자"
+        }
+      ]
+    },
+    {
+      "id": "b4cabdec-b264-4922-accb-04fe0dec2555",
+      "name": "김건호",
+      "416_id": 172,
+      "memory_id": 5483,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=172",
+      "mgmt_id": 152,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5483",
+      "title_keyword_id": "aa20f108-954c-445a-8a36-5f46151d3fc8",
+      "keywords": [
+        {
+          "id": "69220b0a-3e8b-46bb-a2d1-2d81442080e0",
+          "keywordName": "털털함"
+        },
+        {
+          "id": "aa20f108-954c-445a-8a36-5f46151d3fc8",
+          "keywordName": "간지쿵"
+        }
+      ]
+    },
+    {
+      "id": "d256037d-2a85-4341-a991-acaa04324338",
+      "name": "김기수",
+      "416_id": 166,
+      "memory_id": 5484,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=166",
+      "mgmt_id": 153,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5484",
+      "title_keyword_id": "61f96cc9-565c-45b8-b605-7f2f7a2a3543",
+      "keywords": [
+        {
+          "id": "f54d11ec-8507-4f8c-b067-4b7fbd2e879d",
+          "keywordName": "의젓함"
+        },
+        {
+          "id": "4942e216-c34e-40b4-ba04-cfa5e3dabc98",
+          "keywordName": "매력 속눈썹"
+        },
+        {
+          "id": "61f96cc9-565c-45b8-b605-7f2f7a2a3543",
+          "keywordName": "누나들의 보디가드"
+        }
+      ]
+    },
+    {
+      "id": "aca09927-ed68-4bd9-9da7-97a0a849a76d",
+      "name": "김민수",
+      "416_id": 164,
+      "memory_id": 5485,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=164",
+      "mgmt_id": 154,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5485",
+      "title_keyword_id": "664afa5a-72fb-4ffa-8640-e7e87a4ba307",
+      "keywords": [
+        {
+          "id": "664afa5a-72fb-4ffa-8640-e7e87a4ba307",
+          "keywordName": "수학 선생님"
+        }
+      ]
+    },
+    {
+      "id": "46a3c685-4c50-434d-8ea9-2d6bed73bc96",
+      "name": "김상호",
+      "416_id": 154,
+      "memory_id": 5486,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=154",
+      "mgmt_id": 155,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5486",
+      "title_keyword_id": "5dea53b6-cc3d-49ed-8179-eb93a8bbddcd",
+      "keywords": [
+        {
+          "id": "5dea53b6-cc3d-49ed-8179-eb93a8bbddcd",
+          "keywordName": "기타 독학"
+        },
+        {
+          "id": "4c7d830c-0ef3-44a2-b2e1-f658324ccf61",
+          "keywordName": "살림꾼"
+        }
+      ]
+    },
+    {
+      "id": "4d350a0f-225a-4960-b70e-fda1efa9be96",
+      "name": "김성빈",
+      "416_id": 152,
+      "memory_id": 5487,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=152",
+      "mgmt_id": 156,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5487",
+      "title_keyword_id": "4845c9fa-ce9b-4d5f-b5ac-3364de7cadf2",
+      "keywords": [
+        {
+          "id": "4845c9fa-ce9b-4d5f-b5ac-3364de7cadf2",
+          "keywordName": "전기 엔지니어"
+        },
+        {
+          "id": "d47966cd-b7d3-407e-901b-492582dfd192",
+          "keywordName": "태권소년"
+        }
+      ]
+    },
+    {
+      "id": "d6b6446f-3e92-4712-bfdb-98b486a40155",
+      "name": "김수빈",
+      "416_id": 157,
+      "memory_id": 5488,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=157",
+      "mgmt_id": 157,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5488",
+      "title_keyword_id": "664afa5a-72fb-4ffa-8640-e7e87a4ba307",
+      "keywords": [
+        {
+          "id": "092218c8-83b5-4a69-99be-d99f97d4c8d4",
+          "keywordName": "농구와 중국어 잘함"
+        },
+        {
+          "id": "664afa5a-72fb-4ffa-8640-e7e87a4ba307",
+          "keywordName": "수학 선생님"
+        }
+      ]
+    },
+    {
+      "id": "5cf02f5d-ac36-4659-aa53-22417d9a96f7",
+      "name": "김정민",
+      "416_id": 155,
+      "memory_id": 5489,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=155",
+      "mgmt_id": 158,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5489",
+      "title_keyword_id": "8ac718ce-d3c6-45ef-ab2f-99260c5edc05",
+      "keywords": [
+        { "id": "845169a9-8f63-43fb-8aed-29dde6a69388", "keywordName": "요리" },
+        {
+          "id": "8ac718ce-d3c6-45ef-ab2f-99260c5edc05",
+          "keywordName": "수학선생님"
+        },
+        { "id": "07f46c95-c5c9-463e-9046-7f489ed57efe", "keywordName": "시인" },
+        {
+          "id": "bcd3a643-20b2-43bd-a258-73deda6cf7c3",
+          "keywordName": "피아노 연주"
+        }
+      ]
+    },
+    {
+      "id": "5e51dabc-556c-44ef-9349-112feaf80ebd",
+      "name": "나강민",
+      "416_id": 169,
+      "memory_id": 5490,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=169",
+      "mgmt_id": 159,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5490",
+      "title_keyword_id": "8fbbefa8-aa31-4310-98fa-af190a22aa39",
+      "keywords": [
+        {
+          "id": "07d4e4bc-700c-44f8-8164-7cf06238c79b",
+          "keywordName": "애교쟁이"
+        },
+        {
+          "id": "8fbbefa8-aa31-4310-98fa-af190a22aa39",
+          "keywordName": "태권도"
+        }
+      ]
+    },
+    {
+      "id": "59417e26-60bf-4d93-89ae-d5979259ff22",
+      "name": "박성복",
+      "416_id": 153,
+      "memory_id": 5491,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=153",
+      "mgmt_id": 160,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5491",
+      "title_keyword_id": "a0825685-9eda-40df-b08f-9f52a3ab416f",
+      "keywords": [
+        {
+          "id": "f69e2874-55e8-4650-a755-7d03a8efdce8",
+          "keywordName": "카페운영"
+        },
+        { "id": "a0825685-9eda-40df-b08f-9f52a3ab416f", "keywordName": "셰프" }
+      ]
+    },
+    {
+      "id": "2a79db90-037a-4bcc-b776-b956768477b0",
+      "name": "박인배",
+      "416_id": 156,
+      "memory_id": 5492,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=156",
+      "mgmt_id": 161,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5492",
+      "title_keyword_id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+      "keywords": [
+        {
+          "id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+          "keywordName": "경호원"
+        },
+        {
+          "id": "77f01f8e-bd5e-43c8-a550-f2921d5efadf",
+          "keywordName": "킥복싱 좋아함"
+        }
+      ]
+    },
+    {
+      "id": "5a01ee86-2741-4b61-a20b-05829ac63d69",
+      "name": "박현섭",
+      "416_id": 177,
+      "memory_id": 5493,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=177",
+      "mgmt_id": 162,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5493",
+      "title_keyword_id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        { "id": "8c8b1c7f-878a-4974-aad0-7013ef73cd2f", "keywordName": "장교" },
+        { "id": "ac3f03f1-9f93-41e6-9d07-012bed1bfa71", "keywordName": "농구" }
+      ]
+    },
+    {
+      "id": "07c74c27-0a4e-4247-98b1-f8f5ccc390e0",
+      "name": "서현섭",
+      "416_id": 174,
+      "memory_id": 5494,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=174",
+      "mgmt_id": 163,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5494",
+      "title_keyword_id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+      "keywords": [
+        {
+          "id": "6bc347c5-397e-48f7-8de1-492237dd39fc",
+          "keywordName": "기타 연주"
+        },
+        {
+          "id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+          "keywordName": "요리사"
+        }
+      ]
+    },
+    {
+      "id": "9400fe1e-9d03-48cd-84a8-cd245b10361b",
+      "name": "성민재",
+      "416_id": 179,
+      "memory_id": 5495,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=179",
+      "mgmt_id": 164,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5495",
+      "title_keyword_id": "3c4bd751-6dfa-4860-8ba7-748bd94601c8",
+      "keywords": [
+        {
+          "id": "5590bb88-2a0b-4ce6-af51-338725106b03",
+          "keywordName": "이층 집짓기"
+        },
+        {
+          "id": "3c4bd751-6dfa-4860-8ba7-748bd94601c8",
+          "keywordName": "건축가"
+        }
+      ]
+    },
+    {
+      "id": "7fd18074-545c-49f2-b836-4739381b6148",
+      "name": "손찬우",
+      "416_id": 165,
+      "memory_id": 5496,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=165",
+      "mgmt_id": 165,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5496",
+      "title_keyword_id": "6cde43e4-ccad-4eca-9d0e-49f286c086f8",
+      "keywords": [
+        {
+          "id": "6cde43e4-ccad-4eca-9d0e-49f286c086f8",
+          "keywordName": "형제 요리사"
+        }
+      ]
+    },
+    {
+      "id": "e8ba3718-b320-4d61-b1bf-f82961a3a1dc",
+      "name": "송강현",
+      "416_id": 180,
+      "memory_id": 5497,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=180",
+      "mgmt_id": 166,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5497",
+      "title_keyword_id": "aa7f0c08-2c20-46f7-8c05-5ef36cb0d651",
+      "keywords": [
+        {
+          "id": "aa7f0c08-2c20-46f7-8c05-5ef36cb0d651",
+          "keywordName": "프로게이머"
+        }
+      ]
+    },
+    {
+      "id": "0fe7bbb0-4209-4318-be78-2c08af120fef",
+      "name": "심장영",
+      "416_id": 160,
+      "memory_id": 5498,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=160",
+      "mgmt_id": 167,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5498",
+      "title_keyword_id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+      "keywords": [
+        {
+          "id": "5905d0bd-e12b-4143-9f8a-74f4b3855a40",
+          "keywordName": "운동마니아"
+        },
+        {
+          "id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+          "keywordName": "경찰관"
+        }
+      ]
+    },
+    {
+      "id": "8afe0581-9018-48e6-a2c2-028a739e653f",
+      "name": "안중근",
+      "416_id": 162,
+      "memory_id": 5499,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=162",
+      "mgmt_id": 168,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5499",
+      "title_keyword_id": "55fbcf70-8f27-4d48-bfee-a0a37d950183",
+      "keywords": [
+        {
+          "id": "55fbcf70-8f27-4d48-bfee-a0a37d950183",
+          "keywordName": "야구 선수"
+        },
+        {
+          "id": "05fde5ae-4c1e-49c7-b0d9-7bae70467552",
+          "keywordName": "배려심"
+        }
+      ]
+    },
+    {
+      "id": "2e03a3a5-129a-434a-aacc-77942409098a",
+      "name": "양철민",
+      "416_id": 161,
+      "memory_id": 5500,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=161",
+      "mgmt_id": 169,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5500",
+      "title_keyword_id": "e54f45cf-1127-42c9-9333-fe7520d6a06c",
+      "keywords": [
+        {
+          "id": "e54f45cf-1127-42c9-9333-fe7520d6a06c",
+          "keywordName": "긍정맨"
+        },
+        {
+          "id": "bbe0232e-6f4f-4b68-a158-e184290dca79",
+          "keywordName": "별명 고릴라"
+        }
+      ]
+    },
+    {
+      "id": "66c82ec9-45c4-4716-a813-916f2a0efc5f",
+      "name": "오영석",
+      "416_id": 171,
+      "memory_id": 5501,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=171",
+      "mgmt_id": 170,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5501",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        },
+        {
+          "id": "d33c5d1d-2898-429a-865c-1b5435c3fda0",
+          "keywordName": "축구 선수"
+        }
+      ]
+    },
+    {
+      "id": "ec4bac1f-47a8-4b46-877b-f02cd163d06d",
+      "name": "이강명",
+      "416_id": 173,
+      "memory_id": 5502,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=173",
+      "mgmt_id": 171,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5502",
+      "title_keyword_id": "31150405-e2da-4dab-b837-b57f06df8fa6",
+      "keywords": [
+        {
+          "id": "b29afee2-7f0f-4fd9-a303-06ab36a0a295",
+          "keywordName": "경호원"
+        },
+        {
+          "id": "31150405-e2da-4dab-b837-b57f06df8fa6",
+          "keywordName": "특전사"
+        }
+      ]
+    },
+    {
+      "id": "3b8e590c-ab62-498a-af29-63c5fa78b9af",
+      "name": "이근형",
+      "416_id": 150,
+      "memory_id": 5503,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=150",
+      "mgmt_id": 172,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5503",
+      "title_keyword_id": "45ddd8d7-60c6-4566-9094-93f5aaf2ca39",
+      "keywords": [
+        { "id": "33cee6a3-0f53-4de4-9d5f-05027916118d", "keywordName": "노래" },
+        {
+          "id": "45ddd8d7-60c6-4566-9094-93f5aaf2ca39",
+          "keywordName": "과학선생님"
+        }
+      ]
+    },
+    {
+      "id": "cc3d2110-fce8-407b-92ed-0dcf6592a64d",
+      "name": "이민우",
+      "416_id": 151,
+      "memory_id": 5504,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=151",
+      "mgmt_id": 173,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5504",
+      "title_keyword_id": "de09010a-0104-48d3-9357-1e33f625f72a",
+      "keywords": [
+        {
+          "id": "7cb0fc61-994b-4cad-8132-fe8fd7113710",
+          "keywordName": "어른스러움"
+        },
+        { "id": "1aeaf724-604a-4081-96d1-46adb20e59db", "keywordName": "애교" },
+        {
+          "id": "de09010a-0104-48d3-9357-1e33f625f72a",
+          "keywordName": "곤충학자"
+        }
+      ]
+    },
+    {
+      "id": "02ccaf42-34d3-40e8-9fc7-f21062752d65",
+      "name": "이수빈",
+      "416_id": 176,
+      "memory_id": 5505,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=176",
+      "mgmt_id": 174,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5505",
+      "title_keyword_id": "58933121-765b-4658-8ec4-747dd7e4905a",
+      "keywords": [
+        { "id": "cf01766a-c097-4224-a08d-727c59de936f", "keywordName": "운동" },
+        {
+          "id": "58933121-765b-4658-8ec4-747dd7e4905a",
+          "keywordName": "수학자"
+        }
+      ]
+    },
+    {
+      "id": "d72d8a95-f844-426a-83e9-96d92740d781",
+      "name": "이정인",
+      "416_id": 181,
+      "memory_id": 5506,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=181",
+      "mgmt_id": 175,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5506",
+      "title_keyword_id": "593237db-fca3-4c14-b50a-e0bbf1b506ff",
+      "keywords": [
+        {
+          "id": "18b04b7d-bb7f-471f-a337-cd78a4f7703e",
+          "keywordName": "날쌘돌이"
+        },
+        { "id": "593237db-fca3-4c14-b50a-e0bbf1b506ff", "keywordName": "모델" },
+        { "id": "15c47cdb-2e4e-46ff-8d03-f82a1a343330", "keywordName": "육상" }
+      ]
+    },
+    {
+      "id": "12fd7560-de52-4bca-9c51-8c3126758fdd",
+      "name": "이준우",
+      "416_id": 168,
+      "memory_id": 5507,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=168",
+      "mgmt_id": 176,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5507",
+      "title_keyword_id": "c0e825fc-29ea-4e56-87c5-cf951a12af08",
+      "keywords": [
+        {
+          "id": "e43722a8-07cd-4579-9bbf-0fc2f7eb307a",
+          "keywordName": "기타리스트"
+        },
+        {
+          "id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+          "keywordName": "만화가"
+        },
+        { "id": "c0e825fc-29ea-4e56-87c5-cf951a12af08", "keywordName": "작가" },
+        {
+          "id": "4b54e62f-4c6c-4e0a-b44d-ac8379c55849",
+          "keywordName": "천문학자"
+        }
+      ]
+    },
+    {
+      "id": "0980e298-fd77-4c65-8649-f82b62d05e81",
+      "name": "이진형",
+      "416_id": 163,
+      "memory_id": 5508,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=163",
+      "mgmt_id": 177,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5508",
+      "title_keyword_id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5",
+      "keywords": [
+        {
+          "id": "12bd745b-3c08-46f7-8d7c-bd7576639509",
+          "keywordName": "유머러스함"
+        },
+        { "id": "e4e2b2aa-60c6-4c3c-9bb0-6598b536b4e3", "keywordName": "야구" },
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "708e3891-7615-4781-88c3-44510727b799",
+          "keywordName": "성대모사"
+        },
+        {
+          "id": "d4d67a4c-89ee-480f-900e-d2a32a4c605f",
+          "keywordName": "운동 잘함"
+        }
+      ]
+    },
+    {
+      "id": "97e384ef-a6a6-49d6-8d9b-29759986fe4c",
+      "name": "전찬호",
+      "416_id": 159,
+      "memory_id": 5509,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=159",
+      "mgmt_id": 178,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5509",
+      "title_keyword_id": "1d384abc-523b-459f-b8ed-3b597db9cb81",
+      "keywords": [
+        {
+          "id": "1d384abc-523b-459f-b8ed-3b597db9cb81",
+          "keywordName": "유치원 원장"
+        }
+      ]
+    },
+    {
+      "id": "132706b3-533b-4118-98ae-1e67ced85695",
+      "name": "정동수",
+      "416_id": 158,
+      "memory_id": 5510,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=158",
+      "mgmt_id": 179,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5510",
+      "title_keyword_id": "078b2b46-4263-41b4-9057-291618685e02",
+      "keywords": [
+        {
+          "id": "078b2b46-4263-41b4-9057-291618685e02",
+          "keywordName": "로봇 공학자"
+        }
+      ]
+    },
+    {
+      "id": "84f62b61-23e2-4e09-8a2e-73da24cef069",
+      "name": "최현주",
+      "416_id": 167,
+      "memory_id": 5511,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=167",
+      "mgmt_id": 180,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5511",
+      "title_keyword_id": "b283dedb-153c-4474-917a-11370ecc2c9d",
+      "keywords": [
+        {
+          "id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+          "keywordName": "수의사"
+        },
+        {
+          "id": "b283dedb-153c-4474-917a-11370ecc2c9d",
+          "keywordName": "동물학자"
+        }
+      ]
+    },
+    {
+      "id": "0ad339ee-b82e-4b8b-864d-32fe101ad1ca",
+      "name": "허재강",
+      "416_id": 178,
+      "memory_id": 5512,
+      "class_name": "2학년 7반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=178",
+      "mgmt_id": 181,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5512",
+      "title_keyword_id": "b283dedb-153c-4474-917a-11370ecc2c9d",
+      "keywords": [
+        {
+          "id": "be1c7bd9-92d6-467f-984c-ef93c822d007",
+          "keywordName": "파충류"
+        },
+        {
+          "id": "b283dedb-153c-4474-917a-11370ecc2c9d",
+          "keywordName": "동물학자"
+        },
+        {
+          "id": "2579ab08-7ffb-4f12-ac5a-6ede5f855f0c",
+          "keywordName": "다정한 오빠"
+        }
+      ]
+    },
+    {
+      "id": "b21646b8-4ce1-4d0d-b53b-42cc2ccd9cd3",
+      "name": "고우재",
+      "416_id": 194,
+      "memory_id": 5513,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=194",
+      "mgmt_id": 182,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5513",
+      "title_keyword_id": "d67dd37d-3ed8-40c2-ac3e-d4b56fa02d6f",
+      "keywords": [
+        {
+          "id": "b45ed157-4b73-40f7-9f25-515b57594b0e",
+          "keywordName": "로봇만들기"
+        },
+        {
+          "id": "d67dd37d-3ed8-40c2-ac3e-d4b56fa02d6f",
+          "keywordName": "엔지니어"
+        }
+      ]
+    },
+    {
+      "id": "cb0aa00f-2ee1-41f3-806f-f2ded43ec9dd",
+      "name": "김대현",
+      "416_id": 197,
+      "memory_id": 5514,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=197",
+      "mgmt_id": 183,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5514",
+      "title_keyword_id": "b0f5da4e-e460-4c1d-ad9a-9489efbaa5f5",
+      "keywords": [
+        {
+          "id": "a17fbf80-179c-4db2-8e3e-5239175f83af",
+          "keywordName": "깔끔함"
+        },
+        {
+          "id": "b0f5da4e-e460-4c1d-ad9a-9489efbaa5f5",
+          "keywordName": "소방관"
+        }
+      ]
+    },
+    {
+      "id": "36bf5ba0-20e8-48a5-9496-8f83a6f68ba6",
+      "name": "김동현",
+      "416_id": 199,
+      "memory_id": 5515,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=199",
+      "mgmt_id": 184,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5515",
+      "title_keyword_id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3",
+      "keywords": [
+        { "id": "15c47cdb-2e4e-46ff-8d03-f82a1a343330", "keywordName": "육상" },
+        { "id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3", "keywordName": "약사" }
+      ]
+    },
+    {
+      "id": "f2b1bafc-c4a6-4c46-a12b-573b6b0c108a",
+      "name": "김선우",
+      "416_id": 209,
+      "memory_id": 5516,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=209",
+      "mgmt_id": 185,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5516",
+      "title_keyword_id": "9c95d891-9419-4109-aad2-980955f64a01",
+      "keywords": [
+        {
+          "id": "8038af18-1143-4d60-8719-a786cfc1ccfc",
+          "keywordName": "별명은 삼식이"
+        },
+        {
+          "id": "9c95d891-9419-4109-aad2-980955f64a01",
+          "keywordName": "컴퓨터 선수"
+        }
+      ]
+    },
+    {
+      "id": "47e58b16-1362-4683-91a4-f537db65c64a",
+      "name": "김영창",
+      "416_id": 191,
+      "memory_id": 5517,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=191",
+      "mgmt_id": 186,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5517",
+      "title_keyword_id": "13f7280a-5157-409d-96d1-6b06fe79102f",
+      "keywords": [
+        {
+          "id": "13f7280a-5157-409d-96d1-6b06fe79102f",
+          "keywordName": "건축학도"
+        }
+      ]
+    },
+    {
+      "id": "dd3159af-222e-4650-8a96-a379afee9787",
+      "name": "김재영",
+      "416_id": 195,
+      "memory_id": 5518,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=195",
+      "mgmt_id": 187,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5518",
+      "title_keyword_id": "0360cdf7-6b07-493b-9c05-b5f24d3c3ac5",
+      "keywords": [
+        {
+          "id": "0360cdf7-6b07-493b-9c05-b5f24d3c3ac5",
+          "keywordName": "프로그래머"
+        },
+        { "id": "d45cbcde-c6db-45bb-b02e-5573dc7da33e", "keywordName": "구글" }
+      ]
+    },
+    {
+      "id": "50161298-d214-4959-9166-15551109ea61",
+      "name": "김제훈",
+      "416_id": 204,
+      "memory_id": 5519,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=204",
+      "mgmt_id": 188,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5519",
+      "title_keyword_id": "186dc200-de33-4e24-9eb5-dabef3aa0616",
+      "keywords": [
+        {
+          "id": "0ac13d7f-4f8e-4213-b38c-c8b026950499",
+          "keywordName": "배려의 아이콘"
+        },
+        {
+          "id": "186dc200-de33-4e24-9eb5-dabef3aa0616",
+          "keywordName": "선생님"
+        }
+      ]
+    },
+    {
+      "id": "6e1ced90-1329-4d99-a03e-ef011737204b",
+      "name": "김창헌",
+      "416_id": 186,
+      "memory_id": 5520,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=186",
+      "mgmt_id": 189,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5520",
+      "title_keyword_id": "fb60b2e4-2cf0-412c-a8d7-d528d1e0c51c",
+      "keywords": [
+        {
+          "id": "07261268-1fd0-4158-83ac-cfd008d4d77d",
+          "keywordName": "정리정돈"
+        },
+        {
+          "id": "fb60b2e4-2cf0-412c-a8d7-d528d1e0c51c",
+          "keywordName": "치과의사"
+        }
+      ]
+    },
+    {
+      "id": "3bbdbd36-e43c-4f0b-a2c5-b2ef31aec78b",
+      "name": "박선균",
+      "416_id": 208,
+      "memory_id": 5521,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=208",
+      "mgmt_id": 190,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5521",
+      "title_keyword_id": "34919291-af49-4c3c-9188-c6a62bfbf9a5",
+      "keywords": [
+        {
+          "id": "34919291-af49-4c3c-9188-c6a62bfbf9a5",
+          "keywordName": "기계공학과"
+        },
+        {
+          "id": "8206bbd0-b29b-4b1c-a919-e0ebae26366d",
+          "keywordName": "로봇 제작"
+        }
+      ]
+    },
+    {
+      "id": "5aa4b410-a6c5-490e-87ff-e10a8f6a69eb",
+      "name": "박수찬",
+      "416_id": 185,
+      "memory_id": 5522,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=185",
+      "mgmt_id": 191,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5522",
+      "title_keyword_id": "5d7e01ce-5f87-4d7e-9641-fe8c3c71de30",
+      "keywords": [
+        {
+          "id": "5d7e01ce-5f87-4d7e-9641-fe8c3c71de30",
+          "keywordName": "애니메이션 작가"
+        }
+      ]
+    },
+    {
+      "id": "4ba9a553-d1cf-46bf-a83d-d58e7a47ff33",
+      "name": "박시찬",
+      "416_id": 183,
+      "memory_id": 5523,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=183",
+      "mgmt_id": 192,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5523",
+      "title_keyword_id": "7bae8834-3783-43bb-80ce-bb729bd1c2bf",
+      "keywords": [
+        {
+          "id": "7bae8834-3783-43bb-80ce-bb729bd1c2bf",
+          "keywordName": "항공정비사"
+        },
+        {
+          "id": "d36afcfd-acee-4f41-aa15-9058ed267973",
+          "keywordName": "공대생"
+        }
+      ]
+    },
+    {
+      "id": "942b3534-2c03-44d5-bb06-09d5676aff39",
+      "name": "백승현",
+      "416_id": 192,
+      "memory_id": 5524,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=192",
+      "mgmt_id": 193,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5524",
+      "title_keyword_id": "5f64d082-4ef0-41ba-ba3c-b9c86d392b5d",
+      "keywords": [
+        {
+          "id": "5f64d082-4ef0-41ba-ba3c-b9c86d392b5d",
+          "keywordName": "동물 조련사"
+        }
+      ]
+    },
+    {
+      "id": "96d3e652-72ba-4a25-9ff6-4c27ee62ad15",
+      "name": "안주현",
+      "416_id": 196,
+      "memory_id": 5525,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=196",
+      "mgmt_id": 194,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5525",
+      "title_keyword_id": "26d2d390-c444-4b3c-9029-09cca8a0b87d",
+      "keywords": [
+        {
+          "id": "26d2d390-c444-4b3c-9029-09cca8a0b87d",
+          "keywordName": "자동차 공학박사"
+        },
+        {
+          "id": "70b4e5a6-8eb6-41b5-8a70-5f26b28574f1",
+          "keywordName": "자동차 연구원"
+        },
+        { "id": "f71c5ae6-53c5-4a83-bf8b-d66000e860c7", "keywordName": "기타" }
+      ]
+    },
+    {
+      "id": "82808539-f532-4d94-a593-384135c3dff3",
+      "name": "이승민",
+      "416_id": 188,
+      "memory_id": 5526,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=188",
+      "mgmt_id": 195,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5526",
+      "title_keyword_id": "4913ccdd-69f2-4b7c-bc37-1e50cf69798d",
+      "keywords": [
+        {
+          "id": "4913ccdd-69f2-4b7c-bc37-1e50cf69798d",
+          "keywordName": "게임 분야"
+        },
+        {
+          "id": "f87511d3-daea-4094-a1d7-5519912f1e8e",
+          "keywordName": "컴퓨터 그래픽"
+        },
+        {
+          "id": "a86cd1f0-6f35-4cd1-98ce-f2f50f57d3e8",
+          "keywordName": "식물키우기"
+        }
+      ]
+    },
+    {
+      "id": "57f5e09a-f700-400b-9ad9-85848ad008ba",
+      "name": "이승현",
+      "416_id": 187,
+      "memory_id": 5527,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=187",
+      "mgmt_id": 196,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5527",
+      "title_keyword_id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" }
+      ]
+    },
+    {
+      "id": "48e01df5-c43c-4738-b96f-0578b5eb7e42",
+      "name": "이재욱",
+      "416_id": 190,
+      "memory_id": 5528,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=190",
+      "mgmt_id": 197,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5528",
+      "title_keyword_id": "2ee98ed3-025a-4fd5-afd8-d76b058f52ed",
+      "keywords": [
+        {
+          "id": "2ee98ed3-025a-4fd5-afd8-d76b058f52ed",
+          "keywordName": "조경사"
+        }
+      ]
+    },
+    {
+      "id": "1e2a886c-81a1-42af-b731-e48340a129d5",
+      "name": "이호진",
+      "416_id": 207,
+      "memory_id": 5529,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=207",
+      "mgmt_id": 198,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5529",
+      "title_keyword_id": "66927324-b0ab-4904-a449-ca723342bbd5",
+      "keywords": [
+        {
+          "id": "66927324-b0ab-4904-a449-ca723342bbd5",
+          "keywordName": "컴퓨터 공학자"
+        }
+      ]
+    },
+    {
+      "id": "5bb44b77-bd3b-4d60-be9c-480fb3a91a95",
+      "name": "임건우",
+      "416_id": 182,
+      "memory_id": 5530,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=182",
+      "mgmt_id": 199,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5530",
+      "title_keyword_id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+      "keywords": [
+        {
+          "id": "33a3cc73-566c-4690-a21a-2e72596c3837",
+          "keywordName": "게임 제작자"
+        },
+        {
+          "id": "bf37472b-7acc-4936-ba50-df8001a5b9ce",
+          "keywordName": "동생바라기"
+        },
+        {
+          "id": "d5122733-17a8-4d9a-affb-cc0fee726717",
+          "keywordName": "만화가"
+        }
+      ]
+    },
+    {
+      "id": "4e5cb98a-6b76-4936-b3ad-cda89ee0fc31",
+      "name": "임현진",
+      "416_id": 203,
+      "memory_id": 5531,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=203",
+      "mgmt_id": 200,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5531",
+      "title_keyword_id": "9b3ac694-2aba-4f00-aa86-b16afd082f1b",
+      "keywords": [
+        {
+          "id": "9b3ac694-2aba-4f00-aa86-b16afd082f1b",
+          "keywordName": "건축 디자이너"
+        },
+        {
+          "id": "c6839886-7015-417e-9365-23903773eca9",
+          "keywordName": "레알마드리드 광팬"
+        }
+      ]
+    },
+    {
+      "id": "0bf60b4c-eb50-40e8-b3d3-5e19b5466056",
+      "name": "장준형",
+      "416_id": 205,
+      "memory_id": 5532,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=205",
+      "mgmt_id": 201,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5532",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "0213e20c-2177-4f0b-8033-f230db72c74d",
+          "keywordName": "책임감"
+        },
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        },
+        {
+          "id": "e676774d-2c86-4086-8401-b81ad9fb3ccd",
+          "keywordName": "자원봉사자"
+        }
+      ]
+    },
+    {
+      "id": "cfc05a83-813d-480f-8c53-83f3d8507c8c",
+      "name": "전현우",
+      "416_id": 184,
+      "memory_id": 5533,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=184",
+      "mgmt_id": 202,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5533",
+      "title_keyword_id": "14b4e7f8-f0f4-4e79-add0-525061f9a9b5",
+      "keywords": [
+        { "id": "14b4e7f8-f0f4-4e79-add0-525061f9a9b5", "keywordName": "군인" }
+      ]
+    },
+    {
+      "id": "eddf5efa-9ec7-449e-bd96-c269ed011d26",
+      "name": "제세호",
+      "416_id": 193,
+      "memory_id": 5534,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=193",
+      "mgmt_id": 203,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5534",
+      "title_keyword_id": "8fdd69a2-754e-41c1-923a-acec15380352",
+      "keywords": [
+        {
+          "id": "9b588806-d328-4403-be56-c58ddec1cc27",
+          "keywordName": "미식가"
+        },
+        {
+          "id": "8fdd69a2-754e-41c1-923a-acec15380352",
+          "keywordName": "세계 최고 요리사"
+        }
+      ]
+    },
+    {
+      "id": "939dd7ad-89d7-40e0-988c-08f7c76346d5",
+      "name": "조봉석",
+      "416_id": 198,
+      "memory_id": 5535,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=198",
+      "mgmt_id": 204,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5535",
+      "title_keyword_id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+      "keywords": [
+        {
+          "id": "21603445-ab2b-4f6d-826a-9f828ade5d0c",
+          "keywordName": "경찰관"
+        },
+        {
+          "id": "d47966cd-b7d3-407e-901b-492582dfd192",
+          "keywordName": "태권소년"
+        }
+      ]
+    },
+    {
+      "id": "980379d5-9459-4718-b64e-0fb148ef5090",
+      "name": "조찬민",
+      "416_id": 262,
+      "memory_id": 5536,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=262",
+      "mgmt_id": 205,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5536",
+      "title_keyword_id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+      "keywords": [
+        {
+          "id": "03de2a8b-7d12-4b1c-8d6c-0922cc15fbf1",
+          "keywordName": "요리사"
+        }
+      ]
+    },
+    {
+      "id": "c4e58480-af6a-4022-9224-f2c6ba6e907f",
+      "name": "지상준",
+      "416_id": 201,
+      "memory_id": 5537,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=201",
+      "mgmt_id": 206,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5537",
+      "title_keyword_id": "6101f0eb-0685-4fca-8286-0f4f5b28087d",
+      "keywords": [
+        { "id": "218d5905-4554-4a9a-9970-ae003de4168d", "keywordName": "독서" },
+        {
+          "id": "68b8b4c3-95b9-4903-a875-e8aa250ac9e3",
+          "keywordName": "연구원"
+        },
+        { "id": "c0e825fc-29ea-4e56-87c5-cf951a12af08", "keywordName": "작가" },
+        {
+          "id": "6101f0eb-0685-4fca-8286-0f4f5b28087d",
+          "keywordName": "공무원"
+        }
+      ]
+    },
+    {
+      "id": "5770ce01-e89b-4c5b-aa5b-d51e51017df6",
+      "name": "최수빈",
+      "416_id": 200,
+      "memory_id": 5538,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=200",
+      "mgmt_id": 207,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5538",
+      "title_keyword_id": "a895f9f6-4352-4dc7-ad22-9b414d9a168e",
+      "keywords": [
+        {
+          "id": "a895f9f6-4352-4dc7-ad22-9b414d9a168e",
+          "keywordName": "할아버지 보배"
+        },
+        { "id": "08bcc63f-d1c9-401b-adc5-94068f3d8d55", "keywordName": "성실" }
+      ]
+    },
+    {
+      "id": "b127fac4-4048-497e-bd04-63224528812e",
+      "name": "최정수",
+      "416_id": 206,
+      "memory_id": 5539,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=206",
+      "mgmt_id": 208,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5539",
+      "title_keyword_id": "14c5f7ed-53f2-4ba7-9788-705c5fbebce2",
+      "keywords": [
+        { "id": "14c5f7ed-53f2-4ba7-9788-705c5fbebce2", "keywordName": "PD" },
+        {
+          "id": "276efae8-c1aa-459c-a8a6-8b8e98a836d3",
+          "keywordName": "연극연출"
+        },
+        {
+          "id": "8028a271-55e3-4d66-9e33-06c08f6d6971",
+          "keywordName": "영화감독"
+        }
+      ]
+    },
+    {
+      "id": "b98b17e5-1e58-4500-9ff3-901836a83b24",
+      "name": "최진혁",
+      "416_id": 202,
+      "memory_id": 5540,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=202",
+      "mgmt_id": 209,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5540",
+      "title_keyword_id": "25f47c04-1a68-4a15-93be-603debe59cbe",
+      "keywords": [
+        {
+          "id": "93f2a6dd-438d-4cc3-a581-ea57dd2e3e18",
+          "keywordName": "러시아 기차여행"
+        },
+        {
+          "id": "cfe3c8c7-0eff-40eb-a9f0-2ac648eb2629",
+          "keywordName": "여행가"
+        },
+        {
+          "id": "25f47c04-1a68-4a15-93be-603debe59cbe",
+          "keywordName": "과학자"
+        }
+      ]
+    },
+    {
+      "id": "200aee81-10e1-41ba-afd8-e01d98a4862e",
+      "name": "홍승준",
+      "416_id": 189,
+      "memory_id": 5541,
+      "class_name": "2학년 8반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=189",
+      "mgmt_id": 210,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5541",
+      "title_keyword_id": "0005c846-67d4-4066-991f-b77f5f99aad7",
+      "keywords": [
+        { "id": "fae052dd-6b58-4cd6-8274-5a5ebd23a5e5", "keywordName": "축구" },
+        {
+          "id": "0005c846-67d4-4066-991f-b77f5f99aad7",
+          "keywordName": "파일럿"
+        }
+      ]
+    },
+    {
+      "id": "80ca7c30-a628-4114-bd57-f46dd274d2fc",
+      "name": "고하영",
+      "416_id": 226,
+      "memory_id": 5542,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=226",
+      "mgmt_id": 211,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5542",
+      "title_keyword_id": "b2fc95d1-23a3-4d13-85ad-dc3038e4396e",
+      "keywords": [
+        {
+          "id": "f54d11ec-8507-4f8c-b067-4b7fbd2e879d",
+          "keywordName": "의젓함"
+        },
+        {
+          "id": "b2fc95d1-23a3-4d13-85ad-dc3038e4396e",
+          "keywordName": "국어 선생님"
+        }
+      ]
+    },
+    {
+      "id": "e12661b9-efc1-4f60-a6b7-881eca510040",
+      "name": "권민경",
+      "416_id": 213,
+      "memory_id": 5543,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=213",
+      "mgmt_id": 212,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5543",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        }
+      ]
+    },
+    {
+      "id": "60af2cf2-8002-463e-9f79-e776eb5ca97a",
+      "name": "김민정",
+      "416_id": 224,
+      "memory_id": 5544,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=224",
+      "mgmt_id": 213,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5544",
+      "title_keyword_id": "ffc11d0e-1a9c-4e75-a651-45c990efd6bc",
+      "keywords": [
+        {
+          "id": "ffc11d0e-1a9c-4e75-a651-45c990efd6bc",
+          "keywordName": "한의사"
+        },
+        {
+          "id": "a1beb248-a27a-46ff-aacd-bb2ab3102592",
+          "keywordName": "호기심 많은아이"
+        }
+      ]
+    },
+    {
+      "id": "8b801f5d-a5ef-4793-9cce-503204054440",
+      "name": "김아라",
+      "416_id": 230,
+      "memory_id": 5545,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=230",
+      "mgmt_id": 214,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5545",
+      "title_keyword_id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3",
+      "keywords": [
+        { "id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3", "keywordName": "약사" }
+      ]
+    },
+    {
+      "id": "bd709b75-037d-43c1-91b7-ffb89870e646",
+      "name": "김초예",
+      "416_id": 225,
+      "memory_id": 5546,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=225",
+      "mgmt_id": 215,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5546",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "e72e3eff-95ea-4c45-9ebd-268040e10093",
+          "keywordName": "사회복지사"
+        },
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        }
+      ]
+    },
+    {
+      "id": "3a62be5c-3a8b-42d9-affd-41a2e74b264d",
+      "name": "김해화",
+      "416_id": 227,
+      "memory_id": 5547,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=227",
+      "mgmt_id": 216,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5547",
+      "title_keyword_id": "ffc11d0e-1a9c-4e75-a651-45c990efd6bc",
+      "keywords": [
+        {
+          "id": "ffc11d0e-1a9c-4e75-a651-45c990efd6bc",
+          "keywordName": "한의사"
+        }
+      ]
+    },
+    {
+      "id": "9f918339-c512-4dcf-afe8-eae55c4be31d",
+      "name": "김혜선",
+      "416_id": 218,
+      "memory_id": 5548,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=218",
+      "mgmt_id": 217,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5548",
+      "title_keyword_id": "c3770552-7cbc-4ee9-9e64-498e45b8be11",
+      "keywords": [
+        {
+          "id": "c3770552-7cbc-4ee9-9e64-498e45b8be11",
+          "keywordName": "조선사"
+        },
+        {
+          "id": "b1a6fb64-52bb-4366-a972-0afe2aefb830",
+          "keywordName": "해양대"
+        },
+        {
+          "id": "aaa97a5a-0bb3-4340-b7af-0b8bf3a29f85",
+          "keywordName": "금구모"
+        }
+      ]
+    },
+    {
+      "id": "a093dda6-521d-4134-8b77-f2b4e7f0b1e6",
+      "name": "박예지",
+      "416_id": 229,
+      "memory_id": 5549,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=229",
+      "mgmt_id": 218,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5549",
+      "title_keyword_id": "717ba100-a0d0-4f4c-8ff2-99ed61c4fa79",
+      "keywords": [
+        {
+          "id": "717ba100-a0d0-4f4c-8ff2-99ed61c4fa79",
+          "keywordName": "컴퓨터 프로그래머"
+        }
+      ]
+    },
+    {
+      "id": "b8fa0e8b-7df5-47cc-8398-9be9e734f59a",
+      "name": "배향매",
+      "416_id": 215,
+      "memory_id": 5550,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=215",
+      "mgmt_id": 219,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5550",
+      "title_keyword_id": "6a338e3f-54c3-45b8-9a4a-9f4a82607b51",
+      "keywords": [
+        {
+          "id": "6a338e3f-54c3-45b8-9a4a-9f4a82607b51",
+          "keywordName": "조향사"
+        },
+        {
+          "id": "967086e0-722b-4aeb-99c6-9a52bb78946e",
+          "keywordName": "연세대"
+        }
+      ]
+    },
+    {
+      "id": "e5dfc0df-4521-4f16-b5a7-b868bc07b2fa",
+      "name": "오경미",
+      "416_id": 217,
+      "memory_id": 5551,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=217",
+      "mgmt_id": 220,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5551",
+      "title_keyword_id": "3c4bd751-6dfa-4860-8ba7-748bd94601c8",
+      "keywords": [
+        {
+          "id": "5dea53b6-cc3d-49ed-8179-eb93a8bbddcd",
+          "keywordName": "기타 독학"
+        },
+        {
+          "id": "3c4bd751-6dfa-4860-8ba7-748bd94601c8",
+          "keywordName": "건축가"
+        }
+      ]
+    },
+    {
+      "id": "5da837be-190c-4fb2-9109-f7bfa87def74",
+      "name": "이보미",
+      "416_id": 220,
+      "memory_id": 5552,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=220",
+      "mgmt_id": 221,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5552",
+      "title_keyword_id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+      "keywords": [
+        { "id": "fab88626-b46f-4e6d-bde5-a320b8892728", "keywordName": "가수" },
+        {
+          "id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+          "keywordName": "수의사"
+        }
+      ]
+    },
+    {
+      "id": "fdfd05ae-eea1-4482-97dd-9b95ebebcf8a",
+      "name": "이수진",
+      "416_id": 211,
+      "memory_id": 5553,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=211",
+      "mgmt_id": 222,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5553",
+      "title_keyword_id": "a5a274b1-4d95-4d12-a475-81dd0a5cebbe",
+      "keywords": [
+        {
+          "id": "a5a274b1-4d95-4d12-a475-81dd0a5cebbe",
+          "keywordName": "국제 구호 활동가"
+        }
+      ]
+    },
+    {
+      "id": "ab32713b-7824-4375-aa0d-8585018b7900",
+      "name": "이한솔",
+      "416_id": 223,
+      "memory_id": 5554,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=223",
+      "mgmt_id": 223,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5554",
+      "title_keyword_id": "32027fe3-e6e5-4445-93ac-e6aa24825bac",
+      "keywords": [
+        { "id": "9c659c73-597f-42ea-94bd-2ba1aa5b4b5b", "keywordName": "춤" },
+        {
+          "id": "32027fe3-e6e5-4445-93ac-e6aa24825bac",
+          "keywordName": "한솔 레스토랑"
+        },
+        {
+          "id": "9e4b0449-2b43-4232-b4ad-9e599c87b01f",
+          "keywordName": "한솔 베이커리"
+        },
+        { "id": "33cee6a3-0f53-4de4-9d5f-05027916118d", "keywordName": "노래" }
+      ]
+    },
+    {
+      "id": "439c650c-8a5e-4f22-af0a-3499b9d5eb3d",
+      "name": "임세희",
+      "416_id": 219,
+      "memory_id": 5555,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=219",
+      "mgmt_id": 224,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5555",
+      "title_keyword_id": "6a338e3f-54c3-45b8-9a4a-9f4a82607b51",
+      "keywords": [
+        {
+          "id": "71cd7183-1d91-4b53-a51f-1f4d9299f53e",
+          "keywordName": "손재주"
+        },
+        {
+          "id": "6a338e3f-54c3-45b8-9a4a-9f4a82607b51",
+          "keywordName": "조향사"
+        },
+        {
+          "id": "799fe599-9f59-42b2-9b53-65e8d300eec5",
+          "keywordName": "점핑클레이"
+        }
+      ]
+    },
+    {
+      "id": "8804146f-671e-4870-8b34-6b2430d94fa5",
+      "name": "정다빈",
+      "416_id": 228,
+      "memory_id": 5556,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=228",
+      "mgmt_id": 225,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5556",
+      "title_keyword_id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+      "keywords": [
+        { "id": "218d5905-4554-4a9a-9970-ae003de4168d", "keywordName": "독서" },
+        {
+          "id": "78b97410-51f7-44c0-a29b-1af3f5ab7fdc",
+          "keywordName": "제과제빵사"
+        },
+        {
+          "id": "63d2550e-1ebb-43a0-a4ca-e34b67181f1d",
+          "keywordName": "소설가"
+        }
+      ]
+    },
+    {
+      "id": "2b4269b9-c59f-4fb1-9404-360efa539a15",
+      "name": "정다혜",
+      "416_id": 212,
+      "memory_id": 5557,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=212",
+      "mgmt_id": 226,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5557",
+      "title_keyword_id": "f1b6eb35-fafe-4662-9de5-d633e5a3b112",
+      "keywords": [
+        {
+          "id": "9cee2a3b-0ba3-4373-bda3-21de6bf4385c",
+          "keywordName": "똥강아지"
+        },
+        {
+          "id": "f1b6eb35-fafe-4662-9de5-d633e5a3b112",
+          "keywordName": "치기공사"
+        },
+        {
+          "id": "d407a447-1093-480d-a1fd-f662fd5972d9",
+          "keywordName": "보물 1호"
+        }
+      ]
+    },
+    {
+      "id": "6e374fd6-90b1-4c4c-816e-f27d520c9e4c",
+      "name": "조은정",
+      "416_id": 214,
+      "memory_id": 5558,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=214",
+      "mgmt_id": 227,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5558",
+      "title_keyword_id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3",
+      "keywords": [
+        { "id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3", "keywordName": "약사" },
+        { "id": "0d95c0b1-9d9b-4777-9cbe-bf793ccc287e", "keywordName": "신앙" },
+        {
+          "id": "46b928c3-5c76-435d-89da-6d7b73681180",
+          "keywordName": "성격미인"
+        }
+      ]
+    },
+    {
+      "id": "0eb08bd3-b439-4f17-b157-964173eac44d",
+      "name": "진윤희",
+      "416_id": 222,
+      "memory_id": 5559,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=222",
+      "mgmt_id": 228,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5559",
+      "title_keyword_id": "407f3e73-f9de-4ec5-aa6b-20a171c991de",
+      "keywords": [
+        {
+          "id": "407f3e73-f9de-4ec5-aa6b-20a171c991de",
+          "keywordName": "회계사"
+        }
+      ]
+    },
+    {
+      "id": "62505976-ec62-426d-8fad-4199b73583f2",
+      "name": "최진아",
+      "416_id": 221,
+      "memory_id": 5560,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=221",
+      "mgmt_id": 229,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5560",
+      "title_keyword_id": "14b4e7f8-f0f4-4e79-add0-525061f9a9b5",
+      "keywords": [
+        { "id": "14b4e7f8-f0f4-4e79-add0-525061f9a9b5", "keywordName": "군인" },
+        {
+          "id": "b770bfb5-6a0b-402a-ae1e-0dec8f448e2a",
+          "keywordName": "축구선수 매니저"
+        },
+        {
+          "id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+          "keywordName": "수의사"
+        },
+        {
+          "id": "1eabf8c5-15c0-4bd3-828d-261f57e08fd3",
+          "keywordName": "학교 선생님"
+        }
+      ]
+    },
+    {
+      "id": "2a015b05-f5d2-4e94-823b-524f475d8894",
+      "name": "편다인",
+      "416_id": 216,
+      "memory_id": 5561,
+      "class_name": "2학년 9반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=216",
+      "mgmt_id": 230,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5561",
+      "title_keyword_id": "c6ef57cc-4a84-4d9f-ac3a-e657b6e1bf49",
+      "keywords": [
+        {
+          "id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+          "keywordName": "수의사"
+        },
+        {
+          "id": "c6ef57cc-4a84-4d9f-ac3a-e657b6e1bf49",
+          "keywordName": "뮤지컬 배우"
+        }
+      ]
+    },
+    {
+      "id": "31ffe3cd-8554-47e4-8efa-796aef8cd411",
+      "name": "강한솔",
+      "416_id": 247,
+      "memory_id": 5562,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=247",
+      "mgmt_id": 231,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5562",
+      "title_keyword_id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+      "keywords": [
+        {
+          "id": "c506d49e-b72e-4ca4-aaa7-a41c5cf4c1df",
+          "keywordName": "간호사"
+        }
+      ]
+    },
+    {
+      "id": "b9e06f46-f3a1-482b-8318-553b2e6f9181",
+      "name": "구보현",
+      "416_id": 241,
+      "memory_id": 5563,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=241",
+      "mgmt_id": 232,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5563",
+      "title_keyword_id": "1aa66da1-b66c-428a-aff1-1af1c0e0a691",
+      "keywords": [
+        {
+          "id": "71cd7183-1d91-4b53-a51f-1f4d9299f53e",
+          "keywordName": "손재주"
+        },
+        {
+          "id": "1aa66da1-b66c-428a-aff1-1af1c0e0a691",
+          "keywordName": "인테리어 디자이너"
+        }
+      ]
+    },
+    {
+      "id": "8a827c29-dee8-4acd-957d-8214beff3232",
+      "name": "권지혜",
+      "416_id": 236,
+      "memory_id": 5564,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=236",
+      "mgmt_id": 233,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5564",
+      "title_keyword_id": "fb60b2e4-2cf0-412c-a8d7-d528d1e0c51c",
+      "keywords": [
+        {
+          "id": "6fa3666d-e651-46b0-b0b7-88a473f9306c",
+          "keywordName": "만능재주꾼"
+        },
+        {
+          "id": "fb60b2e4-2cf0-412c-a8d7-d528d1e0c51c",
+          "keywordName": "치과의사"
+        }
+      ]
+    },
+    {
+      "id": "7ca6d92a-0751-42ee-ba2f-2ed1476fed17",
+      "name": "김다영",
+      "416_id": 235,
+      "memory_id": 5565,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=235",
+      "mgmt_id": 234,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5565",
+      "title_keyword_id": "2af99241-51f6-4aec-920e-23d59b0db88c",
+      "keywords": [
+        { "id": "2af99241-51f6-4aec-920e-23d59b0db88c", "keywordName": "의사" }
+      ]
+    },
+    {
+      "id": "bb8030a3-57a3-4285-af9d-2cb4c5fdaefc",
+      "name": "김민정",
+      "416_id": 246,
+      "memory_id": 5566,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=246",
+      "mgmt_id": 235,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5566",
+      "title_keyword_id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3",
+      "keywords": [
+        { "id": "f5bcaac7-f9e6-4fa8-8a9a-99217507f9a3", "keywordName": "약사" }
+      ]
+    },
+    {
+      "id": "aa4d4e7c-97b2-48b8-adbb-80f4c4e072b0",
+      "name": "김송희",
+      "416_id": 237,
+      "memory_id": 5567,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=237",
+      "mgmt_id": 236,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5567",
+      "title_keyword_id": "186793de-222c-489d-92bb-f8e30ba34c90",
+      "keywords": [
+        {
+          "id": "3ed27053-ff5c-4bad-ad56-83288aa76f1b",
+          "keywordName": "행복선물"
+        },
+        {
+          "id": "186793de-222c-489d-92bb-f8e30ba34c90",
+          "keywordName": "엄마의 기둥"
+        }
+      ]
+    },
+    {
+      "id": "c7c4077f-e6f3-4133-b735-2740f6fcdbb2",
+      "name": "김슬기",
+      "416_id": 250,
+      "memory_id": 5568,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=250",
+      "mgmt_id": 237,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5568",
+      "title_keyword_id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+      "keywords": [
+        {
+          "id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+          "keywordName": "수의사"
+        }
+      ]
+    },
+    {
+      "id": "5a884294-7d4e-4158-a178-bfb71aff94bb",
+      "name": "김유민",
+      "416_id": 242,
+      "memory_id": 5569,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=242",
+      "mgmt_id": 238,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5569",
+      "title_keyword_id": "231a83b2-112d-4519-bb86-c6ab4217ea01",
+      "keywords": [
+        {
+          "id": "78b97410-51f7-44c0-a29b-1af3f5ab7fdc",
+          "keywordName": "제과제빵사"
+        },
+        {
+          "id": "231a83b2-112d-4519-bb86-c6ab4217ea01",
+          "keywordName": "목공사"
+        }
+      ]
+    },
+    {
+      "id": "a103aa94-648c-48ae-a36a-5dc95ee224a7",
+      "name": "김주희",
+      "416_id": 232,
+      "memory_id": 5570,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=232",
+      "mgmt_id": 239,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5570",
+      "title_keyword_id": "2af99241-51f6-4aec-920e-23d59b0db88c",
+      "keywords": [
+        { "id": "2af99241-51f6-4aec-920e-23d59b0db88c", "keywordName": "의사" },
+        { "id": "b8ae9f0f-e9f2-4280-b2c0-273d7ca2c4ef", "keywordName": "주름" }
+      ]
+    },
+    {
+      "id": "518d3a78-65ec-4fc7-932d-f5d6d86e123e",
+      "name": "박정슬",
+      "416_id": 244,
+      "memory_id": 5571,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=244",
+      "mgmt_id": 240,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5571",
+      "title_keyword_id": "7137a55d-cf76-45f0-b518-9bb92c421de6",
+      "keywords": [
+        {
+          "id": "7137a55d-cf76-45f0-b518-9bb92c421de6",
+          "keywordName": "연극 동아리"
+        },
+        {
+          "id": "dbe606d9-041b-436b-b3c8-9c8e9d636382",
+          "keywordName": "취미는 셀카"
+        }
+      ]
+    },
+    {
+      "id": "73a9aa69-4920-4607-8969-7a0ce54ca577",
+      "name": "이가영",
+      "416_id": 243,
+      "memory_id": 5572,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=243",
+      "mgmt_id": 241,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5572",
+      "title_keyword_id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+      "keywords": [
+        {
+          "id": "a8ecc3d2-ea38-46c2-ab2f-9315017347dd",
+          "keywordName": "수의사"
+        },
+        {
+          "id": "a1beb248-a27a-46ff-aacd-bb2ab3102592",
+          "keywordName": "호기심 많은아이"
+        }
+      ]
+    },
+    {
+      "id": "c796cbec-45f5-4f5f-9256-27ce25f94325",
+      "name": "이경민",
+      "416_id": 239,
+      "memory_id": 5573,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=239",
+      "mgmt_id": 242,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5573",
+      "title_keyword_id": "b0a392c2-0d66-498c-88b7-bcf8b3a59ad5",
+      "keywords": [
+        {
+          "id": "5e5f8e1b-c137-475f-8db2-5c588edd9160",
+          "keywordName": "조카 사랑"
+        },
+        {
+          "id": "b0a392c2-0d66-498c-88b7-bcf8b3a59ad5",
+          "keywordName": "갱이미모"
+        },
+        {
+          "id": "6f4ec563-f73b-45b2-b00d-d6e10974ab79",
+          "keywordName": "상담사"
+        }
+      ]
+    },
+    {
+      "id": "3aeef892-1489-4d8b-96b5-a18c1c8aa024",
+      "name": "이경주",
+      "416_id": 245,
+      "memory_id": 5574,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=245",
+      "mgmt_id": 243,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5574",
+      "title_keyword_id": "e0d7b552-3ae8-4afe-ac5e-f960a31e5eb8",
+      "keywords": [
+        {
+          "id": "05fde5ae-4c1e-49c7-b0d9-7bae70467552",
+          "keywordName": "배려심"
+        },
+        {
+          "id": "e0d7b552-3ae8-4afe-ac5e-f960a31e5eb8",
+          "keywordName": "연예인"
+        }
+      ]
+    },
+    {
+      "id": "919c346c-8310-471e-9c94-85dc8824c9dd",
+      "name": "이다혜",
+      "416_id": 233,
+      "memory_id": 5575,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=233",
+      "mgmt_id": 244,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5575",
+      "title_keyword_id": "664afa5a-72fb-4ffa-8640-e7e87a4ba307",
+      "keywords": [
+        {
+          "id": "664afa5a-72fb-4ffa-8640-e7e87a4ba307",
+          "keywordName": "수학 선생님"
+        },
+        {
+          "id": "a723c112-0f26-4a63-a8c6-2bc4e8e14542",
+          "keywordName": "늦잠꾸러기"
+        }
+      ]
+    },
+    {
+      "id": "0ec71d72-764d-4a6c-991d-9af755c05759",
+      "name": "이단비",
+      "416_id": 238,
+      "memory_id": 5576,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=238",
+      "mgmt_id": 245,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5576",
+      "title_keyword_id": "17effcd8-6204-403e-bf18-5bb1220dc3e6",
+      "keywords": [
+        {
+          "id": "17effcd8-6204-403e-bf18-5bb1220dc3e6",
+          "keywordName": "응급구조사"
+        }
+      ]
+    },
+    {
+      "id": "4ae185dc-77ca-4208-93f7-b4384585f45e",
+      "name": "이소진",
+      "416_id": 231,
+      "memory_id": 5577,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=231",
+      "mgmt_id": 246,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5577",
+      "title_keyword_id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+      "keywords": [
+        { "id": "31e06225-4a91-410f-bbac-474e7f1b3c24", "keywordName": "요가" },
+        { "id": "a4ec9120-e411-4c7c-8095-6162ecb2f415", "keywordName": "수학" },
+        {
+          "id": "94f6f8c5-c8d6-48ae-94d5-83b9bc0e2a02",
+          "keywordName": "유치원 선생님"
+        }
+      ]
+    },
+    {
+      "id": "690178a0-ab21-4fee-9cde-77907ff3393c",
+      "name": "이은별",
+      "416_id": 240,
+      "memory_id": 5578,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=240",
+      "mgmt_id": 247,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5578",
+      "title_keyword_id": "7d7d7d86-2d78-4900-a8c8-b84326cfbad1",
+      "keywords": [
+        { "id": "7d7d7d86-2d78-4900-a8c8-b84326cfbad1", "keywordName": "산책" },
+        {
+          "id": "73334458-bdb7-46b5-ae09-a5a7e4a3b38b",
+          "keywordName": "피아니스트"
+        }
+      ]
+    },
+    {
+      "id": "0f3e2c29-1df4-4d0b-98c5-b539c8c9c33e",
+      "name": "이해주",
+      "416_id": 234,
+      "memory_id": 5579,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=234",
+      "mgmt_id": 248,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5579",
+      "title_keyword_id": "7bae8834-3783-43bb-80ce-bb729bd1c2bf",
+      "keywords": [
+        {
+          "id": "7bae8834-3783-43bb-80ce-bb729bd1c2bf",
+          "keywordName": "항공정비사"
+        }
+      ]
+    },
+    {
+      "id": "e85397f7-d3ec-4d97-8f3e-73ab4480a597",
+      "name": "장수정",
+      "416_id": 249,
+      "memory_id": 5580,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=249",
+      "mgmt_id": 249,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5580",
+      "title_keyword_id": "4c708d81-69ef-4a1d-b15c-1c3d00e552bb",
+      "keywords": [
+        {
+          "id": "754f0eb4-e63f-4cdb-b47e-87a447619426",
+          "keywordName": "카페경영"
+        },
+        {
+          "id": "4c708d81-69ef-4a1d-b15c-1c3d00e552bb",
+          "keywordName": "바리스타"
+        }
+      ]
+    },
+    {
+      "id": "6aa75c7c-c5bd-42c5-9f22-631632e6006c",
+      "name": "장혜원",
+      "416_id": 248,
+      "memory_id": 5581,
+      "class_name": "2학년 10반",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=248",
+      "mgmt_id": 250,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5581",
+      "title_keyword_id": "c183b8f4-4195-43b5-8456-3018afdb65b8",
+      "keywords": [
+        {
+          "id": "c183b8f4-4195-43b5-8456-3018afdb65b8",
+          "keywordName": "수의학자"
+        }
+      ]
+    },
+    {
+      "id": "5f1ce142-3872-496d-9310-18136fa86e03",
+      "name": "고창석",
+      "416_id": 260,
+      "memory_id": 5591,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=260",
+      "mgmt_id": 251,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5591",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "fbcb7db1-3773-43b5-b70d-a1b341e01b56",
+      "name": "김응현",
+      "416_id": 257,
+      "memory_id": 5588,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=257",
+      "mgmt_id": 252,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5588",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "10427049-567a-469f-a66a-7ad4682fa75e",
+      "name": "김초원",
+      "416_id": 253,
+      "memory_id": 5584,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=253",
+      "mgmt_id": 253,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5584",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "bacc9870-38a1-455f-b815-14c1dd5331bd",
+      "name": "남윤철",
+      "416_id": 255,
+      "memory_id": 5586,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=255",
+      "mgmt_id": 254,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5586",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "4fc3f1c1-81f2-444d-b360-4fea5376402c",
+      "name": "박육근",
+      "416_id": 259,
+      "memory_id": 5590,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=259",
+      "mgmt_id": 255,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5590",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "0dfaa690-21ac-41d3-9566-0b96201c8016",
+      "name": "양승진",
+      "416_id": 261,
+      "memory_id": 5592,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=261",
+      "mgmt_id": 256,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5592",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "db81e0ab-312a-4d37-b4a1-71993f5029de",
+      "name": "유니나",
+      "416_id": 251,
+      "memory_id": 5582,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=251",
+      "mgmt_id": 257,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5582",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "e545dd29-03dd-4883-8844-543e9dfbd7f4",
+      "name": "이지혜",
+      "416_id": 256,
+      "memory_id": 5587,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=256",
+      "mgmt_id": 258,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5587",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "ef7a6011-11da-4d25-bb82-0cf6d0b3d1f3",
+      "name": "이해봉",
+      "416_id": 254,
+      "memory_id": 5585,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=254",
+      "mgmt_id": 259,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5585",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "ba0d6150-7553-4929-b9b2-bb4ad5f69d3b",
+      "name": "전수영",
+      "416_id": 252,
+      "memory_id": 5583,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=252",
+      "mgmt_id": 260,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5583",
+      "title_keyword_id": null,
+      "keywords": null
+    },
+    {
+      "id": "04e6a1f0-ab31-4fa2-966e-3b1e6e62f61d",
+      "name": "최혜정",
+      "416_id": 258,
+      "memory_id": 5589,
+      "class_name": "교무실",
+      "guestbook_url": "https://www.goe416.go.kr/?p=27_view&searchTxt=&viewType=class&idx=258",
+      "mgmt_id": 261,
+      "collection_url": "http://www.416memory.org/collection_col1/view/5589",
+      "title_keyword_id": null,
+      "keywords": null
+    }
+  ]
+}

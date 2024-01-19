@@ -144,7 +144,7 @@ const Board = () => {
         >
           {bookSize[1] > 1 ? (
             <HTMLFlipBook
-              flippingTime={500}
+              flippingTime={1200}
               ref={(ref) => (animatedBookRef.current = ref)}
               drawShadow={false}
               style={{

@@ -1669,8 +1669,15 @@ interface CardProps {
   title: string;
   birth: string | Date;
   href?: string;
+  onFirstClick?: (ref: HTMLElement) => void;
 }
-export const Card = ({ birth, image, title, href }: CardProps) => {
+export const Card = ({
+  birth,
+  image,
+  title,
+  href,
+  onFirstClick,
+}: CardProps) => {
   const ref = useRef<HTMLAnchorElement>(null);
   const getBirthText = useCallback((birth: Date) => {
     const year = birth.getFullYear();
@@ -1683,6 +1690,7 @@ export const Card = ({ birth, image, title, href }: CardProps) => {
   const birthText = birth instanceof Date ? getBirthText(birth) : birth;
   useCheckClick({
     ref,
+    onFirstClick,
   });
   return (
     <CardLink to={href ?? ""} ref={ref}>
@@ -1709,6 +1717,7 @@ const CardLink = styled(Link)`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   column-gap: 0.8rem;
   text-decoration: none;
+  margin: 0 auto;
   color: ${(props) => props.theme.color.text.main};
 
   & > div + div {

@@ -1980,6 +1980,11 @@ hoist-non-react-statics@^3.3.1:
   dependencies:
     react-is "^16.7.0"
 
+holiday-kr@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/holiday-kr/-/holiday-kr-0.1.5.tgz#6e792f42aac4f65b2e702b6758bb5a745cd9d403"
+  integrity sha512-v6rbDvHYNTR2rMyWV+5JhTg6YNkgr6AsvZUEwxX/6dnYJ3SN8zeO4ZXM4vQpUCjbV+Hhm5sB8uJ8LViwIxBtZw==
+
 ieee754@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"

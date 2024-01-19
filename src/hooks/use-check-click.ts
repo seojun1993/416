@@ -51,5 +51,5 @@ export const useCheckClick = (options: usecheckClickOption) => {
         window.removeEventListener("click", handleWindowClick);
       };
     }
-  }, []);
+  }, [onFirstClick]);
 };

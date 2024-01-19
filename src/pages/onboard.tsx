@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
 import EmblaCarousel from "@/components/ui/carousel";
@@ -5,39 +6,70 @@ import { EmblaOptionsType } from "embla-carousel-react";
 import avatar1 from "@/assets/images/avatar/img.png";
 
 import OnboardCompoents from "@/components/pages/onboard";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import { css } from "@emotion/react";
 
-const SLIDES = [{ text: "1" }, { text: "1" }, { text: "1" }];
+import { getLunar } from "holiday-kr";
+
+const SLIDES = [
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+  { text: "1" },
+];
 
 const OnBoard = () => {
   const OPTIONS: EmblaOptionsType = { loop: true };
+  const selectedName = useRef();
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
+    Autoplay({
+      delay: 5000,
+    }),
+  ]);
+
+  const d = getLunar(new Date("2025-02-29"));
+  console.log(d);
+  // console.log(new Date(`${d.year}-${d.month}-${d.day}`));
+
   return (
     <OnBoardShell>
       <Saver>
         <OnboardCompoents.OnBoardTitle />
         <EmblaCarousel
+          carouselType={[emblaRef, emblaApi]}
           slides={SLIDES}
           options={OPTIONS}
-          renderItem={(item) => (
-            <CarouselCardContent>
-              <OnboardCompoents.Card
-                href="board?name=김예은"
-                image={avatar1}
-                birth="97.05.00"
-                title="고해인"
-              />
-              <OnboardCompoents.Card
-                image={avatar1}
-                birth={new Date("1997-09-01")}
-                title="김민지"
-              />
-              <OnboardCompoents.Card
-                image={avatar1}
-                birth="97.04.00"
-                title="김민희"
-              />
-            </CarouselCardContent>
-          )}
-        />
+        >
+          {(item, index) => {
+            return (
+              <div
+                css={css`
+                  flex: 0 0 33.3333%;
+                  margin: 2em auto;
+                `}
+                key={index}
+              >
+                <OnboardCompoents.Card
+                  onFirstClick={() => {
+                    emblaApi?.scrollTo(index);
+                  }}
+                  href="board?name=김예은"
+                  image={avatar1}
+                  birth="97.05.00"
+                  title="고해인"
+                />
+              </div>
+            );
+          }}
+        </EmblaCarousel>
       </Saver>
     </OnBoardShell>
   );

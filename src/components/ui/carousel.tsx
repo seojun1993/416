@@ -1,68 +1,28 @@
-/** @jsxImportSource @emotion/react */
-import { ReactNode, useCallback } from "react";
-import useEmblaCarousel, {
-  EmblaCarouselType,
-  EmblaOptionsType,
-} from "embla-carousel-react";
-import { DotButton, useDotButton } from "./carousel-dots";
-import { SerializedStyles, css } from "@emotion/react";
+import { ReactNode } from "react";
+import { EmblaOptionsType, UseEmblaCarouselType } from "embla-carousel-react";
+import { SerializedStyles } from "@emotion/react";
 import styled from "@emotion/styled";
-import Autoplay from "embla-carousel-autoplay";
 
 interface EmblaCarouselProps<T> {
   slides: T[];
   options?: EmblaOptionsType;
-  renderItem: (item: T) => ReactNode;
   cssSlide?: SerializedStyles;
+  carouselType: UseEmblaCarouselType;
+  children?: ReactNode | ((item: T, index: number) => ReactNode);
 }
-
-const Viewport = styled.div`
-  width: 80dvw;
-  overflow: hidden;
-  position: relative;
-`;
-
-const DotPosition = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
-const Container = styled.div`
-  backface-visibility: hidden;
-  touch-action: pan-y;
-  display: flex;
-  justify-content: flex-start;
-`;
-
 const EmblaCarousel = <T,>({
   slides,
-  options,
-  renderItem,
+  carouselType,
   cssSlide,
+  children,
 }: EmblaCarouselProps<T>) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({
-      delay: 5000,
-    }),
-  ]);
+  const [emblaRef, emblaApi] = carouselType;
 
   return (
     <div css={cssSlide}>
       <Viewport ref={emblaRef}>
         <Container>
-          {slides.map((item, index) => (
-            <div
-              className="embla__slide"
-              css={css`
-                flex: 0 0 100%;
-              `}
-              key={index}
-            >
-              {renderItem(item)}
-            </div>
-          ))}
+          {typeof children === "function" ? slides.map(children) : children}
         </Container>
         <LeftButton
           onClick={() => {
@@ -154,4 +114,17 @@ const RightButton = styled.button`
     width: 0.8rem;
     height: 1.6rem;
   }
+`;
+
+const Viewport = styled.div`
+  width: 80dvw;
+  overflow: hidden;
+  position: relative;
+`;
+
+const Container = styled.div`
+  backface-visibility: hidden;
+  touch-action: pan-y;
+  display: flex;
+  justify-content: flex-start;
 `;
