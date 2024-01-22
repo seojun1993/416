@@ -1,33 +1,29 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { LazyMotion, domAnimation, m, useAnimation } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 
 const InformationModal = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(true);
-  const controls = useAnimation();
-
-  const toggleOpen = () => {
-    if (open) {
-      controls.start({ opacity: 0 }).then(() => setOpen(false));
-    } else {
-      controls.start({ opacity: 1 }).then(() => setOpen(true));
-    }
-  };
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     if (open) {
-      controls.start({ opacity: 1 });
+      timeoutRef.current = setTimeout(() => {
+        setOpen(false);
+      }, 2000);
     }
   }, []);
 
-  return open
-    ? createPortal(
+  return createPortal(
+    <AnimatePresence>
+      {open ? (
         <LazyMotion features={domAnimation}>
           <m.div
             initial={{ opacity: 0 }}
-            animate={controls}
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             css={css`
               position: fixed;
               width: 100%;
@@ -40,15 +36,17 @@ const InformationModal = ({ children }: PropsWithChildren) => {
               justify-content: center;
             `}
             onClick={() => {
-              toggleOpen();
+              clearTimeout(timeoutRef.current);
+              setOpen(false);
             }}
           >
             {children}
           </m.div>
-        </LazyMotion>,
-        document.body
-      )
-    : null;
+        </LazyMotion>
+      ) : null}
+    </AnimatePresence>,
+    document.body
+  );
 };
 
 export default InformationModal;

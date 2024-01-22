@@ -42,7 +42,7 @@ const OnBoard = () => {
   return (
     <OnBoardShell>
       <Saver>
-        <OnboardCompoents.OnBoardTitle />
+        <OnboardCompoents.OnBoardTitle title="고해인" />
         <EmblaCarousel
           carouselType={[emblaRef, emblaApi]}
           slides={SLIDES}

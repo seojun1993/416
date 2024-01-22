@@ -2,11 +2,20 @@ import styled from "@emotion/styled";
 import { HTMLAttributes, ReactNode } from "react";
 interface CircleButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
+  active?: boolean;
 }
 
-const CircleButton = ({ icon, ...props }: CircleButtonProps) => {
+const CircleButton = ({
+  icon,
+  active = false,
+  ...props
+}: CircleButtonProps) => {
   return (
-    <CircleButtonStyle {...props} hasChild={!!icon && !!props.children}>
+    <CircleButtonStyle
+      {...props}
+      active={active}
+      hasChild={!!icon && !!props.children}
+    >
       {icon}
       {props.children && (
         <CircleButtonChildSpan hasIcon={!!icon}>
@@ -19,7 +28,7 @@ const CircleButton = ({ icon, ...props }: CircleButtonProps) => {
 
 export default CircleButton;
 
-const CircleButtonStyle = styled.button<{ hasChild: boolean }>`
+const CircleButtonStyle = styled.button<{ hasChild: boolean; active: boolean }>`
   height: 1.7em;
   border: none;
   background-color: white;
@@ -32,6 +41,8 @@ const CircleButtonStyle = styled.button<{ hasChild: boolean }>`
   padding: ${(props) => (props.hasChild ? "0.4em 0.7em" : "0.4em")};
   aspect-ratio: ${(props) => (props.hasChild ? "" : "1/1")};
   transition: background-color 0.1s ease-in-out;
+  color: ${(props) => (props.active ? "#8080FF" : "black")};
+  fill: ${(props) => (props.active ? "#8080FF" : "black")};
   > * {
     transition: background-color 0.1s ease-in-out;
     width: 100;
@@ -43,12 +54,10 @@ const CircleButtonStyle = styled.button<{ hasChild: boolean }>`
     outline: none;
   }
   &:active {
-    background-color: gray;
+    color: #8080ff !important;
     svg * {
-      fill: white;
-      stroke: white;
+      fill: #8080ff !important;
     }
-    color: white;
   }
 `;
 

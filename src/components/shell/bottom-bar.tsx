@@ -27,6 +27,7 @@ const BottomBar = () => {
       );
     }
   }, []);
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
     window.addEventListener("popstate", (event) => {
@@ -40,6 +41,7 @@ const BottomBar = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
   return (
     <BottomWrapper ref={bottomRef}>
       {/* <ScreenSizeSlider /> */}
@@ -50,6 +52,7 @@ const BottomBar = () => {
         `}
       >
         <CircleButton
+          active={pathname === "/"}
           onClick={() => navigate("/")}
           icon={
             <svg
@@ -63,7 +66,7 @@ const BottomBar = () => {
                 data-name="집"
                 d="M28.666,1,1,22.176V57.471H19V34.529H39V57.471H57V22.176Z"
                 transform="translate(-1 -1)"
-                fill="#666"
+                fill="currentColor"
               />
             </svg>
           }
@@ -71,6 +74,7 @@ const BottomBar = () => {
           홈화면
         </CircleButton>
         <CircleButton
+          active={pathname === "/menu"}
           onClick={() => navigate("menu")}
           icon={
             <svg
@@ -87,7 +91,7 @@ const BottomBar = () => {
                   height="8"
                   rx="4"
                   transform="translate(240 2066)"
-                  fill="#666"
+                  fill="currentColor"
                 />
                 <rect
                   id="중간사각형"
@@ -96,7 +100,7 @@ const BottomBar = () => {
                   height="8"
                   rx="4"
                   transform="translate(240 2082)"
-                  fill="#666"
+                  fill="currentColor"
                 />
                 <rect
                   id="아랫사각형"
@@ -105,7 +109,7 @@ const BottomBar = () => {
                   height="8"
                   rx="4"
                   transform="translate(240 2098)"
-                  fill="#666"
+                  fill="currentColor"
                 />
               </g>
             </svg>

@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "EastSeaDokdo";
+  font-display: swap;
+  src: local("EastSeaDokdo-Regular"),
+    url(./EastSeaDokdo-Regular.woff2) format("woff");
+}
