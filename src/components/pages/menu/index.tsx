@@ -13,6 +13,7 @@ type MenuCardProps = LinkProps &
     description: string;
     img: string;
     painter: string;
+    onFirstClick?: () => void;
   };
 
 const DividerCss = styled(m.div)`
@@ -38,12 +39,14 @@ export const MenuCard = ({
   description,
   img,
   painter,
+  onFirstClick,
   ...rest
 }: MenuCardProps) => {
   const theme = useTheme();
   const ref = useRef<HTMLAnchorElement>(null);
   useCheckClick({
     ref,
+    onFirstClick,
   });
   return (
     <Link

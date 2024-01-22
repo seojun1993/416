@@ -7,7 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { menuContent } from "@/constants/menu";
 const Menu = () => {
   const theme = useTheme();
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     skipSnaps: true,
     dragFree: true,
   });
@@ -57,8 +57,12 @@ const Menu = () => {
               min-width: 0;
             `}
           >
-            {Object.entries(menuContent).map((메뉴) => (
+            {Object.entries(menuContent).map((메뉴, index) => (
               <MenuComponents.MenuCard
+                key={메뉴[1].title}
+                onFirstClick={() => {
+                  emblaApi?.scrollTo(index - 1);
+                }}
                 to="/"
                 title={메뉴[1].title}
                 description={메뉴[1].description}
