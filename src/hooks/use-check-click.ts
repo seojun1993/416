@@ -43,12 +43,12 @@ export const useCheckClick = (options: usecheckClickOption) => {
       if (domRef) {
         domRef.classList.add("__focussed-target");
       }
-      window.addEventListener("click", handleWindowClick);
-      domRef.addEventListener("click", handleClick);
+      window.addEventListener("click", handleWindowClick, false);
+      domRef.addEventListener("click", handleClick, false);
       return () => {
-        domRef.removeEventListener("click", handleClick);
+        domRef.removeEventListener("click", handleClick, false);
         domRef.classList.remove("__focussed-target");
-        window.removeEventListener("click", handleWindowClick);
+        window.removeEventListener("click", handleWindowClick, false);
       };
     }
   }, [onFirstClick]);

@@ -30,12 +30,6 @@ const BottomBar = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
-    window.addEventListener("popstate", (event) => {
-      console.log(event);
-    });
-    window.addEventListener("pushstate", (event) => {
-      console.log(event);
-    });
     handleWindowResize();
     return () => {
       window.removeEventListener("resize", handleWindowResize);

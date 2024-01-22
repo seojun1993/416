@@ -8,7 +8,7 @@ import avatar1 from "@/assets/images/avatar/img.png";
 import OnboardCompoents from "@/components/pages/onboard";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 
 const SLIDES = [
@@ -33,6 +33,13 @@ const OnBoard = () => {
     }),
   ]);
 
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.on("slidesChanged", (eb) => {
+        console.log(eb.containerNode());
+      });
+    }
+  }, [emblaApi]);
   return (
     <OnBoardShell>
       <Saver>
