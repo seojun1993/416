@@ -11,8 +11,6 @@ import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 import { css } from "@emotion/react";
 
-import { getLunar } from "holiday-kr";
-
 const SLIDES = [
   { text: "1" },
   { text: "1" },
@@ -34,10 +32,6 @@ const OnBoard = () => {
       delay: 5000,
     }),
   ]);
-
-  const d = getLunar(new Date("2025-02-29"));
-  console.log(d);
-  // console.log(new Date(`${d.year}-${d.month}-${d.day}`));
 
   return (
     <OnBoardShell>

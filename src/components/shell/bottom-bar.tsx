@@ -60,6 +60,7 @@ const BottomBar = () => {
               width="56"
               height="56.471"
               viewBox="0 0 56 56.471"
+              style={{ transition: "none" }}
             >
               <path
                 id="집"
@@ -67,6 +68,7 @@ const BottomBar = () => {
                 d="M28.666,1,1,22.176V57.471H19V34.529H39V57.471H57V22.176Z"
                 transform="translate(-1 -1)"
                 fill="currentColor"
+                style={{ transition: "none" }}
               />
             </svg>
           }
@@ -82,8 +84,14 @@ const BottomBar = () => {
               width="52"
               height="40"
               viewBox="0 0 52 40"
+              style={{ transition: "none" }}
             >
-              <g id="메뉴" data-name="메뉴" transform="translate(-240 -2066)">
+              <g
+                id="메뉴"
+                data-name="메뉴"
+                transform="translate(-240 -2066)"
+                style={{ transition: "none" }}
+              >
                 <rect
                   id="윗사각형"
                   data-name="윗사각형"
@@ -92,6 +100,7 @@ const BottomBar = () => {
                   rx="4"
                   transform="translate(240 2066)"
                   fill="currentColor"
+                  style={{ transition: "none" }}
                 />
                 <rect
                   id="중간사각형"
@@ -101,6 +110,7 @@ const BottomBar = () => {
                   rx="4"
                   transform="translate(240 2082)"
                   fill="currentColor"
+                  style={{ transition: "none" }}
                 />
                 <rect
                   id="아랫사각형"
@@ -110,6 +120,7 @@ const BottomBar = () => {
                   rx="4"
                   transform="translate(240 2098)"
                   fill="currentColor"
+                  style={{ transition: "none" }}
                 />
               </g>
             </svg>
