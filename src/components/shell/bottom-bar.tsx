@@ -144,7 +144,7 @@ const BottomBar = () => {
                   style={{
                     fill: "none",
                   }}
-                  stroke="#666"
+                  stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="8"
@@ -166,7 +166,7 @@ const BottomBar = () => {
                   d="M409.533,2062.63l26,25-26,25"
                   transform="translate(-403.878 -2056.974)"
                   fill="none"
-                  stroke="#666"
+                  stroke="currentColor"
                   style={{
                     fill: "none",
                   }}
@@ -353,19 +353,30 @@ const BottomBar = () => {
                 width="63.414"
                 height="60"
                 viewBox="0 0 63.414 60"
+                style={{
+                  fill: "none",
+                }}
               >
                 <g
                   id="그룹_7"
                   data-name="그룹 7"
                   transform="translate(-1816 -2051)"
+                  style={{
+                    fill: "none",
+                    transition: "none",
+                  }}
                 >
                   <g
                     id="타원_2"
                     data-name="타원 2"
                     transform="translate(1816 2051)"
-                    fill="none"
-                    stroke="#666"
+                    fill="transparent"
+                    stroke="currentColor"
                     strokeWidth="8"
+                    style={{
+                      fill: "none",
+                      transition: "none",
+                    }}
                   >
                     <ellipse
                       cx="26.417"
@@ -373,6 +384,10 @@ const BottomBar = () => {
                       rx="26.417"
                       ry="26.02"
                       stroke="none"
+                      style={{
+                        fill: "none",
+                        transition: "none",
+                      }}
                     />
                     <ellipse
                       cx="26.417"
@@ -380,6 +395,10 @@ const BottomBar = () => {
                       rx="22.417"
                       ry="22.02"
                       fill="none"
+                      style={{
+                        fill: "none",
+                        transition: "none",
+                      }}
                     />
                   </g>
                   <rect
@@ -389,7 +408,7 @@ const BottomBar = () => {
                     height="26"
                     rx="4"
                     transform="translate(1855.373 2092.615) rotate(-45)"
-                    fill="#666"
+                    fill="currentColor"
                   />
                 </g>
               </svg>

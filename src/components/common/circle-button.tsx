@@ -54,9 +54,9 @@ const CircleButtonStyle = styled.button<{ hasChild: boolean; active: boolean }>`
     outline: none;
   }
   &:active {
-    color: #8080ff !important;
+    color: #8080ff;
     svg * {
-      fill: #8080ff !important;
+      fill: #8080ff;
     }
   }
 `;
