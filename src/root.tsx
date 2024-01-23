@@ -6,9 +6,12 @@ import Board from "./pages/board";
 import Cloud from "./pages/cloud";
 import Menu from "./pages/menu";
 import Search from "./pages/search";
+import { useQuery } from "@tanstack/react-query";
+import { getStudentsQuery } from "./queries/student";
 
 function Root() {
   const location = useLocation();
+  useQuery(getStudentsQuery);
 
   return (
     <AppShell>

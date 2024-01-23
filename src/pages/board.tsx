@@ -14,18 +14,26 @@ import {
 import HTMLFlipBook from "react-pageflip";
 import { useSearchParams } from "react-router-dom";
 
-import 김예은 from "@/assets/images/김예은/main.png";
-import 약전 from "@/assets/images/김예은/약전.png";
 import InformationModal from "@/components/ui/information-modal";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 import QRCode from "react-qr-code";
+import { useQuery } from "@tanstack/react-query";
+import { getStudentsQuery } from "@/queries/student";
+import { getImagePath } from "../../libs/utils";
 const Board = () => {
+  const { data: students } = useQuery(getStudentsQuery);
   const bookRef = useRef<HTMLDivElement>(null);
   const animatedBookRef = useRef<any>(null);
   const [bookSize, setBookSize] = useState([0, 0]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const name = searchParams.get("name");
+  const id = searchParams.get("id");
+
+  const student =
+    id && students
+      ? students.find((st) => st["416_id"] === parseInt(id))
+      : null;
+
   const theme = useTheme();
   const handleBookResize = () => {
     if (bookRef.current) {
@@ -81,7 +89,7 @@ const Board = () => {
             height: 2.85em;
           `}
         >
-          <H1 css={css``}>{name}의 다이어리</H1>
+          <H1 css={css``}>{student?.name}의 다이어리</H1>
         </div>
         <div
           css={css`
@@ -242,7 +250,7 @@ const Board = () => {
               background-repeat: no-repeat;
             `}
           >
-            {bookSize[1] > 1 ? (
+            {bookSize[1] > 1 && student ? (
               <HTMLFlipBook
                 flippingTime={1000}
                 ref={(ref) => (animatedBookRef.current = ref)}
@@ -287,70 +295,32 @@ const Board = () => {
                         object-fit: contain;
                         margin: 0 auto;
                       `}
-                      src={김예은}
+                      src={getImagePath(student.caricature)}
                     />
                   </div>
                 </Page>
-                <Page>
-                  <div
-                    css={css`
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      width: 100%;
-                      height: 100%;
-                    `}
-                  >
-                    <img
+                {student?.images.map((image) => (
+                  <Page key={image.id}>
+                    <div
                       css={css`
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
                         height: 100%;
-                        object-fit: contain;
-                        margin: 0 auto;
                       `}
-                      src={약전}
-                    />
-                  </div>
-                </Page>
-                <Page>
-                  <div
-                    css={css`
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      width: 100%;
-                      height: 100%;
-                    `}
-                  >
-                    <img
-                      css={css`
-                        height: 100%;
-                        object-fit: contain;
-                        margin: 0 auto;
-                      `}
-                      src={약전}
-                    />
-                  </div>
-                </Page>
-                <Page>
-                  <div
-                    css={css`
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      width: 100%;
-                      height: 100%;
-                    `}
-                  >
-                    <img
-                      css={css`
-                        height: 100%;
-                        object-fit: contain;
-                        margin: 0 auto;
-                      `}
-                      src={약전}
-                    />
-                  </div>
-                </Page>
+                    >
+                      <img
+                        css={css`
+                          height: 100%;
+                          object-fit: contain;
+                          margin: 0 auto;
+                        `}
+                        src={getImagePath(image.url)}
+                      />
+                    </div>
+                  </Page>
+                ))}
               </HTMLFlipBook>
             ) : null}
             <LeftButton onClick={handlePrevClick}>

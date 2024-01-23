@@ -3,74 +3,93 @@ import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
 import EmblaCarousel from "@/components/ui/carousel";
 import { EmblaOptionsType } from "embla-carousel-react";
-import avatar1 from "@/assets/images/avatar/img.png";
 
 import OnboardCompoents from "@/components/pages/onboard";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
-
-const SLIDES = [
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-  { text: "1" },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getStudentsQuery } from "@/queries/student";
+import { getImagePath } from "../../libs/utils";
+import { EmblaCarouselType } from "embla-carousel";
 
 const OnBoard = () => {
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const selectedName = useRef();
+  const { data: students } = useQuery(getStudentsQuery);
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
     Autoplay({
       delay: 5000,
     }),
+    (function () {
+      let emblaApi: EmblaCarouselType;
+      let nodes: HTMLElement[];
+
+      function onSlideInView() {
+        const idxs = emblaApi.slidesInView();
+        const idxList = [
+          idxs[0] - 2,
+          idxs[0] - 1,
+          ...idxs,
+          idxs[idxs.length - 1] + 1,
+          idxs[idxs.length - 1] + 2,
+        ];
+        idxList.forEach((idx) => {
+          const img = nodes?.[idx]?.querySelector("img");
+          if (img) {
+            if (img.getAttribute("loading") === "lazy") {
+              img.removeAttribute("loading");
+            }
+          }
+        });
+      }
+      return {
+        init(embla, OptionsHandler) {
+          emblaApi = embla;
+          nodes = emblaApi.slideNodes();
+          emblaApi.on("slidesInView", onSlideInView);
+        },
+        name: "virtual",
+        options: {},
+        destroy() {
+          emblaApi.off("slidesInView", onSlideInView);
+        },
+      };
+    })(),
   ]);
 
-  useEffect(() => {
-    if (emblaApi) {
-      emblaApi.on("slidesChanged", (eb) => {
-        console.log(eb.containerNode());
-      });
-    }
-  }, [emblaApi]);
   return (
     <OnBoardShell>
       <Saver>
         <OnboardCompoents.OnBoardTitle title="고해인" />
-        <EmblaCarousel
-          carouselType={[emblaRef, emblaApi]}
-          slides={SLIDES}
-          options={OPTIONS}
-        >
-          {(item, index) => {
-            return (
-              <div
-                css={css`
-                  flex: 0 0 33.3333%;
-                  margin: 2em auto;
-                `}
-                key={index}
-              >
-                <OnboardCompoents.Card
-                  onFirstClick={() => {
-                    emblaApi?.scrollTo(index);
-                  }}
-                  href="board?name=김예은"
-                  image={avatar1}
-                  birth="97.05.00"
-                  title="고해인"
-                />
-              </div>
-            );
-          }}
-        </EmblaCarousel>
+        {students ? (
+          <EmblaCarousel
+            carouselType={[emblaRef, emblaApi]}
+            slides={students}
+            options={OPTIONS}
+          >
+            {(item, index) => {
+              return (
+                <div
+                  css={css`
+                    flex: 0 0 33.3333%;
+                    margin: 2em auto;
+                  `}
+                  key={index}
+                >
+                  <OnboardCompoents.Card
+                    onFirstClick={() => {
+                      emblaApi?.scrollTo(index);
+                    }}
+                    href={`board?id=${item["416_id"]}`}
+                    image={getImagePath(item.caricature)}
+                    birth={item.birthday}
+                    title={item.name}
+                  />
+                </div>
+              );
+            }}
+          </EmblaCarousel>
+        ) : null}
       </Saver>
     </OnBoardShell>
   );

@@ -7,7 +7,7 @@ interface ImageProps extends HTMLAttributes<HTMLDivElement> {
 const ImageX = ({ src, ...rest }: ImageProps) => {
   return (
     <ImageWrapper {...rest}>
-      <StyledImage src={src} />
+      <StyledImage loading="lazy" src={src} />
     </ImageWrapper>
   );
 };
