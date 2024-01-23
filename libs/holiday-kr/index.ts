@@ -26,8 +26,8 @@ type HolidayDate = Partial<SplitedDate> & {
 //   return o;
 // }
 
-export function getSolar(year: Date): HolidayDate;
-export function getSolar(year: number, month: number, day: number): HolidayDate;
+export function getSolar(year: Date): string;
+export function getSolar(year: number, month: number, day: number): string;
 export function getSolar(year: Date | number, month?: number, day?: number) {
   const date =
     year instanceof Date ? splitDate(year) : splitDate(year, month!, day!);
