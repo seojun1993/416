@@ -15,7 +15,11 @@ import HTMLFlipBook from "react-pageflip";
 import { useSearchParams } from "react-router-dom";
 
 import InformationModal from "@/components/ui/information-modal";
-import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
+import {
+  ReactZoomPanPinchContentRef,
+  TransformComponent,
+  TransformWrapper,
+} from "react-zoom-pan-pinch";
 
 import QRCode from "react-qr-code";
 import { useQuery } from "@tanstack/react-query";
@@ -47,11 +51,13 @@ const Board = () => {
   const handlePrevClick = () => {
     if (animatedBookRef.current?.pageFlip?.().flipPrev) {
       animatedBookRef.current?.pageFlip?.().flipPrev?.();
+      dispatchEvent(new CustomEvent("onPageChange"));
     }
   };
   const handleNextClick = () => {
     if (animatedBookRef.current?.pageFlip?.().flipPrev) {
       animatedBookRef.current?.pageFlip?.().flipNext?.();
+      dispatchEvent(new CustomEvent("onPageChange"));
     }
   };
 
@@ -143,14 +149,14 @@ const Board = () => {
                       height="100"
                       fill="none"
                       stroke="#fff"
-                      stroke-width="4"
+                      strokeWidth="4"
                     />
                   </clipPath>
                 </defs>
                 <g
                   id="그룹_616"
                   data-name="그룹 616"
-                  clip-path="url(#clip-path)"
+                  clipPath="url(#clip-path)"
                 >
                   <path
                     id="패스_1758"
@@ -159,8 +165,8 @@ const Board = () => {
                     transform="translate(11.414 1.969)"
                     fill="none"
                     stroke="#fff500"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                   <line
                     id="선_4"
@@ -170,8 +176,8 @@ const Board = () => {
                     transform="translate(22.014 2.215)"
                     fill="none"
                     stroke="#fff500"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                   <path
                     id="패스_1759"
@@ -180,8 +186,8 @@ const Board = () => {
                     transform="translate(1.944 22.727)"
                     fill="none"
                     stroke="#fff500"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                   <line
                     id="선_5"
@@ -191,8 +197,8 @@ const Board = () => {
                     transform="translate(5.335 30.311)"
                     fill="none"
                     stroke="#fff500"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                   <path
                     id="패스_1760"
@@ -201,8 +207,8 @@ const Board = () => {
                     transform="translate(57.659 21.109)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                   <path
                     id="패스_1761"
@@ -211,8 +217,8 @@ const Board = () => {
                     transform="translate(46.938 21.018)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                   <path
                     id="패스_1762"
@@ -221,8 +227,8 @@ const Board = () => {
                     transform="translate(17.828 5.256)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="4"
+                    strokeLinejoin="round"
+                    strokeWidth="4"
                   />
                 </g>
               </svg>
@@ -243,7 +249,7 @@ const Board = () => {
             css={css`
               position: relative;
               /* padding: 10px 74px 10px 94px; */
-              padding: 0.46dvh 1.925dvw 0.46dvh 2.45dvw;
+              padding: 0.45dvh 1.925dvw 0dvh 2.45dvw;
               height: 100%;
               background: url(${Book});
               background-size: cover;
@@ -258,6 +264,7 @@ const Board = () => {
                 style={{
                   zIndex: 1,
                 }}
+                data-density="soft"
                 mobileScrollSupport={false}
                 size="stretch"
                 width={bookSize[0]}
@@ -271,8 +278,8 @@ const Board = () => {
                 maxHeight={bookSize[1]}
                 usePortrait={false}
                 startZIndex={0}
-                autoSize
                 showCover={false}
+                autoSize
                 clickEventForward={false}
                 useMouseEvents={false}
                 swipeDistance={0}
@@ -321,6 +328,26 @@ const Board = () => {
                     </div>
                   </Page>
                 ))}
+                <Page>
+                  <div
+                    css={css`
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      width: 100%;
+                      height: 100%;
+                    `}
+                  >
+                    <div
+                      css={css`
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        margin: 0 auto;
+                      `}
+                    />
+                  </div>
+                </Page>
               </HTMLFlipBook>
             ) : null}
             <LeftButton onClick={handlePrevClick}>
@@ -382,7 +409,9 @@ const Board = () => {
             row-gap: 0.8rem;
           `}
         >
-          <QRCode width={250} height={250} value="123213" />
+          {student?.guestbook_url ? (
+            <QRCode width={250} height={250} value={student.guestbook_url} />
+          ) : null}
           <P3
             css={css`
               font-weight: 500;
@@ -403,6 +432,18 @@ const Board = () => {
 export default Board;
 
 const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
+  const panRef = useRef<ReactZoomPanPinchContentRef>(null);
+  const handlePageChange = () => {
+    panRef.current?.resetTransform();
+  };
+
+  useEffect(() => {
+    window.addEventListener("onPageChange", handlePageChange);
+
+    return () => {
+      window.removeEventListener("onPageChange", handlePageChange);
+    };
+  }, []);
   return (
     <div
       ref={ref}
@@ -411,7 +452,7 @@ const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
         overflow: hidden;
       `}
     >
-      <TransformWrapper>
+      <TransformWrapper ref={panRef}>
         <div
           {...props}
           css={css`

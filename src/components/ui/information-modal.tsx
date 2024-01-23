@@ -28,7 +28,6 @@ const InformationModal = ({
       }
     }
   }, []);
-  console.log(cssStyles);
   return modal ? (
     createPortal(
       <AnimatePresence>

@@ -67,7 +67,6 @@ const Menu = () => {
                 title={메뉴[1].title}
                 description={메뉴[1].description}
                 img={메뉴[1].src}
-                painter={메뉴[1].imagePainter}
               />
             ))}
           </div>

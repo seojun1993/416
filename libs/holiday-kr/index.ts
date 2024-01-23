@@ -26,15 +26,18 @@ type HolidayDate = Partial<SplitedDate> & {
 //   return o;
 // }
 
-export function getLunar(year: Date): HolidayDate;
-export function getLunar(year: number, month: number, day: number): HolidayDate;
-export function getLunar(year: Date | number, month?: number, day?: number) {
+export function getSolar(year: Date): HolidayDate;
+export function getSolar(year: number, month: number, day: number): HolidayDate;
+export function getSolar(year: Date | number, month?: number, day?: number) {
   const date =
     year instanceof Date ? splitDate(year) : splitDate(year, month!, day!);
 
   const o: HolidayDate = calcLunar(date.year, date.month, date.day, 1, 0);
   o.dayOfWeek = getDayOfWeek(date);
-  return o;
+  return `${String(o.year).padStart(2, "0")}-${String(o.month).padStart(
+    2,
+    "0"
+  )}-${String(o.day).padStart(2, "0")}`;
 }
 
 export function splitDate<T extends SplitedDate>(year: Date): T;

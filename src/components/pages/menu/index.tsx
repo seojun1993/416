@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { H3, H4, P4 } from "@/components/ui/text";
+import { H3, P3 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { HTMLAttributes, useRef } from "react";
@@ -12,7 +12,6 @@ type MenuCardProps = LinkProps &
     title: string;
     description: string;
     img: string;
-    painter: string;
     onFirstClick?: () => void;
   };
 
@@ -38,7 +37,6 @@ export const MenuCard = ({
   title,
   description,
   img,
-  painter,
   onFirstClick,
   ...rest
 }: MenuCardProps) => {
@@ -78,16 +76,17 @@ export const MenuCard = ({
         {title}
       </H3>
       <Divider />
-      <P4
+      <P3
         variant="secondary"
         css={css`
           color: white;
           white-space: pre-line;
+          text-align: start;
           flex: 1;
         `}
       >
         {description}
-      </P4>
+      </P3>
       <div
         css={css`
           border-radius: 0.8rem;
@@ -104,21 +103,6 @@ export const MenuCard = ({
             /* aspect-ratio: 1/1; */
           `}
         />
-        <div
-          css={css`
-            position: absolute;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.6);
-            height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            color: black;
-          `}
-        >
-          {painter}
-        </div>
       </div>
     </Link>
   );

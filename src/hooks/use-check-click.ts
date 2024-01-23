@@ -4,9 +4,10 @@ interface usecheckClickOption {
   time?: number;
   ref: RefObject<HTMLElement>;
   onFirstClick?: (ref: HTMLElement) => void;
+  onDoubleClick?: (ref: HTMLElement) => void;
 }
 export const useCheckClick = (options: usecheckClickOption) => {
-  const { ref, onFirstClick, time = 30000 } = options;
+  const { ref, onFirstClick, onDoubleClick, time = 30000 } = options;
   const clicked = useRef(false);
   const timeoutId = useRef<NodeJS.Timeout>();
   const handleClick = (e: MouseEvent) => {
@@ -23,7 +24,7 @@ export const useCheckClick = (options: usecheckClickOption) => {
         ref.current?.classList.remove("__focussed");
       }, time);
     } else {
-      console.log(e);
+      ref?.current && onDoubleClick && onDoubleClick(ref.current);
     }
   };
   const handleWindowClick = () => {
@@ -51,5 +52,5 @@ export const useCheckClick = (options: usecheckClickOption) => {
         window.removeEventListener("click", handleWindowClick, false);
       };
     }
-  }, [onFirstClick]);
+  }, [onFirstClick, onDoubleClick]);
 };

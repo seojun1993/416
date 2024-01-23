@@ -47,7 +47,15 @@ const BottomBar = () => {
       >
         <CircleButton
           active={pathname === "/"}
-          onClick={() => navigate("/")}
+          onClick={() => {
+            const id = sessionStorage.getItem("redirect_id");
+            if (id) {
+              sessionStorage.removeItem("redirect_id");
+              navigate(`/?centerIndex=${id}`);
+            } else {
+              navigate("/");
+            }
+          }}
           icon={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -449,7 +457,7 @@ const BottomBar = () => {
               font-weight: 700;
             `}
           >
-            음량조절
+            글씨확대
           </P3>
         </div>
         <div

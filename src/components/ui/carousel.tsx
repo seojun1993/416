@@ -1,6 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import { ReactNode } from "react";
 import { EmblaOptionsType, UseEmblaCarouselType } from "embla-carousel-react";
-import { SerializedStyles } from "@emotion/react";
+import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
 interface EmblaCarouselProps<T> {
@@ -17,7 +18,7 @@ const EmblaCarousel = <T,>({
   children,
 }: EmblaCarouselProps<T>) => {
   const [emblaRef, emblaApi] = carouselType;
-
+  const theme = useTheme();
   return (
     <div css={cssSlide}>
       <Viewport ref={emblaRef}>
@@ -25,6 +26,11 @@ const EmblaCarousel = <T,>({
           {typeof children === "function" ? slides.map(children) : children}
         </Container>
         <LeftButton
+          css={css`
+            &:active {
+              background-color: ${theme.color.accent.foreground};
+            }
+          `}
           onClick={() => {
             emblaApi?.scrollPrev();
           }}
@@ -40,7 +46,7 @@ const EmblaCarousel = <T,>({
               d="M-20078.957-17310.031l-40,40,40,40"
               transform="translate(20124.955 17318.516)"
               fill="none"
-              stroke="#fb950a"
+              stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="12"
@@ -51,6 +57,11 @@ const EmblaCarousel = <T,>({
           onClick={() => {
             emblaApi?.scrollNext();
           }}
+          css={css`
+            &:active {
+              background-color: ${theme.color.accent.foreground};
+            }
+          `}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +74,7 @@ const EmblaCarousel = <T,>({
               d="M-20118.957-17310.031l40,40-40,40"
               transform="translate(20127.441 17318.516)"
               fill="none"
-              stroke="#fb950a"
+              stroke="currentcolor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="12"

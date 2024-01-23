@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, PropsWithChildren } from "react";
 
 interface ImageProps extends HTMLAttributes<HTMLDivElement> {
   src: string;
 }
-const ImageX = ({ src, ...rest }: ImageProps) => {
+const ImageX = ({ src, ...rest }: PropsWithChildren<ImageProps>) => {
   return (
     <ImageWrapper {...rest}>
       <StyledImage loading="lazy" src={src} />
+      {rest.children}
     </ImageWrapper>
   );
 };

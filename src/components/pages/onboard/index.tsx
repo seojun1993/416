@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import ImageX from "@/components/ui/image";
-import { H1, H4 } from "@/components/ui/text";
+import { H1, H4, P2 } from "@/components/ui/text";
 import { useCheckClick } from "@/hooks/use-check-click";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -37,33 +37,42 @@ interface CardProps {
   image: string;
   title: string;
   birth: string | Date;
+  badge: string;
   href?: string;
   onFirstClick?: (ref: HTMLElement) => void;
+  onDoubleClick?: (ref: HTMLElement) => void;
 }
 export const Card = ({
   birth,
   image,
+  badge,
   title,
   href,
   onFirstClick,
+  onDoubleClick,
 }: CardProps) => {
   const ref = useRef<HTMLAnchorElement>(null);
   const getBirthText = useCallback((birth: Date) => {
-    const year = birth.getFullYear();
-    const month = birth.getMonth();
+    const month = birth.getMonth() + 1;
     const date = birth.getDate();
-    return `${year % 100}.${(month + "").padStart(2, "0")}.${(
-      date + ""
-    ).padStart(2, "0")}`;
+    return `${(month + "").padStart(2, "0")}월 ${(date + "").padStart(
+      2,
+      "0"
+    )}일`;
   }, []);
-  const birthText = birth instanceof Date ? getBirthText(birth) : birth;
+  const birthText = getBirthText(
+    birth instanceof Date ? birth : new Date(birth)
+  );
   useCheckClick({
     ref,
     onFirstClick,
+    onDoubleClick,
   });
   return (
     <CardLink to={href ?? ""} ref={ref}>
-      <CardAvatar src={image} />
+      <CardAvatar src={image}>
+        <CardBadge>{badge}</CardBadge>
+      </CardAvatar>
       <CardContent>
         <CardContentHeader>
           <span>{title}</span>
@@ -94,8 +103,22 @@ const CardLink = styled(Link)`
   }
 `;
 
+const CardBadge = styled(P2)`
+  white-space: nowrap;
+  position: absolute;
+  top: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 2rem;
+  border-radius: 9999rem;
+  border: 0.16rem solid ${(props) => props.theme.color.badge.border};
+  background-color: ${(props) => props.theme.color.badge.background};
+  color: ${(props) => props.theme.color.badge.text};
+`;
+
 const CardAvatar = styled(ImageX)`
   height: 19rem;
+  background-color: #fff;
   object-fit: fill;
 `;
 

@@ -36,8 +36,10 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
           border: none;
           outline: none;
           background-color: white;
+          transition: none;
           &:active {
-            background-color: gray;
+            background-color: ${theme.color.accent.foreground};
+            color: ${theme.color.secondary.foreground};
           }
         `}
       >
@@ -51,8 +53,10 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
           border: none;
           outline: none;
           background-color: white;
+          transition: none;
           &:active {
-            background-color: gray;
+            background-color: ${theme.color.accent.foreground};
+            color: ${theme.color.secondary.foreground};
           }
         `}
       >
