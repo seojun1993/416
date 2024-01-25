@@ -26,7 +26,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "@/queries/student";
 import { getImagePath } from "../../libs/utils";
 const Board = () => {
-  const { data: students } = useQuery(getStudentsQuery);
+  const { data: students } = useQuery(getStudentsQuery());
   const bookRef = useRef<HTMLDivElement>(null);
   const animatedBookRef = useRef<any>(null);
   const [bookSize, setBookSize] = useState([0, 0]);

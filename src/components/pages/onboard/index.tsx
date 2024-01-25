@@ -2,11 +2,11 @@
 import ImageX from "@/components/ui/image";
 import { H1, H4, P2 } from "@/components/ui/text";
 import { useCheckClick } from "@/hooks/use-check-click";
-import { css, useTheme } from "@emotion/react";
+import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 interface OnBoardTitleProps {
   title: string;
 }
@@ -41,6 +41,7 @@ interface CardProps {
   href?: string;
   onFirstClick?: (ref: HTMLElement) => void;
   onDoubleClick?: (ref: HTMLElement) => void;
+  linkStyle?: SerializedStyles;
 }
 export const Card = ({
   birth,
@@ -83,7 +84,7 @@ export const Card = ({
   );
 };
 
-const CardLink = styled(Link)`
+const CardLink = styled(motion(Link))`
   width: 18.1em;
   aspect-ratio: 25/ 32;
   outline: 1px solid #eeeeee;

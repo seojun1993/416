@@ -5,3 +5,9 @@ export const getImagePath = (imageUrl: string) => {
   url.pathname = imageUrl;
   return `${url.toString()}?cache=${imageUrl}`;
 };
+
+export const numberWithinRange = (
+  number: number,
+  min: number,
+  max: number
+): number => Math.min(Math.max(number, min), max);

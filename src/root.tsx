@@ -11,7 +11,7 @@ import { getStudentsQuery } from "./queries/student";
 
 function Root() {
   const location = useLocation();
-  useQuery(getStudentsQuery);
+  useQuery(getStudentsQuery());
 
   return (
     <AppShell>
