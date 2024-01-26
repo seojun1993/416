@@ -4,9 +4,9 @@ import { H1, H4, P2 } from "@/components/ui/text";
 import { useCheckClick } from "@/hooks/use-check-click";
 import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { animate, motion, useMotionValue } from "framer-motion";
 interface OnBoardTitleProps {
   title: string;
 }
@@ -39,6 +39,7 @@ interface CardProps {
   birth: string | Date;
   badge: string;
   href?: string;
+  scale: number;
   onFirstClick?: (ref: HTMLElement) => void;
   onDoubleClick?: (ref: HTMLElement) => void;
   linkStyle?: SerializedStyles;
@@ -49,9 +50,12 @@ export const Card = ({
   badge,
   title,
   href,
+  scale,
   onFirstClick,
   onDoubleClick,
 }: CardProps) => {
+  const scaleValue = useMotionValue(scale ?? 1);
+
   const ref = useRef<HTMLAnchorElement>(null);
   const getBirthText = useCallback((birth: Date) => {
     const month = birth.getMonth() + 1;
@@ -69,8 +73,13 @@ export const Card = ({
     onFirstClick,
     onDoubleClick,
   });
+  useEffect(() => {
+    if (scale !== undefined) {
+      animate(scaleValue, scale, { duration: 0 });
+    }
+  }, [scale]);
   return (
-    <CardLink to={href ?? ""} ref={ref}>
+    <CardLink style={{ scale: scaleValue as any }} to={href ?? ""} ref={ref}>
       <CardAvatar src={image}>
         <CardBadge>{badge}</CardBadge>
       </CardAvatar>

@@ -15,8 +15,9 @@ import { Prefetch } from "../../libs/plugins/prefetch";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { LazyMotion, domAnimation, m } from "framer-motion";
+import { Student } from "@/types/student";
 
-const TWEEN_FACTOR = 4.2;
+const TWEEN_FACTOR = 2.5;
 
 const OnBoard = () => {
   const { data: students } = useQuery(
@@ -106,30 +107,18 @@ const OnBoard = () => {
             >
               {(item, index) => {
                 return (
-                  <m.div
-                    style={{
-                      scale: tweenValues[index],
+                  <OnBoardItem
+                    key={item.id}
+                    scale={tweenValues[index]}
+                    item={item}
+                    index={index}
+                    onFirstClick={() => {
+                      emblaApi?.scrollTo(index);
                     }}
-                    css={css`
-                      flex: 0 0 33.3333%;
-                      margin: 2em auto;
-                    `}
-                    key={item["416_id"]}
-                  >
-                    <OnboardCompoents.Card
-                      badge={item.title_keyword}
-                      onFirstClick={() => {
-                        emblaApi?.scrollTo(index);
-                      }}
-                      onDoubleClick={() => {
-                        sessionStorage.setItem("redirect_id", id + "");
-                      }}
-                      href={`board?id=${item["416_id"]}`}
-                      image={getImagePath(item.caricature)}
-                      birth={item.birthday}
-                      title={item.name}
-                    />
-                  </m.div>
+                    onDoubleClick={() => {
+                      sessionStorage.setItem("redirect_id", id + "");
+                    }}
+                  />
                 );
               }}
             </EmblaCarousel>
@@ -141,6 +130,40 @@ const OnBoard = () => {
 };
 
 export default OnBoard;
+
+function OnBoardItem({
+  item,
+  scale: initialScale,
+  onFirstClick,
+  onDoubleClick,
+}: {
+  item: Student;
+  index: number;
+  scale: number;
+  onFirstClick?: (ref: HTMLElement) => void;
+  onDoubleClick?: (ref: HTMLElement) => void;
+}) {
+  return (
+    <m.div
+      css={css`
+        flex: 0 0 33.3333%;
+        margin: 2em auto;
+      `}
+      key={item["416_id"]}
+    >
+      <OnboardCompoents.Card
+        scale={initialScale}
+        badge={item.title_keyword}
+        onFirstClick={onFirstClick}
+        onDoubleClick={onDoubleClick}
+        href={`board?id=${item["416_id"]}`}
+        image={getImagePath(item.caricature)}
+        birth={item.birthday}
+        title={item.name}
+      />
+    </m.div>
+  );
+}
 
 const OnBoardShell = styled(MainShell)`
   justify-content: space-between;
