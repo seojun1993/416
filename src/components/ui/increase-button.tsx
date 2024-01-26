@@ -1,10 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
-import React, { HTMLAttributes } from "react";
-interface IncreaseButtonProps extends HTMLAttributes<HTMLDivElement> {}
+import { HTMLAttributes, MouseEventHandler } from "react";
+interface IncreaseButtonProps extends HTMLAttributes<HTMLDivElement> {
+  onIncreaseClick?: MouseEventHandler;
+  onDecreaseClick?: MouseEventHandler;
+}
 
 // #DDDDDD
-const IncreaseButton = (props: IncreaseButtonProps) => {
+const IncreaseButton = ({
+  onIncreaseClick,
+  onDecreaseClick,
+  ...props
+}: IncreaseButtonProps) => {
   const theme = useTheme();
   return (
     <div
@@ -18,9 +25,7 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
         align-items: center;
         justify-content: center;
         box-shadow: 0px 0px 0.3em rgb(0, 0, 0, 0.2);
-        transition: background-color 0.1s ease-in-out;
         > * {
-          transition: background-color 0.1s ease-in-out;
           width: 100;
         }
         > button + button {
@@ -29,6 +34,7 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
       `}
     >
       <button
+        onClick={onIncreaseClick}
         css={css`
           width: 100%;
           height: 100%;
@@ -41,17 +47,32 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
           outline: none;
           background-color: white;
           transition: none;
+          fill: ${theme.color.icon.button};
+          color: ${theme.color.icon.button};
+
           &:active {
             background-color: ${theme.color.accent.foreground};
-            color: ${theme.color.secondary.foreground};
+            svg {
+              color: ${theme.color.secondary.foreground};
+            }
           }
         `}
       >
         <svg
+          css={css`
+            transition: none;
+            & * {
+              transition: none;
+            }
+            width: 0.802em;
+            height: 0.802em;
+          `}
           xmlns="http://www.w3.org/2000/svg"
           width="52"
           height="52"
           viewBox="0 0 52 52"
+          fill="currentColor"
+          color="currentColor"
         >
           <g
             id="그룹_462"
@@ -78,6 +99,7 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
         </svg>
       </button>
       <button
+        onClick={onDecreaseClick}
         css={css`
           width: 100%;
           height: 100%;
@@ -90,17 +112,30 @@ const IncreaseButton = (props: IncreaseButtonProps) => {
           outline: none;
           background-color: white;
           transition: none;
+          fill: ${theme.color.icon.button};
+          color: ${theme.color.icon.button};
           &:active {
             background-color: ${theme.color.accent.foreground};
-            color: ${theme.color.secondary.foreground};
+            svg {
+              color: ${theme.color.secondary.foreground};
+            }
           }
         `}
       >
         <svg
+          css={css`
+            transition: none;
+            & * {
+              transition: none;
+            }
+            width: 0.802em;
+            height: 0.13em;
+          `}
           xmlns="http://www.w3.org/2000/svg"
           width="52"
           height="8"
           viewBox="0 0 52 8"
+          fill="currentColor"
         >
           <rect
             id="사각형_709"

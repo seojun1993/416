@@ -1,5 +1,5 @@
 import React from "react";
-import { Range, RangerOption } from "../../libs/range";
+import { Range, RangerOption } from "../libs/range";
 import { RangerConfig, RangerOptions } from "@tanstack/react-ranger";
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;

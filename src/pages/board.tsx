@@ -24,7 +24,7 @@ import {
 import QRCode from "react-qr-code";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "@/queries/student";
-import { getImagePath } from "../../libs/utils";
+import { getImagePath } from "../libs/utils";
 const Board = () => {
   const { data: students } = useQuery(getStudentsQuery());
   const bookRef = useRef<HTMLDivElement>(null);

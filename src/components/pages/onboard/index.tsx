@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import ImageX from "@/components/ui/image";
-import { H1, H4, P2 } from "@/components/ui/text";
+import { H1, H4, P2, P3 } from "@/components/ui/text";
 import { useCheckClick } from "@/hooks/use-check-click";
 import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { animate, motion, useMotionValue } from "framer-motion";
 interface OnBoardTitleProps {
@@ -37,61 +37,76 @@ interface CardProps {
   image: string;
   title: string;
   birth: string | Date;
+  classDescription: string;
   badge: string;
   href?: string;
   scale: number;
   onFirstClick?: (ref: HTMLElement) => void;
   onDoubleClick?: (ref: HTMLElement) => void;
+  onBlur?: (ref: HTMLElement | null) => void;
   linkStyle?: SerializedStyles;
 }
-export const Card = ({
-  birth,
-  image,
-  badge,
-  title,
-  href,
-  scale,
-  onFirstClick,
-  onDoubleClick,
-}: CardProps) => {
-  const scaleValue = useMotionValue(scale ?? 1);
-
-  const ref = useRef<HTMLAnchorElement>(null);
-  const getBirthText = useCallback((birth: Date) => {
-    const month = birth.getMonth() + 1;
-    const date = birth.getDate();
-    return `${(month + "").padStart(2, "0")}월 ${(date + "").padStart(
-      2,
-      "0"
-    )}일`;
-  }, []);
-  const birthText = getBirthText(
-    birth instanceof Date ? birth : new Date(birth)
-  );
-  useCheckClick({
-    ref,
+export const Card = memo(
+  ({
+    birth,
+    image,
+    badge,
+    classDescription,
+    title,
+    href,
+    scale,
+    onBlur,
     onFirstClick,
     onDoubleClick,
-  });
-  useEffect(() => {
-    if (scale !== undefined) {
-      animate(scaleValue, scale, { duration: 0 });
-    }
-  }, [scale]);
-  return (
-    <CardLink style={{ scale: scaleValue as any }} to={href ?? ""} ref={ref}>
-      <CardAvatar src={image}>
-        <CardBadge>{badge}</CardBadge>
-      </CardAvatar>
-      <CardContent>
-        <CardContentHeader>
-          <span>{title}</span>
-          <span>{birthText}</span>
-        </CardContentHeader>
-      </CardContent>
-    </CardLink>
-  );
-};
+  }: CardProps) => {
+    const scaleValue = useMotionValue(scale ?? 1);
+
+    const ref = useRef<HTMLAnchorElement>(null);
+    const getBirthText = useCallback((birth: Date) => {
+      const month = birth.getMonth() + 1;
+      const date = birth.getDate();
+      return `${(month + "").padStart(2, "0")}월 ${(date + "").padStart(
+        2,
+        "0"
+      )}일`;
+    }, []);
+    const birthText = getBirthText(
+      birth instanceof Date ? birth : new Date(birth)
+    );
+    useCheckClick({
+      ref,
+      onFirstClick,
+      onDoubleClick,
+      onBlur,
+    });
+    useLayoutEffect(() => {
+      if (scale !== undefined) {
+        animate(scaleValue, scale, { duration: 0 });
+      }
+    }, [scale]);
+    return (
+      <CardLink style={{ scale: scaleValue as any }} to={href ?? ""} ref={ref}>
+        <CardAvatar src={image}>
+          <CardBadge>{badge}</CardBadge>
+        </CardAvatar>
+        <CardContent>
+          <CardClassNumber>
+            <P3>{classDescription}</P3>
+          </CardClassNumber>
+          <CardContentHeader>
+            <span>{title}</span>
+            <span>{birthText}</span>
+          </CardContentHeader>
+        </CardContent>
+      </CardLink>
+    );
+  }
+);
+
+const CardClassNumber = styled.div`
+  padding: 0.3rem 0;
+  background-color: ${(props) => props.theme.color.card.class};
+`;
 
 const CardLink = styled(motion(Link))`
   width: 18.1em;
@@ -137,7 +152,6 @@ const CardContent = styled.div`
   flex-grow: 1;
   flex-direction: column;
   text-align: center;
-  row-gap: 0.5em;
 `;
 
 const CardContentHeader = styled(H4)`
@@ -145,6 +159,7 @@ const CardContentHeader = styled(H4)`
   align-items: center;
   flex-grow: 1;
   margin: 0 auto;
+  padding: 0.5rem 0;
   color: ${(props) => props.theme.color.text.main};
   > span:first-of-type {
     display: inline-flex;

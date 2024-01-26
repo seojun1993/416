@@ -1,11 +1,13 @@
 import AppShell from "@/components/shell/app-shell";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import OnBoard from "./pages/onboard";
-import Board from "./pages/board";
-import Cloud from "./pages/cloud";
-import Menu from "./pages/menu";
-import Search from "./pages/search";
+import OnBoard from "@/pages/onboard";
+import Board from "@/pages/board";
+import Cloud from "@/pages/cloud";
+import Menu from "@/pages/menu";
+import Search from "@/pages/search";
+import SearchResult from "@/pages/search-result";
+import MemoryClass from "@/pages/memory-class";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "./queries/student";
 
@@ -21,7 +23,9 @@ function Root() {
           <Route path="board" element={<Board />} />
           <Route path="cloud" element={<Cloud />} />
           <Route path="menu" element={<Menu />} />
+          <Route path="memory-class" element={<MemoryClass />} />
           <Route path="search" element={<Search />} />
+          <Route path="search-result" element={<SearchResult />} />
         </Routes>
       </AnimatePresence>
     </AppShell>

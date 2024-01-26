@@ -2,19 +2,41 @@
 import { MainShell } from "@/components/common/main-shell";
 import Keyboard from "@/components/pages/search/keyboard";
 import { H1, H4, P1 } from "@/components/ui/text";
+import {
+  getStudentsFromSearchQuery,
+  getStudentsQuery,
+} from "@/queries/student";
 import { css, useTheme } from "@emotion/react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { FormEventHandler, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { filterNameContainFromPattern } from "@/fetcher/student";
+
 const Search = () => {
   const theme = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchParam, setSearchParam] = useSearchParams();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const { data } = useQuery(getStudentsQuery());
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
     if (!inputRef.current) return;
+    const foundStudents = filterNameContainFromPattern(
+      data!,
+      inputRef.current!.value
+    );
+    if (!foundStudents?.length) {
+      return alert("결과없음");
+    }
+
+    queryClient.setQueryData(
+      getStudentsFromSearchQuery(inputRef.current!.value).queryKey,
+      foundStudents
+    );
     setSearchParam({ keyword: inputRef.current.value });
-    navigate(`/cloud?keyword=${inputRef.current.value}`);
+    navigate(`/search-result?keyword=${inputRef.current.value}`);
   };
   useEffect(() => {
     const defaultKeyword = searchParam.get("keyword");
@@ -45,7 +67,7 @@ const Search = () => {
             margin-top: 3.6rem;
           `}
         >
-          찾고 싶은 희생자의{" "}
+          검색을 통해{" "}
           <strong
             css={css`
               font-family: "NanumSquareRoundOTF";
@@ -54,9 +76,9 @@ const Search = () => {
               color: ${theme.color.yellow};
             `}
           >
-            이름
+            희생자
           </strong>
-          을 검색해보세요
+          를 만나보세요
         </H1>
         <div
           css={css`
@@ -84,9 +106,10 @@ const Search = () => {
           <P1
             css={css`
               font-family: "NanumSquareRoundOTF";
+              color: white;
             `}
           >
-            홍길동, 김민지, 이아담, 박이브
+            홍길동, 김민지, 선생님, 열정소녀 등
           </P1>
         </div>
         <div
@@ -154,6 +177,10 @@ const Search = () => {
                 margin-right: 0.3rem;
                 aspect-ratio: 1/1;
                 width: 2rem;
+                transition: none;
+                * {
+                  transition: none;
+                }
               `}
             >
               <g

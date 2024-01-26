@@ -14,6 +14,7 @@ export interface Student {
   class: number;
   images: Image[];
   caricature: string;
+  class_number: string;
 }
 
 export interface Keyword {

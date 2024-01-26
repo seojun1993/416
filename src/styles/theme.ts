@@ -5,10 +5,16 @@ export const lightTheme = {
       main: "#222222",
       sub: "#666666",
     },
+    card: {
+      class: "#F2F2F2",
+    },
     badge: {
       background: "#FFFFFF",
       text: "black",
       border: "#3131ff",
+    },
+    icon: {
+      button: "#666666",
     },
     primary: {
       foreground: "#1A254C",
@@ -48,10 +54,16 @@ export const darkTheme: typeof lightTheme = {
       main: "#ffffff",
       sub: "#ffffff",
     },
+    card: {
+      class: "#666666",
+    },
     badge: {
       background: "black",
       text: "#fff500",
       border: "black",
+    },
+    icon: {
+      button: "#000000",
     },
     background: {
       card: "rgba(0,0,0,0.5)",

@@ -10,11 +10,16 @@ import Switch from "../common/switch";
 import Ranger from "../ui/ranger";
 import IncreaseButton from "../ui/increase-button";
 import { P3 } from "../ui/text";
+import { useSettingStore } from "@/contexts/setting.store";
 
 const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
   const theme = useTheme();
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [zoom, setZoom] = useSettingStore((state) => [
+    state.zoom,
+    state.setZoom,
+  ]);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -54,10 +59,8 @@ const BottomBar = () => {
             const id = sessionStorage.getItem("redirect_id");
             if (id) {
               sessionStorage.removeItem("redirect_id");
-              navigate(`/?centerIndex=${id}`);
-            } else {
-              navigate("/");
             }
+            navigate("/");
           }}
           icon={
             <svg
@@ -454,7 +457,15 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <IncreaseButton tabIndex={0} />
+          <IncreaseButton
+            onIncreaseClick={() => {
+              setZoom(zoom + 0.1);
+            }}
+            onDecreaseClick={() => {
+              setZoom(zoom - 0.1);
+            }}
+            tabIndex={0}
+          />
           <P3
             css={css`
               font-size: 0.865em;

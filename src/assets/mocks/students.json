@@ -86,7 +86,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/1.JPG"
+      "caricature": "/caricature/1.JPG",
+      "class_number": "1반 19번"
     },
     {
       "id": "91c6d067-e555-4d87-be3a-8ef2ecc33bb5",
@@ -187,7 +188,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/2.JPG"
+      "caricature": "/caricature/2.JPG",
+      "class_number": "1반 8번"
     },
     {
       "id": "eeb44a66-1f41-41a1-9fab-92c82a5cb598",
@@ -278,7 +280,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/3.JPG"
+      "caricature": "/caricature/3.JPG",
+      "class_number": "1반 23번"
     },
     {
       "id": "6c736fa3-d091-4b84-ab83-679382efedfe",
@@ -369,7 +372,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/4.JPG"
+      "caricature": "/caricature/4.JPG",
+      "class_number": "1반 9번"
     },
     {
       "id": "645c2689-5c7a-416c-8847-fe1e7b6a2a85",
@@ -478,7 +482,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/5.JPG"
+      "caricature": "/caricature/5.JPG",
+      "class_number": "1반 14번"
     },
     {
       "id": "9edefca6-426d-4b0e-be15-0b9acc9e713b",
@@ -562,7 +567,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/6.JPG"
+      "caricature": "/caricature/6.JPG",
+      "class_number": "1반 10번"
     },
     {
       "id": "e4e9a88e-6d8d-4069-9320-be874bc6685b",
@@ -594,7 +600,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/7.JPG"
+      "caricature": "/caricature/7.JPG",
+      "class_number": "1반 35번"
     },
     {
       "id": "fdd445f7-5355-43fc-bdd1-9db6e0930be7",
@@ -699,7 +706,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/8.JPG"
+      "caricature": "/caricature/8.JPG",
+      "class_number": "1반 1번"
     },
     {
       "id": "297809f1-9da3-4193-986e-c8f1a406068c",
@@ -792,7 +800,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/9.JPG"
+      "caricature": "/caricature/9.JPG",
+      "class_number": "1반 6번"
     },
     {
       "id": "2f17da1a-0be1-42a4-8297-06d1d8276017",
@@ -880,7 +889,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/10.JPG"
+      "caricature": "/caricature/10.JPG",
+      "class_number": "1반 12번"
     },
     {
       "id": "9d2ca2ec-3cf4-409d-9df7-c7e15ddc85dd",
@@ -968,7 +978,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/11.JPG"
+      "caricature": "/caricature/11.JPG",
+      "class_number": "1반 5번"
     },
     {
       "id": "69e2349d-fb99-4f0a-8d55-041328a1c630",
@@ -1001,7 +1012,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/12.JPG"
+      "caricature": "/caricature/12.JPG",
+      "class_number": "1반 17번"
     },
     {
       "id": "e8548db4-7114-4eb7-a688-ad2f08741bfc",
@@ -1038,7 +1050,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/13.JPG"
+      "caricature": "/caricature/13.JPG",
+      "class_number": "1반 34번"
     },
     {
       "id": "038607a3-abc7-4020-8871-f64ec9efc2e4",
@@ -1126,7 +1139,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/14.JPG"
+      "caricature": "/caricature/14.JPG",
+      "class_number": "1반 24번"
     },
     {
       "id": "7f380c02-45e8-4913-8e39-ea991b81fe6a",
@@ -1217,7 +1231,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/15.JPG"
+      "caricature": "/caricature/15.JPG",
+      "class_number": "1반 26번"
     },
     {
       "id": "22dfb829-80e5-49f6-b0db-d242a62ec9a7",
@@ -1308,7 +1323,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/16.JPG"
+      "caricature": "/caricature/16.JPG",
+      "class_number": "1반 7번"
     },
     {
       "id": "c644f36d-7d32-4eed-9d58-d5ada7afe40d",
@@ -1405,11 +1421,12 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/17.JPG"
+      "caricature": "/caricature/17.JPG",
+      "class_number": "1반 27번"
     },
     {
       "id": "5c3eb225-9521-437d-bd33-fac50762cf80",
-      "name": "한고은",
+      "name": "한고운",
       "416_id": 18,
       "memory_id": 5254,
       "class_name": "2학년 1반",
@@ -1492,7 +1509,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/18.JPG"
+      "caricature": "/caricature/18.JPG",
+      "class_number": "1반 37번"
     },
     {
       "id": "8250b599-6fe0-496d-8915-df85ae4261cd",
@@ -1583,7 +1601,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/19.JPG"
+      "caricature": "/caricature/19.JPG",
+      "class_number": "2반 17번"
     },
     {
       "id": "c9fcd8f3-bb8d-417a-8096-35ebc955be4c",
@@ -1674,7 +1693,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/20.JPG"
+      "caricature": "/caricature/20.JPG",
+      "class_number": "2반 7번"
     },
     {
       "id": "ce1e8c03-d713-42e2-8a08-49bc3632e8c7",
@@ -1761,7 +1781,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/21.JPG"
+      "caricature": "/caricature/21.JPG",
+      "class_number": "2반 20번"
     },
     {
       "id": "11e408d8-d2cf-48b3-b77b-7705893d1859",
@@ -1848,7 +1869,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/22.JPG"
+      "caricature": "/caricature/22.JPG",
+      "class_number": "2반 15번"
     },
     {
       "id": "571abe38-8469-42b7-8e7e-0b7d30e0429e",
@@ -1935,7 +1957,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/23.JPG"
+      "caricature": "/caricature/23.JPG",
+      "class_number": "2반 11번"
     },
     {
       "id": "7a782bf1-609f-45d3-a12e-f6a21526ee7b",
@@ -2026,7 +2049,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/24.JPG"
+      "caricature": "/caricature/24.JPG",
+      "class_number": "2반 12번"
     },
     {
       "id": "a956a515-f578-43d3-b815-26dc82d1a925",
@@ -2109,7 +2133,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/25.JPG"
+      "caricature": "/caricature/25.JPG",
+      "class_number": "2반 23번"
     },
     {
       "id": "9f3164fc-d041-4231-bea7-f4a477f2b310",
@@ -2200,7 +2225,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/26.JPG"
+      "caricature": "/caricature/26.JPG",
+      "class_number": "2반 1번"
     },
     {
       "id": "0fc79fd0-c192-4a14-94ee-14f45339b5ce",
@@ -2305,7 +2331,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/27.JPG"
+      "caricature": "/caricature/27.JPG",
+      "class_number": "2반 3번"
     },
     {
       "id": "bd5ea5f5-cf8d-4775-b6d2-a7b9bab29255",
@@ -2400,7 +2427,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/28.JPG"
+      "caricature": "/caricature/28.JPG",
+      "class_number": "2반 31번"
     },
     {
       "id": "7d1f3a2c-ed97-4002-87c7-846deb15bfcf",
@@ -2497,7 +2525,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/29.JPG"
+      "caricature": "/caricature/29.JPG",
+      "class_number": "2반 28번"
     },
     {
       "id": "256773e4-d36d-4688-8f7b-46ea647ce6d9",
@@ -2585,7 +2614,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/30.JPG"
+      "caricature": "/caricature/30.JPG",
+      "class_number": "2반 5번"
     },
     {
       "id": "05fad047-25fc-442f-8842-d9a65bdea047",
@@ -2677,7 +2707,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/31.JPG"
+      "caricature": "/caricature/31.JPG",
+      "class_number": "2반 30번"
     },
     {
       "id": "6e3beb35-87f0-40fd-981c-7232dbd8cdf1",
@@ -2764,7 +2795,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/32.JPG"
+      "caricature": "/caricature/32.JPG",
+      "class_number": "2반 8번"
     },
     {
       "id": "4fb54fbf-f052-4343-9567-ca6563b8bc07",
@@ -2862,7 +2894,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/33.JPG"
+      "caricature": "/caricature/33.JPG",
+      "class_number": "2반 2번"
     },
     {
       "id": "66034f45-fb13-4df4-b795-5aed905f8a84",
@@ -2946,7 +2979,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/34.JPG"
+      "caricature": "/caricature/34.JPG",
+      "class_number": "2반 33번"
     },
     {
       "id": "ca76dca3-ea4b-47b9-a95c-ae2ccbd70658",
@@ -3033,7 +3067,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/35.JPG"
+      "caricature": "/caricature/35.JPG",
+      "class_number": "2반 35번"
     },
     {
       "id": "f24ad0fb-12ca-4fa9-94ae-edcee88847b2",
@@ -3117,7 +3152,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/36.JPG"
+      "caricature": "/caricature/36.JPG",
+      "class_number": "2반 27번"
     },
     {
       "id": "1ae2fc8f-9c55-40d5-b736-17387cd9ec96",
@@ -3204,7 +3240,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/37.JPG"
+      "caricature": "/caricature/37.JPG",
+      "class_number": "2반 9번"
     },
     {
       "id": "91d768f9-cd8a-4244-b158-5acf1c826bda",
@@ -3242,7 +3279,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/38.JPG"
+      "caricature": "/caricature/38.JPG",
+      "class_number": "2반 16번"
     },
     {
       "id": "b32f0c96-db18-452d-9c12-592649754a91",
@@ -3339,7 +3377,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/39.JPG"
+      "caricature": "/caricature/39.JPG",
+      "class_number": "2반 24번"
     },
     {
       "id": "e6e6d2db-dda6-40b2-9105-97564d39405f",
@@ -3426,7 +3465,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/40.JPG"
+      "caricature": "/caricature/40.JPG",
+      "class_number": "2반 19번"
     },
     {
       "id": "4a20e6b8-0628-4f54-9f37-67d659a4a97b",
@@ -3510,7 +3550,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/41.JPG"
+      "caricature": "/caricature/41.JPG",
+      "class_number": "2반 6번"
     },
     {
       "id": "73ca7bf6-ef3c-4878-bf5b-232c5f7c3765",
@@ -3547,7 +3588,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/42.JPG"
+      "caricature": "/caricature/42.JPG",
+      "class_number": "2반 34번"
     },
     {
       "id": "24746380-eb16-40c0-a944-6b1aba39d1de",
@@ -3644,7 +3686,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/43.JPG"
+      "caricature": "/caricature/43.JPG",
+      "class_number": "2반 21번"
     },
     {
       "id": "2ba25cc3-865d-4e02-9dfd-ce9006073bd6",
@@ -3731,7 +3774,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/44.JPG"
+      "caricature": "/caricature/44.JPG",
+      "class_number": "3반 20번"
     },
     {
       "id": "112a7b41-f04d-488c-8462-8f911185632a",
@@ -3822,7 +3866,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/45.JPG"
+      "caricature": "/caricature/45.JPG",
+      "class_number": "3반 3번"
     },
     {
       "id": "bcb44390-4084-4d27-8b00-dc3775dbff80",
@@ -3906,7 +3951,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/46.JPG"
+      "caricature": "/caricature/46.JPG",
+      "class_number": "3반 28번"
     },
     {
       "id": "68dfb829-a2e6-47b9-b0b1-5f950ffffe4c",
@@ -3993,7 +4039,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/47.JPG"
+      "caricature": "/caricature/47.JPG",
+      "class_number": "3반 9번"
     },
     {
       "id": "e43cfc1a-bda4-4581-bc12-66ccb19f8ec4",
@@ -4076,7 +4123,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/48.JPG"
+      "caricature": "/caricature/48.JPG",
+      "class_number": "3반 24번"
     },
     {
       "id": "c7641198-7918-4750-a226-258035c5cf83",
@@ -4163,7 +4211,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/49.JPG"
+      "caricature": "/caricature/49.JPG",
+      "class_number": "3반 2번"
     },
     {
       "id": "be24ca8d-bb04-4521-8c06-4c14599d6593",
@@ -4254,7 +4303,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/50.JPG"
+      "caricature": "/caricature/50.JPG",
+      "class_number": "3반 25번"
     },
     {
       "id": "7fd4d72b-cbbb-4fbc-a77c-379c6350a9b2",
@@ -4339,7 +4389,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/51.JPG"
+      "caricature": "/caricature/51.JPG",
+      "class_number": "3반 27번"
     },
     {
       "id": "c47f9404-de74-429b-b82a-6a006fc252cc",
@@ -4423,7 +4474,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/52.JPG"
+      "caricature": "/caricature/52.JPG",
+      "class_number": "4반 36번"
     },
     {
       "id": "39e63785-7ecc-4c2b-8dc5-e1a353bae4f7",
@@ -4510,7 +4562,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/53.JPG"
+      "caricature": "/caricature/53.JPG",
+      "class_number": "3반 32번"
     },
     {
       "id": "0d186fe1-836f-4674-833b-8b90f26090a9",
@@ -4607,7 +4660,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/54.JPG"
+      "caricature": "/caricature/54.JPG",
+      "class_number": "3반 18번"
     },
     {
       "id": "56b8f90d-eb65-404b-a0f2-92ea759e3157",
@@ -4694,7 +4748,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/55.JPG"
+      "caricature": "/caricature/55.JPG",
+      "class_number": "3반 8번"
     },
     {
       "id": "79c72bf2-04dc-47ce-a5a2-9005285caade",
@@ -4781,7 +4836,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/56.JPG"
+      "caricature": "/caricature/56.JPG",
+      "class_number": "3반 33번"
     },
     {
       "id": "9839cbe5-368a-4ab7-8e7d-e0b11ebed77a",
@@ -4872,7 +4928,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/57.JPG"
+      "caricature": "/caricature/57.JPG",
+      "class_number": "3반 13번"
     },
     {
       "id": "0ba542e5-4666-436c-af1e-fb6260ce7fff",
@@ -4956,7 +5013,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/58.JPG"
+      "caricature": "/caricature/58.JPG",
+      "class_number": "3반 19번"
     },
     {
       "id": "dc39bfa0-dc22-4049-a039-310acddcb982",
@@ -5053,7 +5111,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/59.JPG"
+      "caricature": "/caricature/59.JPG",
+      "class_number": "3반 11번"
     },
     {
       "id": "358dabd7-185b-45ee-8813-03b0653469a5",
@@ -5140,7 +5199,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/60.JPG"
+      "caricature": "/caricature/60.JPG",
+      "class_number": "3반 29번"
     },
     {
       "id": "dc084702-ee0c-45a5-9d99-c1c67b1285ac",
@@ -5227,7 +5287,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/61.JPG"
+      "caricature": "/caricature/61.JPG",
+      "class_number": "3반 16번"
     },
     {
       "id": "0df3f4db-6c36-43c8-a784-a950a257d6eb",
@@ -5311,7 +5372,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/62.JPG"
+      "caricature": "/caricature/62.JPG",
+      "class_number": "3반 26번"
     },
     {
       "id": "2c96f224-600f-4e76-b06f-ffd745372d1b",
@@ -5394,7 +5456,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/63.JPG"
+      "caricature": "/caricature/63.JPG",
+      "class_number": "3반 17번"
     },
     {
       "id": "37fdf323-d886-4d0b-ba28-6524ee8b1fcc",
@@ -5482,7 +5545,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/64.JPG"
+      "caricature": "/caricature/64.JPG",
+      "class_number": "3반 22번"
     },
     {
       "id": "1a796a6f-be8d-4066-8df2-7f7fd56ed133",
@@ -5567,7 +5631,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/65.JPG"
+      "caricature": "/caricature/65.JPG",
+      "class_number": "3반 5번"
     },
     {
       "id": "3d28dae1-4972-4c67-918c-452e211edd4c",
@@ -5668,7 +5733,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/66.JPG"
+      "caricature": "/caricature/66.JPG",
+      "class_number": "3반 7번"
     },
     {
       "id": "12ccb718-5597-4314-ac40-8b9ae7b95395",
@@ -5755,7 +5821,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/67.JPG"
+      "caricature": "/caricature/67.JPG",
+      "class_number": "3반 21번"
     },
     {
       "id": "26b60caa-c418-48cd-802a-f8ca55a31828",
@@ -5843,7 +5910,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/68.JPG"
+      "caricature": "/caricature/68.JPG",
+      "class_number": "3반 10번"
     },
     {
       "id": "7fa01bfd-fee8-462e-be85-ab5daa7fa288",
@@ -5927,7 +5995,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/69.JPG"
+      "caricature": "/caricature/69.JPG",
+      "class_number": "3반 35번"
     },
     {
       "id": "04d54ad2-3610-434d-852f-c8f1f4ebde7d",
@@ -6019,7 +6088,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/70.JPG"
+      "caricature": "/caricature/70.JPG",
+      "class_number": "4반 20번"
     },
     {
       "id": "acff8324-abef-4659-b521-87a6485012a6",
@@ -6103,7 +6173,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/71.JPG"
+      "caricature": "/caricature/71.JPG",
+      "class_number": "4반 13번"
     },
     {
       "id": "3d262a96-2db8-4b3a-8ecc-448714f03cdd",
@@ -6183,7 +6254,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/72.JPG"
+      "caricature": "/caricature/72.JPG",
+      "class_number": "4반 11번"
     },
     {
       "id": "2b7a245e-dd82-4023-9c8c-cb89d0229353",
@@ -6271,7 +6343,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/73.JPG"
+      "caricature": "/caricature/73.JPG",
+      "class_number": "4반 25번"
     },
     {
       "id": "e5a79846-cde2-49ab-b316-76086dcfc36e",
@@ -6359,7 +6432,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/74.JPG"
+      "caricature": "/caricature/74.JPG",
+      "class_number": "4반 26번"
     },
     {
       "id": "033b20e8-1e4f-4ab6-b844-55740005b879",
@@ -6450,7 +6524,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/75.JPG"
+      "caricature": "/caricature/75.JPG",
+      "class_number": "4반 7번"
     },
     {
       "id": "1b4962a6-19fb-4178-a138-c940a510466d",
@@ -6537,7 +6612,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/76.JPG"
+      "caricature": "/caricature/76.JPG",
+      "class_number": "4반 31번"
     },
     {
       "id": "fc832a6b-e13e-43a1-94f8-0f160d5657d5",
@@ -6635,7 +6711,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/77.JPG"
+      "caricature": "/caricature/77.JPG",
+      "class_number": "4반 3번"
     },
     {
       "id": "22be137a-832f-4bd8-91c4-d7e383e1bf2a",
@@ -6719,7 +6796,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/78.JPG"
+      "caricature": "/caricature/78.JPG",
+      "class_number": "4반 8번"
     },
     {
       "id": "6fc0e557-4699-4e5b-8f83-da3d75558f09",
@@ -6806,7 +6884,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/79.JPG"
+      "caricature": "/caricature/79.JPG",
+      "class_number": "4반 4번"
     },
     {
       "id": "60f1b848-b2f9-40fe-a72a-7ba975d4d11a",
@@ -6897,7 +6976,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/80.JPG"
+      "caricature": "/caricature/80.JPG",
+      "class_number": "4반 34번"
     },
     {
       "id": "5b27676f-205d-40ba-81d4-e0b548e2a823",
@@ -6981,7 +7061,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/81.JPG"
+      "caricature": "/caricature/81.JPG",
+      "class_number": "4반 35번"
     },
     {
       "id": "8d3d25a2-950e-4726-b4a9-15a428f2ca85",
@@ -7072,7 +7153,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/82.JPG"
+      "caricature": "/caricature/82.JPG",
+      "class_number": "4반 16번"
     },
     {
       "id": "d63cbf7b-7704-46c1-a30e-110e4a06c1a4",
@@ -7159,7 +7241,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/83.JPG"
+      "caricature": "/caricature/83.JPG",
+      "class_number": "4반 38번"
     },
     {
       "id": "4fedb25c-ee86-46b8-aa5b-3c6a30e4033d",
@@ -7246,7 +7329,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/84.JPG"
+      "caricature": "/caricature/84.JPG",
+      "class_number": "4반 37번"
     },
     {
       "id": "08c91e60-7827-4d3b-932e-b064a891efd7",
@@ -7337,7 +7421,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/85.JPG"
+      "caricature": "/caricature/85.JPG",
+      "class_number": "4반 14번"
     },
     {
       "id": "560802db-72bd-4edd-b98a-154ad1505900",
@@ -7420,7 +7505,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/86.JPG"
+      "caricature": "/caricature/86.JPG",
+      "class_number": "4반 10번"
     },
     {
       "id": "c15345e4-8e1b-4039-8a0a-04053d91d496",
@@ -7507,7 +7593,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/87.JPG"
+      "caricature": "/caricature/87.JPG",
+      "class_number": "4반 1번"
     },
     {
       "id": "492d3c5d-5fdd-4fcb-b4a2-4360e563eea2",
@@ -7595,7 +7682,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/88.JPG"
+      "caricature": "/caricature/88.JPG",
+      "class_number": "4반 19번"
     },
     {
       "id": "8cad1183-c532-4573-a858-3605968b1b13",
@@ -7682,7 +7770,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/89.JPG"
+      "caricature": "/caricature/89.JPG",
+      "class_number": "4반 12번"
     },
     {
       "id": "204b918c-d87a-49d7-a4df-66bb199d52b6",
@@ -7770,7 +7859,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/90.JPG"
+      "caricature": "/caricature/90.JPG",
+      "class_number": "4반 18번"
     },
     {
       "id": "ad2e1d2e-66f7-4f5b-bf40-3567d6cba39b",
@@ -7857,7 +7947,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/91.JPG"
+      "caricature": "/caricature/91.JPG",
+      "class_number": "4반 2번"
     },
     {
       "id": "49b7c29c-3cbe-46f9-ad37-7ba6b27583e1",
@@ -7944,7 +8035,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/92.JPG"
+      "caricature": "/caricature/92.JPG",
+      "class_number": "4반 21번"
     },
     {
       "id": "d26148bf-d829-446f-8c6f-ca5d38cde886",
@@ -8031,7 +8123,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/93.JPG"
+      "caricature": "/caricature/93.JPG",
+      "class_number": "4반 17번"
     },
     {
       "id": "68854595-c123-41fb-9b91-b4728e5cfed4",
@@ -8115,7 +8208,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/94.JPG"
+      "caricature": "/caricature/94.JPG",
+      "class_number": "4반 32번"
     },
     {
       "id": "50fa5d0e-550e-4fd1-bbf6-9fe79b43440b",
@@ -8200,7 +8294,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/95.JPG"
+      "caricature": "/caricature/95.JPG",
+      "class_number": "4반 28번"
     },
     {
       "id": "b489a8dd-8a9a-4bcc-ae68-1f16029d5b57",
@@ -8291,7 +8386,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/96.JPG"
+      "caricature": "/caricature/96.JPG",
+      "class_number": "4반 5번"
     },
     {
       "id": "81f27c4f-c2ba-49e7-be60-711cec23ecf3",
@@ -8378,7 +8474,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/97.JPG"
+      "caricature": "/caricature/97.JPG",
+      "class_number": "4반 6번"
     },
     {
       "id": "20dc89aa-32bd-4400-86df-69dfd39172c7",
@@ -8465,7 +8562,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/98.JPG"
+      "caricature": "/caricature/98.JPG",
+      "class_number": "5반 30번"
     },
     {
       "id": "06b929d1-128d-41ca-8815-c958ba8b23b6",
@@ -8542,7 +8640,8 @@
           "order": 10
         }
       ],
-      "caricature": "/caricature/99.JPG"
+      "caricature": "/caricature/99.JPG",
+      "class_number": "5반 35번"
     },
     {
       "id": "4992f93a-a938-40cf-97e2-5628b4a6d28f",
@@ -8634,7 +8733,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/100.JPG"
+      "caricature": "/caricature/100.JPG",
+      "class_number": "5반 29번"
     },
     {
       "id": "bf5198be-0b68-4d5f-890f-4c589bb5982c",
@@ -8721,7 +8821,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/101.JPG"
+      "caricature": "/caricature/101.JPG",
+      "class_number": "5반 31번"
     },
     {
       "id": "49f35ed1-fb5a-4ed3-a153-544861dc025c",
@@ -8805,7 +8906,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/102.JPG"
+      "caricature": "/caricature/102.JPG",
+      "class_number": "5반 28번"
     },
     {
       "id": "736a737c-b500-4066-8efc-38f09ea050bb",
@@ -8892,7 +8994,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/103.JPG"
+      "caricature": "/caricature/103.JPG",
+      "class_number": "5반 27번"
     },
     {
       "id": "6219734a-1ebd-44e5-be56-2ee1225b5df8",
@@ -8976,7 +9079,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/104.JPG"
+      "caricature": "/caricature/104.JPG",
+      "class_number": "5반 9번"
     },
     {
       "id": "196021b2-7c7e-44c9-8bc3-0232d714020c",
@@ -9059,7 +9163,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/105.JPG"
+      "caricature": "/caricature/105.JPG",
+      "class_number": "5반 19번"
     },
     {
       "id": "b0d8afe9-190f-4ed2-aa36-ead02010eac2",
@@ -9160,7 +9265,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/106.JPG"
+      "caricature": "/caricature/106.JPG",
+      "class_number": "5반 17번"
     },
     {
       "id": "d8936efa-a436-496c-b814-cbf85d514ed8",
@@ -9248,7 +9354,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/107.JPG"
+      "caricature": "/caricature/107.JPG",
+      "class_number": "5반 18번"
     },
     {
       "id": "6aae77f1-c0d6-49aa-9ca5-7e90996ef373",
@@ -9335,7 +9442,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/108.JPG"
+      "caricature": "/caricature/108.JPG",
+      "class_number": "5반 3번"
     },
     {
       "id": "9b6da04c-0803-4d5a-95c1-e320d98a7765",
@@ -9418,7 +9526,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/109.JPG"
+      "caricature": "/caricature/109.JPG",
+      "class_number": "5반 33번"
     },
     {
       "id": "015c1d2c-9853-4cb0-b28e-c6654de23e00",
@@ -9501,7 +9610,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/110.JPG"
+      "caricature": "/caricature/110.JPG",
+      "class_number": "5반 15번"
     },
     {
       "id": "b5b51e66-34f3-443e-be52-d3de57e72c54",
@@ -9579,7 +9689,8 @@
           "order": 10
         }
       ],
-      "caricature": "/caricature/111.JPG"
+      "caricature": "/caricature/111.JPG",
+      "class_number": "5반 37번"
     },
     {
       "id": "2c86feb9-85c7-4f92-87d2-d9384dafaa0e",
@@ -9666,7 +9777,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/112.JPG"
+      "caricature": "/caricature/112.JPG",
+      "class_number": "5반 13번"
     },
     {
       "id": "36588ef0-1faa-47fe-a6e6-07c9cb84c130",
@@ -9753,7 +9865,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/113.JPG"
+      "caricature": "/caricature/113.JPG",
+      "class_number": "5반 14번"
     },
     {
       "id": "815ca3fc-d2c1-4712-b74e-718cb9655401",
@@ -9844,7 +9957,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/114.JPG"
+      "caricature": "/caricature/114.JPG",
+      "class_number": "5반 5번"
     },
     {
       "id": "93a71c2c-8a1e-49ae-b685-ca65fd7b5138",
@@ -9931,7 +10045,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/115.JPG"
+      "caricature": "/caricature/115.JPG",
+      "class_number": "5반 4번"
     },
     {
       "id": "39871db6-0661-4397-9274-4e06c4e6e5f2",
@@ -9963,7 +10078,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/116.JPG"
+      "caricature": "/caricature/116.JPG",
+      "class_number": "5반 6번"
     },
     {
       "id": "3a8a2d5d-0ceb-4505-b2a9-c715e6486a97",
@@ -10051,7 +10167,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/117.JPG"
+      "caricature": "/caricature/117.JPG",
+      "class_number": "5반 24번"
     },
     {
       "id": "7ab4fce0-e822-405e-9de4-55667718dca0",
@@ -10131,7 +10248,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/118.JPG"
+      "caricature": "/caricature/118.JPG",
+      "class_number": "5반 36번"
     },
     {
       "id": "81e610c5-1318-49b0-bab4-88f5602a8380",
@@ -10228,7 +10346,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/119.JPG"
+      "caricature": "/caricature/119.JPG",
+      "class_number": "5반 34번"
     },
     {
       "id": "ae95890a-be45-49bd-84a7-f3eb63f43c95",
@@ -10315,7 +10434,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/120.JPG"
+      "caricature": "/caricature/120.JPG",
+      "class_number": "5반 23번"
     },
     {
       "id": "5eb42b2b-a995-46ca-99c0-bead08f19847",
@@ -10347,7 +10467,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/121.JPG"
+      "caricature": "/caricature/121.JPG",
+      "class_number": "5반 21번"
     },
     {
       "id": "87ef7287-0a0f-42ef-9388-7b117f9ecf2d",
@@ -10434,7 +10555,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/122.JPG"
+      "caricature": "/caricature/122.JPG",
+      "class_number": "5반 26번"
     },
     {
       "id": "611058cd-4eeb-4e1c-b0fd-c54597174220",
@@ -10521,7 +10643,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/123.JPG"
+      "caricature": "/caricature/123.JPG",
+      "class_number": "5반 7번"
     },
     {
       "id": "f0fb1d9a-af50-420c-854c-ecb78f8118ed",
@@ -10608,7 +10731,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/124.JPG"
+      "caricature": "/caricature/124.JPG",
+      "class_number": "5반 12번"
     },
     {
       "id": "e298b1ec-4bcc-4571-8b9c-e52c13269b65",
@@ -10643,7 +10767,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/125.JPG"
+      "caricature": "/caricature/125.JPG",
+      "class_number": "6반 16번"
     },
     {
       "id": "3c5b1a8e-47ce-495e-8093-dfb5a5b6094e",
@@ -10730,7 +10855,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/126.JPG"
+      "caricature": "/caricature/126.JPG",
+      "class_number": "6반 24번"
     },
     {
       "id": "c9d252c9-630a-4435-91aa-7311f73322e1",
@@ -10827,7 +10953,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/127.JPG"
+      "caricature": "/caricature/127.JPG",
+      "class_number": "6반 26번"
     },
     {
       "id": "1a2a8be1-fd56-47ec-a645-f2d9b66a3e04",
@@ -10914,7 +11041,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/128.JPG"
+      "caricature": "/caricature/128.JPG",
+      "class_number": "6반 23번"
     },
     {
       "id": "361ef63b-628c-42e6-8118-a4d22272268f",
@@ -10997,7 +11125,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/129.JPG"
+      "caricature": "/caricature/129.JPG",
+      "class_number": "6반 6번"
     },
     {
       "id": "344246b5-3a75-4f0a-a132-ff95067efc30",
@@ -11084,7 +11213,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/130.JPG"
+      "caricature": "/caricature/130.JPG",
+      "class_number": "6반 27번"
     },
     {
       "id": "6a0397a3-e85e-44e7-9396-c47e23c5a13a",
@@ -11168,7 +11298,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/131.JPG"
+      "caricature": "/caricature/131.JPG",
+      "class_number": "6반 21번"
     },
     {
       "id": "0f7fa948-01a8-43c9-94a8-732874f9928a",
@@ -11255,7 +11386,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/132.JPG"
+      "caricature": "/caricature/132.JPG",
+      "class_number": "6반 11번"
     },
     {
       "id": "88b7bf5a-67a2-4543-ad56-c80b70d1a44d",
@@ -11339,7 +11471,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/133.JPG"
+      "caricature": "/caricature/133.JPG",
+      "class_number": "6반 37번"
     },
     {
       "id": "3d541a4b-1f24-4d66-94e3-02f891c83eb0",
@@ -11433,7 +11566,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/134.JPG"
+      "caricature": "/caricature/134.JPG",
+      "class_number": "6반 33번"
     },
     {
       "id": "f7b41ae1-bd28-4482-81f5-089316cffeaf",
@@ -11516,7 +11650,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/135.JPG"
+      "caricature": "/caricature/135.JPG",
+      "class_number": "6반 5번"
     },
     {
       "id": "51bd96c1-c3ce-4111-b6d2-62740c8065fe",
@@ -11599,7 +11734,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/136.JPG"
+      "caricature": "/caricature/136.JPG",
+      "class_number": "6반 32번"
     },
     {
       "id": "5a98761b-695f-4714-8b5e-0c3e385ce74b",
@@ -11686,7 +11822,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/137.JPG"
+      "caricature": "/caricature/137.JPG",
+      "class_number": "6반 12번"
     },
     {
       "id": "21e0eb8f-43ce-4de9-a275-2742f01baabb",
@@ -11727,7 +11864,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/138.JPG"
+      "caricature": "/caricature/138.JPG",
+      "class_number": "6반 14번"
     },
     {
       "id": "fa034b3b-d07e-4225-a1e0-eccde7956a4f",
@@ -11810,7 +11948,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/139.JPG"
+      "caricature": "/caricature/139.JPG",
+      "class_number": "6반 34번"
     },
     {
       "id": "712a562c-176b-4c2d-96a2-0ee1e63ad142",
@@ -11894,7 +12033,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/140.JPG"
+      "caricature": "/caricature/140.JPG",
+      "class_number": "6반 18번"
     },
     {
       "id": "cc2bb04f-9552-49d0-8c1f-dbe68a8a6337",
@@ -11967,7 +12107,8 @@
           "order": 10
         }
       ],
-      "caricature": "/caricature/141.JPG"
+      "caricature": "/caricature/141.JPG",
+      "class_number": "6반 38번"
     },
     {
       "id": "e69d7550-d799-4fba-8a69-508514496bd2",
@@ -12056,7 +12197,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/142.JPG"
+      "caricature": "/caricature/142.JPG",
+      "class_number": "6반 15번"
     },
     {
       "id": "bc9e2eca-5289-485b-a1af-fb94d6abcaaa",
@@ -12143,7 +12285,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/143.JPG"
+      "caricature": "/caricature/143.JPG",
+      "class_number": "6반 29번"
     },
     {
       "id": "aa444660-f7c4-46f9-8d5c-2ae733aab613",
@@ -12227,7 +12370,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/144.JPG"
+      "caricature": "/caricature/144.JPG",
+      "class_number": "6반 4번"
     },
     {
       "id": "1dfa2680-da1a-45b0-a110-2d382b97f362",
@@ -12311,7 +12455,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/145.JPG"
+      "caricature": "/caricature/145.JPG",
+      "class_number": "6반 10번"
     },
     {
       "id": "084ee08f-32d6-4b83-8312-25d4689726fc",
@@ -12394,7 +12539,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/146.JPG"
+      "caricature": "/caricature/146.JPG",
+      "class_number": "6반 25번"
     },
     {
       "id": "7254b989-0b70-4363-aeb0-40a98943a705",
@@ -12477,7 +12623,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/147.JPG"
+      "caricature": "/caricature/147.JPG",
+      "class_number": "6반 7번"
     },
     {
       "id": "c40e7ed7-b481-4b3a-8d5c-683cd843a435",
@@ -12565,7 +12712,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/148.JPG"
+      "caricature": "/caricature/148.JPG",
+      "class_number": "6반 3번"
     },
     {
       "id": "98502ff5-a26f-4ce8-b7b1-cd03a465426f",
@@ -12648,7 +12796,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/149.JPG"
+      "caricature": "/caricature/149.JPG",
+      "class_number": "6반 19번"
     },
     {
       "id": "3b8e590c-ab62-498a-af29-63c5fa78b9af",
@@ -12732,7 +12881,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/150.JPG"
+      "caricature": "/caricature/150.JPG",
+      "class_number": "7반 25번"
     },
     {
       "id": "cc3d2110-fce8-407b-92ed-0dcf6592a64d",
@@ -12830,7 +12980,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/151.JPG"
+      "caricature": "/caricature/151.JPG",
+      "class_number": "7반 26번"
     },
     {
       "id": "4d350a0f-225a-4960-b70e-fda1efa9be96",
@@ -12917,7 +13068,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/152.JPG"
+      "caricature": "/caricature/152.JPG",
+      "class_number": "7반 7번"
     },
     {
       "id": "59417e26-60bf-4d93-89ae-d5979259ff22",
@@ -13001,7 +13153,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/153.JPG"
+      "caricature": "/caricature/153.JPG",
+      "class_number": "7반 12번"
     },
     {
       "id": "46a3c685-4c50-434d-8ea9-2d6bed73bc96",
@@ -13088,7 +13241,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/154.JPG"
+      "caricature": "/caricature/154.JPG",
+      "class_number": "7반 6번"
     },
     {
       "id": "5cf02f5d-ac36-4659-aa53-22417d9a96f7",
@@ -13177,7 +13331,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/155.JPG"
+      "caricature": "/caricature/155.JPG",
+      "class_number": "7반 9번"
     },
     {
       "id": "2a79db90-037a-4bcc-b776-b956768477b0",
@@ -13264,7 +13419,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/156.JPG"
+      "caricature": "/caricature/156.JPG",
+      "class_number": "7반 13번"
     },
     {
       "id": "d6b6446f-3e92-4712-bfdb-98b486a40155",
@@ -13351,7 +13507,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/157.JPG"
+      "caricature": "/caricature/157.JPG",
+      "class_number": "7반 8번"
     },
     {
       "id": "132706b3-533b-4118-98ae-1e67ced85695",
@@ -13434,7 +13591,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/158.JPG"
+      "caricature": "/caricature/158.JPG",
+      "class_number": "7반 32번"
     },
     {
       "id": "97e384ef-a6a6-49d6-8d9b-29759986fe4c",
@@ -13517,7 +13675,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/159.JPG"
+      "caricature": "/caricature/159.JPG",
+      "class_number": "7반 31번"
     },
     {
       "id": "0fe7bbb0-4209-4318-be78-2c08af120fef",
@@ -13549,7 +13708,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/160.JPG"
+      "caricature": "/caricature/160.JPG",
+      "class_number": "7반 19번"
     },
     {
       "id": "2e03a3a5-129a-434a-aacc-77942409098a",
@@ -13636,7 +13796,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/161.JPG"
+      "caricature": "/caricature/161.JPG",
+      "class_number": "7반 22번"
     },
     {
       "id": "8afe0581-9018-48e6-a2c2-028a739e653f",
@@ -13723,7 +13884,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/162.JPG"
+      "caricature": "/caricature/162.JPG",
+      "class_number": "7반 21번"
     },
     {
       "id": "0980e298-fd77-4c65-8649-f82b62d05e81",
@@ -13816,7 +13978,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/163.JPG"
+      "caricature": "/caricature/163.JPG",
+      "class_number": "7반 30번"
     },
     {
       "id": "aca09927-ed68-4bd9-9da7-97a0a849a76d",
@@ -13899,7 +14062,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/164.JPG"
+      "caricature": "/caricature/164.JPG",
+      "class_number": "7반 5번"
     },
     {
       "id": "7fd18074-545c-49f2-b836-4739381b6148",
@@ -13982,7 +14146,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/165.JPG"
+      "caricature": "/caricature/165.JPG",
+      "class_number": "7반 17번"
     },
     {
       "id": "d256037d-2a85-4341-a991-acaa04324338",
@@ -14018,7 +14183,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/166.JPG"
+      "caricature": "/caricature/166.JPG",
+      "class_number": "7반 4번"
     },
     {
       "id": "84f62b61-23e2-4e09-8a2e-73da24cef069",
@@ -14105,7 +14271,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/167.JPG"
+      "caricature": "/caricature/167.JPG",
+      "class_number": "7반 33번"
     },
     {
       "id": "12fd7560-de52-4bca-9c51-8c3126758fdd",
@@ -14197,7 +14364,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/168.JPG"
+      "caricature": "/caricature/168.JPG",
+      "class_number": "7반 29번"
     },
     {
       "id": "5e51dabc-556c-44ef-9349-112feaf80ebd",
@@ -14284,7 +14452,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/169.JPG"
+      "caricature": "/caricature/169.JPG",
+      "class_number": "7반 11번"
     },
     {
       "id": "2580097e-2215-412d-a43b-17e137daf964",
@@ -14376,7 +14545,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/170.JPG"
+      "caricature": "/caricature/170.JPG",
+      "class_number": "7반 2번"
     },
     {
       "id": "66c82ec9-45c4-4716-a813-916f2a0efc5f",
@@ -14473,7 +14643,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/171.JPG"
+      "caricature": "/caricature/171.JPG",
+      "class_number": "7반 23번"
     },
     {
       "id": "b4cabdec-b264-4922-accb-04fe0dec2555",
@@ -14515,7 +14686,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/172.JPG"
+      "caricature": "/caricature/172.JPG",
+      "class_number": "7반 3번"
     },
     {
       "id": "ec4bac1f-47a8-4b46-877b-f02cd163d06d",
@@ -14602,7 +14774,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/173.JPG"
+      "caricature": "/caricature/173.JPG",
+      "class_number": "7반 24번"
     },
     {
       "id": "07c74c27-0a4e-4247-98b1-f8f5ccc390e0",
@@ -14699,7 +14872,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/174.JPG"
+      "caricature": "/caricature/174.JPG",
+      "class_number": "7반 15번"
     },
     {
       "id": "0e74ff51-80c7-4b0f-a03b-cbf3c2a48574",
@@ -14725,7 +14899,8 @@
       "is_lunar_birth": false,
       "class": 7,
       "images": null,
-      "caricature": "/caricature/175.JPG"
+      "caricature": "/caricature/175.JPG",
+      "class_number": "7반 1번"
     },
     {
       "id": "02ccaf42-34d3-40e8-9fc7-f21062752d65",
@@ -14809,7 +14984,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/176.JPG"
+      "caricature": "/caricature/176.JPG",
+      "class_number": "7반 27번"
     },
     {
       "id": "5a01ee86-2741-4b61-a20b-05829ac63d69",
@@ -14891,7 +15067,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/177.JPG"
+      "caricature": "/caricature/177.JPG",
+      "class_number": "7반 14번"
     },
     {
       "id": "0ad339ee-b82e-4b8b-864d-32fe101ad1ca",
@@ -14982,7 +15159,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/178.JPG"
+      "caricature": "/caricature/178.JPG",
+      "class_number": "7반 34번"
     },
     {
       "id": "9400fe1e-9d03-48cd-84a8-cd245b10361b",
@@ -15069,7 +15247,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/179.JPG"
+      "caricature": "/caricature/179.JPG",
+      "class_number": "7반 16번"
     },
     {
       "id": "e8ba3718-b320-4d61-b1bf-f82961a3a1dc",
@@ -15152,7 +15331,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/180.JPG"
+      "caricature": "/caricature/180.JPG",
+      "class_number": "7반 18번"
     },
     {
       "id": "d72d8a95-f844-426a-83e9-96d92740d781",
@@ -15227,7 +15407,8 @@
           "order": 10
         }
       ],
-      "caricature": "/caricature/181.JPG"
+      "caricature": "/caricature/181.JPG",
+      "class_number": "7반 28번"
     },
     {
       "id": "5bb44b77-bd3b-4d60-be9c-480fb3a91a95",
@@ -15318,7 +15499,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/182.JPG"
+      "caricature": "/caricature/182.JPG",
+      "class_number": "8반 20번"
     },
     {
       "id": "4ba9a553-d1cf-46bf-a83d-d58e7a47ff33",
@@ -15405,7 +15587,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/183.JPG"
+      "caricature": "/caricature/183.JPG",
+      "class_number": "8반 13번"
     },
     {
       "id": "cfc05a83-813d-480f-8c53-83f3d8507c8c",
@@ -15430,7 +15613,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/184.JPG"
+      "caricature": "/caricature/184.JPG",
+      "class_number": "8반 23번"
     },
     {
       "id": "5aa4b410-a6c5-490e-87ff-e10a8f6a69eb",
@@ -15523,7 +15707,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/185.JPG"
+      "caricature": "/caricature/185.JPG",
+      "class_number": "8반 12번"
     },
     {
       "id": "6e1ced90-1329-4d99-a03e-ef011737204b",
@@ -15610,7 +15795,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/186.JPG"
+      "caricature": "/caricature/186.JPG",
+      "class_number": "8반 9번"
     },
     {
       "id": "57f5e09a-f700-400b-9ad9-85848ad008ba",
@@ -15635,7 +15821,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/187.JPG"
+      "caricature": "/caricature/187.JPG",
+      "class_number": "8반 17번"
     },
     {
       "id": "82808539-f532-4d94-a593-384135c3dff3",
@@ -15736,7 +15923,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/188.JPG"
+      "caricature": "/caricature/188.JPG",
+      "class_number": "8반 16번"
     },
     {
       "id": "200aee81-10e1-41ba-afd8-e01d98a4862e",
@@ -15770,7 +15958,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/189.JPG"
+      "caricature": "/caricature/189.JPG",
+      "class_number": "8반 31번"
     },
     {
       "id": "48e01df5-c43c-4738-b96f-0578b5eb7e42",
@@ -15853,7 +16042,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/190.JPG"
+      "caricature": "/caricature/190.JPG",
+      "class_number": "8반 18번"
     },
     {
       "id": "47e58b16-1362-4683-91a4-f537db65c64a",
@@ -15936,7 +16126,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/191.JPG"
+      "caricature": "/caricature/191.JPG",
+      "class_number": "8반 5번"
     },
     {
       "id": "942b3534-2c03-44d5-bb06-09d5676aff39",
@@ -16019,7 +16210,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/192.JPG"
+      "caricature": "/caricature/192.JPG",
+      "class_number": "8반 14번"
     },
     {
       "id": "eddf5efa-9ec7-449e-bd96-c269ed011d26",
@@ -16056,7 +16248,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/193.JPG"
+      "caricature": "/caricature/193.JPG",
+      "class_number": "8반 24번"
     },
     {
       "id": "b21646b8-4ce1-4d0d-b53b-42cc2ccd9cd3",
@@ -16143,7 +16336,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/194.JPG"
+      "caricature": "/caricature/194.JPG",
+      "class_number": "8반 1번"
     },
     {
       "id": "dd3159af-222e-4650-8a96-a379afee9787",
@@ -16227,7 +16421,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/195.JPG"
+      "caricature": "/caricature/195.JPG",
+      "class_number": "8반 7번"
     },
     {
       "id": "96d3e652-72ba-4a25-9ff6-4c27ee62ad15",
@@ -16315,7 +16510,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/196.JPG"
+      "caricature": "/caricature/196.JPG",
+      "class_number": "8반 15번"
     },
     {
       "id": "cb0aa00f-2ee1-41f3-806f-f2ded43ec9dd",
@@ -16402,7 +16598,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/197.JPG"
+      "caricature": "/caricature/197.JPG",
+      "class_number": "8반 2번"
     },
     {
       "id": "939dd7ad-89d7-40e0-988c-08f7c76346d5",
@@ -16499,7 +16696,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/198.JPG"
+      "caricature": "/caricature/198.JPG",
+      "class_number": "8반 25번"
     },
     {
       "id": "36bf5ba0-20e8-48a5-9496-8f83a6f68ba6",
@@ -16580,7 +16778,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/199.JPG"
+      "caricature": "/caricature/199.JPG",
+      "class_number": "8반 3번"
     },
     {
       "id": "5770ce01-e89b-4c5b-aa5b-d51e51017df6",
@@ -16614,7 +16813,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/200.JPG"
+      "caricature": "/caricature/200.JPG",
+      "class_number": "8반 28번"
     },
     {
       "id": "c4e58480-af6a-4022-9224-f2c6ba6e907f",
@@ -16703,7 +16903,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/201.JPG"
+      "caricature": "/caricature/201.JPG",
+      "class_number": "8반 27번"
     },
     {
       "id": "b98b17e5-1e58-4500-9ff3-901836a83b24",
@@ -16744,7 +16945,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/202.JPG"
+      "caricature": "/caricature/202.JPG",
+      "class_number": "8반 30번"
     },
     {
       "id": "4e5cb98a-6b76-4936-b3ad-cda89ee0fc31",
@@ -16831,7 +17033,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/203.JPG"
+      "caricature": "/caricature/203.JPG",
+      "class_number": "8반 21번"
     },
     {
       "id": "50161298-d214-4959-9166-15551109ea61",
@@ -16918,7 +17121,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/204.JPG"
+      "caricature": "/caricature/204.JPG",
+      "class_number": "8반 8번"
     },
     {
       "id": "0bf60b4c-eb50-40e8-b3d3-5e19b5466056",
@@ -16959,7 +17163,8 @@
           "order": 2
         }
       ],
-      "caricature": "/caricature/205.JPG"
+      "caricature": "/caricature/205.JPG",
+      "class_number": "8반 22번"
     },
     {
       "id": "b127fac4-4048-497e-bd04-63224528812e",
@@ -17047,7 +17252,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/206.JPG"
+      "caricature": "/caricature/206.JPG",
+      "class_number": "8반 29번"
     },
     {
       "id": "1e2a886c-81a1-42af-b731-e48340a129d5",
@@ -17130,7 +17336,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/207.JPG"
+      "caricature": "/caricature/207.JPG",
+      "class_number": "8반 19번"
     },
     {
       "id": "3bbdbd36-e43c-4f0b-a2c5-b2ef31aec78b",
@@ -17217,7 +17424,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/208.JPG"
+      "caricature": "/caricature/208.JPG",
+      "class_number": "8반 11번"
     },
     {
       "id": "f2b1bafc-c4a6-4c46-a12b-573b6b0c108a",
@@ -17304,7 +17512,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/209.JPG"
+      "caricature": "/caricature/209.JPG",
+      "class_number": "8반 4번"
     },
     {
       "id": "fdfd05ae-eea1-4482-97dd-9b95ebebcf8a",
@@ -17387,7 +17596,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/211.JPG"
+      "caricature": "/caricature/211.JPG",
+      "class_number": "9반 14번"
     },
     {
       "id": "2b4269b9-c59f-4fb1-9404-360efa539a15",
@@ -17478,7 +17688,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/212.JPG"
+      "caricature": "/caricature/212.JPG",
+      "class_number": "9반 18번"
     },
     {
       "id": "e12661b9-efc1-4f60-a6b7-881eca510040",
@@ -17561,7 +17772,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/213.JPG"
+      "caricature": "/caricature/213.JPG",
+      "class_number": "9반 2번"
     },
     {
       "id": "6e374fd6-90b1-4c4c-816e-f27d520c9e4c",
@@ -17646,7 +17858,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/214.JPG"
+      "caricature": "/caricature/214.JPG",
+      "class_number": "9반 19번"
     },
     {
       "id": "b8fa0e8b-7df5-47cc-8398-9be9e734f59a",
@@ -17733,7 +17946,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/215.JPG"
+      "caricature": "/caricature/215.JPG",
+      "class_number": "9반 11번"
     },
     {
       "id": "2a015b05-f5d2-4e94-823b-524f475d8894",
@@ -17820,7 +18034,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/216.JPG"
+      "caricature": "/caricature/216.JPG",
+      "class_number": "9반 22번"
     },
     {
       "id": "e5dfc0df-4521-4f16-b5a7-b868bc07b2fa",
@@ -17907,7 +18122,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/217.JPG"
+      "caricature": "/caricature/217.JPG",
+      "class_number": "9반 12번"
     },
     {
       "id": "9f918339-c512-4dcf-afe8-eae55c4be31d",
@@ -17998,7 +18214,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/218.JPG"
+      "caricature": "/caricature/218.JPG",
+      "class_number": "9반 8번"
     },
     {
       "id": "439c650c-8a5e-4f22-af0a-3499b9d5eb3d",
@@ -18089,7 +18306,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/219.JPG"
+      "caricature": "/caricature/219.JPG",
+      "class_number": "9반 16번"
     },
     {
       "id": "5da837be-190c-4fb2-9109-f7bfa87def74",
@@ -18183,7 +18401,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/220.JPG"
+      "caricature": "/caricature/220.JPG",
+      "class_number": "9반 13번"
     },
     {
       "id": "62505976-ec62-426d-8fad-4199b73583f2",
@@ -18275,7 +18494,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/221.JPG"
+      "caricature": "/caricature/221.JPG",
+      "class_number": "9반 21번"
     },
     {
       "id": "0eb08bd3-b439-4f17-b157-964173eac44d",
@@ -18358,7 +18578,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/222.JPG"
+      "caricature": "/caricature/222.JPG",
+      "class_number": "9반 20번"
     },
     {
       "id": "ab32713b-7824-4375-aa0d-8585018b7900",
@@ -18447,7 +18668,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/223.JPG"
+      "caricature": "/caricature/223.JPG",
+      "class_number": "9반 15번"
     },
     {
       "id": "60af2cf2-8002-463e-9f79-e776eb5ca97a",
@@ -18534,7 +18756,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/224.JPG"
+      "caricature": "/caricature/224.JPG",
+      "class_number": "9반 4번"
     },
     {
       "id": "bd709b75-037d-43c1-91b7-ffb89870e646",
@@ -18621,7 +18844,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/225.JPG"
+      "caricature": "/caricature/225.JPG",
+      "class_number": "9반 6번"
     },
     {
       "id": "80ca7c30-a628-4114-bd57-f46dd274d2fc",
@@ -18708,7 +18932,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/226.JPG"
+      "caricature": "/caricature/226.JPG",
+      "class_number": "9반 1번"
     },
     {
       "id": "3a62be5c-3a8b-42d9-affd-41a2e74b264d",
@@ -18791,7 +19016,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/227.JPG"
+      "caricature": "/caricature/227.JPG",
+      "class_number": "9반 7번"
     },
     {
       "id": "8804146f-671e-4870-8b34-6b2430d94fa5",
@@ -18879,7 +19105,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/228.JPG"
+      "caricature": "/caricature/228.JPG",
+      "class_number": "9반 17번"
     },
     {
       "id": "a093dda6-521d-4134-8b77-f2b4e7f0b1e6",
@@ -18962,7 +19189,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/229.JPG"
+      "caricature": "/caricature/229.JPG",
+      "class_number": "9반 10번"
     },
     {
       "id": "8b801f5d-a5ef-4793-9cce-503204054440",
@@ -19042,7 +19270,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/230.JPG"
+      "caricature": "/caricature/230.JPG",
+      "class_number": "9반 5번"
     },
     {
       "id": "4ae185dc-77ca-4208-93f7-b4384585f45e",
@@ -19137,7 +19366,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/231.JPG"
+      "caricature": "/caricature/231.JPG",
+      "class_number": "10반 17번"
     },
     {
       "id": "a103aa94-648c-48ae-a36a-5dc95ee224a7",
@@ -19218,7 +19448,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/232.JPG"
+      "caricature": "/caricature/232.JPG",
+      "class_number": "10반 10번"
     },
     {
       "id": "919c346c-8310-471e-9c94-85dc8824c9dd",
@@ -19315,7 +19546,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/233.JPG"
+      "caricature": "/caricature/233.JPG",
+      "class_number": "10반 15번"
     },
     {
       "id": "0f3e2c29-1df4-4d0b-98c5-b539c8c9c33e",
@@ -19398,7 +19630,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/234.JPG"
+      "caricature": "/caricature/234.JPG",
+      "class_number": "10반 19번"
     },
     {
       "id": "7ca6d92a-0751-42ee-ba2f-2ed1476fed17",
@@ -19478,7 +19711,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/235.JPG"
+      "caricature": "/caricature/235.JPG",
+      "class_number": "10반 4번"
     },
     {
       "id": "8a827c29-dee8-4acd-957d-8214beff3232",
@@ -19565,7 +19799,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/236.JPG"
+      "caricature": "/caricature/236.JPG",
+      "class_number": "10반 3번"
     },
     {
       "id": "aa4d4e7c-97b2-48b8-adbb-80f4c4e072b0",
@@ -19652,7 +19887,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/237.JPG"
+      "caricature": "/caricature/237.JPG",
+      "class_number": "10반 7번"
     },
     {
       "id": "0ec71d72-764d-4a6c-991d-9af755c05759",
@@ -19735,7 +19971,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/238.JPG"
+      "caricature": "/caricature/238.JPG",
+      "class_number": "10반 16번"
     },
     {
       "id": "c796cbec-45f5-4f5f-9256-27ce25f94325",
@@ -19836,7 +20073,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/239.JPG"
+      "caricature": "/caricature/239.JPG",
+      "class_number": "10반 13번"
     },
     {
       "id": "690178a0-ab21-4fee-9cde-77907ff3393c",
@@ -19865,7 +20103,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/240.JPG"
+      "caricature": "/caricature/240.JPG",
+      "class_number": "10반 18번"
     },
     {
       "id": "b9e06f46-f3a1-482b-8318-553b2e6f9181",
@@ -19952,7 +20191,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/241.JPG"
+      "caricature": "/caricature/241.JPG",
+      "class_number": "10반 2번"
     },
     {
       "id": "5a884294-7d4e-4158-a178-bfb71aff94bb",
@@ -20039,7 +20279,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/242.JPG"
+      "caricature": "/caricature/242.JPG",
+      "class_number": "10반 9번"
     },
     {
       "id": "73a9aa69-4920-4607-8969-7a0ce54ca577",
@@ -20126,7 +20367,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/243.JPG"
+      "caricature": "/caricature/243.JPG",
+      "class_number": "10반 12번"
     },
     {
       "id": "518d3a78-65ec-4fc7-932d-f5d6d86e123e",
@@ -20213,7 +20455,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/244.JPG"
+      "caricature": "/caricature/244.JPG",
+      "class_number": "10반 11번"
     },
     {
       "id": "3aeef892-1489-4d8b-96b5-a18c1c8aa024",
@@ -20300,7 +20543,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/245.JPG"
+      "caricature": "/caricature/245.JPG",
+      "class_number": "10반 14번"
     },
     {
       "id": "bb8030a3-57a3-4285-af9d-2cb4c5fdaefc",
@@ -20380,7 +20624,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/246.JPG"
+      "caricature": "/caricature/246.JPG",
+      "class_number": "10반 5번"
     },
     {
       "id": "31ffe3cd-8554-47e4-8efa-796aef8cd411",
@@ -20408,7 +20653,8 @@
           "order": 0
         }
       ],
-      "caricature": "/caricature/247.JPG"
+      "caricature": "/caricature/247.JPG",
+      "class_number": "10반 1번"
     },
     {
       "id": "6aa75c7c-c5bd-42c5-9f22-631632e6006c",
@@ -20491,7 +20737,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/248.JPG"
+      "caricature": "/caricature/248.JPG",
+      "class_number": "10반 21번"
     },
     {
       "id": "e85397f7-d3ec-4d97-8f3e-73ab4480a597",
@@ -20588,7 +20835,8 @@
           "order": 14
         }
       ],
-      "caricature": "/caricature/249.JPG"
+      "caricature": "/caricature/249.JPG",
+      "class_number": "10반 20번"
     },
     {
       "id": "c7c4077f-e6f3-4133-b735-2740f6fcdbb2",
@@ -20671,7 +20919,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/250.JPG"
+      "caricature": "/caricature/250.JPG",
+      "class_number": "10반 8번"
     },
     {
       "id": "db81e0ab-312a-4d37-b4a1-71993f5029de",
@@ -20794,7 +21043,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/251.JPG"
+      "caricature": "/caricature/251.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "ba0d6150-7553-4929-b9b2-bb4ad5f69d3b",
@@ -20917,7 +21167,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/252.JPG"
+      "caricature": "/caricature/252.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "10427049-567a-469f-a66a-7ad4682fa75e",
@@ -21050,7 +21301,8 @@
           "order": 22
         }
       ],
-      "caricature": "/caricature/253.JPG"
+      "caricature": "/caricature/253.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "ef7a6011-11da-4d25-bb82-0cf6d0b3d1f3",
@@ -21173,7 +21425,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/254.JPG"
+      "caricature": "/caricature/254.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "bacc9870-38a1-455f-b815-14c1dd5331bd",
@@ -21296,7 +21549,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/255.JPG"
+      "caricature": "/caricature/255.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "e545dd29-03dd-4883-8844-543e9dfbd7f4",
@@ -21429,7 +21683,8 @@
           "order": 22
         }
       ],
-      "caricature": "/caricature/256.JPG"
+      "caricature": "/caricature/256.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "fbcb7db1-3773-43b5-b70d-a1b341e01b56",
@@ -21552,7 +21807,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/257.JPG"
+      "caricature": "/caricature/257.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "04e6a1f0-ab31-4fa2-966e-3b1e6e62f61d",
@@ -21675,7 +21931,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/258.JPG"
+      "caricature": "/caricature/258.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "4fc3f1c1-81f2-444d-b360-4fea5376402c",
@@ -21798,7 +22055,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/259.JPG"
+      "caricature": "/caricature/259.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "5f1ce142-3872-496d-9310-18136fa86e03",
@@ -21826,7 +22084,8 @@
           "order": 1
         }
       ],
-      "caricature": "/caricature/260.JPG"
+      "caricature": "/caricature/260.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "0dfaa690-21ac-41d3-9566-0b96201c8016",
@@ -21949,7 +22208,8 @@
           "order": 20
         }
       ],
-      "caricature": "/caricature/261.JPG"
+      "caricature": "/caricature/261.JPG",
+      "class_number": "선생님"
     },
     {
       "id": "980379d5-9459-4718-b64e-0fb148ef5090",
@@ -22032,7 +22292,8 @@
           "order": 12
         }
       ],
-      "caricature": "/caricature/262.JPG"
+      "caricature": "/caricature/262.JPG",
+      "class_number": "8반 26번"
     }
   ]
 }

@@ -5,6 +5,7 @@ interface usecheckClickOption {
   ref: RefObject<HTMLElement>;
   onFirstClick?: (ref: HTMLElement) => void;
   onDoubleClick?: (ref: HTMLElement) => void;
+  onBlur?: (ref: HTMLElement | null) => void;
 }
 export const useCheckClick = (options: usecheckClickOption) => {
   const { ref, onFirstClick, onDoubleClick, time = 30000 } = options;
@@ -22,6 +23,7 @@ export const useCheckClick = (options: usecheckClickOption) => {
       timeoutId.current = setTimeout(() => {
         clicked.current = false;
         ref.current?.classList.remove("__focussed");
+        options.onBlur && options.onBlur(ref.current);
       }, time);
     } else {
       ref?.current && onDoubleClick && onDoubleClick(ref.current);
@@ -34,6 +36,7 @@ export const useCheckClick = (options: usecheckClickOption) => {
         ref.current.classList.add("__focussed");
       } else {
         ref.current.classList.remove("__focussed");
+        options.onBlur && options.onBlur(ref.current);
         clicked.current = false;
       }
     }

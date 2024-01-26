@@ -34,7 +34,7 @@ export const H3 = styled.h3<Variant>`
 `;
 export const H4 = styled.h4<Variant>`
   font-family: "NanumSquareRoundOTF";
-  font-size: 1.6rem;
+  font-size: calc(var(--font-size) * 1.6);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
@@ -47,7 +47,8 @@ export const H5 = styled.h5<Variant>`
 
 export const P1 = styled.p<Variant>`
   font-family: "Pretendard";
-  font-size: 1.08rem;
+  font-size: calc(var(--font-size) * 1.2);
+  color: ${(props) => props.theme.color.text.main};
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
 export const P2 = styled.p<Variant>`
@@ -57,7 +58,7 @@ export const P2 = styled.p<Variant>`
 `;
 export const P3 = styled.p<Variant & { concrete?: boolean }>`
   font-family: "Pretendard";
-  font-size: 1.12rem;
+  font-size: calc(var(--font-size) * 1.12);
   line-height: 1.2;
   color: ${(props) => props.theme.color.text.main};
   text-align: center;
@@ -66,6 +67,6 @@ export const P3 = styled.p<Variant & { concrete?: boolean }>`
 `;
 export const P4 = styled.p<Variant>`
   font-family: "Pretendard";
-  font-size: 0.88rem;
+  font-size: calc(var(--font-size) * 0.88);
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;

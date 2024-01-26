@@ -94,10 +94,10 @@ const Switch = ({ ...rest }: SwitchProps) => {
         css={css`
           color: white;
           font-size: 0.865em;
+          ${mode === "dark" && "filter: invert(1);"}
           white-space: nowrap;
           ${isOn ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
           font-weight: bold;
-          ${mode === "dark" && "filter: invert(1);"}
         `}
       >
         {isOn ? "켜짐" : "꺼짐"}

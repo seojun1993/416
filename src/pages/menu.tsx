@@ -63,7 +63,7 @@ const Menu = () => {
                 onFirstClick={() => {
                   emblaApi?.scrollTo(index - 1);
                 }}
-                to="/"
+                to={메뉴[1].href}
                 title={메뉴[1].title}
                 description={메뉴[1].description}
                 img={메뉴[1].src}

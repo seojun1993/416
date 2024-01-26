@@ -5,7 +5,6 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ReactNode, useEffect, useRef } from "react";
 import * as hg from "hangul-js";
-import { noop } from "@/../libs/utils";
 type SpecificKeyTypes =
   | "Enter"
   | "Backspace"
@@ -64,6 +63,20 @@ const SearchButton = (props: KeyWithSizeOption) => {
     </SearchButtonKey>
   );
 };
+
+const SearchButtonChild = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  column-gap: 0.2rem;
+  fill: ${(props) => props.theme.color.secondary.foreground};
+  color: ${(props) => props.theme.color.secondary.foreground};
+  p {
+    color: ${(props) => props.theme.color.secondary.foreground};
+  }
+`;
 
 const keyMap: Key[][] = [
   [
@@ -227,16 +240,7 @@ const keyMap: Key[][] = [
     },
     {
       icon: (
-        <div
-          css={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            column-gap: 0.2rem;
-          `}
-        >
+        <SearchButtonChild>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="104.575"
@@ -247,6 +251,10 @@ const keyMap: Key[][] = [
               aspect-ratio: 1/1;
               height: 100%;
               width: fit-content;
+              transition: none;
+              * {
+                transition: none;
+              }
             `}
           >
             <g
@@ -289,7 +297,7 @@ const keyMap: Key[][] = [
             </g>
           </svg>
           <P3>검색</P3>
-        </div>
+        </SearchButtonChild>
       ),
       renderItem: SearchButton,
       keyType: "Enter",
@@ -528,6 +536,7 @@ const Keyboard = (
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    font-size: 1.12em;
                     padding: 0.4rem;
                     border-radius: 0.2rem;
                     background-color: white;

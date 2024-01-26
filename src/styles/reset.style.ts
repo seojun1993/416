@@ -18,7 +18,7 @@ const reset = (zoom: number) => css`
   }
 
   :root {
-    --font-size: calc(2.3dvh * ${0.8 + zoom * 0.2});
+    --font-size: calc(2.3dvh * ${zoom});
   }
   body,
   html {
