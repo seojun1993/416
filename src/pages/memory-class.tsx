@@ -5,9 +5,9 @@ import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
 import { ReactNode, useState } from "react";
 import Img from "@/assets/img.png";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 const memoryItems = [
-  { title: "복원 이전" as const },
+  { title: "기억교실 연혁" as const },
   { title: "1반" as const },
   { title: "2반" as const },
   { title: "3반" as const },
@@ -40,19 +40,21 @@ const MemoryClass = () => {
           ))}
         </MemoryClassNav>
       </MemoryHeader>
-      <AnimatePresence mode="wait">
-        <MemoryClassContent
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          key={memoryItems[selected].title}
-        >
-          <MemoryClassContentImage>
-            <ImageX src={Img} />
-          </MemoryClassContentImage>
-          {Description}
-        </MemoryClassContent>
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence mode="wait">
+          <MemoryClassContent
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            key={memoryItems[selected].title}
+          >
+            <MemoryClassContentImage>
+              <ImageX src={Img} />
+            </MemoryClassContentImage>
+            {Description}
+          </MemoryClassContent>
+        </AnimatePresence>
+      </LazyMotion>
     </MemoryShell>
   );
 };
@@ -117,7 +119,7 @@ const MemoryClassContentImage = styled.div`
   border-radius: 0.8rem;
   flex-shrink: 0;
 `;
-const MemoryClassContent = styled(motion.div)`
+const MemoryClassContent = styled(m.div)`
   width: 100%;
   display: flex;
   column-gap: 1rem;
@@ -137,7 +139,7 @@ const MemoryShell = styled(MainShell)`
 const memorySummaryComponents: {
   [key in (typeof memoryItems)[number]["title"]]: ReactNode;
 } = {
-  "복원 이전": (
+  "기억교실 연혁": (
     <MemoryClassContentDescription>
       <DescriptionWrapper>
         <DescriptionTitle>단원고 4.16기억교실 이전,복원 경과</DescriptionTitle>

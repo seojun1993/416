@@ -57,3 +57,6 @@ export const filterNameContainFromPattern = (
       keyword &&
       (student.name.includes(keyword) || isContain초성(keyword, student.name))
   );
+
+export const filterByClassName = (data: Student[], classNumber?: number) =>
+  data.filter((student) => student.class === classNumber);

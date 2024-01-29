@@ -8,9 +8,10 @@ import {
 } from "@/queries/student";
 import { css, useTheme } from "@emotion/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { FormEventHandler, useEffect, useRef } from "react";
+import { FormEventHandler, useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { filterNameContainFromPattern } from "@/fetcher/student";
+import NotFoundModal from "@/components/ui/not-found-modal";
 
 const Search = () => {
   const theme = useTheme();
@@ -18,6 +19,7 @@ const Search = () => {
   const [searchParam, setSearchParam] = useSearchParams();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [open, setOpen] = useState(false);
 
   const { data } = useQuery(getStudentsQuery());
   const handleSubmit: FormEventHandler = (event) => {
@@ -28,7 +30,7 @@ const Search = () => {
       inputRef.current!.value
     );
     if (!foundStudents?.length) {
-      return alert("결과없음");
+      return setOpen(true);
     }
 
     queryClient.setQueryData(
@@ -228,12 +230,93 @@ const Search = () => {
         <Keyboard
           defaultValue={searchParam.get("keyword") ?? ""}
           onChange={(value) => {
+            console.log(value);
             if (inputRef.current) {
               inputRef.current.value = value;
             }
           }}
         />
       </form>
+      <NotFoundModal duration={10000} open={open} onChange={setOpen}>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            flex: 0 0 35%;
+            padding: 1.6rem;
+            border-radius: 0.8rem;
+            row-gap: 0.8rem;
+          `}
+        >
+          <svg
+            css={css`
+              width: 2rem;
+              height: 2rem;
+            `}
+            xmlns="http://www.w3.org/2000/svg"
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+          >
+            <g
+              id="그룹_626"
+              data-name="그룹 626"
+              transform="translate(-1816 -2051)"
+            >
+              <g
+                id="타원_2"
+                data-name="타원 2"
+                transform="translate(1816 2051)"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="5"
+              >
+                <circle cx="45" cy="45" r="45" stroke="none" />
+                <circle cx="45" cy="45" r="42.5" fill="none" />
+              </g>
+              <rect
+                id="사각형_14"
+                data-name="사각형 14"
+                width="5"
+                height="34"
+                rx="2.5"
+                transform="translate(1888.423 2126.958) rotate(-45)"
+                fill="#fff"
+              />
+              <rect
+                id="사각형_862"
+                data-name="사각형 862"
+                width="5"
+                height="40"
+                rx="2.5"
+                transform="translate(1845.001 2083.535) rotate(-45)"
+                fill="#fff500"
+              />
+              <rect
+                id="사각형_863"
+                data-name="사각형 863"
+                width="5.001"
+                height="40"
+                rx="2.5"
+                transform="translate(1848.535 2111.821) rotate(-135)"
+                fill="#fff500"
+              />
+            </g>
+          </svg>
+
+          <H4
+            css={css`
+              color: white;
+              font-size: 1.12rem;
+              width: max-content;
+            `}
+          >
+            일치하는 검색 결과가 없습니다
+          </H4>
+        </div>
+      </NotFoundModal>
     </MainShell>
   );
 };

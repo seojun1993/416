@@ -31,7 +31,7 @@ export const menuContent: MenuData = {
     description: "희생된 261명에 대한 정보를\n반 기준으로 제공하는 화면입니다.",
     src: 메뉴이미지들.기억명단,
     imagePainter: "영덕고등학교 정하은",
-    href: "/",
+    href: "/memory-list",
   },
   별을통한만남: {
     title: "별을 통한 만남",

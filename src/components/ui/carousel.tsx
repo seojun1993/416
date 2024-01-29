@@ -1,8 +1,20 @@
 /** @jsxImportSource @emotion/react */
-import { ReactNode } from "react";
-import { EmblaOptionsType, UseEmblaCarouselType } from "embla-carousel-react";
+import { PropsWithChildren, ReactNode, memo, useEffect, useRef } from "react";
+import {
+  EmblaCarouselType,
+  EmblaOptionsType,
+  UseEmblaCarouselType,
+} from "embla-carousel-react";
 import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
+import {
+  useScroll,
+  MotionValue,
+  LazyMotion,
+  domAnimation,
+  useTransform,
+  m,
+} from "framer-motion";
 
 interface EmblaCarouselProps<T> {
   slides: T[];
@@ -14,17 +26,52 @@ interface EmblaCarouselProps<T> {
 const EmblaCarousel = <T,>({
   slides,
   carouselType,
-  cssSlide,
   children,
+  cssSlide,
 }: EmblaCarouselProps<T>) => {
   const [emblaRef, emblaApi] = carouselType;
   const theme = useTheme();
+  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollX = useScroll({ container: containerRef });
+
+  const onScroll = (embla: EmblaCarouselType) => {
+    scrollX.scrollXProgress.set(embla.scrollProgress());
+  };
+
+  useEffect(() => {
+    emblaApi?.on("scroll", onScroll);
+    return () => {
+      emblaApi?.off("scroll", onScroll);
+    };
+  }, [emblaApi]);
+
   return (
-    <div css={cssSlide}>
+    <div
+      ref={ref}
+      css={css`
+        width: 80dvw;
+        flex-grow: 1;
+        ${cssSlide && cssSlide}
+      `}
+    >
       <Viewport ref={emblaRef}>
-        <Container>
-          {typeof children === "function" ? slides.map(children) : children}
-        </Container>
+        <LazyMotion features={domAnimation}>
+          <Container ref={containerRef}>
+            {typeof children === "function"
+              ? slides.map((item, index) => (
+                  <ScaleChildren
+                    index={index}
+                    maxLength={slides.length}
+                    scrollX={scrollX.scrollXProgress}
+                    key={index}
+                  >
+                    {children(item, index)}
+                  </ScaleChildren>
+                ))
+              : children}
+          </Container>
+        </LazyMotion>
         <LeftButton
           css={css`
             &:active {
@@ -86,6 +133,41 @@ const EmblaCarousel = <T,>({
   );
 };
 
+const ScaleChildren = memo(
+  <T,>({
+    children,
+    index,
+    maxLength,
+    scrollX,
+  }: PropsWithChildren<{
+    index: number;
+    maxLength: number;
+    scrollX: MotionValue<number>;
+  }>) => {
+    const center = index / maxLength;
+    const weight = (((index + 1) % maxLength) / maxLength || 1) - center;
+    const t = useTransform(
+      scrollX,
+      [center - weight, center, center + weight],
+      [0.8, 1, 0.8],
+      {
+        clamp: true,
+      }
+    );
+
+    return (
+      <div
+        css={css`
+          flex: 0 0 33.3333%;
+          margin: 1em auto;
+        `}
+      >
+        <m.div style={{ scale: t }}>{children}</m.div>
+      </div>
+    );
+  }
+);
+
 export default EmblaCarousel;
 
 const LeftButton = styled.button`
@@ -128,7 +210,8 @@ const RightButton = styled.button`
 `;
 
 const Viewport = styled.div`
-  width: 80dvw;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
   position: relative;
 `;

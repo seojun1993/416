@@ -1,11 +1,10 @@
 import { Student } from "@/types/student";
 import { UseQueryOptions } from "@tanstack/react-query";
-import { getSolar } from "../libs/holiday-kr";
 import {
+  filterByClassName,
   filterNameContainFromPattern,
   getStudentFromJson,
 } from "@/fetcher/student";
-import { isContain초성 } from "@/libs/utils";
 
 type QueryFnOptions<ReturnType> = Pick<
   UseQueryOptions<ReturnType>,
@@ -28,6 +27,15 @@ export const getStudentsFromSearchQuery: UseQueryOptionsFn<
   queryKey: ["students", keyword],
   queryFn: () => getStudentFromJson(),
   select: (data) => filterNameContainFromPattern(data, keyword),
+  gcTime: Infinity,
+  staleTime: Infinity,
+});
+export const getStudentsFromClass: UseQueryOptionsFn<Student[], number> = (
+  className
+) => ({
+  queryKey: ["students", "class", className],
+  queryFn: () => getStudentFromJson(),
+  select: (data) => filterByClassName(data, className),
   gcTime: Infinity,
   staleTime: Infinity,
 });
