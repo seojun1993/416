@@ -2,7 +2,6 @@ import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
 import EmblaCarousel from "@/components/ui/carousel";
 import { EmblaOptionsType } from "embla-carousel-react";
-
 import OnboardCompoents from "@/components/pages/onboard";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -11,7 +10,7 @@ import { getStudentsQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { Student } from "@/types/student";
 import { H4 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";

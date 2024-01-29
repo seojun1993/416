@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
-import Ranger from "../ui/ranger";
 import IncreaseButton from "../ui/increase-button";
 import { P3 } from "../ui/text";
 import { useSettingStore } from "@/contexts/setting.store";

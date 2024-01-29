@@ -13,7 +13,6 @@ import {
 } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { useSearchParams } from "react-router-dom";
-
 import InformationModal from "@/components/ui/information-modal";
 import {
   ReactZoomPanPinchContentRef,

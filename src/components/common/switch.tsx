@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, domMax, m } from "framer-motion";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { P3 } from "../ui/text";
 
@@ -85,23 +85,25 @@ const Switch = ({ ...rest }: SwitchProps) => {
       data-ison={isOn}
       onClick={toggleSwitch}
     >
-      <motion.div
-        className="handle"
-        layout
-        transition={{ type: "spring", stiffness: 700, damping: 30 }}
-      />
-      <P3
-        css={css`
-          color: white;
-          font-size: 0.865em;
-          ${mode === "dark" && "filter: invert(1);"}
-          white-space: nowrap;
-          ${isOn ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
-          font-weight: bold;
-        `}
-      >
-        {isOn ? "켜짐" : "꺼짐"}
-      </P3>
+      <LazyMotion features={domMax}>
+        <m.div
+          className="handle"
+          layout
+          transition={{ type: "spring", stiffness: 700, damping: 30 }}
+        />
+        <P3
+          css={css`
+            color: white;
+            font-size: 0.865em;
+            ${mode === "dark" && "filter: invert(1);"}
+            white-space: nowrap;
+            ${isOn ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
+            font-weight: bold;
+          `}
+        >
+          {isOn ? "켜짐" : "꺼짐"}
+        </P3>
+      </LazyMotion>
     </label>
   );
 };
