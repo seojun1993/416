@@ -158,7 +158,7 @@ const ScaleChildren = memo(
     return (
       <div
         css={css`
-          flex: 0 0 33.3333%;
+          flex: 0 0 33.33%;
           margin: 1em auto;
         `}
       >
@@ -210,8 +210,8 @@ const RightButton = styled.button`
 `;
 
 const Viewport = styled.div`
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   overflow: hidden;
   position: relative;
 `;

@@ -86,7 +86,7 @@ const CardClassNumber = styled.div`
 `;
 
 const CardLink = styled(m(Link))`
-  width: 18.1em;
+  width: 100%;
   aspect-ratio: 25/ 32;
   outline: 1px solid #eeeeee;
   border-radius: 0.7em;

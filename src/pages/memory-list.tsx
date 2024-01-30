@@ -8,15 +8,30 @@ import { getStudentsFromClass } from "@/queries/student";
 import { Student } from "@/types/student";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import Cover from "@/assets/images/cover.png";
 import ImageX from "@/components/ui/image";
 import QRCode from "react-qr-code";
+import Autoplay from "embla-carousel-autoplay";
+import { getAlbums } from "@/queries/album";
+
+import {
+  VirtualizerOptions,
+  elementScroll,
+  useVirtualizer,
+} from "@tanstack/react-virtual";
 
 const memoryItems = [
   { title: "1반" as const, class: 1 },
@@ -38,7 +53,13 @@ const MemoryList = () => {
     () => ({ loop: true, startIndex: Number(0) }),
     []
   );
-  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
+    Autoplay({
+      stopOnFocusIn: false,
+      stopOnInteraction: false,
+      stopOnLastSnap: false,
+    }),
+  ]);
 
   const handleReInit = useCallback((ev: EmblaCarouselType) => {
     ev.scrollTo(0);
@@ -139,15 +160,8 @@ const MemoryList = () => {
             flex: 1;
           `}
         >
-          <div
-            css={css`
-              flex: 1;
-              height: 100%;
-            `}
-          >
-            <ImageX src={Cover} />
-          </div>
-          <MoeryQRCode>
+          <AlbumVisualizer />
+          <MemoryQRCode>
             <QRCode value="https://goe416.go.kr/?p=26&page=1&searchTxt=" />
 
             <P3
@@ -161,16 +175,244 @@ const MemoryList = () => {
               <br />
               작성할 수 있습니다.
             </P3>
-          </MoeryQRCode>
+          </MemoryQRCode>
         </MemoryContentArticle>
       </MemoryContent>
     </MemoryShell>
   );
 };
+function easeInOutQuint(t: number) {
+  return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+}
+function AlbumVisualizer() {
+  const centerIndex = useRef(0);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const scrollingRef = useRef<number>(0);
+  const { data: albums } = useQuery(getAlbums());
+  const [parentWidth, setParentWidth] = useState(0);
+
+  const scrollToFn: VirtualizerOptions<any, any>["scrollToFn"] = useCallback(
+    (offset, canSmooth, instance) => {
+      if (!parentRef.current) return;
+      const duration = 1000;
+      const start = parentRef.current.scrollTop;
+      const startTime = (scrollingRef.current = Date.now());
+
+      const run = () => {
+        if (scrollingRef.current !== startTime) return;
+        const now = Date.now();
+        const elapsed = now - startTime;
+        const progress = easeInOutQuint(Math.min(elapsed / duration, 1));
+        const interpolated = start + (offset - start) * progress;
+
+        if (elapsed < duration) {
+          elementScroll(interpolated, canSmooth, instance);
+          requestAnimationFrame(run);
+        } else {
+          elementScroll(interpolated, canSmooth, instance);
+        }
+      };
+
+      requestAnimationFrame(run);
+    },
+    []
+  );
+
+  const columnVirtualizer = useVirtualizer({
+    horizontal: true,
+    count: albums?.length ?? 0,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => parentWidth,
+    overscan: 10,
+    scrollToFn,
+  });
+
+  const handleResize = useCallback(() => {
+    if (!parentRef.current) return;
+    setParentWidth(parentRef.current.clientWidth);
+  }, []);
+
+  useLayoutEffect(() => {
+    handleResize();
+    if (parentRef.current) {
+      const ref = parentRef.current;
+      ref.addEventListener("resize", handleResize);
+      return () => {
+        ref.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
+
+  return (
+    <div
+      css={css`
+        position: relative;
+        flex: 1;
+        height: 100%;
+        margin-right: 3rem;
+      `}
+    >
+      <div
+        ref={parentRef}
+        css={css`
+          height: 100%;
+          overflow: auto;
+          border-radius: 1rem;
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+          &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera*/
+          }
+          scroll-snap-type: x mandatory;
+          overscroll-behavior-x: contain;
+        `}
+      >
+        <div
+          css={css`
+            width: ${columnVirtualizer.getTotalSize()}px;
+            position: relative;
+            display: flex;
+            height: 100%;
+          `}
+        >
+          {columnVirtualizer.getVirtualItems().map(
+            (album) =>
+              albums?.[album.index] && (
+                <div
+                  style={{
+                    transform: `translateX(${album.start}px)`,
+                  }}
+                  css={css`
+                    width: ${parentWidth}px;
+                    scroll-snap-align: start;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                  `}
+                  key={album.index}
+                >
+                  <img
+                    css={css`
+                      width: 100%;
+                      height: 100%;
+                    `}
+                    src={getImagePath(albums[album.index].url)}
+                  />
+                </div>
+              )
+          )}
+        </div>
+      </div>
+      <LeftButton
+        onClick={() => {
+          if (columnVirtualizer.range?.endIndex) {
+            columnVirtualizer.scrollToIndex(
+              columnVirtualizer.range.endIndex - 1,
+              {
+                behavior: "smooth",
+              }
+            );
+          }
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="54.482"
+          height="96.969"
+          viewBox="0 0 54.482 96.969"
+        >
+          <path
+            id="prev_icon"
+            d="M-20078.957-17310.031l-40,40,40,40"
+            transform="translate(20124.955 17318.516)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="12"
+          />
+        </svg>
+      </LeftButton>
+      <RightButton
+        onClick={() => {
+          if (
+            columnVirtualizer.range &&
+            albums &&
+            columnVirtualizer.range?.endIndex < albums?.length
+          ) {
+            columnVirtualizer.scrollToIndex(
+              columnVirtualizer.range.endIndex + 1,
+              {
+                behavior: "smooth",
+              }
+            );
+          }
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="54.486"
+          height="96.969"
+          viewBox="0 0 54.486 96.969"
+        >
+          <path
+            id="naxt_icon"
+            d="M-20118.957-17310.031l40,40-40,40"
+            transform="translate(20127.441 17318.516)"
+            fill="none"
+            stroke="currentcolor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="12"
+          />
+        </svg>
+      </RightButton>
+    </div>
+  );
+}
 
 export default MemoryList;
 
-const MoeryQRCode = styled.div`
+const LeftButton = styled.button`
+  position: absolute;
+  left: calc(0% - 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: white;
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+`;
+const RightButton = styled.button`
+  position: absolute;
+  right: calc(0% - 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: white;
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+`;
+const MemoryQRCode = styled.div`
   padding: 1.2rem 0.6rem;
   background-color: ${(props) => props.theme.color.background.secondary};
   color: ${(props) => props.theme.color.text.main};

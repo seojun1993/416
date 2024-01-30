@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
 import EmblaCarousel from "@/components/ui/carousel";
@@ -6,30 +7,28 @@ import OnboardCompoents from "@/components/pages/onboard";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useQuery } from "@tanstack/react-query";
-import { getStudentsQuery } from "@/queries/student";
+import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
-import { LazyMotion, domAnimation } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Student } from "@/types/student";
 import { H4 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
+import vi from "@/assets/videos/sample.webm";
+import { css } from "@emotion/react";
+import PreloadVideo from "@/components/ui/preload-video";
 
 const OnBoard = () => {
   const { data: students } = useQuery(
-    getStudentsQuery({
-      select(data) {
-        return data.filter(
-          (student) =>
-            new Date(student.birthday).getMonth() === new Date().getMonth()
-        );
-      },
-    })
+    getFilteredStudentsByMonthQuery(new Date().getMonth())
   );
 
   const [id, setId] = useState(() => {
     const id = sessionStorage.getItem("redirect_id");
-
+    if (id) {
+      sessionStorage.removeItem("redirect_id");
+    }
     return Number(id) ?? 0;
   });
 
@@ -64,16 +63,20 @@ const OnBoard = () => {
   }, [id]);
   return (
     <OnBoardShell>
-      <Saver>
-        <OnBoardMonth>
-          <H4>{new Date().getMonth() + 1}월 생일자</H4>
-        </OnBoardMonth>
-        {studentOnCenter ? (
-          <OnboardCompoents.OnBoardTitle title={studentOnCenter.name} />
-        ) : null}
-        {students ? (
-          <LazyMotion features={domAnimation}>
+      <LazyMotion features={domAnimation}>
+        <Saver>
+          <OnBoardMonth>
+            <H4>{new Date().getMonth() + 1}월 생일자</H4>
+          </OnBoardMonth>
+          {studentOnCenter ? (
+            <OnboardCompoents.OnBoardTitle title={studentOnCenter.name} />
+          ) : null}
+          {students ? (
             <EmblaCarousel
+              cssSlide={css`
+                width: 60dvw;
+                margin-right: 35%;
+              `}
               carouselType={[emblaRef, emblaApi]}
               slides={students}
               options={OPTIONS}
@@ -94,9 +97,26 @@ const OnBoard = () => {
                 );
               }}
             </EmblaCarousel>
-          </LazyMotion>
-        ) : null}
-      </Saver>
+          ) : null}
+        </Saver>
+        <PreloadVideo
+          css={css`
+            position: fixed;
+            width: 45dvw;
+            bottom: var(--bottom-height);
+            right: -8dvw;
+            user-select: none;
+            pointer-events: none;
+            object-fit: cover;
+            object-position: right;
+            aspect-ratio: 1/1;
+            height: 60%;
+          `}
+          src={vi}
+          autoPlay
+          muted
+        ></PreloadVideo>
+      </LazyMotion>
     </OnBoardShell>
   );
 };

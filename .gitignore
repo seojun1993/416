@@ -25,3 +25,5 @@ dist-ssr
 src/assets/contents/
 
 .env
+
+di/

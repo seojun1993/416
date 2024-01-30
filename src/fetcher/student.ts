@@ -2,11 +2,47 @@ import { getSolar } from "@/libs/holiday-kr";
 import { isContain초성 } from "@/libs/utils";
 import { Student } from "@/types/student";
 
-// 2. 오늘 날짜 계산
-const today = new Date();
+export function findNextBirthdayIndex(data: Student[]) {
+  const today = new Date(
+    `1997-${(new Date().getMonth() + 1).toFixed().padStart(2, "0")}-${new Date()
+      .getDate()
+      .toFixed()
+      .padStart(2, "0")}`
+  );
+  let closestBirthday: Date | null = null;
+  let closestIndex = -1;
+
+  data.forEach((person, index) => {
+    const birthdayThisYear = new Date(
+      today.getFullYear(),
+      new Date(new Date(person.birthday).setFullYear(1997)).getMonth(),
+      new Date(new Date(person.birthday).setFullYear(1997)).getDate(),
+      23
+    );
+    const birthdayNextYear = new Date(
+      today.getFullYear() + 1,
+      new Date(new Date(person.birthday).setFullYear(1997)).getMonth(),
+      new Date(new Date(person.birthday).setFullYear(1997)).getDate()
+    );
+
+    // 올해 생일이 이미 지났으면 내년 생일을 사용
+    const birthday =
+      birthdayThisYear > today ? birthdayThisYear : birthdayNextYear;
+    if (
+      closestBirthday === null ||
+      (birthday < closestBirthday && birthday >= today)
+    ) {
+      closestBirthday = birthday;
+      closestIndex = index;
+    }
+  });
+
+  return closestIndex;
+}
 
 // 3. 정렬 함수 정의
-function sortDatesClosestToToday(a: Student, b: Student) {
+export function sortDatesClosestToToday(a: Student, b: Student) {
+  const today = new Date();
   const dateA = new Date(a.birthday).setFullYear(1997);
   const dateB = new Date(b.birthday).setFullYear(1997);
 
@@ -25,6 +61,7 @@ function sortDatesClosestToToday(a: Student, b: Student) {
   }
 
   // 하나는 과거, 다른 하나는 미래인 경우
+
   return diffA < diffB ? 1 : -1;
 }
 
@@ -45,6 +82,7 @@ export const getStudentFromJson = () =>
       };
     }) as Student[];
     const newSortedData = data.sort((a, b) => sortDatesClosestToToday(a, b));
+
     return newSortedData;
   });
 
@@ -58,5 +96,15 @@ export const filterNameContainFromPattern = (
       (student.name.includes(keyword) || isContain초성(keyword, student.name))
   );
 
-export const filterByClassName = (data: Student[], classNumber?: number) =>
-  data.filter((student) => student.class === classNumber);
+export const filterByClassName = (data: Student[], classNumber?: number) => {
+  const parsed = data
+    .filter((student) => student.class === classNumber)
+    .sort(sortDatesClosestToToday);
+
+  const idx = findNextBirthdayIndex(parsed);
+  const result: Student[] = [];
+  for (let i = 0; i < parsed.length; i++) {
+    result.push(parsed[(i + idx) % parsed.length]);
+  }
+  return result;
+};

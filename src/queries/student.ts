@@ -1,23 +1,40 @@
 import { Student } from "@/types/student";
-import { UseQueryOptions } from "@tanstack/react-query";
 import {
   filterByClassName,
   filterNameContainFromPattern,
+  findNextBirthdayIndex,
   getStudentFromJson,
+  sortDatesClosestToToday,
 } from "@/fetcher/student";
+import { UseQueryOptionsFn } from "@/types/query";
 
-type QueryFnOptions<ReturnType> = Pick<
-  UseQueryOptions<ReturnType>,
-  "enabled" | "select"
->;
-type UseQueryOptionsFn<ReturnType, S = QueryFnOptions<ReturnType>> = (
-  options?: S
-) => UseQueryOptions<ReturnType>;
+async function sortStudentByTodayMonth() {
+  const data = (await getStudentFromJson())
+    .filter(
+      (student) =>
+        new Date(student.birthday).getMonth() === new Date().getMonth()
+    )
+    .sort(sortDatesClosestToToday);
+  const idx = findNextBirthdayIndex(data);
+  const result: Student[] = [];
+  for (let i = 0; i < data.length; i++) {
+    result.push(data[(i + idx) % data.length]);
+  }
+  return result;
+}
 
 export const getStudentsQuery: UseQueryOptionsFn<Student[]> = (options) => ({
   ...options,
   queryKey: ["students"],
   queryFn: () => getStudentFromJson(),
+});
+
+export const getFilteredStudentsByMonthQuery: UseQueryOptionsFn<
+  Student[],
+  number
+> = (todayMonth) => ({
+  queryKey: ["students", todayMonth],
+  queryFn: () => sortStudentByTodayMonth(),
 });
 
 export const getStudentsFromSearchQuery: UseQueryOptionsFn<
@@ -34,8 +51,7 @@ export const getStudentsFromClass: UseQueryOptionsFn<Student[], number> = (
   className
 ) => ({
   queryKey: ["students", "class", className],
-  queryFn: () => getStudentFromJson(),
-  select: (data) => filterByClassName(data, className),
+  queryFn: async () => filterByClassName(await getStudentFromJson(), className),
   gcTime: Infinity,
   staleTime: Infinity,
 });

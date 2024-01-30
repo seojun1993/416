@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import "./vitals.ts";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -6,6 +7,7 @@ import Root from "./root";
 import GlobalLayout from "./global-layout.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { css } from "@emotion/react";
 
 const client = new QueryClient({
   defaultOptions: {
