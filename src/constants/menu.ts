@@ -38,7 +38,7 @@ export const menuContent: MenuData = {
     description: "별(꿈, 취미, 별명)을 터치하여 희생자를\n만날 수 있습니다.",
     src: 메뉴이미지들.별을통한만남,
     imagePainter: "방포고등학교 정미솔",
-    href: "/",
+    href: "/stars",
   },
   공간안내: {
     title: "공간 안내",

@@ -1,5 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { PropsWithChildren, ReactNode, memo, useEffect, useRef } from "react";
+import {
+  PropsWithChildren,
+  ReactNode,
+  memo,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import {
   EmblaCarouselType,
   EmblaOptionsType,
@@ -15,12 +22,14 @@ import {
   useTransform,
   m,
 } from "framer-motion";
+const defaultCarouselOptions = { animate: true };
 
 interface EmblaCarouselProps<T> {
   slides: T[];
-  options?: EmblaOptionsType;
+  options?: { animate?: boolean };
   cssSlide?: SerializedStyles;
   carouselType: UseEmblaCarouselType;
+  aspect?: number;
   children?: ReactNode | ((item: T, index: number) => ReactNode);
 }
 const EmblaCarousel = <T,>({
@@ -28,7 +37,10 @@ const EmblaCarousel = <T,>({
   carouselType,
   children,
   cssSlide,
+  aspect,
+  options = {},
 }: EmblaCarouselProps<T>) => {
+  const { animate } = { ...defaultCarouselOptions, ...options };
   const [emblaRef, emblaApi] = carouselType;
   const theme = useTheme();
   const ref = useRef<HTMLDivElement>(null);
@@ -40,10 +52,12 @@ const EmblaCarousel = <T,>({
   };
 
   useEffect(() => {
-    emblaApi?.on("scroll", onScroll);
-    return () => {
-      emblaApi?.off("scroll", onScroll);
-    };
+    if (animate) {
+      emblaApi?.on("scroll", onScroll);
+      return () => {
+        emblaApi?.off("scroll", onScroll);
+      };
+    }
   }, [emblaApi]);
 
   return (
@@ -51,7 +65,6 @@ const EmblaCarousel = <T,>({
       ref={ref}
       css={css`
         width: 80dvw;
-        flex-grow: 1;
         ${cssSlide && cssSlide}
       `}
     >
@@ -61,6 +74,8 @@ const EmblaCarousel = <T,>({
             {typeof children === "function"
               ? slides.map((item, index) => (
                   <ScaleChildren
+                    enabled={animate}
+                    aspect={aspect}
                     index={index}
                     maxLength={slides.length}
                     scrollX={scrollX.scrollXProgress}
@@ -139,17 +154,24 @@ const ScaleChildren = memo(
     index,
     maxLength,
     scrollX,
+    enabled,
+    aspect = 0.33,
   }: PropsWithChildren<{
     index: number;
     maxLength: number;
+    aspect?: number;
     scrollX: MotionValue<number>;
+    enabled: boolean;
   }>) => {
-    const center = index / maxLength;
-    const weight = (((index + 1) % maxLength) / maxLength || 1) - center;
+    const center = useMemo(() => index / maxLength, []);
+    const weight = useMemo(
+      () => (((index + 1) % maxLength) / maxLength || 1) - center,
+      []
+    );
     const t = useTransform(
       scrollX,
       [center - weight, center, center + weight],
-      [0.8, 1, 0.8],
+      enabled ? [0.9, 1, 0.9] : [1, 1, 1],
       {
         clamp: true,
       }
@@ -158,8 +180,9 @@ const ScaleChildren = memo(
     return (
       <div
         css={css`
-          flex: 0 0 33.33%;
-          margin: 1em auto;
+          flex: 0 0 ${aspect * 100}%;
+          padding-left: 1.6rem;
+          /* margin: 0 auto; */
         `}
       >
         <m.div style={{ scale: t }}>{children}</m.div>
@@ -214,6 +237,7 @@ const Viewport = styled.div`
   /* justify-content: center; */
   overflow: hidden;
   position: relative;
+  margin: 0 auto;
 `;
 
 const Container = styled.div`
@@ -221,4 +245,5 @@ const Container = styled.div`
   touch-action: pan-y;
   display: flex;
   justify-content: flex-start;
+  margin-left: -1.6rem;
 `;

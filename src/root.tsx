@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "./queries/student";
 import { lazy } from "react";
 import Loadable from "./components/common/loadable";
+import Stars from "./pages/stars";
 
 const OnBoard = Loadable(lazy(() => import("@/pages/onboard")));
 const Board = Loadable(lazy(() => import("@/pages/board")));
@@ -30,6 +31,7 @@ function Root() {
           <Route path="memory-class" element={<MemoryClass />} />
           <Route path="memory-list" element={<MemoryList />} />
           <Route path="search" element={<Search />} />
+          <Route path="stars" element={<Stars />} />
           <Route path="search-result" element={<SearchResult />} />
         </Routes>
       </AnimatePresence>

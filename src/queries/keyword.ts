@@ -11,3 +11,12 @@ export const getKeywordWithStudents: (
     return res.data;
   },
 });
+export const getAllKeywordWithStudents: () => UseQueryOptions<
+  KeywordWithStudents[]
+> = () => ({
+  queryKey: ["keywords"],
+  queryFn: async (key) => {
+    const res = await import("@/assets/mocks/keyword_by_students.json");
+    return res.data;
+  },
+});

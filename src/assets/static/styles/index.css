@@ -4,11 +4,12 @@
 @import "../fonts/NanumSquareRound/NanumSquareRoundOTF.css";
 @import "../fonts/dokdo/dokdo.css";
 .__focussed {
-  outline: 0.26em solid #fff500 !important;
+  border-color: #fff500 !important;
 }
 
 .__focussed-target {
-  transition: outline 0.1s ease-in-out;
+  border: 0.26em solid transparent;
+  transition: border 0.1s ease-in-out;
 }
 .react-transform-wrapper {
   width: 100% !important;

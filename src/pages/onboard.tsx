@@ -1450,10 +1450,12 @@ const OnBoard = () => {
               cssSlide={css`
                 width: 60dvw;
                 margin-right: 35%;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
               `}
               carouselType={[emblaRef, emblaApi]}
               slides={students}
-              options={OPTIONS}
             >
               {(item, index) => {
                 return (

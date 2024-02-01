@@ -60,6 +60,7 @@ export const Card = memo(
         to={href ?? ""}
         ref={ref}
         css={css`
+          aspect-ratio: 25/32;
           ${linkStyle && linkStyle}
         `}
       >
@@ -87,7 +88,6 @@ const CardClassNumber = styled.div`
 
 const CardLink = styled(m(Link))`
   width: 100%;
-  aspect-ratio: 25/ 32;
   outline: 1px solid #eeeeee;
   border-radius: 0.7em;
   overflow: hidden;
