@@ -125,7 +125,6 @@ const MemoryList = () => {
                   <EmblaCarousel
                     carouselType={[emblaRef, emblaApi]}
                     slides={students}
-                    options={OPTIONS}
                     cssSlide={css`
                       flex: 1;
                       width: 100%;

@@ -88,6 +88,7 @@ const CardClassNumber = styled.div`
 
 const CardLink = styled(m(Link))`
   width: 100%;
+  height: 100%;
   outline: 1px solid #eeeeee;
   border-radius: 0.7em;
   overflow: hidden;

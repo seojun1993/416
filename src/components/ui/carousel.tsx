@@ -182,6 +182,7 @@ const ScaleChildren = memo(
         css={css`
           flex: 0 0 ${aspect * 100}%;
           padding-left: 1.6rem;
+
           /* margin: 0 auto; */
         `}
       >
@@ -238,6 +239,8 @@ const Viewport = styled.div`
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+
+  height: 100%;
 `;
 
 const Container = styled.div`
@@ -246,4 +249,6 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   margin-left: -1.6rem;
+
+  height: 100%;
 `;

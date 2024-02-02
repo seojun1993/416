@@ -25,7 +25,8 @@ const Stars = () => {
   ]);
 
   const SlideCardAspect = useMemo(
-    () => Math.min(5, students?.length ?? 0),
+    () => 3,
+    // () => Math.min(5, students?.length ?? 0),
     [students]
   );
 
@@ -62,12 +63,11 @@ const Stars = () => {
         <EmblaCarousel
           aspect={1 / SlideCardAspect}
           cssSlide={css`
-            width: 100%;
+            width: calc((460px + 1.6rem) * 3);
             display: flex;
             align-items: flex-end;
-            padding-left: 10.6rem;
-            padding-right: 10.6rem;
-            height: 570px;
+            max-height: 11.4rem;
+            height: 100%;
           `}
           carouselType={[emblaRef, emblaApi]}
           slides={students}
@@ -77,12 +77,14 @@ const Stars = () => {
             return (
               <Card
                 linkStyle={css`
+                  width: ${(1 / SlideCardAspect) *
+                  (emblaApi?.containerNode().children[0].clientWidth ?? 0)};
                   aspect-ratio: 10 / 12.3;
                 `}
                 badge={item.title_keyword}
                 classDescription={item.class_number}
                 onFirstClick={() => {
-                  emblaApi?.scrollTo(index);
+                  emblaApi?.scrollTo(index - Math.floor(SlideCardAspect / 2));
                 }}
                 href={`board?id=${item["416_id"]}`}
                 image={getImagePath(item.caricature)}

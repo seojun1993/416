@@ -11,14 +11,15 @@ import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { Student } from "@/types/student";
 import { H4 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
-import vi from "@/assets/videos/sample.webm";
 import { css } from "@emotion/react";
 import PreloadVideo from "@/components/ui/preload-video";
 import { XMLParser } from "fast-xml-parser";
+
+import vi from "@/assets/videos/sample.webm";
 
 const OnBoard = () => {
   const { data: students } = useQuery(
@@ -1449,7 +1450,6 @@ const OnBoard = () => {
             <EmblaCarousel
               cssSlide={css`
                 width: 60dvw;
-                margin-right: 35%;
                 flex-grow: 1;
                 display: flex;
                 align-items: center;
@@ -1475,23 +1475,7 @@ const OnBoard = () => {
             </EmblaCarousel>
           ) : null}
         </Saver>
-        <PreloadVideo
-          css={css`
-            position: fixed;
-            width: 45dvw;
-            bottom: var(--bottom-height);
-            right: -8dvw;
-            user-select: none;
-            pointer-events: none;
-            object-fit: cover;
-            object-position: right;
-            aspect-ratio: 1/1;
-            height: 60%;
-          `}
-          src={vi}
-          autoPlay
-          muted
-        ></PreloadVideo>
+        <PreloadVideo src={vi} autoPlay muted></PreloadVideo>
       </LazyMotion>
     </OnBoardShell>
   );
@@ -1551,4 +1535,5 @@ const Saver = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 100dvw;
+  flex: 1 1 100%;
 `;

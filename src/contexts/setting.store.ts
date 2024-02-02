@@ -13,6 +13,13 @@ interface ThemeSlice {
   toggleTheme: () => void;
 }
 
+interface SignSlice {
+  isPlaying: boolean;
+  setIsPlaying: (state: boolean) => void;
+  speed: number;
+  setSpeed: (speed: number) => void;
+}
+
 const createZoomSlice: StateCreator<ZoomSlice> = (set) => ({
   zoom: 1,
   setZoom: (zoom) => set({ zoom }),
@@ -24,14 +31,17 @@ const createThemeSlice: StateCreator<ThemeSlice> = (set) => ({
     set((prev) => ({ theme: prev.theme === "light" ? "dark" : "light" })),
 });
 
-export const useSettingStore = create<ZoomSlice & ThemeSlice>()((...a) => ({
-  ...createThemeSlice(...a),
-  ...createZoomSlice(...a),
-}));
+const signLangSlice: StateCreator<SignSlice> = (set) => ({
+  isPlaying: false,
+  setIsPlaying: (isPlaying) => set({ isPlaying }),
+  speed: 1,
+  setSpeed: (speed) => set({ speed }),
+});
 
-export const useZoomSelctor = (keys: (keyof (ZoomSlice & ThemeSlice))[]) => {
-  const seletorFunction = useCallback((state: ZoomSlice & ThemeSlice) => {
-    return keys.map((key) => state[key]);
-  }, []);
-  return useSettingStore(seletorFunction);
-};
+export const useSettingStore = create<ZoomSlice & ThemeSlice & SignSlice>()(
+  (...a) => ({
+    ...createThemeSlice(...a),
+    ...createZoomSlice(...a),
+    ...signLangSlice(...a),
+  })
+);
