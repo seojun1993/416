@@ -39,11 +39,7 @@ const SearchResult = () => {
       </FoundStudentCountBadge>
       {students ? (
         <LazyMotion features={domAnimation}>
-          <EmblaCarousel
-            carouselType={[emblaRef, emblaApi]}
-            slides={students}
-            options={OPTIONS}
-          >
+          <EmblaCarousel carouselType={[emblaRef, emblaApi]} slides={students}>
             {(item, index) => {
               return (
                 <OnBoardItem

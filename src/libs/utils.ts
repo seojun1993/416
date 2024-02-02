@@ -101,7 +101,7 @@ function xml2jsonImpl(xml: HTMLElement, options: typeof defaultOptions) {
     child,
     name;
 
-  let node: ChildNode;
+  let node: HTMLElement;
 
   result[options.attrkey] = attrs;
 
@@ -117,7 +117,7 @@ function xml2jsonImpl(xml: HTMLElement, options: typeof defaultOptions) {
     result[options.charkey] = normalize(xml.textContent, options);
   }
   xml.childNodes.forEach((childNode) => {
-    node = childNode;
+    node = childNode as HTMLElement;
     if (node.nodeType === 1) {
       if (node.attributes.length === 0 && node.childElementCount === 0) {
         child = normalize(node.textContent, options);
@@ -157,14 +157,14 @@ function xml2json(xml?: string, options?: typeof defaultOptions) {
 
   const parsedXMLData = parseXML(xml).documentElement;
 
-  const root = {};
+  const root = {} as any;
   if (
     typeof parsedXMLData.attributes === "undefined" ||
     parsedXMLData.attributes === null
   ) {
     root[parsedXMLData.nodeName] = xml2jsonImpl(parsedXMLData, options);
   } else if (
-    xml.attributes.length === 0 &&
+    parsedXMLData.attributes.length === 0 &&
     parsedXMLData.childElementCount === 0
   ) {
     root[parsedXMLData.nodeName] = normalize(

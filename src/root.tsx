@@ -9,7 +9,6 @@ import Stars from "./pages/stars";
 
 const OnBoard = Loadable(lazy(() => import("@/pages/onboard")));
 const Board = Loadable(lazy(() => import("@/pages/board")));
-const Cloud = Loadable(lazy(() => import("@/pages/cloud")));
 const Menu = Loadable(lazy(() => import("@/pages/menu")));
 const Search = Loadable(lazy(() => import("@/pages/search")));
 const SearchResult = Loadable(lazy(() => import("@/pages/search-result")));
@@ -26,7 +25,6 @@ function Root() {
         <Routes location={location} key={location.pathname ?? "root"}>
           <Route path="" element={<OnBoard />} />
           <Route path="board" element={<Board />} />
-          <Route path="cloud" element={<Cloud />} />
           <Route path="menu" element={<Menu />} />
           <Route path="memory-class" element={<MemoryClass />} />
           <Route path="memory-list" element={<MemoryList />} />
