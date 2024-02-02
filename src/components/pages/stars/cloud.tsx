@@ -4,6 +4,8 @@ import { css } from "@emotion/react";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef } from "react";
 import { StarRenderer } from "./StarRenderer";
+import { H3 } from "@/components/ui/text";
+
 const MAX_STAR_COUNT = 15;
 const StarCloud = () => {
   const { data: keywords } = useQuery(getAllKeywordWithStudents());

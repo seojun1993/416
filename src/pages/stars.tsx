@@ -11,7 +11,7 @@ import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useQuery } from "@tanstack/react-query";
 import useEmblaCarousel from "embla-carousel-react";
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 
 const Stars = () => {
   const { data: students } = useQuery(
@@ -25,8 +25,7 @@ const Stars = () => {
   ]);
 
   const SlideCardAspect = useMemo(
-    () => 3,
-    // () => Math.min(5, students?.length ?? 0),
+    () => Math.min(5, students?.length ?? 0),
     [students]
   );
 
@@ -57,13 +56,15 @@ const Stars = () => {
           overflow-x: scroll;
         `}
       >
-        <StarCloud />
+        <Suspense fallback={<></>}>
+          <StarCloud />
+        </Suspense>
       </StarsSpace>
       {students ? (
         <EmblaCarousel
           aspect={1 / SlideCardAspect}
           cssSlide={css`
-            width: calc((460px + 1.6rem) * 3);
+            width: calc((460px + 1.6rem) * ${SlideCardAspect});
             display: flex;
             align-items: flex-end;
             max-height: 11.4rem;
@@ -84,9 +85,15 @@ const Stars = () => {
                 badge={item.title_keyword}
                 classDescription={item.class_number}
                 onFirstClick={() => {
-                  emblaApi?.scrollTo(index - Math.floor(SlideCardAspect / 2));
+                  console.log();
+                  emblaApi?.scrollTo(
+                    index -
+                      (SlideCardAspect % 2 === 0
+                        ? Math.floor(SlideCardAspect / 4)
+                        : Math.floor(SlideCardAspect / 2))
+                  );
                 }}
-                href={`board?id=${item["416_id"]}`}
+                href={`/board?id=${item["416_id"]}`}
                 image={getImagePath(item.caricature)}
                 birth={item.birthday}
                 title={item.name}

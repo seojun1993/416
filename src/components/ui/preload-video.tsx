@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { HTMLMotionProps, useAnimation } from "framer-motion";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { m, LazyMotion, domAnimation } from "framer-motion";
 import { fadeInOutVariants } from "@/variants";
 import { useSettingStore } from "@/contexts/setting.store";
@@ -10,20 +10,17 @@ interface PreloadVideoProps extends HTMLMotionProps<"video"> {}
 
 const VideoSpeeds = [
   {
-    text: "x0.75",
-    value: 0.9,
-  },
-  {
-    text: "x1",
+    text: "느리게",
     value: 1,
   },
+
   {
-    text: "x1.2",
-    value: 1.1,
+    text: "보통",
+    value: 1.5,
   },
   {
-    text: "x1.5",
-    value: 1.4,
+    text: "빠르게",
+    value: 2,
   },
 ];
 
@@ -39,7 +36,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
   const controls = useAnimation();
   const { src } = props;
   const videoRef = useRef<HTMLVideoElement>(null);
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (src && videoRef.current) {
       videoRef.current.src = src;
       videoRef.current.onloadeddata = () => {
@@ -52,11 +49,11 @@ const PreloadVideo = (props: PreloadVideoProps) => {
       };
     }
   }, []);
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isPlaying && videoRef.current) {
       videoRef.current.playbackRate = speed;
     }
-  }, [speed]);
+  }, [speed, videoRef.current, isPlaying]);
   return (
     <LazyMotion features={domAnimation}>
       <div
@@ -116,17 +113,44 @@ const PreloadVideo = (props: PreloadVideoProps) => {
               display: flex;
               column-gap: 3rem;
               position: relative;
-              & button + button {
+              & button:first-of-type {
                 position: relative;
                 &::before {
                   content: "";
                   position: absolute;
                   top: 50%;
                   transform: translateY(-50%);
-                  left: -375%;
-                  width: 3rem;
+                  right: -1.5rem;
+                  width: 2rem;
                   background-color: gray;
                   height: 4px;
+                }
+              }
+              & button + button {
+                position: relative;
+                &:not(:last-child) {
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: calc(100% + 3rem);
+                    background-color: gray;
+                    height: 4px;
+                  }
+                }
+                &:last-of-type {
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: -1.5rem;
+                    width: 2rem;
+                    background-color: gray;
+                    height: 4px;
+                  }
                 }
               }
             `}
@@ -157,6 +181,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                     position: relative;
                     &::after {
                       content: "${item.text}";
+                      white-space: nowrap;
                       pointer-events: none;
                       position: absolute;
                       left: 50%;
@@ -167,6 +192,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                       line-height: 1.2;
                       text-align: center;
                       font-weight: 700;
+                      margin-top: 0.2rem;
                     }
                   `}
                 />

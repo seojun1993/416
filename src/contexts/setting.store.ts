@@ -34,7 +34,7 @@ const createThemeSlice: StateCreator<ThemeSlice> = (set) => ({
 const signLangSlice: StateCreator<SignSlice> = (set) => ({
   isPlaying: false,
   setIsPlaying: (isPlaying) => set({ isPlaying }),
-  speed: 1,
+  speed: 1.5,
   setSpeed: (speed) => set({ speed }),
 });
 
