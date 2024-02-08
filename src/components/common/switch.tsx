@@ -11,15 +11,17 @@ import { LazyMotion, domMax, m } from "framer-motion";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { P3 } from "../ui/text";
 
-interface SwitchProps extends HTMLAttributes<HTMLLabelElement> {}
+interface SwitchProps extends HTMLAttributes<HTMLLabelElement> {
+  isOpen: boolean;
+  setIsOpen: (state: boolean) => void;
+}
 
-const Switch = ({ ...rest }: SwitchProps) => {
+const Switch = ({ isOpen, setIsOpen, ...rest }: SwitchProps) => {
   const ref = useRef<HTMLLabelElement>(null);
-  const [isOn, setIsOn] = useState(false);
   const [mode] = useThemeMode();
   const theme = useTheme();
 
-  const toggleSwitch = () => setIsOn((prev) => !prev);
+  const toggleSwitch = () => setIsOpen(!isOpen);
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
       ref.current?.focus();
@@ -50,7 +52,7 @@ const Switch = ({ ...rest }: SwitchProps) => {
         forced-color-adjust: none;
         width: fit-content;
         height: 1.54em;
-        background-color: ${isOn
+        background-color: ${isOpen
           ? theme.color.switch.enable
           : theme.color.switch["disable/30"]};
         display: flex;
@@ -66,7 +68,7 @@ const Switch = ({ ...rest }: SwitchProps) => {
 
         &:active {
           .handle {
-            ${isOn ? "left : -0.2em;" : "left:0.2em;"}
+            ${isOpen ? "left : -0.2em;" : "left:0.2em;"}
           }
         }
 
@@ -82,7 +84,7 @@ const Switch = ({ ...rest }: SwitchProps) => {
           /* transition: left 0.1s ease-in-out, right 0.1s ease-in-out; */
         }
       `}
-      data-ison={isOn}
+      data-ison={isOpen}
       onClick={toggleSwitch}
     >
       <LazyMotion features={domMax}>
@@ -97,11 +99,11 @@ const Switch = ({ ...rest }: SwitchProps) => {
             font-size: 0.865em;
             ${mode === "dark" && "filter: invert(1);"}
             white-space: nowrap;
-            ${isOn ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
+            ${isOpen ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
             font-weight: bold;
           `}
         >
-          {isOn ? "켜짐" : "꺼짐"}
+          {isOpen ? "켜짐" : "꺼짐"}
         </P3>
       </LazyMotion>
     </label>

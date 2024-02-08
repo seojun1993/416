@@ -8,30 +8,30 @@ import { getStudentsFromClass } from "@/queries/student";
 import { Student } from "@/types/student";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useQueries, useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import {
+  forwardRef,
+  memo,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
-
-import Cover from "@/assets/images/cover.png";
-import ImageX from "@/components/ui/image";
 import QRCode from "react-qr-code";
-import Autoplay from "embla-carousel-autoplay";
 import { getAlbums } from "@/queries/album";
 
+import { VirtualItem, useVirtualizer } from "@tanstack/react-virtual";
 import {
-  VirtualizerOptions,
-  elementScroll,
-  useVirtualizer,
-} from "@tanstack/react-virtual";
+  ReactZoomPanPinchContentRef,
+  TransformComponent,
+  TransformWrapper,
+} from "react-zoom-pan-pinch";
 
 const memoryItems = [
   { title: "1반" as const, class: 1 },
@@ -53,22 +53,27 @@ const MemoryList = () => {
     () => ({ loop: true, startIndex: Number(0) }),
     []
   );
-  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
-    Autoplay({
-      stopOnFocusIn: false,
-      stopOnInteraction: false,
-      stopOnLastSnap: false,
-    }),
-  ]);
 
-  const handleReInit = useCallback((ev: EmblaCarouselType) => {
+  const visualizerRef = useRef<{
+    moveScrollToIndex: (index: number, classNumber?: number) => void;
+  }>(null);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
+  const handleReInit = (ev: EmblaCarouselType) => {
     ev.scrollTo(0);
-  }, []);
+  };
 
   useEffect(() => {
-    emblaApi?.on("reInit", handleReInit);
+    if (emblaApi) {
+      emblaApi.on("reInit", handleReInit);
+      return () => {
+        emblaApi.off("reInit", handleReInit);
+      };
+    }
+  }, [emblaApi, selected.class]);
+  useEffect(() => {
     return () => {
-      emblaApi?.off("reInit", handleReInit);
+      emblaApi?.destroy();
     };
   }, []);
   return (
@@ -95,6 +100,7 @@ const MemoryList = () => {
                 `}
                 onClick={() => {
                   setSelected(item);
+                  visualizerRef.current?.moveScrollToIndex(0, item.class);
                   emblaApi?.reInit(OPTIONS);
                 }}
                 selected={item.class === selected.class}
@@ -159,7 +165,7 @@ const MemoryList = () => {
             flex: 1;
           `}
         >
-          <AlbumVisualizer />
+          <AlbumVisualizer ref={visualizerRef} />
           <MemoryQRCode>
             <QRCode value="https://goe416.go.kr/?p=26&page=1&searchTxt=" />
 
@@ -180,50 +186,21 @@ const MemoryList = () => {
     </MemoryShell>
   );
 };
-function easeInOutQuint(t: number) {
-  return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
-}
-function AlbumVisualizer() {
-  const centerIndex = useRef(0);
+
+const AlbumVisualizer = forwardRef<{
+  moveScrollToIndex: (index: number, classNumber?: number) => void;
+}>(({}, ref) => {
+  const queryClient = useQueryClient();
   const parentRef = useRef<HTMLDivElement>(null);
-  const scrollingRef = useRef<number>(0);
   const { data: albums } = useQuery(getAlbums());
   const [parentWidth, setParentWidth] = useState(0);
-
-  const scrollToFn: VirtualizerOptions<any, any>["scrollToFn"] = useCallback(
-    (offset, canSmooth, instance) => {
-      if (!parentRef.current) return;
-      const duration = 1000;
-      const start = parentRef.current.scrollTop;
-      const startTime = (scrollingRef.current = Date.now());
-
-      const run = () => {
-        if (scrollingRef.current !== startTime) return;
-        const now = Date.now();
-        const elapsed = now - startTime;
-        const progress = easeInOutQuint(Math.min(elapsed / duration, 1));
-        const interpolated = start + (offset - start) * progress;
-
-        if (elapsed < duration) {
-          elementScroll(interpolated, canSmooth, instance);
-          requestAnimationFrame(run);
-        } else {
-          elementScroll(interpolated, canSmooth, instance);
-        }
-      };
-
-      requestAnimationFrame(run);
-    },
-    []
-  );
 
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
     count: albums?.length ?? 0,
     getScrollElement: () => parentRef.current,
     estimateSize: () => parentWidth,
-    overscan: 10,
-    scrollToFn,
+    overscan: 5,
   });
 
   const handleResize = useCallback(() => {
@@ -231,12 +208,37 @@ function AlbumVisualizer() {
     setParentWidth(parentRef.current.clientWidth);
   }, []);
 
+  const moveScrollToIndex = (index: number, classNumber?: number) => {
+    if (columnVirtualizer) {
+      const foundAlbumByClass =
+        typeof classNumber === "number"
+          ? albums?.findIndex(
+              (album) => album.class === classNumber && album.order === 1
+            )
+          : index;
+      columnVirtualizer.scrollToIndex(
+        foundAlbumByClass ?? index,
+
+        foundAlbumByClass
+          ? {}
+          : {
+              behavior: "smooth",
+            }
+      );
+      dispatchEvent(new CustomEvent("onPageChange"));
+    }
+  };
+  useImperativeHandle(ref, () => ({
+    moveScrollToIndex,
+  }));
+
   useLayoutEffect(() => {
     handleResize();
     if (parentRef.current) {
       const ref = parentRef.current;
       ref.addEventListener("resize", handleResize);
       return () => {
+        queryClient.removeQueries({ queryKey: getAlbums().queryKey });
         ref.removeEventListener("resize", handleResize);
       };
     }
@@ -255,15 +257,13 @@ function AlbumVisualizer() {
         ref={parentRef}
         css={css`
           height: 100%;
-          overflow: auto;
           border-radius: 1rem;
           -ms-overflow-style: none; /* IE and Edge */
           scrollbar-width: none; /* Firefox */
           &::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera*/
           }
-          scroll-snap-type: x mandatory;
-          overscroll-behavior-x: contain;
+          overflow: hidden;
         `}
       >
         <div
@@ -274,44 +274,25 @@ function AlbumVisualizer() {
             height: 100%;
           `}
         >
-          {columnVirtualizer.getVirtualItems().map(
-            (album) =>
-              albums?.[album.index] && (
-                <div
-                  style={{
-                    transform: `translateX(${album.start}px)`,
-                  }}
-                  css={css`
-                    width: ${parentWidth}px;
-                    scroll-snap-align: start;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                  `}
-                  key={album.index}
-                >
-                  <img
-                    css={css`
-                      width: 100%;
-                      height: 100%;
-                    `}
+          {columnVirtualizer
+            .getVirtualItems()
+            .map(
+              (album) =>
+                albums?.[album.index] && (
+                  <MemoryAlbum
+                    key={album.key}
+                    item={album}
+                    parentWidth={parentWidth}
                     src={getImagePath(albums[album.index].url)}
                   />
-                </div>
-              )
-          )}
+                )
+            )}
         </div>
       </div>
       <LeftButton
         onClick={() => {
           if (columnVirtualizer.range?.endIndex) {
-            columnVirtualizer.scrollToIndex(
-              columnVirtualizer.range.endIndex - 1,
-              {
-                behavior: "smooth",
-              }
-            );
+            moveScrollToIndex(columnVirtualizer.range.endIndex - 1);
           }
         }}
       >
@@ -340,12 +321,7 @@ function AlbumVisualizer() {
             albums &&
             columnVirtualizer.range?.endIndex < albums?.length
           ) {
-            columnVirtualizer.scrollToIndex(
-              columnVirtualizer.range.endIndex + 1,
-              {
-                behavior: "smooth",
-              }
-            );
+            moveScrollToIndex(columnVirtualizer.range.endIndex + 1);
           }
         }}
       >
@@ -369,9 +345,62 @@ function AlbumVisualizer() {
       </RightButton>
     </div>
   );
-}
+});
 
 export default MemoryList;
+
+const MemoryAlbum = memo(
+  ({
+    item,
+    src,
+    parentWidth,
+  }: {
+    item: VirtualItem;
+    src: string;
+    parentWidth: number;
+  }) => {
+    const panRef = useRef<ReactZoomPanPinchContentRef>(null);
+    const handlePageChange = () => {
+      panRef.current?.resetTransform();
+    };
+
+    useEffect(() => {
+      window.addEventListener("onPageChange", handlePageChange);
+
+      return () => {
+        window.removeEventListener("onPageChange", handlePageChange);
+      };
+    }, []);
+    return (
+      <div
+        key={item.key}
+        style={{
+          transform: `translateX(${item.start}px)`,
+        }}
+        css={css`
+          width: ${parentWidth}px;
+          scroll-snap-align: start;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+        `}
+      >
+        <TransformWrapper ref={panRef}>
+          <TransformComponent>
+            <img
+              css={css`
+                width: 100%;
+                height: 100%;
+              `}
+              src={src}
+            />
+          </TransformComponent>
+        </TransformWrapper>
+      </div>
+    );
+  }
+);
 
 const LeftButton = styled.button`
   position: absolute;

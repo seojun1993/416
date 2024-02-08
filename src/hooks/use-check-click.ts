@@ -19,10 +19,12 @@ export const useCheckClick = (options: usecheckClickOption) => {
       if (ref.current) {
         onFirstClick?.(ref.current);
       }
+      ref.current?.focus();
 
       timeoutId.current = setTimeout(() => {
         clicked.current = false;
-        ref.current?.classList.remove("__focussed");
+        ref.current?.blur();
+
         options.onBlur && options.onBlur(ref.current);
       }, time);
     } else {
@@ -33,14 +35,26 @@ export const useCheckClick = (options: usecheckClickOption) => {
     const isTargetElement = document.activeElement === ref.current;
     if (ref.current) {
       if (isTargetElement) {
-        ref.current.classList.add("__focussed");
+        ref.current.focus();
       } else {
-        ref.current.classList.remove("__focussed");
+        ref.current?.blur();
         options.onBlur && options.onBlur(ref.current);
         clicked.current = false;
       }
     }
   };
+
+  const handleKeydown = (event: KeyboardEvent) => {
+    switch (event.code) {
+      case "Enter":
+      case "Space":
+        console.log(event.target);
+        clicked.current = true;
+        ref.current?.click?.();
+        break;
+    }
+  };
+
   useEffect(() => {
     if (ref.current) {
       const domRef = ref.current;
@@ -49,8 +63,10 @@ export const useCheckClick = (options: usecheckClickOption) => {
       }
       window.addEventListener("click", handleWindowClick, false);
       domRef.addEventListener("click", handleClick, false);
+      domRef.addEventListener("keydown", handleKeydown);
       return () => {
         domRef.removeEventListener("click", handleClick, false);
+        domRef.removeEventListener("keydown", handleKeydown);
         domRef.classList.remove("__focussed-target");
         window.removeEventListener("click", handleWindowClick, false);
       };

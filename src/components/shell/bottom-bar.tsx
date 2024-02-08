@@ -15,10 +15,15 @@ const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
   const theme = useTheme();
   const bottomRef = useRef<HTMLDivElement>(null);
-  const [zoom, setZoom] = useSettingStore((state) => [
-    state.zoom,
-    state.setZoom,
-  ]);
+  const [zoom, setZoom, signOn, setSignOn, soundOn, setSoundOn] =
+    useSettingStore((state) => [
+      state.zoom,
+      state.setZoom,
+      state.signActivate,
+      state.setSignActivate,
+      state.soundActivate,
+      state.setSoundActivate,
+    ]);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -485,7 +490,11 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Switch tabIndex={1} />
+          <Switch
+            isOpen={soundOn}
+            setIsOpen={(state) => setSoundOn(state)}
+            tabIndex={1}
+          />
           <P3
             css={css`
               font-size: 0.865em;
@@ -548,7 +557,11 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <Switch tabIndex={4} />
+          <Switch
+            isOpen={signOn}
+            setIsOpen={(state) => setSignOn(state)}
+            tabIndex={4}
+          />
           <P3
             css={css`
               font-size: 0.865em;

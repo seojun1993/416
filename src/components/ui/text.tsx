@@ -40,7 +40,7 @@ export const H4 = styled.h4<Variant>`
 `;
 export const H5 = styled.h5<Variant>`
   font-family: "NanumSquareRoundOTF";
-  font-size: 1.64rem;
+  font-size: calc(var(--font-size) * 1.2);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;

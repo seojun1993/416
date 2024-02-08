@@ -239,7 +239,7 @@ const Viewport = styled.div`
   overflow: hidden;
   position: relative;
   margin: 0 auto;
-
+  padding: 0.26rem 0;
   height: 100%;
 `;
 

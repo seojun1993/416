@@ -3,13 +3,13 @@
 @import "../fonts/SangSangFlowerRoad/SangSangFlowerRoad.css";
 @import "../fonts/NanumSquareRound/NanumSquareRoundOTF.css";
 @import "../fonts/dokdo/dokdo.css";
-.__focussed {
-  border-color: #fff500 !important;
-}
 
 .__focussed-target {
-  border: 0.26em solid transparent;
-  transition: border 0.1s ease-in-out;
+  outline: 0.26em solid transparent !important;
+  transition: outline 0.1s ease-in-out;
+}
+.__focussed {
+  outline-color: #fff500 !important;
 }
 .react-transform-wrapper {
   width: 100% !important;
@@ -23,4 +23,9 @@
 #root {
   display: flex;
   flex-direction: column;
+}
+
+*:focus-visible,
+*:focus {
+  outline: 0.26em solid #fff500 !important;
 }

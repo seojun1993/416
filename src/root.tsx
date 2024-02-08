@@ -7,6 +7,7 @@ import { lazy } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
 
+const ModeSelect = Loadable(lazy(() => import("@/pages/mode-select")));
 const OnBoard = Loadable(lazy(() => import("@/pages/onboard")));
 const Board = Loadable(lazy(() => import("@/pages/board")));
 const Menu = Loadable(lazy(() => import("@/pages/menu")));
@@ -23,7 +24,8 @@ function Root() {
     <AppShell>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname ?? "root"}>
-          <Route path="" element={<OnBoard />} />
+          <Route path="" element={<ModeSelect />} />
+          <Route path="birthday" element={<OnBoard />} />
           <Route path="board" element={<Board />} />
           <Route path="menu" element={<Menu />} />
           <Route path="memory-class" element={<MemoryClass />} />
