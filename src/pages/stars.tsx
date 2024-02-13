@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { Card } from "@/components/common/card";
 import { MainShell } from "@/components/common/main-shell";
 import StarCloud from "@/components/pages/stars/cloud";
 import EmblaCarousel from "@/components/ui/carousel";
 import ImageX from "@/components/ui/image";
-import { H1, H4, H5, P2, P3 } from "@/components/ui/text";
+import { H1, H5, P2, P3 } from "@/components/ui/text";
 import { useCheckClick } from "@/hooks/use-check-click";
 import { Prefetch } from "@/libs/plugins/prefetch";
 import { getImagePath } from "@/libs/utils";
@@ -17,6 +16,7 @@ import { Suspense, memo, useCallback, useMemo, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { m } from "framer-motion";
 import { getAllKeywordWithStudents } from "@/queries/keyword";
+import { fadeInOutVariants } from "@/variants";
 
 const Stars = () => {
   const { data: students } = useQuery(
@@ -91,6 +91,7 @@ const Stars = () => {
           {(item, index) => {
             return (
               <SmallCard
+                key={item.id + index}
                 linkStyle={css`
                   width: ${(1 / SlideCardAspect) *
                   (emblaApi?.containerNode().children[0].clientWidth ?? 0)};
@@ -188,6 +189,13 @@ export const SmallCard = memo(
           aspect-ratio: 25/32;
           ${linkStyle && linkStyle}
         `}
+        initial="initial"
+        animate="animate"
+        variants={fadeInOutVariants}
+        transition={{
+          duration: 0.7,
+          delay: 0.5,
+        }}
       >
         <CardAvatar src={image}></CardAvatar>
         <CardContent>
