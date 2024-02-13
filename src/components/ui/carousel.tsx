@@ -7,11 +7,7 @@ import {
   useMemo,
   useRef,
 } from "react";
-import {
-  EmblaCarouselType,
-  EmblaOptionsType,
-  UseEmblaCarouselType,
-} from "embla-carousel-react";
+import { EmblaCarouselType, UseEmblaCarouselType } from "embla-carousel-react";
 import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
@@ -30,6 +26,7 @@ interface EmblaCarouselProps<T> {
   cssSlide?: SerializedStyles;
   carouselType: UseEmblaCarouselType;
   aspect?: number;
+  showArrow?: boolean;
   children?: ReactNode | ((item: T, index: number) => ReactNode);
 }
 const EmblaCarousel = <T,>({
@@ -38,6 +35,7 @@ const EmblaCarousel = <T,>({
   children,
   cssSlide,
   aspect,
+  showArrow = true,
   options = {},
 }: EmblaCarouselProps<T>) => {
   const { animate } = { ...defaultCarouselOptions, ...options };
@@ -87,62 +85,66 @@ const EmblaCarousel = <T,>({
               : children}
           </Container>
         </LazyMotion>
-        <LeftButton
-          css={css`
-            &:active {
-              background-color: ${theme.color.accent.foreground};
-            }
-          `}
-          onClick={() => {
-            emblaApi?.scrollPrev();
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54.482"
-            height="96.969"
-            viewBox="0 0 54.482 96.969"
-          >
-            <path
-              id="prev_icon"
-              d="M-20078.957-17310.031l-40,40,40,40"
-              transform="translate(20124.955 17318.516)"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="12"
-            />
-          </svg>
-        </LeftButton>
-        <RightButton
-          onClick={() => {
-            emblaApi?.scrollNext();
-          }}
-          css={css`
-            &:active {
-              background-color: ${theme.color.accent.foreground};
-            }
-          `}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54.486"
-            height="96.969"
-            viewBox="0 0 54.486 96.969"
-          >
-            <path
-              id="naxt_icon"
-              d="M-20118.957-17310.031l40,40-40,40"
-              transform="translate(20127.441 17318.516)"
-              fill="none"
-              stroke="currentcolor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="12"
-            />
-          </svg>
-        </RightButton>
+        {showArrow && (
+          <>
+            <LeftButton
+              css={css`
+                &:active {
+                  background-color: ${theme.color.accent.foreground};
+                }
+              `}
+              onClick={() => {
+                emblaApi?.scrollPrev();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="54.482"
+                height="96.969"
+                viewBox="0 0 54.482 96.969"
+              >
+                <path
+                  id="prev_icon"
+                  d="M-20078.957-17310.031l-40,40,40,40"
+                  transform="translate(20124.955 17318.516)"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="12"
+                />
+              </svg>
+            </LeftButton>
+            <RightButton
+              onClick={() => {
+                emblaApi?.scrollNext();
+              }}
+              css={css`
+                &:active {
+                  background-color: ${theme.color.accent.foreground};
+                }
+              `}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="54.486"
+                height="96.969"
+                viewBox="0 0 54.486 96.969"
+              >
+                <path
+                  id="naxt_icon"
+                  d="M-20118.957-17310.031l40,40-40,40"
+                  transform="translate(20127.441 17318.516)"
+                  fill="none"
+                  stroke="currentcolor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="12"
+                />
+              </svg>
+            </RightButton>
+          </>
+        )}
       </Viewport>
     </div>
   );

@@ -11,7 +11,12 @@ import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
-import { LazyMotion, domAnimation } from "framer-motion";
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  motion,
+} from "framer-motion";
 import { Student } from "@/types/student";
 import { H4 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
@@ -20,12 +25,15 @@ import PreloadVideo from "@/components/ui/preload-video";
 import { XMLParser } from "fast-xml-parser";
 
 import vi from "@/assets/videos/sample.webm";
+import { useSettingStore } from "@/contexts/setting.store";
+import { fadeInOutVariants } from "@/variants";
 
-const OnBoard = () => {
+const Birthday = () => {
   const { data: students } = useQuery(
     getFilteredStudentsByMonthQuery(new Date().getMonth())
   );
 
+  const signActive = useSettingStore((state) => state.signActivate);
   const [id, setId] = useState(() => {
     const id = sessionStorage.getItem("redirect_id");
     if (id) {
@@ -1433,6 +1441,7 @@ const OnBoard = () => {
         </PARK_LIST>
       </KIOSK>
       `);
+      console.log(vv);
     };
     getXML();
   }, []);
@@ -1475,13 +1484,49 @@ const OnBoard = () => {
             </EmblaCarousel>
           ) : null}
         </Saver>
-        <PreloadVideo src={vi} autoPlay muted></PreloadVideo>
+        <AnimatePresence mode="wait">
+          {signActive ? (
+            <PreloadVideo key="video" src={vi} autoPlay muted></PreloadVideo>
+          ) : (
+            <Birth key="none" />
+          )}
+        </AnimatePresence>
       </LazyMotion>
     </OnBoardShell>
   );
 };
 
-export default OnBoard;
+function Birth() {
+  return (
+    <motion.div
+      variants={fadeInOutVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      css={css`
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        width: 36rem;
+      `}
+    >
+      <div
+        css={css`
+          user-select: none;
+          pointer-events: none;
+          object-fit: cover;
+          width: 100%;
+          height: 70%;
+        `}
+      >
+        dfdfdf
+      </div>
+    </motion.div>
+  );
+}
+
+export default Birthday;
 
 function OnBoardItem({
   item,

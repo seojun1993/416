@@ -11,16 +11,24 @@ import { getImagePath } from "@/libs/utils";
 import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import useEmblaCarousel from "embla-carousel-react";
 import { Suspense, memo, useCallback, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { m } from "framer-motion";
+import { getAllKeywordWithStudents } from "@/queries/keyword";
 
 const Stars = () => {
   const { data: students } = useQuery(
     getFilteredStudentsByMonthQuery(new Date().getMonth())
   );
+  const { data: keywords } = useSuspenseQuery(getAllKeywordWithStudents());
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedKeyword = searchParams.get("label");
+  const selectedStudents = useMemo(() => {
+    return keywords.find((item) => item.name === selectedKeyword)?.students;
+  }, [selectedKeyword, keywords]);
+
   const theme = useTheme();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Prefetch({
@@ -29,8 +37,8 @@ const Stars = () => {
   ]);
 
   const SlideCardAspect = useMemo(
-    () => Math.min(5, students?.length ?? 0),
-    [students]
+    () => Math.min(5, selectedStudents?.length ?? students?.length ?? 0),
+    [students, selectedStudents]
   );
 
   return (
@@ -53,11 +61,12 @@ const Stars = () => {
       </MemoryHeader>
       <StarsSpace
         css={css`
-          padding: 1.34rem 0;
+          /* mrgi: 1.34rem 0; */
           flex-grow: 1;
           width: 100%;
+          height: 100%;
           overflow: hidden;
-          overflow-x: scroll;
+          display: flex;
         `}
       >
         <Suspense fallback={<></>}>
@@ -71,11 +80,12 @@ const Stars = () => {
             width: calc((460px + 1.6rem) * ${SlideCardAspect});
             display: flex;
             align-items: flex-end;
+            height: fit-content;
             /* max-height: 11.4rem; */
-            height: 100%;
           `}
+          showArrow={SlideCardAspect >= 5}
           carouselType={[emblaRef, emblaApi]}
-          slides={students}
+          slides={selectedStudents ?? students}
           options={{ animate: false }}
         >
           {(item, index) => {
@@ -86,17 +96,10 @@ const Stars = () => {
                   (emblaApi?.containerNode().children[0].clientWidth ?? 0)};
                   aspect-ratio: 10 / 12.3;
                 `}
-                badge={item.title_keyword}
+                badge={""}
                 classDescription={item.class_number}
                 onFirstClick={() => {
-                  console.log();
                   emblaApi?.scrollTo(index);
-                  // emblaApi?.scrollTo(
-                  //   index -
-                  //     (SlideCardAspect % 2 === 0
-                  //       ? Math.floor(SlideCardAspect / 4)
-                  //       : Math.floor(SlideCardAspect / 2))
-                  // );
                 }}
                 href={`/board?id=${item["416_id"]}`}
                 image={getImagePath(item.caricature)}

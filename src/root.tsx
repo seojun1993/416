@@ -8,7 +8,7 @@ import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
 
 const ModeSelect = Loadable(lazy(() => import("@/pages/mode-select")));
-const OnBoard = Loadable(lazy(() => import("@/pages/onboard")));
+const Birthday = Loadable(lazy(() => import("@/pages/birthday")));
 const Board = Loadable(lazy(() => import("@/pages/board")));
 const Menu = Loadable(lazy(() => import("@/pages/menu")));
 const Search = Loadable(lazy(() => import("@/pages/search")));
@@ -25,7 +25,7 @@ function Root() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname ?? "root"}>
           <Route path="" element={<ModeSelect />} />
-          <Route path="birthday" element={<OnBoard />} />
+          <Route path="birthday" element={<Birthday />} />
           <Route path="board" element={<Board />} />
           <Route path="menu" element={<Menu />} />
           <Route path="memory-class" element={<MemoryClass />} />

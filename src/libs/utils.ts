@@ -177,3 +177,20 @@ function xml2json(xml?: string, options?: typeof defaultOptions) {
 
   return root;
 }
+
+export const isVideoPlaying = (video: HTMLVideoElement) =>
+  !!(
+    video.currentTime > 0 &&
+    !video.paused &&
+    !video.ended &&
+    video.readyState > 2
+  );
+
+export const shuffle = <T>(array: T[]) => {
+  const newArr = [...array];
+  for (let i = newArr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+  }
+  return newArr;
+};
