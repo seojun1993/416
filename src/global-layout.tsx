@@ -11,7 +11,13 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
   const theme = useTheme();
   const { zoom } = useSettingStore();
   return (
-    <ThemeProvider theme={themeMode === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider
+      theme={
+        themeMode === "light"
+          ? { ...lightTheme, themeMode }
+          : { ...darkTheme, themeMode }
+      }
+    >
       <Global styles={style.reset(zoom)} />
       {children}
     </ThemeProvider>

@@ -5,6 +5,6 @@ export interface KeywordWithStudents {
   name: string;
   students: Pick<
     Student,
-    "id" | "name" | "birthday" | "caricature" | "class_number" | "416_id"
+    "id" | "name" | "birthday" | "caricature" | "class_number_name" | "416_id"
   >[];
 }

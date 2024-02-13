@@ -98,7 +98,7 @@ const Stars = () => {
                   aspect-ratio: 10 / 12.3;
                 `}
                 badge={""}
-                classDescription={item.class_number}
+                classDescription={item.class_number_name}
                 onFirstClick={() => {
                   emblaApi?.scrollTo(index);
                 }}

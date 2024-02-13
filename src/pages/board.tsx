@@ -26,6 +26,7 @@ import { getStudentsQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
 const Board = () => {
   const { data: students } = useQuery(getStudentsQuery());
+  console.log(students);
   const bookRef = useRef<HTMLDivElement>(null);
   const animatedBookRef = useRef<any>(null);
   const [bookSize, setBookSize] = useState([0, 0]);
@@ -305,7 +306,7 @@ const Board = () => {
                     />
                   </div>
                 </Page>
-                {student?.images.map((image) => (
+                {student?.images?.map((image) => (
                   <Page key={image.id}>
                     <div
                       css={css`

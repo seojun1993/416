@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import type { StateCreator } from "zustand";
-export type Theme = "light" | "dark";
+export type ThemeMode = "light" | "dark";
 export type UserMode = "normal" | "sound" | "sign";
 
 export interface ZoomSlice {
@@ -9,7 +9,7 @@ export interface ZoomSlice {
   setZoom: (zoom: number) => void;
 }
 interface ThemeSlice {
-  theme: Theme;
+  theme: ThemeMode;
   toggleTheme: () => void;
 }
 interface UserModeSlice {

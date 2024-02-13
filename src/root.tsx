@@ -15,6 +15,7 @@ const Search = Loadable(lazy(() => import("@/pages/search")));
 const SearchResult = Loadable(lazy(() => import("@/pages/search-result")));
 const MemoryClass = Loadable(lazy(() => import("@/pages/memory-class")));
 const MemoryList = Loadable(lazy(() => import("@/pages/memory-list")));
+const MemoryRoad = Loadable(lazy(() => import("@/pages/memory-road")));
 
 function Root() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function Root() {
           <Route path="memory-list" element={<MemoryList />} />
           <Route path="search" element={<Search />} />
           <Route path="stars" element={<Stars />} />
+          <Route path="memory-road" element={<MemoryRoad />} />
           <Route path="search-result" element={<SearchResult />} />
         </Routes>
       </AnimatePresence>

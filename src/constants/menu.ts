@@ -52,7 +52,7 @@ export const menuContent: MenuData = {
     description: "기억과 약속의 길을 걸어보세요.",
     src: 메뉴이미지들.기억과약속의길,
     imagePainter: "대명중학교 박은후",
-    href: "/",
+    href: "/memory-road",
   },
   세월호타임라인: {
     title: "세월호 타임라인",
