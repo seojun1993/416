@@ -60,6 +60,6 @@ export const menuContent: MenuData = {
       "추모, 세월호 참사 관련 자료 및\n타임라인 등을 제공하는 화면 입니다.",
     src: 메뉴이미지들.세월호타임라인,
     imagePainter: "다솔초등학교 조예란",
-    href: "/",
+    href: "/timeline",
   },
 };

@@ -5,6 +5,7 @@ interface ImageProps extends HTMLAttributes<HTMLDivElement> {
   src: string;
 }
 const ImageX = ({ src, ...rest }: PropsWithChildren<ImageProps>) => {
+  console.log(rest);
   return (
     <ImageWrapper {...rest}>
       <StyledImage loading="lazy" src={src} />
