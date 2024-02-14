@@ -277,7 +277,7 @@ function RoadRoute({ selected }: { selected: number }) {
             {
               strokeDasharray: 5,
               strokeLinecap: "round",
-              strokeDashoffset: 300,
+              strokeDashoffset: 305,
             },
             {
               duration: 0,
@@ -570,8 +570,8 @@ function RoadRoute({ selected }: { selected: number }) {
       <div
         css={css`
           position: absolute;
-          left: 20%;
-          top: 20%;
+          left: 21%;
+          top: 21%;
         `}
       >
         <div
@@ -813,7 +813,11 @@ function RoadRoute({ selected }: { selected: number }) {
             <path
               id="패스_2100"
               data-name="패스 2100"
-              d="M1530.958,1255.918h-62.617V993.905L1353.765,974.5V628.34h-6.87l-61.44-13.823"
+              d={
+                selected === 2
+                  ? "M1530.958,1255.918h-62.617V993.905L1353.765,974.5V628.34h-6.87l-61.44-13.823"
+                  : "M1530.958,1255.918h-62.617V993.905L1353.765,974.5V628.34h-6.87l-105.849-40.181"
+              }
               transform="translate(-1236.002 -533.481)"
               fill="none"
               stroke="#ff9d00"
@@ -852,6 +856,7 @@ function RoadRoute({ selected }: { selected: number }) {
             transform="translate(187.822 -46.558)"
           >
             <path
+              opacity={0}
               id="다각형_36"
               data-name="다각형 36"
               d="M32.435,0,64.871,56.061H0Z"
@@ -861,7 +866,11 @@ function RoadRoute({ selected }: { selected: number }) {
             <path
               id="패스_2112"
               data-name="패스 2112"
-              d="M-16.206,52.988l-47.532,56.618v103l-62.889,57.778"
+              d={
+                selected === 3
+                  ? "M-16.206,52.988l-47.532,56.618v103l-62.889,57.778"
+                  : "M-16.206,52.988l-47.532,56.618v103l-100.889,57.778"
+              }
               fill="none"
               stroke="#ff9d00"
               stroke-width="20"
@@ -874,8 +883,8 @@ function RoadRoute({ selected }: { selected: number }) {
         <svg
           css={css`
             position: absolute;
-            top: 30%;
-            right: 57%;
+            top: 31.5%;
+            right: 56%;
             stroke-dasharray: 300;
             stroke-dashoffset: 300;
           `}
@@ -891,6 +900,7 @@ function RoadRoute({ selected }: { selected: number }) {
             transform="translate(396.822 -290.991)"
           >
             <path
+              opacity={0}
               id="다각형_36"
               data-name="다각형 36"
               d="M32.435,0,64.871,56.061H0Z"
