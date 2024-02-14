@@ -79,7 +79,7 @@ function OnBoardItem({
   return (
     <Card
       badge={item.title_keyword}
-      classDescription={item.class_number}
+      classDescription={item.class_number_name}
       onFirstClick={onFirstClick}
       onDoubleClick={onDoubleClick}
       onBlur={onBlur}
