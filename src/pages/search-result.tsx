@@ -14,6 +14,9 @@ import { MainShell } from "@/components/common/main-shell";
 import styled from "@emotion/styled";
 import { H1, P1 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
+import { css } from "@emotion/react";
+
+const MAX_ITEM_COUNT = 3;
 
 const SearchResult = () => {
   const [searchParam] = useSearchParams();
@@ -29,6 +32,11 @@ const SearchResult = () => {
   );
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
 
+  const SlideCardAspect = useMemo(
+    () => Math.min(MAX_ITEM_COUNT, students?.length ?? 0),
+    [students]
+  );
+
   return (
     <SearchShell>
       <H1>
@@ -39,7 +47,18 @@ const SearchResult = () => {
       </FoundStudentCountBadge>
       {students ? (
         <LazyMotion features={domAnimation}>
-          <EmblaCarousel carouselType={[emblaRef, emblaApi]} slides={students}>
+          <EmblaCarousel
+            cssSlide={css`
+              width: calc((18rem + 1.6rem) * ${SlideCardAspect});
+            `}
+            showArrow={SlideCardAspect >= MAX_ITEM_COUNT}
+            aspect={1 / SlideCardAspect}
+            carouselType={[emblaRef, emblaApi]}
+            slides={students}
+            options={{
+              animate: students.length > 2 || (students.length ?? 0) % 2 !== 0,
+            }}
+          >
             {(item, index) => {
               return (
                 <OnBoardItem

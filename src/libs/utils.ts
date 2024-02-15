@@ -30,26 +30,45 @@ const orderOffest = [
   ["ㅅ", 49324],
 ];
 
-const con2syl = Object.fromEntries(orderOffest as readonly any[]);
-const pattern = (ch: string) => {
-  let r;
-  if (reJa.test(ch)) {
-    const begin =
-      con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
-    const end = begin + 587;
-    r = `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
-  } else if (reChar.test(ch)) {
-    const chCode = ch.charCodeAt(0) - offset;
-    if (chCode % 28 > 0) return ch;
-    const begin = Math.floor(chCode / 28) * 28 + offset;
-    const end = begin + 27;
-    r = `[\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
-  } else r = ch.replace(reESC, "\\$&");
-  return `(${r})`;
+const generatePatternForConsonants = (chs: string) => {
+  let regexPattern = "";
+
+  for (let i = 0; i < chs.length; i++) {
+    const ch = chs[i];
+    if (reJa.test(ch)) {
+      const begin =
+        con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
+      const end = begin + 587;
+      regexPattern += `([\\u${begin.toString(16)}-\\u${end.toString(16)}])`;
+    } else {
+      regexPattern += ch.replace(reESC, "\\$&");
+    }
+  }
+
+  return regexPattern;
 };
 
+const con2syl = Object.fromEntries(orderOffest as readonly any[]);
+// const pattern = (ch: string) => {
+//   let r;
+//   if (reJa.test(ch)) {
+//     const begin =
+//       con2syl[ch] || (ch.charCodeAt(0) - 12613) * 588 + con2syl["ㅅ"];
+//     const end = begin + 587;
+//     r = `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
+//   } else if (reChar.test(ch)) {
+//     const chCode = ch.charCodeAt(0) - offset;
+//     if (chCode % 28 > 0) return ch;
+//     const begin = Math.floor(chCode / 28) * 28 + offset;
+//     const end = begin + 27;
+//     r = `[\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
+//   } else r = ch.replace(reESC, "\\$&");
+//   return `(${r})`;
+// };
+
 export const isContain초성 = (query: string, target: string) => {
-  const reg = new RegExp(query.split("").map(pattern).join(".*?"), "i");
+  // const reg = new RegExp(query.split("").map(pattern).join(".*?"), "i");
+  const reg = new RegExp(generatePatternForConsonants(query));
   const matches = reg.exec(target);
   return Boolean(matches);
 };

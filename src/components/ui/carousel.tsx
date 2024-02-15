@@ -18,11 +18,19 @@ import {
   useTransform,
   m,
 } from "framer-motion";
+
+interface CarouselOption {
+  animate?: boolean;
+  button?: {
+    leftStyle?: SerializedStyles;
+    rightStyle?: SerializedStyles;
+  };
+}
 const defaultCarouselOptions = { animate: true };
 
 interface EmblaCarouselProps<T> {
   slides: T[];
-  options?: { animate?: boolean };
+  options?: CarouselOption;
   cssSlide?: SerializedStyles;
   carouselType: UseEmblaCarouselType;
   aspect?: number;
@@ -38,7 +46,10 @@ const EmblaCarousel = <T,>({
   showArrow = true,
   options = {},
 }: EmblaCarouselProps<T>) => {
-  const { animate } = { ...defaultCarouselOptions, ...options };
+  const { animate, button: { leftStyle = "", rightStyle = "" } = {} } = {
+    ...defaultCarouselOptions,
+    ...options,
+  };
   const [emblaRef, emblaApi] = carouselType;
   const theme = useTheme();
   const ref = useRef<HTMLDivElement>(null);
@@ -64,6 +75,7 @@ const EmblaCarousel = <T,>({
       css={css`
         width: 80dvw;
         ${cssSlide && cssSlide}
+        position: relative;
       `}
     >
       <Viewport ref={emblaRef}>
@@ -85,67 +97,69 @@ const EmblaCarousel = <T,>({
               : children}
           </Container>
         </LazyMotion>
-        {showArrow && (
-          <>
-            <LeftButton
-              css={css`
-                &:active {
-                  background-color: ${theme.color.accent.foreground};
-                }
-              `}
-              onClick={() => {
-                emblaApi?.scrollPrev();
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="54.482"
-                height="96.969"
-                viewBox="0 0 54.482 96.969"
-              >
-                <path
-                  id="prev_icon"
-                  d="M-20078.957-17310.031l-40,40,40,40"
-                  transform="translate(20124.955 17318.516)"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="12"
-                />
-              </svg>
-            </LeftButton>
-            <RightButton
-              onClick={() => {
-                emblaApi?.scrollNext();
-              }}
-              css={css`
-                &:active {
-                  background-color: ${theme.color.accent.foreground};
-                }
-              `}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="54.486"
-                height="96.969"
-                viewBox="0 0 54.486 96.969"
-              >
-                <path
-                  id="naxt_icon"
-                  d="M-20118.957-17310.031l40,40-40,40"
-                  transform="translate(20127.441 17318.516)"
-                  fill="none"
-                  stroke="currentcolor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="12"
-                />
-              </svg>
-            </RightButton>
-          </>
-        )}
       </Viewport>
+      {showArrow && (
+        <>
+          <LeftButton
+            css={css`
+              ${leftStyle}
+              &:active {
+                background-color: ${theme.color.accent.foreground};
+              }
+            `}
+            onClick={() => {
+              emblaApi?.scrollPrev();
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="54.482"
+              height="96.969"
+              viewBox="0 0 54.482 96.969"
+            >
+              <path
+                id="prev_icon"
+                d="M-20078.957-17310.031l-40,40,40,40"
+                transform="translate(20124.955 17318.516)"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="12"
+              />
+            </svg>
+          </LeftButton>
+          <RightButton
+            onClick={() => {
+              emblaApi?.scrollNext();
+            }}
+            css={css`
+              ${rightStyle}
+              &:active {
+                background-color: ${theme.color.accent.foreground};
+              }
+            `}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="54.486"
+              height="96.969"
+              viewBox="0 0 54.486 96.969"
+            >
+              <path
+                id="naxt_icon"
+                d="M-20118.957-17310.031l40,40-40,40"
+                transform="translate(20127.441 17318.516)"
+                fill="none"
+                stroke="currentcolor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="12"
+              />
+            </svg>
+          </RightButton>
+        </>
+      )}
     </div>
   );
 };
@@ -198,7 +212,7 @@ export default EmblaCarousel;
 
 const LeftButton = styled.button`
   position: absolute;
-  left: 0%;
+  left: -2rem;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 9999rem;
@@ -217,7 +231,7 @@ const LeftButton = styled.button`
 `;
 const RightButton = styled.button`
   position: absolute;
-  right: 0%;
+  right: -2rem;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 9999rem;
@@ -241,7 +255,7 @@ const Viewport = styled.div`
   overflow: hidden;
   position: relative;
   margin: 0 auto;
-  padding: 0.26rem 0;
+  padding: 0.26rem 0.2rem;
   height: 100%;
 `;
 

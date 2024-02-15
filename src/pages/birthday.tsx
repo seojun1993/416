@@ -1458,12 +1458,21 @@ const Birthday = () => {
             <EmblaCarousel
               cssSlide={css`
                 width: 60dvw;
-                flex-grow: 1;
                 display: flex;
                 align-items: center;
               `}
               carouselType={[emblaRef, emblaApi]}
               slides={students}
+              options={{
+                button: {
+                  leftStyle: css`
+                    left: -1rem;
+                  `,
+                  rightStyle: css`
+                    right: -1rem;
+                  `,
+                },
+              }}
             >
               {(item, index) => {
                 return (

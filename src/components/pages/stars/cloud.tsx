@@ -302,7 +302,7 @@ const StarCloud = () => {
           label: arr[targetIndex].name,
           weight,
           initialBrightness: Math.random() * 15,
-          duration: Math.random() * 4 + 5,
+          duration: Math.random() * 4 + 18,
         };
         count++;
         return starPosition;
@@ -630,7 +630,7 @@ function StarWithLabel({ star, id }: { id: string; star: Star }) {
 
 const starVariants: Variants = {
   initial: {
-    scale: 0.2,
+    scale: 0.5,
     opacity: 0.85,
   },
   animate: ({ duration }: any) => ({
@@ -645,7 +645,7 @@ const starVariants: Variants = {
     },
   }),
   exit: {
-    scale: 0.2,
+    scale: 0.5,
     opacity: 0.85,
   },
 };
@@ -657,6 +657,7 @@ const selectedStarVariants: Variants = {
   animate: ({ duration }: any) => ({
     scale: 2,
     opacity: 1,
+    y: -10,
   }),
   exit: {
     scale: 0.2,
