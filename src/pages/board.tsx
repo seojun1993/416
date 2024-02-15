@@ -26,7 +26,6 @@ import { getStudentsQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
 const Board = () => {
   const { data: students } = useQuery(getStudentsQuery());
-  console.log(students);
   const bookRef = useRef<HTMLDivElement>(null);
   const animatedBookRef = useRef<any>(null);
   const [bookSize, setBookSize] = useState([0, 0]);
