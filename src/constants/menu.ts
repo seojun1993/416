@@ -45,7 +45,7 @@ export const menuContent: MenuData = {
     description: "시설에 대한 안내를 받으실 수 있습니다.",
     src: 메뉴이미지들.공간안내,
     imagePainter: "4.16 민주시민교육원",
-    href: "/",
+    href: "/space-info",
   },
   기억과약속의길: {
     title: "기억과 약속의 길",

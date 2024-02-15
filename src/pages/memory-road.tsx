@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import maps from "@/assets/images/maps";
 import { MainShell } from "@/components/common/main-shell";
-import ImageX from "@/components/ui/image";
 import { H1, P3 } from "@/components/ui/text";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -11,11 +10,10 @@ import {
   domAnimation,
   m,
   useAnimate,
-  useAnimation,
 } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import QRCode from "react-qr-code";
-import { motion } from "framer-motion";
+
 const memoryItems = [
   { title: "기억과 약속의 길" as const },
   { title: "단원고4.16기억교실" as const },
