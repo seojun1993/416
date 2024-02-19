@@ -1,20 +1,31 @@
 import {
-  fetchKioskRouteInfo,
+  fetchKioskRouteContents,
   fetchKioskRouteNodes,
 } from "@/fetcher/kiosk-route";
-import { KioskRouteInfoResponse } from "@/types/kiosk-route-info";
-import { KioskRouteNodeResponse } from "@/types/kiosk-route-nodes";
+import { Graph } from "@/libs/way-finder/finder";
+import { KioskContents } from "@/types/kiosk-contents";
+import { KioskRouteResponse, PubInfo } from "@/types/kiosk-route";
 import { UseQueryOptions } from "@tanstack/react-query";
 
-export const getKioskRouteNodes: UseQueryOptions<
-  KioskRouteNodeResponse["KIOSK"]
+export const getKioskRoute: UseQueryOptions<
+  KioskRouteResponse["KIOSK"] & {
+    graph: Graph;
+    pubList: { [key: number]: PubInfo[] };
+  }
 > = {
   queryKey: ["kioskRoute", "nodes"],
   queryFn: fetchKioskRouteNodes,
 };
-export const getKioskRouteInfo: UseQueryOptions<
-  KioskRouteInfoResponse["KIOSK"]
-> = {
-  queryKey: ["kioskRoute", "info"],
-  queryFn: fetchKioskRouteInfo,
-};
+export const getKioskContents = (
+  kioskCode: string
+): UseQueryOptions<
+  KioskContents,
+  Error,
+  KioskContents,
+  ["kioskRoute", "contents", string]
+> => ({
+  queryKey: ["kioskRoute", "contents", kioskCode],
+  queryFn: ({ queryKey }) => {
+    return fetchKioskRouteContents(queryKey[2]);
+  },
+});

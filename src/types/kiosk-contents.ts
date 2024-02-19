@@ -1,8 +1,4 @@
-export interface KioskRouteInfoResponse {
-  KIOSK: KioskRouteInfo;
-}
-
-export interface KioskRouteInfo {
+export interface KioskContents {
   HEADER: Header;
   MAP_LIST: MapList[];
   CLASS_LIST: ClassList[];
@@ -12,13 +8,27 @@ export interface KioskRouteInfo {
 export interface Header {
   MAKE_TIME: number;
   RET_CODE: string;
+  BRN_ID: number;
   BRN_CODE: number;
-  KIOSK_DIRECT: number;
-  LANGUAGE: string;
-  STORE_DEFAULT_FONT: number;
-  STORE_DEFAULT_COLOR: string;
+  KIOSK_ID: number;
+  KIOSK_CODE: string;
+  KIOSK_SECT: string;
+  KIOSK_MAP: string;
+  KIOSK_NAME: string;
+  KIOSK_FLOOR: KioskFloor;
+  URL_STATUS: string;
+  URL_REPORT: string;
+  URL_SENSOR: string;
+  CLEAR_TIME: number;
+  URL_NOTICE: string;
   MAP_RESOLUTION: MapResolution;
   PUB_ICON_RESOLUTION: PubIconResolution;
+}
+
+export interface KioskFloor {
+  pos_x: number;
+  pos_y: number;
+  floor: string;
 }
 
 export interface MapResolution {

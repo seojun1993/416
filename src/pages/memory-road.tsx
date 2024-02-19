@@ -163,7 +163,7 @@ const MemoryBadge = styled.div`
   justify-content: center;
   background-color: ${(props) => props.theme.color.badge.background};
 `;
-const MemoryQRDescription = styled.p`
+const MemoryQRDescription = styled.div`
   font-family: "Pretendard";
   font-size: calc(var(--font-size) * 1.12);
   line-height: 1.2;
@@ -191,7 +191,6 @@ const CallIcon = styled.svg`
 const RoadMapInfo = styled(m.div)`
   background-color: ${(props) => props.theme.color.background.card};
   text-decoration: none;
-  border-radius: 0.8rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -243,7 +242,6 @@ function RoadRoute({ selected }: { selected: number }) {
           await sculptureAnimate("#다각형_36", {
             opacity: 0,
           });
-          console.log("??");
         };
         exitAnimation();
     }
@@ -871,7 +869,7 @@ function RoadRoute({ selected }: { selected: number }) {
               }
               fill="none"
               stroke="#ff9d00"
-              stroke-width="20"
+              strokeWidth="20"
               pathLength={40}
             />
           </g>
@@ -911,7 +909,7 @@ function RoadRoute({ selected }: { selected: number }) {
               d="M-214.165,290.991v41.575h-68.141l-55.264,100.571"
               fill="none"
               stroke="#ff9d00"
-              stroke-width="20"
+              strokeWidth="20"
               pathLength={40}
             />
           </g>

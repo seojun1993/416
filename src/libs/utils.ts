@@ -1,3 +1,5 @@
+import { Vector } from "./way-finder/Vector";
+
 export const noop = () => {};
 
 export const getImagePath = (imageUrl: string) => {
@@ -213,3 +215,9 @@ export const shuffle = <T>(array: T[]) => {
   }
   return newArr;
 };
+
+export function calculateDistance(vector1: Vector, vector2: Vector) {
+  const { x: x1, y: y1 } = vector1.getPosition();
+  const { x: x2, y: y2 } = vector2.getPosition();
+  return ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;
+}

@@ -1,8 +1,8 @@
-export interface KioskRouteNodeResponse {
-  KIOSK: KioskRouteNodes;
+export interface KioskRouteResponse {
+  KIOSK: KioskRoute;
 }
 
-export interface KioskRouteNodes {
+export interface KioskRoute {
   HEADER: Header;
   CLASS_LIST: ClassList;
   PUB_LIST: PubList;
