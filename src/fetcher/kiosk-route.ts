@@ -63,6 +63,17 @@ export const fetchKioskRouteNodes = async () => {
     }
     pubList[pub.PUB_FLOOR.value].push(pub);
   });
+  response.CLASS_LIST.CLASS_INFO.forEach((cls) => {
+    const id = Vector.getVectorId({
+      floor: cls.CLASS_FLOOR.value,
+      x: cls.CLASS_FLOOR.pos_x,
+      y: cls.CLASS_FLOOR.pos_y,
+    });
+    const classNode = graph.get(id);
+    if (classNode) {
+      cls.node = classNode;
+    }
+  });
   pubMap.forEach((pubList, key) => {
     pubList.forEach((pub) => {
       const id = Vector.getVectorId({
@@ -91,8 +102,6 @@ export const fetchKioskRouteNodes = async () => {
     });
   });
 
-  console.log(response);
-  console.log(graph);
   return { ...response, pubList, graph };
 };
 

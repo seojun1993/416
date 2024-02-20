@@ -1,3 +1,5 @@
+import { Vector } from "@/libs/way-finder/Vector";
+
 export interface KioskRouteResponse {
   KIOSK: KioskRoute;
 }
@@ -32,6 +34,7 @@ export interface ClassInfo {
   floor: number;
   dp_type: string;
   search_type: string;
+  node?: Vector;
 }
 
 export interface ClassFloor {

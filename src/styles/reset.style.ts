@@ -37,7 +37,7 @@ const reset = (zoom: number) => css`
     -ms-content-zooming: none;
     -ms-touch-action: none;
     content-zooming: none;
-    touch-action: nones;
+    touch-action: none;
   }
   /* canvas,
   img,

@@ -53,7 +53,6 @@ export function dijkstra(
     });
   }
 
-  // 최단 경로 재구성 및 총 거리 계산
   const path: Vector[] = [];
   let totalDistance = 0;
   let currentId: string | null = endId;

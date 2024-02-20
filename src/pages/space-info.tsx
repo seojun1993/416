@@ -4,8 +4,18 @@ import { H1, P3 } from "@/components/ui/text";
 import { getKioskContents, getKioskRoute } from "@/queries/kiosk-route";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useQueries } from "@tanstack/react-query";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useSuspenseQueries } from "@tanstack/react-query";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import {
   ReactZoomPanPinchContentRef,
@@ -26,14 +36,30 @@ const memoryItems = [
   { title: "4층 (하늘정원)" as const },
 ];
 
+const activeMapContext = createContext<{
+  activeList: number[];
+  destination: Vector | null;
+  animationState: boolean;
+  mapIndex: number;
+  pathList: Vector[];
+}>({
+  activeList: [],
+  destination: null,
+  animationState: false,
+  mapIndex: 1,
+  pathList: [],
+});
+
 const SpaceInfo = () => {
   const [selectedMapIdx, setSelectedMapIdx] = useState(1);
   const [selectedPubCode, setSelectedPubCode] = useState("");
+  const [foundPath, setFoundPath] = useState<Vector[]>([]);
+  const [animationState, setAnimationState] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
   const size = useElementSize(boxRef.current);
   const pinchRef = useRef<ReactZoomPanPinchContentRef>(null);
 
-  const [{ data: nodesData }, { data: contentsData }] = useQueries({
+  const [{ data: nodesData }, { data: contentsData }] = useSuspenseQueries({
     queries: [getKioskRoute, getKioskContents("K001")],
   });
   const parsedData = useMemo(() => {
@@ -47,7 +73,7 @@ const SpaceInfo = () => {
         Vector.getVectorId({ floor: 2, x, y })
       );
       if (kioskNode) {
-        // kioskNode.setType(NodeType.KIOSK);
+        kioskNode.setType(NodeType.KIOSK);
         nodesData.graph.set(Vector.getVectorId({ floor: 2, x, y }), kioskNode);
 
         return {
@@ -82,12 +108,17 @@ const SpaceInfo = () => {
     });
   }, [contents, nodes, selectedMapIdx]);
 
-  const findNodes = useMemo(() => {
-    const destination = graph?.get("3_805_774");
-    if (destination) {
-      return findWay(destination);
-    }
-  }, [findWay]);
+  const wayfind = useCallback(
+    (destination: Vector) => {
+      const found = findWay(destination);
+      if (found) {
+        setFoundPath(found.path);
+        setSelectedMapIdx(1);
+        setAnimationState(true);
+      }
+    },
+    [findWay]
+  );
 
   const classMap = useMemo(() => {
     const classList = new Map<number, ClassInfo[]>();
@@ -97,6 +128,27 @@ const SpaceInfo = () => {
 
     return classList;
   }, [nodes]);
+
+  const destination = useMemo(
+    () => (foundPath ? foundPath[foundPath.length - 1] : null),
+    [foundPath]
+  );
+
+  const onAnimationEnd = (floor: number) => {
+    if (destination !== null && floor !== destination.getFloor()) {
+      setSelectedMapIdx(destination.getFloor() - 1);
+    }
+    if (floor === selectedMapIdx - 1) {
+      setAnimationState(false);
+    }
+  };
+
+  const activeFloorList = useMemo(() => {
+    const activeList = new Set(
+      foundPath?.map((path) => path.getFloor()).filter((item) => item)
+    );
+    return [...activeList];
+  }, [foundPath]);
 
   const onBlurClick = () => {
     setSelectedPubCode("");
@@ -109,143 +161,155 @@ const SpaceInfo = () => {
   }, []);
 
   return (
-    <MemoryShell>
-      <MemoryHeader>
-        <H1>공간안내</H1>
-      </MemoryHeader>
+    <activeMapContext.Provider
+      value={{
+        activeList: activeFloorList,
+        pathList: foundPath,
+        destination,
+        animationState,
+        mapIndex: selectedMapIdx,
+      }}
+    >
+      <MemoryShell>
+        <MemoryHeader>
+          <H1>공간안내</H1>
+        </MemoryHeader>
 
-      <div
-        css={css`
-          display: flex;
-          margin-bottom: 0.8rem;
-          column-gap: 0.82rem;
-          width: 100%;
-        `}
-      >
-        {memoryItems.map((item, idx) => (
-          <MemoryListButton
-            key={item.title}
-            selected={idx === selectedMapIdx}
-            onClick={() => {
-              pinchRef.current?.resetTransform(500, "easeOutCubic");
-              setSelectedMapIdx(idx);
-            }}
-          >
-            {item.title}
-          </MemoryListButton>
-        ))}
-      </div>
-      <MemoryMapBox
-        ref={boxRef}
-        css={css`
-          width: 100%;
-          flex-grow: 1;
-          overflow: hidden;
-        `}
-      >
-        <TransformWrapper ref={pinchRef}>
-          <TransformComponent>
-            <div
-              css={css`
-                position: absolute;
-                z-index: 5;
-                width: 100%;
-                height: 100%;
-                left: 50%;
-                top: 50%;
-              `}
+        <div
+          css={css`
+            display: flex;
+            margin-bottom: 0.8rem;
+            column-gap: 0.82rem;
+            width: 100%;
+          `}
+        >
+          {memoryItems.map((item, idx) => (
+            <MemoryListButton
+              key={item.title}
+              selected={idx === selectedMapIdx}
+              onClick={() => {
+                pinchRef.current?.resetTransform(500, "easeOutCubic");
+                setSelectedMapIdx(idx);
+              }}
             >
-              {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
-                const urls = MAP_INFO.MAIN_MAP_URL.split("/");
-                const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
-                  urls[urls.length - 1]
-                }`;
-
-                const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
-                  (pub) => ({
-                    ...pub,
-                    icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
-                      contents.PUB_INFO_LIST.find(
-                        (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
-                      )?.PUB_INFO.PUB_URL
-                    }`,
-                  })
-                );
-                return (
-                  <MapItem
-                    key={MAP_INFO.MAP_NAME}
-                    pubList={currentPubList}
-                    classList={classMap.get(MAP_INFO.floor)}
-                    name={MAP_INFO.MAP_NAME}
-                    floor={MAP_INFO.floor}
-                    selectedPubCode={selectedPubCode}
-                    width={contents?.HEADER.MAP_RESOLUTION.width ?? 0}
-                    height={contents?.HEADER.MAP_RESOLUTION.height ?? 0}
-                    url={url}
-                    index={idx}
-                    boxSize={{
-                      width: size?.width ?? 0,
-                      height: size?.height ?? 0,
-                    }}
-                    selectedIndex={selectedMapIdx}
-                    path={findNodes?.path}
-                  />
-                );
-              })}
-            </div>
-          </TransformComponent>
-        </TransformWrapper>
-        <AnimatePresence mode="popLayout">
-          <MapPubList
-            key={selectedMapIdx}
-            variants={{
-              ...fadeInOutVariants,
-              animate: {
-                ...fadeInOutVariants.animate,
-                transition: {
-                  staggerChildren: 0.08,
-                },
-              },
-              exit: {
-                ...fadeInOutVariants.exit,
-              },
-            }}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-          >
-            {currentPubList?.map(({ PUB_INFO }) => (
-              <MapPubButton
-                key={selectedMapIdx + PUB_INFO.PUB_CODE}
-                variants={fadeInOutVariants}
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setSelectedPubCode(PUB_INFO.PUB_CODE);
-                }}
+              {item.title}
+            </MemoryListButton>
+          ))}
+        </div>
+        <MemoryMapBox
+          ref={boxRef}
+          css={css`
+            width: 100%;
+            flex-grow: 1;
+            overflow: hidden;
+          `}
+        >
+          <TransformWrapper ref={pinchRef}>
+            <TransformComponent>
+              <div
+                css={css`
+                  position: absolute;
+                  z-index: 5;
+                  width: 100%;
+                  height: 100%;
+                  left: 50%;
+                  top: 50%;
+                `}
               >
-                <img
-                  css={css`
-                    height: 100%;
-                    border-radius: 9999rem;
-                    aspect-ratio: 1/1;
-                  `}
-                  src={`${import.meta.env.VITE_MAP_SERVER_URL}${
-                    PUB_INFO.PUB_URL
-                  }`}
-                />
-                <P3
-                  css={css`
-                    color: white;
-                  `}
+                {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
+                  const urls = MAP_INFO.MAIN_MAP_URL.split("/");
+                  const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
+                    urls[urls.length - 1]
+                  }`;
+
+                  const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
+                    (pub) => ({
+                      ...pub,
+                      icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
+                        contents.PUB_INFO_LIST.find(
+                          (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
+                        )?.PUB_INFO.PUB_URL
+                      }`,
+                    })
+                  );
+                  return (
+                    <MapItem
+                      key={MAP_INFO.MAP_NAME}
+                      pubList={currentPubList}
+                      classList={classMap.get(MAP_INFO.floor)}
+                      name={MAP_INFO.MAP_NAME}
+                      floor={MAP_INFO.floor}
+                      selectedPubCode={selectedPubCode}
+                      width={contents?.HEADER.MAP_RESOLUTION.width ?? 0}
+                      height={contents?.HEADER.MAP_RESOLUTION.height ?? 0}
+                      url={url}
+                      index={idx}
+                      boxSize={{
+                        width: size?.width ?? 0,
+                        height: size?.height ?? 0,
+                      }}
+                      selectedIndex={selectedMapIdx}
+                      path={foundPath}
+                      wayfind={wayfind}
+                      onAnimationEnd={onAnimationEnd}
+                    />
+                  );
+                })}
+              </div>
+            </TransformComponent>
+          </TransformWrapper>
+          <AnimatePresence mode="popLayout">
+            <MapPubList
+              key={selectedMapIdx}
+              variants={{
+                ...fadeInOutVariants,
+                animate: {
+                  ...fadeInOutVariants.animate,
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+                exit: {
+                  ...fadeInOutVariants.exit,
+                },
+              }}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              {currentPubList?.map(({ PUB_INFO }) => (
+                <MapPubButton
+                  key={selectedMapIdx + PUB_INFO.PUB_CODE}
+                  variants={fadeInOutVariants}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedPubCode(PUB_INFO.PUB_CODE);
+                  }}
                 >
-                  {PUB_INFO.PUB_NAME}
-                </P3>
-              </MapPubButton>
-            ))}
-          </MapPubList>
-        </AnimatePresence>
-      </MemoryMapBox>
-    </MemoryShell>
+                  <img
+                    css={css`
+                      height: 100%;
+                      border-radius: 9999rem;
+                      aspect-ratio: 1/1;
+                    `}
+                    src={`${import.meta.env.VITE_MAP_SERVER_URL}${
+                      PUB_INFO.PUB_URL
+                    }`}
+                  />
+                  <P3
+                    css={css`
+                      color: white;
+                    `}
+                  >
+                    {PUB_INFO.PUB_NAME}
+                  </P3>
+                </MapPubButton>
+              ))}
+            </MapPubList>
+          </AnimatePresence>
+        </MemoryMapBox>
+      </MemoryShell>
+    </activeMapContext.Provider>
   );
 };
 
@@ -263,6 +327,8 @@ function MapItem({
   pubList,
   classList,
   selectedPubCode,
+  wayfind,
+  onAnimationEnd,
 }: {
   width: number;
   height: number;
@@ -279,9 +345,10 @@ function MapItem({
   selectedPubCode?: string;
   classList?: ClassInfo[];
   pubList?: (PubInfo & { icon?: string })[];
+  wayfind: (dest: Vector) => void;
+  onAnimationEnd?: (floor: number) => void;
 }) {
   const [scope, animate] = useAnimate();
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const initialMount = useRef(false);
 
   const direction =
@@ -291,8 +358,8 @@ function MapItem({
       ? "ACTIVE"
       : "TOP";
   const defaultStyle = {
-    scaleX: boxSize.width / width,
-    scaleY: boxSize.height / height,
+    scaleX: boxSize.width / width || 0.8,
+    scaleY: boxSize.height / height || 0.8,
     width: `${width}px`,
     height: `${height}px`,
     left: `${-(width / 2)}px`,
@@ -302,6 +369,7 @@ function MapItem({
   const defaultTransition = {
     damping: 150,
   };
+
   useLayoutEffect(() => {
     if (initialMount.current) {
       switch (direction) {
@@ -332,39 +400,6 @@ function MapItem({
     initialMount.current = true;
   }, [selectedIndex, index, boxSize]);
 
-  useEffect(() => {
-    if (canvasRef.current && path) {
-      const currentPath = path.filter((p) => p.getFloor() === floor);
-      if (!currentPath.length) return;
-      const ctx = canvasRef.current.getContext("2d");
-      if (ctx) {
-        const dpr = window.devicePixelRatio > 1 ? 2 : 1;
-
-        const canvasWidth = width;
-        const canvasHeight = height;
-        canvasRef.current.width = canvasWidth * dpr;
-        canvasRef.current.height = canvasHeight * dpr;
-
-        ctx.scale(dpr, dpr);
-
-        ctx.clearRect(0, 0, width, height);
-        ctx.beginPath();
-        ctx.moveTo(
-          currentPath[0].getPosition().x,
-          currentPath[0].getPosition().y + 10
-        );
-
-        currentPath.slice(1).forEach((node, index) => {
-          if (index === currentPath.length - 1) return;
-          const nextPosition = currentPath[index + 1].getPosition();
-          ctx.lineTo(nextPosition.x, nextPosition.y + 10);
-        });
-        ctx.lineWidth = 20;
-        ctx.strokeStyle = "#FB950A";
-        ctx.stroke();
-      }
-    }
-  }, []);
   return (
     <motion.div
       ref={scope}
@@ -431,32 +466,137 @@ function MapItem({
             key={pub.PUB_ID}
           />
         ))}
-        {classList?.map((cls) => (
-          <div
+        {classList?.map((cls, index) => (
+          <button
+            onClick={() => {
+              if (cls.node) {
+                wayfind(cls.node);
+              }
+            }}
+            tabIndex={direction === "ACTIVE" ? 0 : -1}
             css={css`
+              background-color: transparent;
+              border: none;
+              z-index: 10;
               position: absolute;
               top: ${cls.CLASS_FLOOR.pos_y}px;
               left: ${cls.CLASS_FLOOR.pos_x}px;
               font-size: calc(${cls.FONT_SIZE}px);
               line-height: ${cls.LINE_HEIGHT}px;
               color: ${cls.FONT_COLOR};
+              pointer-events: all;
             `}
             key={cls.CLASS_NAME}
           >
             {cls.CLASS_NAME}
-          </div>
+          </button>
         ))}
+        <AnimatePresence mode="sync">
+          {
+            <Path
+              floor={floor}
+              scaleY={defaultStyle.scaleY}
+              onAnimationComplete={() => onAnimationEnd?.(floor)}
+            />
+          }
+        </AnimatePresence>
       </div>
-      <canvas
-        ref={canvasRef}
-        css={css`
-          position: absolute;
-          top: 6%;
-          width: 100%;
-          height: 89%;
-        `}
-      />
     </motion.div>
+  );
+}
+
+function Path({
+  scaleY,
+  floor,
+  onAnimationComplete,
+}: {
+  floor: number;
+  scaleY: number;
+  onAnimationComplete?: () => void;
+}) {
+  const { activeList, destination, animationState, mapIndex, pathList } =
+    useContext(activeMapContext);
+  const currentPath = useMemo(
+    () => pathList?.filter((p) => p.getFloor() === floor),
+    [pathList]
+  );
+  const active = useMemo(() => activeList.includes(floor), [activeList, floor]);
+  const id = useId();
+  const dist = useMemo(() => {
+    if (!currentPath?.length) return "";
+    let d = `M${currentPath[0].getPosition().x},${
+      currentPath[0].getPosition().y
+    }`;
+    for (let i = 1; i < currentPath.length; i++) {
+      const position = currentPath[i].getPosition();
+      d += `L${position.x},${position.y}`;
+    }
+    return d;
+  }, [currentPath]);
+
+  const [ref, animate] = useAnimate();
+
+  useEffect(() => {
+    const startAnimation = async () => {
+      if (active && currentPath && currentPath?.length > 1) {
+        await animate(
+          ref.current,
+          {
+            strokeDasharray: 350,
+            strokeDashoffset: 300,
+          },
+          {
+            duration: 3,
+            ease: "linear",
+            onComplete() {
+              if (active) {
+                onAnimationComplete?.();
+              }
+            },
+          }
+        );
+      } else {
+        animate(
+          ref.current,
+          {
+            strokeDasharray: 300,
+            strokeDashoffset: 300,
+          },
+          {
+            duration: 0,
+          }
+        );
+      }
+    };
+    startAnimation();
+  }, [mapIndex, active, currentPath, animationState]);
+
+  return (
+    <svg
+      ref={ref}
+      key={(currentPath?.join("") ?? id) + destination?.id}
+      strokeDasharray={300}
+      strokeDashoffset={300}
+      css={css`
+        position: absolute;
+        width: 100%;
+        height: 96%;
+        left: 0;
+        top: 2%;
+        transform: scaleY(${scaleY});
+      `}
+    >
+      <path
+        markerEnd="url(#arrowhead)"
+        d={dist}
+        stroke="#FB950A"
+        fill="none"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        strokeWidth={20}
+        pathLength={40}
+      />
+    </svg>
   );
 }
 
