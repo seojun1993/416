@@ -446,6 +446,7 @@ function MapItem({
               position: absolute;
               top: ${pub.PUB_FLOOR.pos_y + 35}px;
               left: ${pub.PUB_FLOOR.pos_x - 41.5}px;
+              border-radius: 9999rem;
               width: 60px;
               height: 60px;
             `}
