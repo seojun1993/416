@@ -5,7 +5,6 @@ import EmblaCarousel from "@/components/ui/carousel";
 import { EmblaOptionsType } from "embla-carousel-react";
 import OnboardCompoents from "@/components/pages/onboard";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import { useQuery } from "@tanstack/react-query";
 import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
@@ -48,13 +47,6 @@ const Birthday = () => {
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
-    Autoplay({
-      delay: 5000,
-      playOnInit: true,
-      stopOnFocusIn: false,
-      stopOnInteraction: false,
-      stopOnLastSnap: false,
-    }),
     Prefetch({
       onSelect(selectedIndex) {
         setId(selectedIndex);

@@ -1,8 +1,10 @@
 export interface KioskContents {
   HEADER: Header;
+  KIOSK_LIST: KioskList[];
   MAP_LIST: MapList[];
   CLASS_LIST: ClassList[];
   PUB_INFO_LIST: PubInfoList[];
+  KIOSK_INFO?: KioskList["KIOSK_INFO"];
 }
 
 export interface Header {
@@ -79,4 +81,20 @@ export interface PubInfo {
   PUB_CODE: string;
   PUB_NAME: string;
   PUB_URL: string;
+}
+
+export interface KioskList {
+  KIOSK_INFO: KioskInfo;
+}
+
+export interface KioskInfo {
+  KIOSK_CODE: string;
+  KIOSK_POS: KioskPos;
+  kioskId: number;
+  floor: number;
+}
+
+export interface KioskPos {
+  pos_x: number;
+  pos_y: number;
 }

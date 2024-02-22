@@ -43,6 +43,15 @@ const Stars = () => {
 
   return (
     <MemoryShell
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          delay: 0.3,
+        },
+      }}
       css={css`
         flex-direction: column;
         row-gap: 1.6rem;
@@ -121,6 +130,7 @@ const MemoryShell = styled(MainShell)`
   align-items: center;
   padding-bottom: 1.6rem;
 `;
+
 const MemoryHeader = styled(H1)`
   text-align: center;
 `;

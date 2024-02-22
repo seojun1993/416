@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import maps from "@/assets/images/maps";
 import { MainShell } from "@/components/common/main-shell";
-import { H1, P3 } from "@/components/ui/text";
+import { H1, H4, P3 } from "@/components/ui/text";
+import { useThemeMode } from "@/hooks/use-theme-mode";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
@@ -25,6 +26,7 @@ const memoryItems = [
 const MemoryRoad = () => {
   const [selected, setSelected] = useState(0);
   const Description = memorySummaryComponents[memoryItems[selected].title];
+  const [themeMode] = useThemeMode();
   return (
     <MemoryShell>
       <MemoryHeader>
@@ -71,7 +73,7 @@ const MemoryRoad = () => {
                     width: 100%;
                     height: 100%;
                   `}
-                  src={maps.light}
+                  src={maps[themeMode]}
                 />
                 <RoadRoute selected={selected} />
               </RoadMapInfo>
@@ -918,18 +920,146 @@ function RoadRoute({ selected }: { selected: number }) {
     </div>
   );
 }
+
+const SummaryTitle = styled(H4)`
+  color: ${(props) => props.theme.color.yellow};
+  margin-bottom: 1rem;
+`;
+
 const memorySummaryComponents: {
   [key in (typeof memoryItems)[number]["title"]]: ReactNode;
 } = {
-  단원고등학교: <></>,
-  "(가칭)4.16생명안전공원": <></>,
+  단원고등학교: (
+    <div
+      css={css`
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        > p {
+          color: white;
+          text-align: start;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
+      `}
+    >
+      <SummaryTitle>단원고등학교</SummaryTitle>
+      <P3
+        css={css`
+          text-align: start;
+        `}
+      >
+        희생자들이 걷고 뛰어 다녔던 그 길을 따라 걷다보면 단원고등학교에
+        <br />
+        도착합니다.
+        <br />
+        2018년, ‘4ㆍ16 세월호 참사로 희생된 학생 및 교원이 못다 이룬 꿈을 단원고
+        <br />
+        학생들이 실현하는 모습의 조형물’ 공모전 당선작 ‘노란 고래의 꿈‘을
+        <br />
+        설치하였습니다. 4.16민주시민교육원에 기억교실로서 개방되었습니다.
+        <br />
+        추모 조형물 ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한
+        <br />
+        것으로 희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
+      </P3>
+      <h2
+        css={css`
+          font-size: calc(var(--font-size) * 1.12);
+          font-weight: 700;
+        `}
+      >
+        주소: 경기도 안산시 단원구 고잔동 단원로 55
+      </h2>
+    </div>
+  ),
+  "(가칭)4.16생명안전공원": (
+    <div
+      css={css`
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        > p {
+          color: white;
+          text-align: start;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
+      `}
+    >
+      <SummaryTitle>4.16생명안전공원</SummaryTitle>
+      <P3
+        css={css`
+          text-align: start;
+        `}
+      >
+        4.16생명안전공원은 세월호 참사로 희생된 단원고 희생학생 250명을
+        <br />
+        잊지 않고 기억하겠다는 우리들의 약속이며, 슬픔을 딛고 안전한
+        <br />
+        대한민국을 만들고자 하는 우리 모두의 다짐과 희망입니다.
+        <br />
+        전국 8곳에 흩어져있는 단원고 희생학생들의 추억이 깃들어있는
+        <br />
+        화랑유원지에 4.16생명안전공원이 건립될 것입니다.
+      </P3>
+      <h2
+        css={css`
+          font-size: calc(var(--font-size) * 1.12);
+          font-weight: 700;
+        `}
+      >
+        주소: 안산시 단원구 동산로 268(화랑유원지)
+      </h2>
+    </div>
+  ),
   "4.16기억전시관": (
     <div
       css={css`
         flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        > p {
+          color: white;
+          text-align: start;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
       `}
     >
-      me
+      <SummaryTitle>4.16기억전시관</SummaryTitle>
+      <P3
+        css={css`
+          text-align: start;
+        `}
+      >
+        4.16기억전시관은 4.16기억저장소에서 운영하고 있으며 매년 새로운 전시를
+        <br />
+        통하여 시민들과 세월호 참사를 공유하여 기억을 확산시키고 희망의 담론을
+        <br />
+        만들어내는 것을 목적으로 하고 있습니다. 전시관 안에는 세월호 참사 희생자
+        <br />
+        304명의 기억함이 있으며 희생자를 기억하기 위한 기억 물품이
+        <br />
+        담겨져 있습니다.
+      </P3>
+      <h2
+        css={css`
+          font-size: calc(var(--font-size) * 1.12);
+          font-weight: 700;
+        `}
+      >
+        주소: 경기도 안산시 단원구 인현중앙길 38 현대상가 302호
+      </h2>
     </div>
   ),
   "기억과 약속의 길": (
@@ -1070,9 +1200,44 @@ const memorySummaryComponents: {
     <div
       css={css`
         flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        > p {
+          color: white;
+          text-align: start;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
       `}
     >
-      416
+      <SummaryTitle>단원고4.16기억교실</SummaryTitle>
+      <P3
+        css={css`
+          text-align: start;
+        `}
+      >
+        단원고 희생자 가족들은 참사의 현장이자 교육의 현장인 [단원교 교실
+        존치]를
+        <br />
+        원하셨지만 2016년 5월 단원고 교육 정상화를 위해 사회적 합의로 이전을
+        <br />
+        결정하였습니다. 2016년 8월 안산교육지원청 별관 이전, 2018년 8월
+        <br />
+        안산교육지원청 본관 이전을 거쳐 2021년 4월 12일 설립된
+        <br />
+        4.16민주시민교육원에 기억교실로서 개방되었습니다.
+      </P3>
+      <h2
+        css={css`
+          font-size: calc(var(--font-size) * 1.12);
+          font-weight: 700;
+        `}
+      >
+        주소: 경기도 안산시 단원구 적금로134 4.16민주시민교육원 기억관 2~3층
+      </h2>
     </div>
   ),
 };

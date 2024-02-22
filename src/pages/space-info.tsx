@@ -62,19 +62,21 @@ const SpaceInfo = () => {
   const [{ data: nodesData }, { data: contentsData }] = useSuspenseQueries({
     queries: [getKioskRoute, getKioskContents("K001")],
   });
+
   const parsedData = useMemo(() => {
-    if (!nodesData || !contentsData) return;
+    if (!nodesData || !contentsData || !contentsData.KIOSK_INFO) return;
 
     if (contentsData.HEADER.KIOSK_FLOOR) {
-      // contentsData.HEADER.KIOSK_FLOOR.floor => '1F' | '2F' 와 같은 문자열
-
-      const { pos_x: x, pos_y: y } = contentsData.HEADER.KIOSK_FLOOR;
+      const {
+        floor,
+        KIOSK_POS: { pos_x: x, pos_y: y },
+      } = contentsData.KIOSK_INFO;
       const kioskNode = nodesData.graph.get(
-        Vector.getVectorId({ floor: 2, x, y })
+        Vector.getVectorId({ floor, x, y })
       );
       if (kioskNode) {
         kioskNode.setType(NodeType.KIOSK);
-        nodesData.graph.set(Vector.getVectorId({ floor: 2, x, y }), kioskNode);
+        nodesData.graph.set(Vector.getVectorId({ floor, x, y }), kioskNode);
 
         return {
           nodes: nodesData,
@@ -85,8 +87,8 @@ const SpaceInfo = () => {
       }
     }
   }, [nodesData, contentsData]);
-  const { nodes, contents, graph, kioskNode } = parsedData ?? {};
 
+  const { nodes, contents, graph, kioskNode } = parsedData ?? {};
   const findWay = useMemo(() => {
     if (!kioskNode || !graph) return () => {};
     return curryingDijkstra(kioskNode, graph);
@@ -94,7 +96,7 @@ const SpaceInfo = () => {
 
   const currentPubList = useMemo(() => {
     if (!contents || !nodes) return;
-    const floor = contents.MAP_LIST[selectedMapIdx].MAP_INFO.floor;
+    const floor = contents.MAP_LIST[selectedMapIdx - 1].MAP_INFO.floor;
     const pubList = new Set<string>([]);
     nodes.PUB_LIST.PUB_INFO.forEach((pub) => {
       if (pub.floor === floor) {
@@ -109,15 +111,19 @@ const SpaceInfo = () => {
   }, [contents, nodes, selectedMapIdx]);
 
   const wayfind = useCallback(
-    (destination: Vector) => {
-      const found = findWay(destination);
-      if (found) {
-        setFoundPath(found.path);
-        setSelectedMapIdx(1);
-        setAnimationState(true);
+    (id: string) => {
+      if (!parsedData) return;
+      const vector = graph?.get(id);
+      if (vector) {
+        const found = findWay(vector);
+        if (found) {
+          setFoundPath(found.path);
+          setSelectedMapIdx(parsedData.kioskNode.getFloor());
+          setAnimationState(true);
+        }
       }
     },
-    [findWay]
+    [findWay, graph, parsedData]
   );
 
   const classMap = useMemo(() => {
@@ -136,9 +142,9 @@ const SpaceInfo = () => {
 
   const onAnimationEnd = (floor: number) => {
     if (destination !== null && floor !== destination.getFloor()) {
-      setSelectedMapIdx(destination.getFloor() - 1);
+      setSelectedMapIdx(destination.getFloor());
     }
-    if (floor === selectedMapIdx - 1) {
+    if (floor === selectedMapIdx) {
       setAnimationState(false);
     }
   };
@@ -153,6 +159,12 @@ const SpaceInfo = () => {
   const onBlurClick = () => {
     setSelectedPubCode("");
   };
+
+  useLayoutEffect(() => {
+    if (parsedData) {
+      setSelectedMapIdx(parsedData.kioskNode.getFloor());
+    }
+  }, [parsedData]);
   useLayoutEffect(() => {
     window.addEventListener("click", onBlurClick);
     return () => {
@@ -186,10 +198,10 @@ const SpaceInfo = () => {
           {memoryItems.map((item, idx) => (
             <MemoryListButton
               key={item.title}
-              selected={idx === selectedMapIdx}
+              selected={idx + 1 === selectedMapIdx}
               onClick={() => {
                 pinchRef.current?.resetTransform(500, "easeOutCubic");
-                setSelectedMapIdx(idx);
+                setSelectedMapIdx(idx + 1);
               }}
             >
               {item.title}
@@ -345,16 +357,16 @@ function MapItem({
   selectedPubCode?: string;
   classList?: ClassInfo[];
   pubList?: (PubInfo & { icon?: string })[];
-  wayfind: (dest: Vector) => void;
+  wayfind: (id: string) => void;
   onAnimationEnd?: (floor: number) => void;
 }) {
   const [scope, animate] = useAnimate();
   const initialMount = useRef(false);
 
   const direction =
-    index - selectedIndex > 0
+    index - selectedIndex - 1 > 0
       ? "BOTTOM"
-      : index === selectedIndex
+      : index === selectedIndex - 1
       ? "ACTIVE"
       : "TOP";
   const defaultStyle = {
@@ -425,7 +437,8 @@ function MapItem({
         css={css`
           position: absolute;
           z-index: 1;
-          transform: translate(0px, 0px) scale(1, 1) rotate(0deg);
+          transform: translate(0px, 0px)
+            scale(${defaultStyle.scaleX}, ${defaultStyle.scaleY}) rotate(0deg);
           width: ${width}px;
           height: ${height}px;
         `}
@@ -471,7 +484,7 @@ function MapItem({
           <button
             onClick={() => {
               if (cls.node) {
-                wayfind(cls.node);
+                wayfind(cls.node.id);
               }
             }}
             tabIndex={direction === "ACTIVE" ? 0 : -1}
@@ -522,6 +535,7 @@ function Path({
     [pathList]
   );
   const active = useMemo(() => activeList.includes(floor), [activeList, floor]);
+
   const id = useId();
   const dist = useMemo(() => {
     if (!currentPath?.length) return "";
@@ -535,11 +549,16 @@ function Path({
     return d;
   }, [currentPath]);
 
-  const [ref, animate] = useAnimate();
+  const [ref, animate] = useAnimate<SVGSVGElement>();
 
   useEffect(() => {
     const startAnimation = async () => {
-      if (active && currentPath && currentPath?.length > 1) {
+      if (
+        active &&
+        currentPath &&
+        currentPath?.length > 1 &&
+        floor === mapIndex
+      ) {
         await animate(
           ref.current,
           {
@@ -557,16 +576,8 @@ function Path({
           }
         );
       } else {
-        animate(
-          ref.current,
-          {
-            strokeDasharray: 300,
-            strokeDashoffset: 300,
-          },
-          {
-            duration: 0,
-          }
-        );
+        ref.current.style.strokeDasharray = "300";
+        ref.current.style.strokeDashoffset = "300";
       }
     };
     startAnimation();

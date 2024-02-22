@@ -12,7 +12,7 @@ import {
 } from "react";
 import { shuffle } from "@/libs/utils";
 import useEmblaCarousel from "embla-carousel-react";
-import { Variants, motion, useInView } from "framer-motion";
+import { AnimatePresence, Variants, motion, useInView } from "framer-motion";
 import { KeywordWithStudents } from "@/types/keyword";
 import { useSearchParams } from "react-router-dom";
 interface StarPosition {
@@ -348,7 +348,7 @@ const StarCloud = () => {
                   <StarWithLabel
                     star={star}
                     id={tempIdx + starIdx + ""}
-                    key={tempIdx + starIdx}
+                    key={tempIdx + starIdx + star.label}
                   />
                 );
               })}
@@ -404,224 +404,226 @@ function StarWithLabel({ star, id }: { id: string; star: Star }) {
         setSearchParams({ label: star.label });
       }}
     >
-      {selected ? (
-        <motion.div
-          css={css`
-            width: 1.6rem;
-            height: 1.52rem;
-          `}
-          variants={selectedStarVariants}
-          animate="animate"
-          initial="initial"
-          exit="exit"
-          key="selected"
-          custom={{ duration: star.duration }}
-        >
-          <svg
+      <AnimatePresence mode="wait">
+        {selected ? (
+          <motion.div
+            key={star.label + "selected"}
             css={css`
-              width: 100%;
-              height: 100%;
+              width: 1.6rem;
+              height: 1.52rem;
             `}
+            variants={selectedStarVariants}
+            animate="animate"
+            initial="initial"
+            exit="exit"
+            custom={{ duration: star.duration }}
+          >
+            <svg
+              css={css`
+                width: 100%;
+                height: 100%;
+              `}
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              width="141"
+              height="125"
+              viewBox="0 0 141 125"
+            >
+              <defs>
+                <filter
+                  id="다각형_27"
+                  x="25"
+                  y="6.5"
+                  width="116"
+                  height="116"
+                  filterUnits="userSpaceOnUse"
+                >
+                  <feOffset in="SourceAlpha" />
+                  <feGaussianBlur stdDeviation="10" result="blur" />
+                  <feFlood floodColor="#fff" floodOpacity="0.8" />
+                  <feComposite operator="in" in2="blur" />
+                  <feComposite in="SourceGraphic" />
+                </filter>
+                <filter
+                  id="다각형_42"
+                  x="23"
+                  y="46"
+                  width="79"
+                  height="79"
+                  filterUnits="userSpaceOnUse"
+                >
+                  <feOffset in="SourceAlpha" />
+                  <feGaussianBlur stdDeviation="10" result="blur-2" />
+                  <feFlood floodColor="#fff" floodOpacity="0.8" />
+                  <feComposite operator="in" in2="blur-2" />
+                  <feComposite in="SourceGraphic" />
+                </filter>
+                <filter
+                  id="다각형_43"
+                  x="0"
+                  y="30.5"
+                  width="85"
+                  height="85"
+                  filterUnits="userSpaceOnUse"
+                >
+                  <feOffset in="SourceAlpha" />
+                  <feGaussianBlur stdDeviation="10" result="blur-3" />
+                  <feFlood floodColor="#fff" floodOpacity="0.8" />
+                  <feComposite operator="in" in2="blur-3" />
+                  <feComposite in="SourceGraphic" />
+                </filter>
+                <filter
+                  id="다각형_44"
+                  x="9"
+                  y="11.387"
+                  width="79"
+                  height="79"
+                  filterUnits="userSpaceOnUse"
+                >
+                  <feOffset in="SourceAlpha" />
+                  <feGaussianBlur stdDeviation="10" result="blur-4" />
+                  <feFlood floodColor="#fff" floodOpacity="0.8" />
+                  <feComposite operator="in" in2="blur-4" />
+                  <feComposite in="SourceGraphic" />
+                </filter>
+                <filter
+                  id="다각형_45"
+                  x="25"
+                  y="0"
+                  width="79"
+                  height="79"
+                  filterUnits="userSpaceOnUse"
+                >
+                  <feOffset in="SourceAlpha" />
+                  <feGaussianBlur stdDeviation="10" result="blur-5" />
+                  <feFlood floodColor="#fff" floodOpacity="0.8" />
+                  <feComposite operator="in" in2="blur-5" />
+                  <feComposite in="SourceGraphic" />
+                </filter>
+              </defs>
+              <g
+                id="그룹_678"
+                data-name="그룹 678"
+                transform="translate(-67.283 41.502)"
+              >
+                <g
+                  transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
+                  filter="url(#다각형_27)"
+                >
+                  <path
+                    id="다각형_27-2"
+                    data-name="다각형 27"
+                    d="M28,0l7,21,21,7L35,35,28,56,21,35,0,28l21-7Z"
+                    transform="translate(55 36.5)"
+                    fill="#fff500"
+                  />
+                </g>
+                <g
+                  transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
+                  filter="url(#다각형_42)"
+                >
+                  <path
+                    id="다각형_42-2"
+                    data-name="다각형 42"
+                    d="M9.5,0l2.375,7.125L19,9.5l-7.125,2.375L9.5,19,7.125,11.875,0,9.5,7.125,7.125Z"
+                    transform="translate(53 76)"
+                    fill="#fff500"
+                  />
+                </g>
+                <g
+                  transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
+                  filter="url(#다각형_43)"
+                >
+                  <path
+                    id="다각형_43-2"
+                    data-name="다각형 43"
+                    d="M12.5,0l3.125,9.375L25,12.5l-9.375,3.125L12.5,25,9.375,15.625,0,12.5,9.375,9.375Z"
+                    transform="translate(30 60.5)"
+                    fill="#fff500"
+                  />
+                </g>
+                <g
+                  transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
+                  filter="url(#다각형_44)"
+                >
+                  <path
+                    id="다각형_44-2"
+                    data-name="다각형 44"
+                    d="M9.5,0l2.375,7.125L19,9.5l-7.125,2.375L9.5,19,7.125,11.875,0,9.5,7.125,7.125Z"
+                    transform="translate(39 41.39)"
+                    fill="#fff500"
+                  />
+                </g>
+                <g
+                  transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
+                  filter="url(#다각형_45)"
+                >
+                  <path
+                    id="다각형_45-2"
+                    data-name="다각형 45"
+                    d="M9.5,0l2.375,7.125L19,9.5l-7.125,2.375L9.5,19,7.125,11.875,0,9.5,7.125,7.125Z"
+                    transform="translate(55 30)"
+                    fill="#fff500"
+                  />
+                </g>
+              </g>
+            </svg>
+          </motion.div>
+        ) : (
+          <motion.svg
+            key={star.label + "unselected"}
+            animate="animate"
+            initial="initial"
+            exit="exit"
+            variants={starVariants}
+            custom={{ duration: star.duration }}
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            width="141"
-            height="125"
-            viewBox="0 0 141 125"
+            width="76"
+            height="76"
+            viewBox="0 0 76 76"
           >
             <defs>
               <filter
-                id="다각형_27"
-                x="25"
-                y="6.5"
-                width="116"
-                height="116"
+                id="다각형_26"
+                x="0"
+                y="0"
+                width="76"
+                height="76"
                 filterUnits="userSpaceOnUse"
               >
                 <feOffset in="SourceAlpha" />
-                <feGaussianBlur stdDeviation="10" result="blur" />
+                <feGaussianBlur
+                  id={id}
+                  stdDeviation={star.initialBrightness}
+                  result="blur"
+                />
                 <feFlood floodColor="#fff" floodOpacity="0.8" />
                 <feComposite operator="in" in2="blur" />
                 <feComposite in="SourceGraphic" />
               </filter>
-              <filter
-                id="다각형_42"
-                x="23"
-                y="46"
-                width="79"
-                height="79"
-                filterUnits="userSpaceOnUse"
-              >
-                <feOffset in="SourceAlpha" />
-                <feGaussianBlur stdDeviation="10" result="blur-2" />
-                <feFlood floodColor="#fff" floodOpacity="0.8" />
-                <feComposite operator="in" in2="blur-2" />
-                <feComposite in="SourceGraphic" />
-              </filter>
-              <filter
-                id="다각형_43"
-                x="0"
-                y="30.5"
-                width="85"
-                height="85"
-                filterUnits="userSpaceOnUse"
-              >
-                <feOffset in="SourceAlpha" />
-                <feGaussianBlur stdDeviation="10" result="blur-3" />
-                <feFlood floodColor="#fff" floodOpacity="0.8" />
-                <feComposite operator="in" in2="blur-3" />
-                <feComposite in="SourceGraphic" />
-              </filter>
-              <filter
-                id="다각형_44"
-                x="9"
-                y="11.387"
-                width="79"
-                height="79"
-                filterUnits="userSpaceOnUse"
-              >
-                <feOffset in="SourceAlpha" />
-                <feGaussianBlur stdDeviation="10" result="blur-4" />
-                <feFlood floodColor="#fff" floodOpacity="0.8" />
-                <feComposite operator="in" in2="blur-4" />
-                <feComposite in="SourceGraphic" />
-              </filter>
-              <filter
-                id="다각형_45"
-                x="25"
-                y="0"
-                width="79"
-                height="79"
-                filterUnits="userSpaceOnUse"
-              >
-                <feOffset in="SourceAlpha" />
-                <feGaussianBlur stdDeviation="10" result="blur-5" />
-                <feFlood floodColor="#fff" floodOpacity="0.8" />
-                <feComposite operator="in" in2="blur-5" />
-                <feComposite in="SourceGraphic" />
-              </filter>
             </defs>
-            <g
-              id="그룹_678"
-              data-name="그룹 678"
-              transform="translate(-67.283 41.502)"
-            >
-              <g
-                transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
-                filter="url(#다각형_27)"
-              >
-                <path
-                  id="다각형_27-2"
-                  data-name="다각형 27"
-                  d="M28,0l7,21,21,7L35,35,28,56,21,35,0,28l21-7Z"
-                  transform="translate(55 36.5)"
-                  fill="#fff500"
-                />
-              </g>
-              <g
-                transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
-                filter="url(#다각형_42)"
-              >
-                <path
-                  id="다각형_42-2"
-                  data-name="다각형 42"
-                  d="M9.5,0l2.375,7.125L19,9.5l-7.125,2.375L9.5,19,7.125,11.875,0,9.5,7.125,7.125Z"
-                  transform="translate(53 76)"
-                  fill="#fff500"
-                />
-              </g>
-              <g
-                transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
-                filter="url(#다각형_43)"
-              >
-                <path
-                  id="다각형_43-2"
-                  data-name="다각형 43"
-                  d="M12.5,0l3.125,9.375L25,12.5l-9.375,3.125L12.5,25,9.375,15.625,0,12.5,9.375,9.375Z"
-                  transform="translate(30 60.5)"
-                  fill="#fff500"
-                />
-              </g>
-              <g
-                transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
-                filter="url(#다각형_44)"
-              >
-                <path
-                  id="다각형_44-2"
-                  data-name="다각형 44"
-                  d="M9.5,0l2.375,7.125L19,9.5l-7.125,2.375L9.5,19,7.125,11.875,0,9.5,7.125,7.125Z"
-                  transform="translate(39 41.39)"
-                  fill="#fff500"
-                />
-              </g>
-              <g
-                transform="matrix(1, 0, 0, 1, 67.28, -41.5)"
-                filter="url(#다각형_45)"
-              >
-                <path
-                  id="다각형_45-2"
-                  data-name="다각형 45"
-                  d="M9.5,0l2.375,7.125L19,9.5l-7.125,2.375L9.5,19,7.125,11.875,0,9.5,7.125,7.125Z"
-                  transform="translate(55 30)"
-                  fill="#fff500"
-                />
-              </g>
-            </g>
-          </svg>
-        </motion.div>
-      ) : (
-        <motion.svg
-          key="unselected"
-          animate="animate"
-          initial="initial"
-          exit="exit"
-          variants={starVariants}
-          custom={{ duration: star.duration }}
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          width="76"
-          height="76"
-          viewBox="0 0 76 76"
-        >
-          <defs>
-            <filter
-              id="다각형_26"
-              x="0"
-              y="0"
-              width="76"
-              height="76"
-              filterUnits="userSpaceOnUse"
-            >
-              <feOffset in="SourceAlpha" />
-              <feGaussianBlur
-                id={id}
-                stdDeviation={star.initialBrightness}
-                result="blur"
+            <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#다각형_26)">
+              <path
+                id="다각형_26-2"
+                data-name="다각형 26"
+                d="M28,0l7,21,21,7L35,35,28,56,21,35,0,28l21-7Z"
+                fill="#fff"
+                transform="translate(10, 10)"
               />
-              <feFlood floodColor="#fff" floodOpacity="0.8" />
-              <feComposite operator="in" in2="blur" />
-              <feComposite in="SourceGraphic" />
-            </filter>
-          </defs>
-          <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#다각형_26)">
-            <path
-              id="다각형_26-2"
-              data-name="다각형 26"
-              d="M28,0l7,21,21,7L35,35,28,56,21,35,0,28l21-7Z"
-              fill="#fff"
-              transform="translate(10, 10)"
-            />
-          </g>
+            </g>
 
-          <animate
-            xlinkHref={`#${id}`}
-            attributeName="stdDeviation"
-            values={`${star.initialBrightness};15;4;15;${star.initialBrightness}`}
-            dur={`${star.duration}s`}
-            begin="0s"
-            repeatCount="indefinite"
-          />
-        </motion.svg>
-      )}
+            <animate
+              xlinkHref={`#${id}`}
+              attributeName="stdDeviation"
+              values={`${star.initialBrightness};15;4;15;${star.initialBrightness}`}
+              dur={`${star.duration}s`}
+              begin="0s"
+              repeatCount="indefinite"
+            />
+          </motion.svg>
+        )}
+      </AnimatePresence>
 
       {star.label}
     </Star>
@@ -630,7 +632,7 @@ function StarWithLabel({ star, id }: { id: string; star: Star }) {
 
 const starVariants: Variants = {
   initial: {
-    scale: 0.5,
+    scale: 0.2,
     opacity: 0.85,
   },
   animate: ({ duration }: any) => ({
@@ -645,7 +647,7 @@ const starVariants: Variants = {
     },
   }),
   exit: {
-    scale: 0.5,
+    scale: 0.01,
     opacity: 0.85,
   },
 };
@@ -660,7 +662,7 @@ const selectedStarVariants: Variants = {
     y: -10,
   }),
   exit: {
-    scale: 0.2,
+    scale: 0.01,
     opacity: 0.85,
   },
 };

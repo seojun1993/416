@@ -41,18 +41,18 @@ const PreloadVideo = (props: PreloadVideoProps) => {
   useEffect(() => {
     if (src && videoRef.current) {
       videoRef.current.src = src;
-      // videoRef.current.onloadeddata = () => {
-      //   controls.start("animate");
-      //   setIsPlaying(true);
-      // };
-      // videoRef.current.onended = (event) => {
-      //   controls.start("exit");
-      //   setIsPlaying(false);
-      // };
+      videoRef.current.onloadeddata = () => {
+        controls.start("animate");
+        setIsPlaying(true);
+      };
+      videoRef.current.onended = (event) => {
+        controls.start("exit");
+        setIsPlaying(false);
+      };
     }
   }, []);
   useEffect(() => {
-    if (isPlaying && videoRef.current) {
+    if (videoRef.current) {
       videoRef.current.playbackRate = speed;
     }
   }, [speed, videoRef.current, isPlaying]);

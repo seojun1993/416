@@ -1,5 +1,6 @@
 import { NodeType, Vector } from "@/libs/way-finder/Vector";
 import { Graph } from "@/libs/way-finder/finder";
+import { findClosestVector } from "@/libs/way-finder/utils";
 import { KioskContents } from "@/types/kiosk-contents";
 import { KioskRouteResponse, PubInfo } from "@/types/kiosk-route";
 import { XMLParser } from "fast-xml-parser";
@@ -56,6 +57,7 @@ export const fetchKioskRouteNodes = async () => {
 
   const pubList: { [key: number]: PubInfo[] } = {};
   const pubMap = new Map<string, PubInfo[]>();
+  const graphValueToList = [...graph.values()];
   response.PUB_LIST.PUB_INFO.forEach((pub) => {
     pubMap.set(pub.area, [...(pubMap.get(pub.area) ?? []), pub]);
     if (!pubList[pub.PUB_FLOOR.value]) {
@@ -64,40 +66,46 @@ export const fetchKioskRouteNodes = async () => {
     pubList[pub.PUB_FLOOR.value].push(pub);
   });
   response.CLASS_LIST.CLASS_INFO.forEach((cls) => {
-    const id = Vector.getVectorId({
-      floor: cls.CLASS_FLOOR.value,
-      x: cls.CLASS_FLOOR.pos_x,
-      y: cls.CLASS_FLOOR.pos_y,
-    });
-    const classNode = graph.get(id);
+    const classNode = findClosestVector(
+      graphValueToList,
+      cls.CLASS_FLOOR.pos_x,
+      cls.CLASS_FLOOR.pos_y,
+      cls.CLASS_FLOOR.value
+    );
     if (classNode) {
       cls.node = classNode;
     }
   });
   pubMap.forEach((pubList, key) => {
     pubList.forEach((pub) => {
-      const id = Vector.getVectorId({
-        floor: pub.PUB_FLOOR.value,
-        x: pub.PUB_FLOOR.pos_x,
-        y: pub.PUB_FLOOR.pos_y,
-      });
-      const foundVector = graph.get(id);
+      const foundVector = findClosestVector(
+        graphValueToList,
+        pub.PUB_FLOOR.pos_x,
+        pub.PUB_FLOOR.pos_y,
+        pub.PUB_FLOOR.value
+      );
       if (foundVector) {
         foundVector.setType(NodeType.PUBLIC);
-        pubList.forEach((childPub) => {
-          const childId = Vector.getVectorId({
-            floor: childPub.PUB_FLOOR.value,
-            x: childPub.PUB_FLOOR.pos_x,
-            y: childPub.PUB_FLOOR.pos_y,
+        if (["P01"].includes(pub.PUB_CODE)) {
+          pubList.forEach((childPub) => {
+            if (childPub.PUB_ID === pub.PUB_ID && pub.area !== childPub.area)
+              return;
+
+            const foundChildVector = findClosestVector(
+              graphValueToList,
+              childPub.PUB_FLOOR.pos_x,
+              childPub.PUB_FLOOR.pos_y,
+              childPub.PUB_FLOOR.value
+            );
+
+            if (foundChildVector) {
+              foundChildVector.setType(NodeType.PUBLIC);
+              foundVector.addLinkedVector(foundChildVector, 1);
+            }
           });
-          if (childId === id) return;
-          const foundChildVector = graph.get(childId);
-          if (foundChildVector) {
-            foundChildVector.setType(NodeType.PUBLIC);
-            foundVector.addLinkedVector(foundChildVector, 1);
-          }
-        });
-        graph.set(id, foundVector);
+        }
+
+        graph.set(foundVector.id, foundVector);
       }
     });
   });
@@ -118,16 +126,22 @@ export const fetchKioskRouteContents = async (kioskCode = "K001") => {
   url.searchParams.set("kiosk_code", kioskCode);
   const xml = await fetch(url).then((response) => response.text());
   const response = parser.parse(xml).KIOSK as KioskContents;
-  const posMap = new Map();
-  // FIXME
-  posMap.set("1F", {
-    pos_x: 1187,
-    pos_y: 527,
+
+  response.KIOSK_LIST.forEach((kioskCode) => {
+    kioskCode.KIOSK_INFO.KIOSK_CODE = kioskCode.KIOSK_INFO.KIOSK_CODE.trim();
   });
+  const kiosk = response.KIOSK_LIST.find(
+    (kiosk) => kiosk.KIOSK_INFO.KIOSK_CODE === kioskCode
+  );
+
+  response.KIOSK_INFO = kiosk?.KIOSK_INFO;
   response.HEADER.KIOSK_FLOOR = {
     ...response.HEADER.KIOSK_FLOOR,
-    ...(posMap.get(response.HEADER.KIOSK_FLOOR.floor) ?? {}),
+    ...(response.KIOSK_LIST.find(
+      (kiosk) => kiosk.KIOSK_INFO.KIOSK_CODE === kioskCode
+    )?.KIOSK_INFO.KIOSK_POS ?? {}),
   };
+
   response.MAP_LIST.forEach((map) => {
     map.MAP_INFO.MAP_NAME = map.MAP_INFO.MAP_NAME.trim();
   });
