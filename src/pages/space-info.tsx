@@ -216,60 +216,79 @@ const SpaceInfo = () => {
             overflow: hidden;
           `}
         >
-          <TransformWrapper ref={pinchRef}>
-            <TransformComponent>
-              <div
-                css={css`
-                  position: absolute;
-                  z-index: 5;
-                  width: 100%;
-                  height: 100%;
-                  left: 50%;
-                  top: 50%;
-                `}
+          <div
+            css={css`
+              height: 100%;
+              display: flex;
+              align-items: center;
+            `}
+          >
+            <TransformWrapper ref={pinchRef}>
+              <TransformComponent
+                contentStyle={{
+                  width: 3080,
+                  height: 1003,
+                }}
               >
-                {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
-                  const urls = MAP_INFO.MAIN_MAP_URL.split("/");
-                  const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
-                    urls[urls.length - 1]
-                  }`;
+                <div
+                  css={css`
+                    position: absolute;
+                    z-index: 5;
+                    width: ${3080}px;
+                    height: ${1003}px;
+                    height: 100%;
+                    left: 50%;
+                    top: 50%;
+                  `}
+                >
+                  {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
+                    const urls = MAP_INFO.MAIN_MAP_URL.split("/");
+                    const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
+                      urls[urls.length - 1]
+                    }`;
 
-                  const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
-                    (pub) => ({
-                      ...pub,
-                      icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
-                        contents.PUB_INFO_LIST.find(
-                          (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
-                        )?.PUB_INFO.PUB_URL
-                      }`,
-                    })
-                  );
-                  return (
-                    <MapItem
-                      key={MAP_INFO.MAP_NAME}
-                      pubList={currentPubList}
-                      classList={classMap.get(MAP_INFO.floor)}
-                      name={MAP_INFO.MAP_NAME}
-                      floor={MAP_INFO.floor}
-                      selectedPubCode={selectedPubCode}
-                      width={contents?.HEADER.MAP_RESOLUTION.width ?? 0}
-                      height={contents?.HEADER.MAP_RESOLUTION.height ?? 0}
-                      url={url}
-                      index={idx}
-                      boxSize={{
-                        width: size?.width ?? 0,
-                        height: size?.height ?? 0,
-                      }}
-                      selectedIndex={selectedMapIdx}
-                      path={foundPath}
-                      wayfind={wayfind}
-                      onAnimationEnd={onAnimationEnd}
-                    />
-                  );
-                })}
-              </div>
-            </TransformComponent>
-          </TransformWrapper>
+                    const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
+                      (pub) => ({
+                        ...pub,
+                        icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
+                          contents.PUB_INFO_LIST.find(
+                            (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
+                          )?.PUB_INFO.PUB_URL
+                        }`,
+                      })
+                    );
+
+                    return (
+                      <MapItem
+                        key={MAP_INFO.MAP_NAME}
+                        pubList={currentPubList}
+                        classList={classMap.get(MAP_INFO.floor)}
+                        name={MAP_INFO.MAP_NAME}
+                        floor={MAP_INFO.floor}
+                        selectedPubCode={selectedPubCode}
+                        width={3080 ?? 0}
+                        height={1003 ?? 0}
+                        url={url}
+                        index={idx}
+                        boxSize={{
+                          width:
+                            3080 /
+                            (contentsData.HEADER.MAP_RESOLUTION.width ?? 1),
+                          height:
+                            1003 /
+                            (contentsData.HEADER.MAP_RESOLUTION.height ?? 1),
+                        }}
+                        selectedIndex={selectedMapIdx}
+                        path={foundPath}
+                        wayfind={wayfind}
+                        onAnimationEnd={onAnimationEnd}
+                      />
+                    );
+                  })}
+                </div>
+              </TransformComponent>
+            </TransformWrapper>
+          </div>
           <AnimatePresence mode="popLayout">
             <MapPubList
               key={selectedMapIdx}
@@ -335,7 +354,6 @@ function MapItem({
   height,
   url,
   width,
-  path,
   pubList,
   classList,
   selectedPubCode,
@@ -364,14 +382,12 @@ function MapItem({
   const initialMount = useRef(false);
 
   const direction =
-    index - selectedIndex - 1 > 0
+    index + 1 - selectedIndex > 0
       ? "BOTTOM"
-      : index === selectedIndex - 1
+      : index + 1 === selectedIndex
       ? "ACTIVE"
       : "TOP";
   const defaultStyle = {
-    scaleX: boxSize.width / width || 0.8,
-    scaleY: boxSize.height / height || 0.8,
     width: `${width}px`,
     height: `${height}px`,
     left: `${-(width / 2)}px`,
@@ -437,8 +453,7 @@ function MapItem({
         css={css`
           position: absolute;
           z-index: 1;
-          transform: translate(0px, 0px)
-            scale(${defaultStyle.scaleX}, ${defaultStyle.scaleY}) rotate(0deg);
+
           width: ${width}px;
           height: ${height}px;
         `}
@@ -457,8 +472,8 @@ function MapItem({
           <motion.img
             css={css`
               position: absolute;
-              top: ${pub.PUB_FLOOR.pos_y + 35}px;
-              left: ${pub.PUB_FLOOR.pos_x - 41.5}px;
+              top: calc(${pub.PUB_FLOOR.pos_y}px * ${boxSize.height} - 30px);
+              left: calc(${pub.PUB_FLOOR.pos_x}px * ${boxSize.width} - 30px);
               border-radius: 9999rem;
               width: 60px;
               height: 60px;
@@ -493,10 +508,10 @@ function MapItem({
               border: none;
               z-index: 10;
               position: absolute;
-              top: ${cls.CLASS_FLOOR.pos_y}px;
-              left: ${cls.CLASS_FLOOR.pos_x}px;
+              transform: translateX(-50%) translateY(-50%);
+              top: calc(${cls.CLASS_FLOOR.pos_y}px * ${boxSize.height});
+              left: calc(${cls.CLASS_FLOOR.pos_x}px * ${boxSize.width});
               font-size: calc(${cls.FONT_SIZE}px);
-              line-height: ${cls.LINE_HEIGHT}px;
               color: ${cls.FONT_COLOR};
               pointer-events: all;
             `}
@@ -509,7 +524,7 @@ function MapItem({
           {
             <Path
               floor={floor}
-              scaleY={defaultStyle.scaleY}
+              boxSize={boxSize}
               onAnimationComplete={() => onAnimationEnd?.(floor)}
             />
           }
@@ -520,12 +535,16 @@ function MapItem({
 }
 
 function Path({
-  scaleY,
+  boxSize,
   floor,
   onAnimationComplete,
 }: {
+  boxSize: {
+    width: number;
+    height: number;
+  };
   floor: number;
-  scaleY: number;
+  // scaleY: number;
   onAnimationComplete?: () => void;
 }) {
   const { activeList, destination, animationState, mapIndex, pathList } =
@@ -535,16 +554,15 @@ function Path({
     [pathList]
   );
   const active = useMemo(() => activeList.includes(floor), [activeList, floor]);
-
   const id = useId();
   const dist = useMemo(() => {
     if (!currentPath?.length) return "";
-    let d = `M${currentPath[0].getPosition().x},${
-      currentPath[0].getPosition().y
+    let d = `M${currentPath[0].getPosition().x * boxSize.width},${
+      currentPath[0].getPosition().y * boxSize.height
     }`;
     for (let i = 1; i < currentPath.length; i++) {
       const position = currentPath[i].getPosition();
-      d += `L${position.x},${position.y}`;
+      d += `L${position.x * boxSize.width},${position.y * boxSize.height}`;
     }
     return d;
   }, [currentPath]);
@@ -592,10 +610,9 @@ function Path({
       css={css`
         position: absolute;
         width: 100%;
-        height: 96%;
+        height: 100%;
         left: 0;
-        top: 2%;
-        transform: scaleY(${scaleY});
+        top: 0;
       `}
     >
       <path

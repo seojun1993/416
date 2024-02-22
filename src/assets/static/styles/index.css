@@ -12,12 +12,9 @@
   outline-color: #fff500 !important;
 }
 .react-transform-wrapper {
-  width: 100% !important;
-  height: 100% !important;
-}
-.react-transform-component {
-  width: 100% !important;
-  height: 100% !important;
+  width: 3080px !important;
+  height: 1003px !important;
+  display: flex;
 }
 
 #root {
