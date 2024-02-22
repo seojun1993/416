@@ -230,7 +230,6 @@ const Search = () => {
         <Keyboard
           defaultValue={searchParam.get("keyword") ?? ""}
           onChange={(value) => {
-            console.log(value);
             if (inputRef.current) {
               inputRef.current.value = value;
             }

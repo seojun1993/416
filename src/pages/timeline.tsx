@@ -6,7 +6,6 @@ import styled from "@emotion/styled";
 import timelineImage from "@/assets/images/timeline.png";
 import { css } from "@emotion/react";
 const Timeline = () => {
-  console.log(timelineImage);
   return (
     <MemoryShell>
       <MemoryHeader>

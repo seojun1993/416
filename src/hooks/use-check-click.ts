@@ -48,7 +48,6 @@ export const useCheckClick = (options: usecheckClickOption) => {
     switch (event.code) {
       case "Enter":
       case "Space":
-        console.log(event.target);
         clicked.current = true;
         ref.current?.click?.();
         break;

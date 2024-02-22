@@ -29,7 +29,6 @@ const StyleFromDirection: { [key in DIRECTION]: string } = {
 };
 
 const getStylesFromDirection = (direction: DIRECTION) => {
-  console.log(StyleFromDirection[direction]);
   return StyleFromDirection[direction];
 };
 

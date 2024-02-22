@@ -12,8 +12,9 @@
   outline-color: #fff500 !important;
 }
 .react-transform-wrapper {
-  width: 3080px !important;
-  height: 1003px !important;
+  width: 100% !important;
+  height: 100% !important;
+
   display: flex;
 }
 

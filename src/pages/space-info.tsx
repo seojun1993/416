@@ -223,71 +223,78 @@ const SpaceInfo = () => {
               align-items: center;
             `}
           >
-            <TransformWrapper ref={pinchRef}>
-              <TransformComponent
-                contentStyle={{
-                  width: 3080,
-                  height: 1003,
-                }}
-              >
-                <div
-                  css={css`
-                    position: absolute;
-                    z-index: 5;
-                    width: ${3080}px;
-                    height: ${1003}px;
-                    height: 100%;
-                    left: 50%;
-                    top: 50%;
-                  `}
+            <div
+              css={css`
+                width: 3080px;
+                height: 1003px;
+              `}
+            >
+              <TransformWrapper ref={pinchRef}>
+                <TransformComponent
+                  contentStyle={{
+                    width: 3080,
+                    height: 1003,
+                  }}
                 >
-                  {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
-                    const urls = MAP_INFO.MAIN_MAP_URL.split("/");
-                    const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
-                      urls[urls.length - 1]
-                    }`;
+                  <div
+                    css={css`
+                      position: absolute;
+                      z-index: 5;
+                      width: ${3080}px;
+                      height: ${1003}px;
+                      height: 100%;
+                      left: 50%;
+                      top: 50%;
+                    `}
+                  >
+                    {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
+                      const urls = MAP_INFO.MAIN_MAP_URL.split("/");
+                      const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
+                        urls[urls.length - 1]
+                      }`;
 
-                    const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
-                      (pub) => ({
-                        ...pub,
-                        icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
-                          contents.PUB_INFO_LIST.find(
-                            (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
-                          )?.PUB_INFO.PUB_URL
-                        }`,
-                      })
-                    );
+                      const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
+                        (pub) => ({
+                          ...pub,
+                          icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
+                            contents.PUB_INFO_LIST.find(
+                              (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
+                            )?.PUB_INFO.PUB_URL
+                          }`,
+                        })
+                      );
 
-                    return (
-                      <MapItem
-                        key={MAP_INFO.MAP_NAME}
-                        pubList={currentPubList}
-                        classList={classMap.get(MAP_INFO.floor)}
-                        name={MAP_INFO.MAP_NAME}
-                        floor={MAP_INFO.floor}
-                        selectedPubCode={selectedPubCode}
-                        width={3080 ?? 0}
-                        height={1003 ?? 0}
-                        url={url}
-                        index={idx}
-                        boxSize={{
-                          width:
-                            3080 /
-                            (contentsData.HEADER.MAP_RESOLUTION.width ?? 1),
-                          height:
-                            1003 /
-                            (contentsData.HEADER.MAP_RESOLUTION.height ?? 1),
-                        }}
-                        selectedIndex={selectedMapIdx}
-                        path={foundPath}
-                        wayfind={wayfind}
-                        onAnimationEnd={onAnimationEnd}
-                      />
-                    );
-                  })}
-                </div>
-              </TransformComponent>
-            </TransformWrapper>
+                      return (
+                        <MapItem
+                          key={MAP_INFO.MAP_NAME}
+                          pubList={currentPubList}
+                          classList={classMap.get(MAP_INFO.floor)}
+                          name={MAP_INFO.MAP_NAME}
+                          floor={MAP_INFO.floor}
+                          selectedPubCode={selectedPubCode}
+                          width={3080 ?? 0}
+                          height={1003 ?? 0}
+                          url={url}
+                          index={idx}
+                          boxSize={{
+                            width:
+                              3080 /
+                              (contentsData.HEADER.MAP_RESOLUTION.width ?? 1),
+                            height:
+                              1003 /
+                              (contentsData.HEADER.MAP_RESOLUTION.height ?? 1),
+                          }}
+                          selectedIndex={selectedMapIdx}
+                          path={foundPath}
+                          wayfind={wayfind}
+                          onAnimationEnd={onAnimationEnd}
+                        />
+                      );
+                    })}
+                  </div>
+                </TransformComponent>
+              </TransformWrapper>
+            </div>
           </div>
           <AnimatePresence mode="popLayout">
             <MapPubList

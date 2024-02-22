@@ -461,7 +461,14 @@ const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
             color: black;
           `}
         >
-          <TransformComponent>{props.children}</TransformComponent>
+          <TransformComponent
+            contentStyle={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            {props.children}
+          </TransformComponent>
         </div>
       </TransformWrapper>
     </div>
