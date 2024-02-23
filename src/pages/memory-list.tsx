@@ -133,7 +133,7 @@ const MemoryList = () => {
                     slides={students}
                     cssSlide={css`
                       flex: 1;
-                      width: 100%;
+                      width: 90%;
                     `}
                   >
                     {(item, index) => {
@@ -250,7 +250,7 @@ const AlbumVisualizer = forwardRef<{
         position: relative;
         flex: 1;
         height: 100%;
-        margin-right: 3rem;
+        margin-right: 2rem;
       `}
     >
       <div
@@ -387,7 +387,7 @@ const MemoryAlbum = memo(
         `}
       >
         <TransformWrapper ref={panRef}>
-          <TransformComponent>
+          <TransformComponent contentStyle={{ width: "100%" }}>
             <img
               css={css`
                 width: 100%;
@@ -459,7 +459,7 @@ const MemoryShell = styled(MainShell)`
 
 const MemoryContent = styled.div`
   display: flex;
-  column-gap: 1rem;
+  column-gap: 2rem;
   flex: 1;
   width: 100%;
 `;

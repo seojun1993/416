@@ -1535,7 +1535,7 @@ function Birth({ students }: BirthProps) {
           &::after {
             content: "";
             position: absolute;
-            bottom: -1%;
+            bottom: -10%;
             left: 50%;
             transform: translateX(-50%);
             width: 101%;

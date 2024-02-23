@@ -56,9 +56,7 @@ const SpaceInfo = () => {
   const [foundPath, setFoundPath] = useState<Vector[]>([]);
   const [animationState, setAnimationState] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
-  const size = useElementSize(boxRef.current);
   const pinchRef = useRef<ReactZoomPanPinchContentRef>(null);
-
   const [{ data: nodesData }, { data: contentsData }] = useSuspenseQueries({
     queries: [getKioskRoute, getKioskContents("K001")],
   });
@@ -145,9 +143,6 @@ const SpaceInfo = () => {
     if (destination !== null && floor !== destination.getFloor()) {
       setSelectedMapIdx(destination.getFloor());
     }
-    if (floor === selectedMapIdx) {
-      setAnimationState(false);
-    }
   };
 
   const activeFloorList = useMemo(() => {
@@ -160,6 +155,9 @@ const SpaceInfo = () => {
   const onBlurClick = () => {
     setSelectedPubCode("");
   };
+  const handleEndPath = () => {
+    setAnimationState(false);
+  };
 
   useLayoutEffect(() => {
     if (parsedData) {
@@ -168,8 +166,10 @@ const SpaceInfo = () => {
   }, [parsedData]);
   useLayoutEffect(() => {
     window.addEventListener("click", onBlurClick);
+    window.addEventListener("endpath", handleEndPath);
     return () => {
       window.removeEventListener("click", onBlurClick);
+      window.removeEventListener("endpath", handleEndPath);
     };
   }, []);
 
@@ -276,6 +276,7 @@ const SpaceInfo = () => {
                           width={3080 ?? 0}
                           height={1003 ?? 0}
                           url={url}
+                          kioskNode={kioskNode}
                           index={idx}
                           boxSize={{
                             width:
@@ -364,6 +365,7 @@ function MapItem({
   width,
   pubList,
   classList,
+  kioskNode,
   selectedPubCode,
   wayfind,
   onAnimationEnd,
@@ -378,6 +380,7 @@ function MapItem({
   url: string;
   name: string;
   index: number;
+  kioskNode?: Vector;
   selectedIndex: number;
   path?: Vector[];
   selectedPubCode?: string;
@@ -475,7 +478,55 @@ function MapItem({
             object-fit: contain;
           `}
         />
-
+        {kioskNode?.getFloor() === floor && (
+          <svg
+            className="bounce-down"
+            css={css`
+              position: absolute;
+              left: 50%;
+              top: 0;
+              top: calc(
+                ${kioskNode.getPosition().y}px * ${boxSize.height} - 50px
+              );
+              left: calc(${kioskNode.getPosition().x}px * ${boxSize.width});
+              z-index: 1;
+            `}
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            width="105.999"
+            height="127.093"
+            viewBox="0 0 105.999 127.093"
+          >
+            <defs>
+              <filter
+                id="빼기_4"
+                x="0"
+                y="0"
+                width="105.999"
+                height="127.093"
+                filterUnits="userSpaceOnUse"
+              >
+                <feOffset in="SourceAlpha" />
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feFlood floodOpacity="0.8" />
+                <feComposite operator="in" in2="blur" />
+                <feComposite in="SourceGraphic" />
+              </filter>
+            </defs>
+            <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#빼기_4)">
+              <path
+                id="빼기_4-2"
+                data-name="빼기 4"
+                d="M15698.323-3952.782h0a127.544,127.544,0,0,1-10.627-10.266,163.879,163.879,0,0,1-12.36-14.891,100.8,100.8,0,0,1-10.24-16.979c-2.832-6.163-4.269-11.726-4.269-16.532a36.962,36.962,0,0,1,2.946-14.532,37.219,37.219,0,0,1,8.036-11.866,37.386,37.386,0,0,1,11.92-8,37.411,37.411,0,0,1,14.6-2.934,37.413,37.413,0,0,1,14.6,2.934,37.4,37.4,0,0,1,11.921,8,37.216,37.216,0,0,1,8.036,11.866,36.96,36.96,0,0,1,2.946,14.532c0,4.806-1.366,10.215-4.06,16.074a93.5,93.5,0,0,1-9.892,16.215c-7.3,9.855-16,18.865-23.549,26.379Zm.149-84a26.7,26.7,0,0,0-10.482,2.123,26.835,26.835,0,0,0-8.559,5.788,26.919,26.919,0,0,0-5.771,8.585,26.9,26.9,0,0,0-2.116,10.513,26.9,26.9,0,0,0,2.116,10.513,26.914,26.914,0,0,0,5.771,8.585,26.83,26.83,0,0,0,8.559,5.788,26.7,26.7,0,0,0,10.482,2.123,26.711,26.711,0,0,0,10.485-2.123,26.816,26.816,0,0,0,8.56-5.788,26.911,26.911,0,0,0,5.772-8.585,26.9,26.9,0,0,0,2.116-10.513,26.9,26.9,0,0,0-2.116-10.513,26.911,26.911,0,0,0-5.772-8.585,26.82,26.82,0,0,0-8.56-5.788A26.711,26.711,0,0,0,15698.473-4036.781Z"
+                transform="translate(-15645.33 4064.28)"
+                fill="#fff500"
+                stroke="rgba(0,0,0,0)"
+                strokeMiterlimit="10"
+                strokeWidth="1"
+              />
+            </g>
+          </svg>
+        )}
         {pubList?.map((pub) => (
           <motion.img
             css={css`
@@ -611,6 +662,9 @@ function Path({
             ease: "linear",
             onComplete() {
               if (active) {
+                if (destination?.getFloor() === floor) {
+                  dispatchEvent(new CustomEvent("endpath"));
+                }
                 onAnimationComplete?.();
               }
             },
