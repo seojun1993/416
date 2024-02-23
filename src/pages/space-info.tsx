@@ -120,6 +120,7 @@ const SpaceInfo = () => {
           setFoundPath(found.path);
           setSelectedMapIdx(parsedData.kioskNode.getFloor());
           setAnimationState(true);
+          pinchRef.current?.resetTransform(500, "easeOutCubic");
         }
       }
     },
@@ -479,11 +480,18 @@ function MapItem({
           <motion.img
             css={css`
               position: absolute;
-              top: calc(${pub.PUB_FLOOR.pos_y}px * ${boxSize.height} - 30px);
-              left: calc(${pub.PUB_FLOOR.pos_x}px * ${boxSize.width} - 30px);
+              top: calc(
+                ${pub.PUB_FLOOR.pos_y}px * ${boxSize.height} -
+                  calc(calc(60px + var(--font-size) * 0.5) / 2)
+              );
+              left: calc(
+                ${pub.PUB_FLOOR.pos_x}px * ${boxSize.width} -
+                  calc(calc(60px + var(--font-size) * 0.5) / 2)
+              );
               border-radius: 9999rem;
-              width: 60px;
-              height: 60px;
+              width: calc(60px + var(--font-size) * 0.5);
+              height: calc(60px + var(--font-size) * 0.5);
+              aspect-ratio: 1/1;
             `}
             initial={{ scale: 1 }}
             animate={
@@ -502,31 +510,39 @@ function MapItem({
             key={pub.PUB_ID}
           />
         ))}
-        {classList?.map((cls, index) => (
-          <button
-            onClick={() => {
-              if (cls.node) {
-                wayfind(cls.node.id);
-              }
-            }}
-            tabIndex={direction === "ACTIVE" ? 0 : -1}
-            css={css`
-              background-color: transparent;
-              border: none;
-              z-index: 10;
-              position: absolute;
-              transform: translateX(-50%) translateY(-50%);
-              top: calc(${cls.CLASS_FLOOR.pos_y}px * ${boxSize.height});
-              left: calc(${cls.CLASS_FLOOR.pos_x}px * ${boxSize.width});
-              font-size: calc(${cls.FONT_SIZE}px);
-              color: ${cls.FONT_COLOR};
-              pointer-events: all;
-            `}
-            key={cls.CLASS_NAME}
-          >
-            {cls.CLASS_NAME}
-          </button>
-        ))}
+        {classList?.map((cls, index) => {
+          return (
+            <button
+              onClick={() => {
+                if (cls.node) {
+                  wayfind(cls.node.id);
+                }
+              }}
+              tabIndex={direction === "ACTIVE" ? 0 : -1}
+              css={css`
+                background-color: transparent;
+                border: none;
+                z-index: 10;
+                position: absolute;
+                transform: translateX(-50%) translateY(-50%);
+                top: calc(${cls.CLASS_FLOOR.pos_y}px * ${boxSize.height});
+                left: calc(${cls.CLASS_FLOOR.pos_x}px * ${boxSize.width});
+                font-size: calc(
+                  ${cls.FONT_SIZE}px +
+                    calc(
+                      var(--font-size) * ${(boxSize.width + boxSize.height) / 2}
+                    )
+                );
+                font-weight: bold;
+                color: ${cls.FONT_COLOR};
+                pointer-events: all;
+              `}
+              key={cls.CLASS_NAME}
+            >
+              {cls.CLASS_NAME}
+            </button>
+          );
+        })}
         <AnimatePresence mode="sync">
           {
             <Path
