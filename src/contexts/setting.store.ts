@@ -18,8 +18,11 @@ interface UserModeSlice {
 }
 
 interface SoundSlice {
+  volumeRange: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  selectedVolumeIndex: number;
   soundActivate: boolean;
   setSoundActivate: (state: boolean) => void;
+  setVolumnAction: (prevVol: number) => void;
 }
 
 interface SignSlice {
@@ -82,9 +85,16 @@ const createSignLangSlice: StateCreator<SignSlice> = (set) => ({
   speed: 1.5,
   setSpeed: (speed) => set({ speed }),
 });
-const createSoundSlice: StateCreator<SoundSlice> = (set) => ({
+const createSoundSlice: StateCreator<SoundSlice> = (set, get) => ({
+  volumeRange: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+  selectedVolumeIndex: 5,
   soundActivate: true,
   setSoundActivate: (state) => set({ soundActivate: state }),
+  setVolumnAction: (vol) => {
+    if (typeof get().volumeRange[vol] === "number") {
+      set({ selectedVolumeIndex: vol });
+    }
+  },
 });
 
 export const useSettingStore = create<

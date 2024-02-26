@@ -15,15 +15,25 @@ const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
   const theme = useTheme();
   const bottomRef = useRef<HTMLDivElement>(null);
-  const [zoom, setZoom, signOn, setSignOn, soundOn, setSoundOn] =
-    useSettingStore((state) => [
-      state.zoom,
-      state.setZoom,
-      state.signActivate,
-      state.setSignActivate,
-      state.soundActivate,
-      state.setSoundActivate,
-    ]);
+  const [
+    zoom,
+    setZoom,
+    signOn,
+    setSignOn,
+    soundOn,
+    setSoundOn,
+    volIndex,
+    setVolumnAction,
+  ] = useSettingStore((state) => [
+    state.zoom,
+    state.setZoom,
+    state.signActivate,
+    state.setSignActivate,
+    state.soundActivate,
+    state.setSoundActivate,
+    state.selectedVolumeIndex,
+    state.setVolumnAction,
+  ]);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -515,7 +525,11 @@ const BottomBar = () => {
             width: 3.85em;
           `}
         >
-          <IncreaseButton tabIndex={2} />
+          <IncreaseButton
+            onIncreaseClick={() => setVolumnAction(volIndex + 1)}
+            onDecreaseClick={() => setVolumnAction(volIndex - 1)}
+            tabIndex={2}
+          />
           <P3
             css={css`
               font-size: 0.865em;

@@ -1,12 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
-import {
-  HTMLAttributes,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { HTMLAttributes, useCallback, useEffect, useRef } from "react";
 import { LazyMotion, domMax, m } from "framer-motion";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { P3 } from "../ui/text";

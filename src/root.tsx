@@ -6,6 +6,7 @@ import { getStudentsQuery } from "./queries/student";
 import { lazy } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
+import AudioProvider from "./components/Audio-provider";
 
 const ModeSelect = Loadable(lazy(() => import("@/pages/mode-select")));
 const Birthday = Loadable(lazy(() => import("@/pages/birthday")));

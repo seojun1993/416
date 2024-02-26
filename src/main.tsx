@@ -8,6 +8,7 @@ import GlobalLayout from "./global-layout.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { css } from "@emotion/react";
+import AudioProvider from "./components/Audio-provider.tsx";
 
 const client = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route path="*" element={<Root />} />
           </Routes>
         </BrowserRouter>
+        <AudioProvider />
       </GlobalLayout>
       <ReactQueryDevtools />
     </QueryClientProvider>
