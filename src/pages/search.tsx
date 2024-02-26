@@ -138,8 +138,12 @@ const Search = () => {
             disabled
             css={css`
               font-size: 1.6rem;
-              font-family: "NanumSquareRoundOTF";
+              font-family: "NanumSquareRoundOTF", serif, system-ui,
+                -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
               font-weight: 800;
+              font-display: swap;
+
               background-color: transparent;
               height: fit-content;
               flex: 1;

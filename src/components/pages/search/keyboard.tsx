@@ -3,7 +3,7 @@
 import { P3 } from "@/components/ui/text";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import * as hg from "hangul-js";
 type SpecificKeyTypes =
   | "Enter"
@@ -21,7 +21,8 @@ interface SizeOptions {
   position: Position;
 }
 interface Key {
-  icon: ReactNode;
+  icon: ReactNode[];
+  value?: string[];
   keyType?: SpecificKeyTypes;
   aspect?: number;
   renderItem?: (item: KeyWithSizeOption) => ReactNode;
@@ -81,50 +82,50 @@ const SearchButtonChild = styled.div`
 const keyMap: Key[][] = [
   [
     {
-      icon: "'",
+      icon: ["'"],
     },
     {
-      icon: "1",
+      icon: ["1"],
     },
 
     {
-      icon: "2",
+      icon: ["2"],
     },
     {
-      icon: "3",
+      icon: ["3"],
     },
     {
-      icon: "4",
+      icon: ["4"],
     },
     {
-      icon: "5",
+      icon: ["5"],
     },
     {
-      icon: "6",
+      icon: ["6"],
     },
     {
-      icon: "7",
+      icon: ["7"],
     },
     {
-      icon: "8",
+      icon: ["8"],
     },
     {
-      icon: "9",
+      icon: ["9"],
     },
     {
-      icon: "0",
+      icon: ["0"],
     },
     {
-      icon: "-",
+      icon: ["-"],
     },
     {
-      icon: "=",
+      icon: ["="],
     },
     {
-      icon: "₩",
+      icon: ["₩"],
     },
     {
-      icon: (
+      icon: [
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="56"
@@ -157,89 +158,108 @@ const keyMap: Key[][] = [
               fill="#222"
             />
           </g>
-        </svg>
-      ),
+        </svg>,
+      ],
       keyType: "Backspace",
     },
   ],
   [
     {
-      icon: "→",
+      icon: ["→"],
       keyType: "Tab",
     },
     {
-      icon: "ㅂ",
+      icon: ["ㅂ", "ㅃ"],
+      value: ["ㅂ", "ㅃ"],
     },
     {
-      icon: "ㅈ",
+      icon: ["ㅈ", "ㅉ"],
+      value: ["ㅈ", "ㅉ"],
     },
     {
-      icon: "ㄷ",
+      icon: ["ㄷ", "ㄸ"],
+      value: ["ㄷ", "ㄸ"],
     },
     {
-      icon: "ㄱ",
+      icon: ["ㄱ", "ㄲ"],
+      value: ["ㄱ", "ㄲ"],
     },
     {
-      icon: "ㅅ",
+      icon: ["ㅅ", "ㅆ"],
+      value: ["ㅅ", "ㅆ"],
     },
     {
-      icon: "ㅛ",
+      icon: ["ㅛ"],
+      value: ["ㅛ"],
     },
     {
-      icon: "ㅕ",
+      icon: ["ㅕ"],
+      value: ["ㅕ"],
     },
     {
-      icon: "ㅑ",
+      icon: ["ㅑ"],
+      value: ["ㅑ"],
     },
     {
-      icon: "ㅐ",
+      icon: ["ㅐ", "ㅒ"],
+      value: ["ㅐ", "ㅒ"],
     },
     {
-      icon: "ㅔ",
+      icon: ["ㅔ", "ㅖ"],
+      value: ["ㅔ", "ㅖ"],
     },
     {
-      icon: "[",
+      icon: ["["],
     },
     {
-      icon: "]",
+      icon: ["]"],
     },
   ],
   [
     {
-      icon: "ㅁ",
+      icon: ["ㅁ"],
+      value: ["ㅁ"],
     },
     {
-      icon: "ㄴ",
+      icon: ["ㄴ"],
+      value: ["ㄴ"],
     },
     {
-      icon: "ㅇ",
+      icon: ["ㅇ"],
+      value: ["ㅇ"],
     },
     {
-      icon: "ㄹ",
+      icon: ["ㄹ"],
+      value: ["ㄹ"],
     },
     {
-      icon: "ㅎ",
+      icon: ["ㅎ"],
+      value: ["ㅎ"],
     },
     {
-      icon: "ㅗ",
+      icon: ["ㅗ"],
+      value: ["ㅗ"],
     },
     {
-      icon: "ㅓ",
+      icon: ["ㅓ"],
+      value: ["ㅓ"],
     },
     {
-      icon: "ㅏ",
+      icon: ["ㅏ"],
+      value: ["ㅏ"],
     },
     {
-      icon: "ㅣ",
+      icon: ["ㅣ"],
+      value: ["ㅣ"],
     },
     {
-      icon: ";",
+      icon: [";"],
     },
     {
-      icon: "'",
+      icon: ["'"],
     },
     {
-      icon: (
+      icon: [
         <SearchButtonChild>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -297,8 +317,8 @@ const keyMap: Key[][] = [
             </g>
           </svg>
           <P3>검색</P3>
-        </SearchButtonChild>
-      ),
+        </SearchButtonChild>,
+      ],
       renderItem: SearchButton,
       keyType: "Enter",
       aspect: 2,
@@ -306,7 +326,7 @@ const keyMap: Key[][] = [
   ],
   [
     {
-      icon: (
+      icon: [
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -333,22 +353,22 @@ const keyMap: Key[][] = [
               fill="#222"
             />
           </g>
-        </svg>
-      ),
+        </svg>,
+      ],
       keyType: "Shift",
     },
-    { icon: "ㅋ" },
-    { icon: "ㅌ" },
-    { icon: "ㅊ" },
-    { icon: "ㅍ" },
-    { icon: "ㅠ" },
-    { icon: "ㅜ" },
-    { icon: "ㅡ" },
-    { icon: "," },
-    { icon: "." },
-    { icon: "/" },
+    { icon: ["ㅋ"], value: ["ㅋ"] },
+    { icon: ["ㅌ"], value: ["ㅌ"] },
+    { icon: ["ㅊ"], value: ["ㅊ"] },
+    { icon: ["ㅍ"], value: ["ㅍ"] },
+    { icon: ["ㅠ"], value: ["ㅠ"] },
+    { icon: ["ㅜ"], value: ["ㅜ"] },
+    { icon: ["ㅡ"], value: ["ㅡ"] },
+    { icon: [","] },
+    { icon: ["."] },
+    { icon: ["/"] },
     {
-      icon: (
+      icon: [
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -375,14 +395,14 @@ const keyMap: Key[][] = [
               fill="#222"
             />
           </g>
-        </svg>
-      ),
+        </svg>,
+      ],
       keyType: "Shift",
     },
   ],
   [
     {
-      icon: "",
+      icon: [""],
       aspect: 8,
       keyType: "Space",
     },
@@ -396,6 +416,7 @@ const Keyboard = (
     }
   >
 ) => {
+  const [isShifter, setIsShifter] = useState(false);
   const keyboardContainerRef = useRef<HTMLDivElement>(null);
   const defaultOptions = {
     keyboardItem: keyMap,
@@ -452,7 +473,10 @@ const Keyboard = (
         disassembled.push(newValue);
         return hg.assemble(disassembled);
       },
-      Shift: (value) => value,
+      Shift: (value) => {
+        setIsShifter((prev) => !prev);
+        return value;
+      },
       Space: (value) => {
         const disassembled = hg.disassemble(value);
         disassembled.push(" ");
@@ -514,12 +538,14 @@ const Keyboard = (
                   data-position={[x, y]}
                   type="button"
                   onClick={() => {
-                    const prev = hg.disassemble(inputValue.current);
+                    // const prev = hg.disassemble(inputValue.current);
                     const handler = getSpecificKeyPressHandler(item.keyType);
-                    const newValue = handler(
-                      inputValue.current,
-                      item.icon?.toString() ?? ""
-                    );
+                    const pressedValue = (
+                      item?.value?.[+isShifter] ??
+                      item?.value?.[0] ??
+                      ""
+                    ).toString();
+                    const newValue = handler(inputValue.current, pressedValue);
 
                     inputValue.current = newValue;
                     options?.onChange?.(newValue);
@@ -546,7 +572,7 @@ const Keyboard = (
                   `}
                   key={x + y + "button"}
                 >
-                  {item.icon}
+                  {item.icon[+isShifter] ?? item.icon[0]}
                 </button>
               );
             })}

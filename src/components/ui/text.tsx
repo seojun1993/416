@@ -15,31 +15,31 @@ const FontVariants: CSSVariant<"primary" | "secondary"> = {
 type Variant = { variant?: keyof typeof FontVariants };
 
 export const H1 = styled.h1<Variant>`
-  font-family: "NanumSquareRoundOTF";
+  font-family: "NanumSquareRoundOTF", sans-serif;
   font-size: 2.4rem;
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
 export const H2 = styled.h2<Variant>`
-  font-family: "NanumSquareRoundOTF";
+  font-family: "NanumSquareRoundOTF", sans-serif;
   font-size: 2.28rem;
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
 export const H3 = styled.h3<Variant>`
-  font-family: "NanumSquareRoundOTF";
+  font-family: "NanumSquareRoundOTF", sans-serif;
   font-size: 2rem;
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
 export const H4 = styled.h4<Variant>`
-  font-family: "NanumSquareRoundOTF";
+  font-family: "NanumSquareRoundOTF", sans-serif;
   font-size: calc(var(--font-size) * 1.6);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
 export const H5 = styled.h5<Variant>`
-  font-family: "NanumSquareRoundOTF";
+  font-family: "NanumSquareRoundOTF", sans-serif;
   font-size: calc(var(--font-size) * 1.2);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
