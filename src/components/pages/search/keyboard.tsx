@@ -386,10 +386,6 @@ const keyMap: Key[][] = [
       aspect: 8,
       keyType: "Space",
     },
-    {
-      icon: "한/영",
-      aspect: 2,
-    },
   ],
 ];
 const Keyboard = (

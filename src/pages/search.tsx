@@ -27,14 +27,14 @@ const Search = () => {
     if (!inputRef.current) return;
     const foundStudents = filterNameContainFromPattern(
       data!,
-      inputRef.current!.value
+      inputRef.current!.value.trim()
     );
     if (!foundStudents?.length) {
       return setOpen(true);
     }
 
     queryClient.setQueryData(
-      getStudentsFromSearchQuery(inputRef.current!.value).queryKey,
+      getStudentsFromSearchQuery(inputRef.current!.value.trim()).queryKey,
       foundStudents
     );
     setSearchParam({ keyword: inputRef.current.value });
