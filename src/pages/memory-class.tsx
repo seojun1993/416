@@ -68,6 +68,7 @@ const MemoryClass = () => {
           height: 100%;
           justify-content: space-between;
           transform-origin: right;
+          padding-bottom: 2rem;
           &[data-isOpen="true"] {
             width: 100%;
           }
@@ -126,7 +127,7 @@ const MemoryClass = () => {
           }}
           css={css`
             /* width: 36rem; */
-            flex: 0 0 25rem;
+            flex: 0 0 20rem;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -219,6 +220,7 @@ const MemoryShell = styled(MainShell)`
   /* flex-direction: column; */
   align-items: center;
   /* padding-bottom: 1.6rem; */
+  column-gap: 1.2rem;
   justify-content: space-between;
 `;
 const memorySummaryComponents: {

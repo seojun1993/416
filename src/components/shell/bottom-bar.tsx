@@ -99,7 +99,6 @@ const BottomBar = () => {
 
   return (
     <BottomWrapper ref={bottomRef}>
-      {/* <ScreenSizeSlider /> */}
       <div
         css={css`
           display: flex;
