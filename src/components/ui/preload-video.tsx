@@ -67,8 +67,6 @@ const PreloadVideo = (props: PreloadVideoProps) => {
         <m.div
           css={css`
             position: relative;
-            width: 36rem;
-
             height: 70%;
           `}
           initial="initial"
