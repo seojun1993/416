@@ -68,7 +68,8 @@ const PreloadVideo = (props: PreloadVideoProps) => {
           flex-direction: column;
           justify-content: flex-end;
           align-items: center;
-          width: 36rem;
+          width: 100%;
+          height: 100%;
           *:active,
           *:focus-visible {
             svg {
@@ -82,7 +83,8 @@ const PreloadVideo = (props: PreloadVideoProps) => {
         <m.div
           css={css`
             position: relative;
-            width: 100%;
+            width: 36rem;
+
             height: 70%;
           `}
           initial="initial"

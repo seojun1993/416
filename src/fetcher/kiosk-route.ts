@@ -58,6 +58,7 @@ export const fetchKioskRouteNodes = async () => {
   const pubList: { [key: number]: PubInfo[] } = {};
   const pubMap = new Map<string, PubInfo[]>();
   const graphValueToList = [...graph.values()];
+  console.log(response);
   response.PUB_LIST.PUB_INFO.forEach((pub) => {
     pubMap.set(pub.area, [...(pubMap.get(pub.area) ?? []), pub]);
     if (!pubList[pub.PUB_FLOOR.value]) {
