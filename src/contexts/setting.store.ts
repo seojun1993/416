@@ -3,10 +3,59 @@ import { create } from "zustand";
 import type { StateCreator } from "zustand";
 export type ThemeMode = "light" | "dark";
 export type UserMode = "normal" | "sound" | "sign";
+export const zooms = [
+  { value: 1, text: "x1" },
+  { value: 1.2, text: "x1.2" },
+  { value: 1.5, text: "x1.5" },
+];
+
+export const VideoSpeeds = [
+  {
+    text: "느리게",
+    value: 1,
+  },
+
+  {
+    text: "보통",
+    value: 1.5,
+  },
+  {
+    text: "빠르게",
+    value: 2,
+  },
+];
+export const SoundSpeed = [
+  {
+    text: "느리게",
+    value: 1,
+  },
+
+  {
+    text: "보통",
+    value: 1.5,
+  },
+  {
+    text: "빠르게",
+    value: 2,
+  },
+];
+
+export type tooltipMode =
+  | "sign"
+  | "text"
+  | "sound"
+  | "speed"
+  | null
+  | undefined;
+
+export interface TooltipSlice {
+  tooltipMode: tooltipMode;
+  setTooltipMode: (mode: tooltipMode) => void;
+}
 
 export interface ZoomSlice {
   zoom: number;
-  setZoom: (zoom: number) => void;
+  setZoom: (fn: (idx: number) => number) => void;
 }
 interface ThemeSlice {
   theme: ThemeMode;
@@ -19,8 +68,11 @@ interface UserModeSlice {
 
 interface SoundSlice {
   volumeRange: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  soundSpeed: { text: string; value: number }[];
   selectedVolumeIndex: number;
+  selectedSoundSpeedIndex: number;
   soundActivate: boolean;
+  setSoundSpeed: (fn: (idx: number) => number) => void;
   setSoundActivate: (state: boolean) => void;
   setVolumnAction: (prevVol: number) => void;
 }
@@ -38,9 +90,33 @@ interface CombineUserModeSlice {
   onChangeMode: (mode: UserMode) => void;
 }
 
-const createZoomSlice: StateCreator<ZoomSlice> = (set) => ({
+let timeoutId: NodeJS.Timeout;
+const createTooltipSlice: StateCreator<TooltipSlice> = (set) => ({
+  tooltipMode: undefined,
+  setTooltipMode(mode) {
+    set({ tooltipMode: mode });
+
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      set({ tooltipMode: null });
+    }, 5000);
+  },
+});
+
+const createZoomSlice: StateCreator<
+  ZoomSlice & TooltipSlice,
+  [],
+  [],
+  ZoomSlice
+> = (set, get) => ({
   zoom: 1,
-  setZoom: (zoom) => set({ zoom }),
+  setZoom: (fn: (idx: number) => number) => {
+    get().setTooltipMode("text");
+    const zoomIndex = fn(zooms.findIndex((z) => z.value === get().zoom));
+    if (zooms[zoomIndex]?.value) {
+      set({ zoom: zooms[zoomIndex].value });
+    }
+  },
 });
 
 const createThemeSlice: StateCreator<ThemeSlice> = (set) => ({
@@ -60,19 +136,6 @@ const createCombineUserModeSlice: StateCreator<
   CombineUserModeSlice
 > = (set, get) => ({
   onChangeMode(mode) {
-    switch (mode) {
-      case "sign":
-        get().setSignActivate(true);
-        break;
-      case "sound":
-        get().setSignActivate(false);
-        get().setSoundActivate(true);
-        break;
-      case "normal":
-      default:
-        get().setSignActivate(false);
-    }
-
     get().changeMode(mode);
   },
 });
@@ -85,12 +148,27 @@ const createSignLangSlice: StateCreator<SignSlice> = (set) => ({
   speed: 1.5,
   setSpeed: (speed) => set({ speed }),
 });
-const createSoundSlice: StateCreator<SoundSlice> = (set, get) => ({
+const createSoundSlice: StateCreator<
+  SoundSlice & TooltipSlice,
+  [],
+  [],
+  SoundSlice
+> = (set, get) => ({
   volumeRange: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
   selectedVolumeIndex: 5,
+  selectedSoundSpeedIndex: 0,
+  soundSpeed: SoundSpeed,
   soundActivate: true,
   setSoundActivate: (state) => set({ soundActivate: state }),
+  setSoundSpeed: (fn) => {
+    const soundIndex = fn(get().selectedSoundSpeedIndex);
+    get().setTooltipMode("speed");
+    if (get().soundSpeed[soundIndex]?.value) {
+      set({ selectedSoundSpeedIndex: soundIndex });
+    }
+  },
   setVolumnAction: (vol) => {
+    get().setTooltipMode("sound");
     if (typeof get().volumeRange[vol] === "number") {
       set({ selectedVolumeIndex: vol });
     }
@@ -103,7 +181,8 @@ export const useSettingStore = create<
     SignSlice &
     UserModeSlice &
     SoundSlice &
-    CombineUserModeSlice
+    CombineUserModeSlice &
+    TooltipSlice
 >()((...a) => ({
   ...createThemeSlice(...a),
   ...createZoomSlice(...a),
@@ -111,4 +190,5 @@ export const useSettingStore = create<
   ...createUserModeSlice(...a),
   ...createSoundSlice(...a),
   ...createCombineUserModeSlice(...a),
+  ...createTooltipSlice(...a),
 }));

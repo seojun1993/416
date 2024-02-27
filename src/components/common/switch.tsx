@@ -8,14 +8,23 @@ import { P3 } from "../ui/text";
 interface SwitchProps extends HTMLAttributes<HTMLLabelElement> {
   isOpen: boolean;
   setIsOpen: (state: boolean) => void;
+  disabled?: boolean;
 }
 
-const Switch = ({ isOpen, setIsOpen, ...rest }: SwitchProps) => {
+const Switch = ({
+  disabled = false,
+  isOpen,
+  setIsOpen,
+  ...rest
+}: SwitchProps) => {
   const ref = useRef<HTMLLabelElement>(null);
   const [mode] = useThemeMode();
   const theme = useTheme();
 
-  const toggleSwitch = () => setIsOpen(!isOpen);
+  const toggleSwitch = (event?: MouseEvent) => {
+    event?.stopPropagation();
+    !disabled && setIsOpen(!isOpen);
+  };
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
       ref.current?.focus();
@@ -38,6 +47,7 @@ const Switch = ({ isOpen, setIsOpen, ...rest }: SwitchProps) => {
       };
     }
   }, []);
+
   return (
     <label
       {...rest}
@@ -48,6 +58,8 @@ const Switch = ({ isOpen, setIsOpen, ...rest }: SwitchProps) => {
         height: 1.54em;
         background-color: ${isOpen
           ? theme.color.switch.enable
+          : !disabled
+          ? theme.color.switch.disable
           : theme.color.switch["disable/30"]};
         display: flex;
         align-items: center;
@@ -61,25 +73,29 @@ const Switch = ({ isOpen, setIsOpen, ...rest }: SwitchProps) => {
         }
 
         &:active {
-          .handle {
+          ${!disabled &&
+          `.handle {
             ${isOpen ? "left : -0.2em;" : "left:0.2em;"}
-          }
+            
+          }`}
         }
 
         .handle {
           position: relative;
           width: 1.24em;
           height: 1.24em;
-          background-color: white;
-          ${mode === "dark" && "filter: invert(1);"}
+          background-color: ${theme.color.secondary.foreground};
+          opacity: ${disabled ? "0.5" : "1"};
           border-radius: 9999rem;
           left: 0;
           right: 0;
-          /* transition: left 0.1s ease-in-out, right 0.1s ease-in-out; */
         }
       `}
       data-ison={isOpen}
-      onClick={toggleSwitch}
+      onClick={(event) => {
+        event.stopPropagation();
+        toggleSwitch();
+      }}
     >
       <LazyMotion features={domMax}>
         <m.div
@@ -95,6 +111,7 @@ const Switch = ({ isOpen, setIsOpen, ...rest }: SwitchProps) => {
             white-space: nowrap;
             ${isOpen ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}
             font-weight: bold;
+            opacity: ${disabled ? "0.5" : "1"};
           `}
         >
           {isOpen ? "켜짐" : "꺼짐"}

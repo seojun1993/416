@@ -2,42 +2,60 @@
 
 import { css, useTheme } from "@emotion/react";
 import CircleButton from "../common/circle-button";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
 import IncreaseButton from "../ui/increase-button";
 import { P3 } from "../ui/text";
-import { useSettingStore } from "@/contexts/setting.store";
+import { SoundSpeed, useSettingStore, zooms } from "@/contexts/setting.store";
+import { AnimatePresence, motion } from "framer-motion";
+import { fadeInOutVariants } from "@/variants";
+
+const SIGN_SUPPORT_PATH = ["/birthday", "/memory-class"];
 
 const BottomBar = () => {
   const [themeMode, toggleTheme] = useThemeMode();
   const theme = useTheme();
+
   const bottomRef = useRef<HTMLDivElement>(null);
-  const [
+  const {
+    mode,
     zoom,
     setZoom,
     signOn,
     setSignOn,
     soundOn,
     setSoundOn,
+    volumeRange,
     volIndex,
     setVolumnAction,
-  ] = useSettingStore((state) => [
-    state.zoom,
-    state.setZoom,
-    state.signActivate,
-    state.setSignActivate,
-    state.soundActivate,
-    state.setSoundActivate,
-    state.selectedVolumeIndex,
-    state.setVolumnAction,
-  ]);
+    soundSpeed,
+    selectedSoundSpeedIndex,
+    setSoundSpeed,
+    tooltipMode,
+    setTooltipMode,
+  } = useSettingStore((state) => ({
+    mode: state.mode,
+    zoom: state.zoom,
+    setZoom: state.setZoom,
+    signOn: state.signActivate,
+    setSignOn: state.setSignActivate,
+    soundOn: state.soundActivate,
+    setSoundOn: state.setSoundActivate,
+    volumeRange: state.volumeRange,
+    volIndex: state.selectedVolumeIndex,
+    setVolumnAction: state.setVolumnAction,
+    soundSpeed: state.soundSpeed,
+    selectedSoundSpeedIndex: state.selectedSoundSpeedIndex,
+    setSoundSpeed: state.setSoundSpeed,
+    tooltipMode: state.tooltipMode,
+    setTooltipMode: state.setTooltipMode,
+  }));
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
   const handleWindowResize = useCallback(() => {
     if (bottomRef.current) {
       document.documentElement.style.setProperty(
@@ -48,12 +66,36 @@ const BottomBar = () => {
   }, []);
 
   useEffect(() => {
+    function handleClick(event: MouseEvent) {
+      setTooltipMode(null);
+    }
+    window.addEventListener("click", handleClick);
     window.addEventListener("resize", handleWindowResize);
     handleWindowResize();
     return () => {
+      window.removeEventListener("click", handleWindowResize);
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
+  useLayoutEffect(() => {
+    switch (mode) {
+      case "sign":
+        if (SIGN_SUPPORT_PATH.includes(pathname)) {
+          setSignOn(true);
+        } else {
+          setSignOn(false);
+        }
+        break;
+      case "sound":
+        setSignOn(false);
+        setSoundOn(true);
+        break;
+      case "normal":
+      default:
+        setSignOn(false);
+    }
+  }, [mode, pathname]);
 
   return (
     <BottomWrapper ref={bottomRef}>
@@ -469,14 +511,137 @@ const BottomBar = () => {
             flex-direction: column;
             row-gap: 0.23em;
             width: 3.85em;
+            position: relative;
           `}
         >
+          <AnimatePresence mode="wait">
+            {tooltipMode === "text" && (
+              <motion.div
+                {...fadeInOutVariants}
+                onClick={(event) => event.stopPropagation()}
+                css={css`
+                  position: absolute;
+                  top: calc(-100% - 2.5rem);
+                  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
+                  width: 16rem;
+                  height: 5.4rem;
+                  border-top-left-radius: 0.4rem;
+                  border-top-right-radius: 0.4rem;
+                  background-color: white;
+                  left: calc(-5.5rem);
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 0.5rem;
+                  padding-top: 0.8rem;
+                `}
+              >
+                <P3
+                  css={css`
+                    font-size: 1.12rem;
+                  `}
+                >
+                  글씨크기
+                </P3>
+                <div
+                  css={css`
+                    display: flex;
+                    padding: 0 2rem;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: relative;
+                    & button + button {
+                      position: relative;
+                      &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 0%;
+                        transform: translate(-100%, -50%);
+                        width: calc(100% + 4rem);
+                        background-color: gray;
+                        height: 4px;
+                      }
+                      /* &:not(:last-child) {
+                  } */
+                      /* &:last-of-type {
+                    &::before {
+                      content: "";
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      left: -1.5rem;
+                      width: 2rem;
+                      background-color: gray;
+                      height: 4px;
+                    }
+                  } */
+                    }
+                  `}
+                >
+                  {zooms.map((item) => (
+                    <button
+                      key={item.text + "sign"}
+                      css={css`
+                        background-color: transparent;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border: none;
+                        padding: 0;
+                        padding: 0;
+                        border-radius: 9999rem;
+                      `}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setZoom(() =>
+                          zooms.findIndex(
+                            (zoomValue) => zoomValue.value === item.value
+                          )
+                        );
+                      }}
+                    >
+                      <div
+                        css={css`
+                          background-color: ${zoom === item.value
+                            ? "#8080FF"
+                            : "gray"};
+                          border-radius: 9999rem;
+                          width: 0.8rem;
+                          aspect-ratio: 1/1;
+                          border: none;
+                          position: relative;
+                          &::after {
+                            content: "${item.text}";
+                            white-space: nowrap;
+                            pointer-events: none;
+                            position: absolute;
+                            color: ${zoom === item.value ? "#8080FF" : "black"};
+                            left: 50%;
+                            transform: translateX(-50%);
+                            top: 100%;
+                            font-family: "Pretendard";
+                            font-size: 1.12rem;
+                            line-height: 1.2;
+                            text-align: center;
+                            font-weight: 700;
+                            margin-top: 0.2rem;
+                          }
+                        `}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <IncreaseButton
-            onIncreaseClick={() => {
-              setZoom(zoom + 0.1);
+            onIncreaseClick={(event) => {
+              event.stopPropagation();
+              setZoom((idx) => idx + 1);
             }}
-            onDecreaseClick={() => {
-              setZoom(zoom - 0.1);
+            onDecreaseClick={(event) => {
+              event.stopPropagation();
+              setZoom((idx) => idx - 1);
             }}
             tabIndex={0}
           />
@@ -523,11 +688,146 @@ const BottomBar = () => {
             flex-direction: column;
             row-gap: 0.23em;
             width: 3.85em;
+            position: relative;
           `}
         >
+          <AnimatePresence mode="wait">
+            {tooltipMode === "sound" && (
+              <motion.div
+                onClick={(event) => event.stopPropagation()}
+                {...fadeInOutVariants}
+                css={css`
+                  position: absolute;
+                  top: calc(-100% - 0.5rem);
+                  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
+                  border-top-left-radius: 0.4rem;
+                  border-top-right-radius: 0.4rem;
+                  background-color: white;
+                  left: -100%;
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 0.5rem;
+                  padding-top: 0.8rem;
+                  padding-bottom: 1rem;
+                `}
+              >
+                <div
+                  css={css`
+                    display: flex;
+                    padding: 0 2rem;
+                    justify-content: center;
+                    column-gap: 0.36rem;
+                    align-items: center;
+                    position: relative;
+                  `}
+                >
+                  <button
+                    css={css`
+                      border: none;
+                      background-color: transparent;
+                      display: flex;
+                      align-items: center;
+                      margin-right: 0.44rem;
+                      aspect-ratio: 1/1;
+                      border-radius: 9999rem;
+                    `}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setVolumnAction(volIndex - 1);
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="52"
+                      height="8"
+                      viewBox="0 0 52 8"
+                    >
+                      <rect id="minus" width="52" height="8" rx="4" />
+                    </svg>
+                  </button>
+                  {volumeRange.map((item, volIdx) => (
+                    <button
+                      key={item + "volumn"}
+                      css={css`
+                        background-color: transparent;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border: none;
+                        padding: 0;
+                        padding: 0;
+                        border-radius: 9999rem;
+                      `}
+                    >
+                      <div
+                        css={css`
+                          background-color: ${volIndex >= volIdx
+                            ? "#8080FF"
+                            : "gray"};
+                          border-radius: 9999rem;
+                          width: 0.28rem;
+                          height: 1.6rem;
+                          aspect-ratio: 1/1;
+                          border: none;
+                          position: relative;
+                        `}
+                      />
+                    </button>
+                  ))}
+                  <button
+                    css={css`
+                      border: none;
+                      background-color: transparent;
+                      display: flex;
+                      align-items: center;
+                      margin-left: 0.44rem;
+                      aspect-ratio: 1/1;
+                      border-radius: 9999rem;
+                    `}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setVolumnAction(volIndex + 1);
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="52"
+                      height="52"
+                      viewBox="0 0 52 52"
+                    >
+                      <g id="plus" transform="translate(-2914 -1964)">
+                        <rect
+                          id="사각형_707"
+                          data-name="사각형 707"
+                          width="52"
+                          height="8"
+                          rx="4"
+                          transform="translate(2914 1986)"
+                        />
+                        <rect
+                          id="사각형_708"
+                          data-name="사각형 708"
+                          width="52"
+                          height="8"
+                          rx="4"
+                          transform="translate(2944 1964) rotate(90)"
+                        />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <IncreaseButton
-            onIncreaseClick={() => setVolumnAction(volIndex + 1)}
-            onDecreaseClick={() => setVolumnAction(volIndex - 1)}
+            onIncreaseClick={(event) => {
+              event.stopPropagation();
+              setVolumnAction(volIndex + 1);
+            }}
+            onDecreaseClick={(event) => {
+              event.stopPropagation();
+              setVolumnAction(volIndex - 1);
+            }}
             tabIndex={2}
           />
           <P3
@@ -548,9 +848,129 @@ const BottomBar = () => {
             flex-direction: column;
             row-gap: 0.23em;
             width: 3.85em;
+            position: relative;
           `}
         >
-          <IncreaseButton tabIndex={3} />
+          <AnimatePresence mode="wait">
+            {tooltipMode === "speed" && (
+              <motion.div
+                onClick={(event) => event.stopPropagation()}
+                {...fadeInOutVariants}
+                css={css`
+                  position: absolute;
+                  top: calc(-100% - 2.5rem);
+                  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
+                  width: 16rem;
+                  height: 5.4rem;
+                  border-top-left-radius: 0.4rem;
+                  border-top-right-radius: 0.4rem;
+                  background-color: white;
+                  left: calc(-5.5rem);
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 0.5rem;
+                  padding-top: 0.8rem;
+                `}
+              >
+                <P3
+                  css={css`
+                    font-size: 1.12rem;
+                  `}
+                >
+                  음성속도
+                </P3>
+                <div
+                  css={css`
+                    display: flex;
+                    padding: 0 2rem;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: relative;
+                    & button + button {
+                      position: relative;
+                      &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 0%;
+                        transform: translate(-100%, -50%);
+                        width: calc(100% + 4rem);
+                        background-color: gray;
+                        height: 4px;
+                      }
+                    }
+                  `}
+                >
+                  {soundSpeed.map((item, speedIdx) => (
+                    <button
+                      key={item.text + "speed"}
+                      css={css`
+                        background-color: transparent;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border: none;
+                        padding: 0;
+                        padding: 0;
+                        border-radius: 9999rem;
+                      `}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setSoundSpeed(() =>
+                          soundSpeed.findIndex(
+                            (soundValue) => soundValue.value === item.value
+                          )
+                        );
+                      }}
+                    >
+                      <div
+                        css={css`
+                          background-color: ${selectedSoundSpeedIndex ===
+                          speedIdx
+                            ? "#8080FF"
+                            : "gray"};
+                          border-radius: 9999rem;
+                          width: 0.8rem;
+                          aspect-ratio: 1/1;
+                          border: none;
+                          position: relative;
+                          &::after {
+                            content: "${item.text}";
+                            white-space: nowrap;
+                            pointer-events: none;
+                            position: absolute;
+                            color: ${selectedSoundSpeedIndex === speedIdx
+                              ? "#8080FF"
+                              : "black"};
+                            left: 50%;
+                            transform: translateX(-50%);
+                            top: 100%;
+                            font-family: "Pretendard";
+                            font-size: 1.12rem;
+                            line-height: 1.2;
+                            text-align: center;
+                            font-weight: 700;
+                            margin-top: 0.2rem;
+                          }
+                        `}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <IncreaseButton
+            tabIndex={3}
+            onIncreaseClick={(event) => {
+              event.stopPropagation();
+              setSoundSpeed((idx) => idx + 1);
+            }}
+            onDecreaseClick={(event) => {
+              event.stopPropagation();
+              setSoundSpeed((idx) => idx - 1);
+            }}
+          />
           <P3
             css={css`
               font-size: 0.865em;
@@ -572,6 +992,7 @@ const BottomBar = () => {
           `}
         >
           <Switch
+            disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
             isOpen={signOn}
             setIsOpen={(state) => setSignOn(state)}
             tabIndex={4}

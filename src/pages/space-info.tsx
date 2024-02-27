@@ -22,7 +22,6 @@ import {
   TransformComponent,
   TransformWrapper,
 } from "react-zoom-pan-pinch";
-import { useElementSize } from "@/hooks/use-element-size";
 import { fadeInOutVariants } from "@/variants";
 import { curryingDijkstra } from "@/libs/way-finder/finder";
 import { NodeType, Vector } from "@/libs/way-finder/Vector";
@@ -64,25 +63,21 @@ const SpaceInfo = () => {
   const parsedData = useMemo(() => {
     if (!nodesData || !contentsData || !contentsData.KIOSK_INFO) return;
 
-    if (contentsData.HEADER.KIOSK_FLOOR) {
-      const {
-        floor,
-        KIOSK_POS: { pos_x: x, pos_y: y },
-      } = contentsData.KIOSK_INFO;
-      const kioskNode = nodesData.graph.get(
-        Vector.getVectorId({ floor, x, y })
-      );
-      if (kioskNode) {
-        kioskNode.setType(NodeType.KIOSK);
-        nodesData.graph.set(Vector.getVectorId({ floor, x, y }), kioskNode);
+    const {
+      floor,
+      KIOSK_POS: { pos_x: x, pos_y: y },
+    } = contentsData.KIOSK_INFO;
+    const kioskNode = nodesData.graph.get(Vector.getVectorId({ floor, x, y }));
+    if (kioskNode) {
+      kioskNode.setType(NodeType.KIOSK);
+      nodesData.graph.set(Vector.getVectorId({ floor, x, y }), kioskNode);
 
-        return {
-          nodes: nodesData,
-          contents: contentsData,
-          kioskNode,
-          graph: nodesData.graph,
-        };
-      }
+      return {
+        nodes: nodesData,
+        contents: contentsData,
+        kioskNode,
+        graph: nodesData.graph,
+      };
     }
   }, [nodesData, contentsData]);
 

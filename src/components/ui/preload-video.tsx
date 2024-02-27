@@ -3,28 +3,12 @@ import { HTMLMotionProps, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { m, LazyMotion, domAnimation } from "framer-motion";
 import { fadeInOutVariants } from "@/variants";
-import { useSettingStore } from "@/contexts/setting.store";
+import { VideoSpeeds, useSettingStore } from "@/contexts/setting.store";
 import { css } from "@emotion/react";
 import { P3 } from "./text";
 import styled from "@emotion/styled";
 import { isVideoPlaying } from "@/libs/utils";
 interface PreloadVideoProps extends HTMLMotionProps<"video"> {}
-
-const VideoSpeeds = [
-  {
-    text: "느리게",
-    value: 1,
-  },
-
-  {
-    text: "보통",
-    value: 1.5,
-  },
-  {
-    text: "빠르게",
-    value: 2,
-  },
-];
 
 const PreloadVideo = (props: PreloadVideoProps) => {
   const { speed, setSpeed, isPlaying, setIsPlaying } = useSettingStore(
@@ -217,6 +201,8 @@ const PreloadVideo = (props: PreloadVideoProps) => {
           <P3
             css={css`
               margin-bottom: 0.5rem;
+              line-height: 1.2;
+              font-size: 1.12em;
             `}
           >
             수어속도
@@ -301,7 +287,8 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                       transform: translateX(-50%);
                       top: 100%;
                       font-family: "Pretendard";
-                      font-size: calc(var(--font-size) * 1.12);
+                      /* font-size: calc(var(--font-size) * 1.12); */
+                      font-size: 1.12em;
                       line-height: 1.2;
                       text-align: center;
                       font-weight: 700;
