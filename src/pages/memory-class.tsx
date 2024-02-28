@@ -16,21 +16,21 @@ import {
 import { css } from "@emotion/react";
 import { useSettingStore } from "@/contexts/setting.store";
 import PreloadVideo from "@/components/ui/preload-video";
-
+import { classSign } from "@/assets/videos";
 import vi from "@/assets/videos/sample.webm";
 
 const memoryItems = [
   { title: "기억교실 연혁" as const },
-  { title: "1반" as const },
-  { title: "2반" as const },
+  { title: "1반" as const, sign: classSign.class1 },
+  { title: "2반" as const, sign: classSign.class2 },
   { title: "3반" as const },
-  { title: "4반" as const },
-  { title: "5반" as const },
-  { title: "6반" as const },
+  { title: "4반" as const, sign: classSign.class4 },
+  { title: "5반" as const, sign: classSign.class5 },
+  { title: "6반" as const, sign: classSign.class6 },
   { title: "7반" as const },
-  { title: "8반" as const },
-  { title: "9반" as const },
-  { title: "10반" as const },
+  { title: "8반" as const, sign: classSign.class8 },
+  { title: "9반" as const, sign: classSign.class9 },
+  { title: "10반" as const, sign: classSign.class10 },
   { title: "교무실" as const },
 ];
 
@@ -40,9 +40,10 @@ const MemoryClass = () => {
   const [delaySignActive, setDelaySignActive] = useState(signActive);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const [signRef, animate] = useAnimate();
+  const videoSrc = memoryItems[selected].sign;
   useEffect(() => {
     async function toggleActive() {
-      if (!signActive) {
+      if (!signActive && signRef.current) {
         await animate(
           signRef.current,
           {
@@ -109,8 +110,9 @@ const MemoryClass = () => {
           </AnimatePresence>
         </LazyMotion>
       </motion.div>
-      {delaySignActive && (
+      {delaySignActive && videoSrc && (
         <motion.div
+          key={videoSrc}
           ref={signRef}
           initial={{
             opacity: 0,
@@ -133,7 +135,12 @@ const MemoryClass = () => {
             height: 100%;
           `}
         >
-          <PreloadVideo key="video" src={vi} autoPlay muted></PreloadVideo>
+          <PreloadVideo
+            key={videoSrc}
+            src={videoSrc}
+            autoPlay
+            muted
+          ></PreloadVideo>
         </motion.div>
       )}
     </MemoryShell>
