@@ -120,12 +120,10 @@ export const fetchKioskRouteContents = async (kioskCode = "K001") => {
     ignoreAttributes: false,
     ignoreDeclaration: true,
   });
-  const url = new URL(import.meta.env.VITE_MAP_SERVER_URL);
-  url.pathname = "/user/xml/kiosk_contents.do";
-  url.searchParams.set("kiosk_code", kioskCode);
+  const url = new URL(window.location.origin);
+  url.pathname = "/xml/kiosk_contents.xml";
   const xml = await fetch(url).then((response) => response.text());
   const response = parser.parse(xml).KIOSK as KioskContents;
-
   response.KIOSK_LIST.forEach((kioskCode) => {
     kioskCode.KIOSK_INFO.KIOSK_CODE = kioskCode.KIOSK_INFO.KIOSK_CODE.trim();
   });

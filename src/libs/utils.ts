@@ -3,9 +3,7 @@ import { Vector } from "./way-finder/Vector";
 export const noop = () => {};
 
 export const getImagePath = (imageUrl: string) => {
-  const url = new URL(import.meta.env.VITE_FILE_SERVER_URL);
-  url.pathname = imageUrl;
-  return `${url.toString()}?cache=${imageUrl}`;
+  return import.meta.env.PROD ? imageUrl : imageUrl;
 };
 
 export const numberWithinRange = (

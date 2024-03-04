@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import content from "@originjs/vite-plugin-content";
-
 import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -38,6 +37,10 @@ export default defineConfig({
       {
         find: "@",
         replacement: path.resolve(process.cwd(), "src"),
+      },
+      {
+        find: "~",
+        replacement: path.resolve(process.cwd()),
       },
     ],
   },

@@ -66,29 +66,30 @@ export function sortDatesClosestToToday(a: Student, b: Student) {
 }
 
 export const getStudentFromJson = () =>
-  fetch("http://192.168.0.143:8416/api/json/select416json.do?gubun=students")
-    .then((res) => res.json() as Promise<{ result: boolean; data: Student[] }>)
-    .then((res) => {
-      const data = res.data.map((student) => {
+  import("~/contens/students.json").then((res) => {
+    const data = res.data.map((student) => {
+      if (typeof student.keywords === "string") {
         student.keywords = JSON.parse(student.keywords as unknown as string);
+      }
+      if (typeof student.images === "string") {
         student.images = JSON.parse(student.images as unknown as string);
-        const birthday = student.is_lunar_birth
-          ? // 음력은 생일년도 기준 날짜를 당해년도의 음력날짜와 매핑해야함
-            getSolar(
-              new Date(
-                new Date(student.birthday).setFullYear(new Date().getFullYear())
-              )
+      }
+      const birthday = student.is_lunar_birth
+        ? // 음력은 생일년도 기준 날짜를 당해년도의 음력날짜와 매핑해야함
+          getSolar(
+            new Date(
+              new Date(student.birthday).setFullYear(new Date().getFullYear())
             )
-          : student.birthday;
-        return {
-          ...student,
-          birthday,
-        };
-      }) as Student[];
-      const newSortedData = data.sort((a, b) => sortDatesClosestToToday(a, b));
-
-      return newSortedData;
-    });
+          )
+        : student.birthday;
+      return {
+        ...student,
+        birthday,
+      };
+    }) as unknown as Student[];
+    const newSortedData = data.sort((a, b) => sortDatesClosestToToday(a, b));
+    return newSortedData;
+  });
 
 export const filterNameContainFromPattern = (
   data: Student[],

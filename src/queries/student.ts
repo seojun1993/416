@@ -15,8 +15,10 @@ async function sortStudentByTodayMonth() {
         new Date(student.birthday).getMonth() === new Date().getMonth()
     )
     .sort(sortDatesClosestToToday);
+
   const idx = findNextBirthdayIndex(data);
   const result: Student[] = [];
+
   for (let i = 0; i < data.length; i++) {
     result.push(data[(i + idx) % data.length]);
   }
