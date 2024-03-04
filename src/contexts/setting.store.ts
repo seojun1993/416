@@ -78,6 +78,8 @@ interface SoundSlice {
 }
 
 interface SignSlice {
+  signVideoUrl: string;
+  setSignVideoUrl: (url: string) => void;
   signActivate: boolean;
   setSignActivate: (state: boolean) => void;
   isPlaying: boolean;
@@ -141,6 +143,8 @@ const createCombineUserModeSlice: StateCreator<
 });
 
 const createSignLangSlice: StateCreator<SignSlice> = (set) => ({
+  signVideoUrl: "",
+  setSignVideoUrl: (url) => set({ signVideoUrl: url }),
   signActivate: false,
   setSignActivate: (state) => set({ signActivate: state }),
   isPlaying: false,

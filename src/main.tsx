@@ -37,6 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   </React.StrictMode>
 );
 
+const jumja = window.chrome.webview.hostObjects.sync.jumjaplay;
 const injectKeyboardHandler = () => {
   return function () {
     document.addEventListener("keydown", (event) => {
@@ -106,6 +107,9 @@ const injectKeyboardHandler = () => {
       }
 
       if (nextElement) {
+        if (nextElement.dataset.a11yId) {
+          jumja.Play(nextElement.dataset.a11yId);
+        }
         nextElement.focus({
           preventScroll: !!nextElement?.dataset.preventScroll,
         });
