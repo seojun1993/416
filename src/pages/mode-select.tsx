@@ -140,7 +140,7 @@ const ModeSelect = () => {
             </g>
           </svg>
           <div>
-            <H3>일반 안내</H3>
+            <H3>터치 안내</H3>
           </div>
         </ModelSelectCard>
         <ModelSelectCard

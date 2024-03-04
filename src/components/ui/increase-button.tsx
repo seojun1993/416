@@ -34,7 +34,7 @@ const IncreaseButton = ({
       `}
     >
       <button
-        onClick={onIncreaseClick}
+        onClick={onDecreaseClick}
         css={css`
           width: 100%;
           height: 100%;
@@ -50,6 +50,54 @@ const IncreaseButton = ({
           fill: ${theme.color.icon.button};
           color: ${theme.color.icon.button};
 
+          &:active {
+            background-color: ${theme.color.accent.foreground};
+            svg {
+              color: ${theme.color.secondary.foreground};
+            }
+          }
+        `}
+      >
+        <svg
+          css={css`
+            transition: none;
+            & * {
+              transition: none;
+            }
+            width: 0.802em;
+            height: 0.13em;
+          `}
+          xmlns="http://www.w3.org/2000/svg"
+          width="52"
+          height="8"
+          viewBox="0 0 52 8"
+          fill="currentColor"
+        >
+          <rect
+            id="사각형_709"
+            data-name="사각형 709"
+            width="52"
+            height="8"
+            rx="4"
+          />
+        </svg>
+      </button>
+      <button
+        onClick={onIncreaseClick}
+        css={css`
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 50%;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          background-color: white;
+          transition: none;
+          fill: ${theme.color.icon.button};
+          color: ${theme.color.icon.button};
           &:active {
             background-color: ${theme.color.accent.foreground};
             svg {
@@ -96,54 +144,6 @@ const IncreaseButton = ({
               transform="translate(2944 1964) rotate(90)"
             />
           </g>
-        </svg>
-      </button>
-      <button
-        onClick={onDecreaseClick}
-        css={css`
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 0 0 50%;
-          background-color: transparent;
-          border: none;
-          outline: none;
-          background-color: white;
-          transition: none;
-          fill: ${theme.color.icon.button};
-          color: ${theme.color.icon.button};
-          &:active {
-            background-color: ${theme.color.accent.foreground};
-            svg {
-              color: ${theme.color.secondary.foreground};
-            }
-          }
-        `}
-      >
-        <svg
-          css={css`
-            transition: none;
-            & * {
-              transition: none;
-            }
-            width: 0.802em;
-            height: 0.13em;
-          `}
-          xmlns="http://www.w3.org/2000/svg"
-          width="52"
-          height="8"
-          viewBox="0 0 52 8"
-          fill="currentColor"
-        >
-          <rect
-            id="사각형_709"
-            data-name="사각형 709"
-            width="52"
-            height="8"
-            rx="4"
-          />
         </svg>
       </button>
     </div>

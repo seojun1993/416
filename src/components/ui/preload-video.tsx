@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { m, LazyMotion, domAnimation } from "framer-motion";
 import { fadeInOutVariants } from "@/variants";
 import { VideoSpeeds, useSettingStore } from "@/contexts/setting.store";
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import { P3 } from "./text";
 import styled from "@emotion/styled";
 import { isVideoPlaying } from "@/libs/utils";
@@ -21,6 +21,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
   );
   const controls = useAnimation();
   const { src } = props;
+  const theme = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     if (src && videoRef.current) {
@@ -176,12 +177,15 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                     filter="url(#패스_3342)"
                   >
                     <path
+                      css={css`
+                        stroke: ${theme.color.main};
+                      `}
                       id="패스_3342-2"
                       data-name="패스 3342"
                       d="M59.327,5.25v65M8.25,5.25v65"
                       transform="translate(81.21 72.25)"
-                      fill="none"
-                      stroke="#fff"
+                      fill="currentColor"
+                      stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="15"
@@ -205,23 +209,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
             </RestartIcon>
           </button>
         </m.div>
-        <div
-          css={css`
-            width: 16rem;
-            height: 5.4rem;
-            margin: 0 1rem;
-            padding-top: 0.8rem;
-            display: flex;
-            background-color: white;
-            border-top-right-radius: 0.4rem;
-            border-top-left-radius: 0.4rem;
-            overflow: hidden;
-            box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          `}
-        >
+        <SignControllerWrapper>
           <P3
             css={css`
               margin-bottom: 0.5rem;
@@ -288,22 +276,18 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                   align-items: center;
                   border: none;
                   padding: 0;
+                  border-radius: 9999rem;
                   padding: 0;
                 `}
                 onClick={() => setSpeed(item.value)}
               >
-                <div
+                <SignControllerCircle
+                  selected={speed === item.value}
                   css={css`
-                    background-color: ${speed === item.value
-                      ? "#8080FF"
-                      : "gray"};
                     border-radius: 9999rem;
-                    width: 0.8rem;
-                    aspect-ratio: 1/1;
-                    border: none;
-                    position: relative;
                     &::after {
                       content: "${item.text}";
+                      color: ${theme.color.text.sub};
                       white-space: nowrap;
                       pointer-events: none;
                       position: absolute;
@@ -323,13 +307,42 @@ const PreloadVideo = (props: PreloadVideoProps) => {
               </button>
             ))}
           </div>
-        </div>
+        </SignControllerWrapper>
       </m.div>
     </LazyMotion>
   );
 };
 
 export default PreloadVideo;
+
+const SignControllerWrapper = styled.div`
+  width: 16rem;
+  height: 5.4rem;
+  margin: 0 1rem;
+  padding-top: 0.8rem;
+  display: flex;
+  background-color: white;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.theme.color.secondary.foreground};
+`;
+
+const SignControllerCircle = styled.div<{ selected: boolean }>`
+  background-color: ${(props) =>
+    props.selected
+      ? props.theme.color.accent.foreground
+      : props.theme.color.text.sub};
+
+  width: 0.8rem;
+  aspect-ratio: 1/1;
+  border: none;
+  position: relative;
+`;
 
 const RestartIcon = styled.svg`
   width: 4.4rem;

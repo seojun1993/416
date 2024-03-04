@@ -1,9 +1,9 @@
 import AppShell from "@/components/shell/app-shell";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "./queries/student";
-import { lazy } from "react";
+import { lazy, useEffect, useRef } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
 
@@ -22,7 +22,22 @@ const SpaceInfo = Loadable(lazy(() => import("@/pages/space-info")));
 function Root() {
   const location = useLocation();
   useQuery(getStudentsQuery());
+  const pathname = useLocation().pathname;
+  const router = useNavigate();
+  const timeoutId = useRef<NodeJS.Timeout>();
 
+  useEffect(() => {
+    const handleTimeout = () => {
+      clearTimeout(timeoutId.current);
+      timeoutId.current = setTimeout(() => {
+        router("/", { replace: true });
+      }, 1000 * 60 * 1.5);
+    };
+    window.addEventListener("click", handleTimeout);
+    return () => {
+      window.removeEventListener("click", handleTimeout);
+    };
+  }, [pathname]);
   return (
     <AppShell>
       <AnimatePresence mode="wait">

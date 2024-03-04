@@ -515,31 +515,16 @@ const BottomBar = () => {
         >
           <AnimatePresence mode="wait">
             {tooltipMode === "text" && (
-              <motion.div
+              <ControllerWrapper
                 {...fadeInOutVariants}
                 onClick={(event) => event.stopPropagation()}
-                css={css`
-                  position: absolute;
-                  top: calc(-100% - 2.5rem);
-                  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
-                  width: 16rem;
-                  height: 5.4rem;
-                  border-top-left-radius: 0.4rem;
-                  border-top-right-radius: 0.4rem;
-                  background-color: white;
-                  left: calc(-5.5rem);
-                  display: flex;
-                  flex-direction: column;
-                  row-gap: 0.5rem;
-                  padding-top: 0.8rem;
-                `}
               >
                 <P3
                   css={css`
                     font-size: 1.12rem;
                   `}
                 >
-                  글씨크기
+                  글씨확대
                 </P3>
                 <div
                   css={css`
@@ -630,7 +615,7 @@ const BottomBar = () => {
                     </button>
                   ))}
                 </div>
-              </motion.div>
+              </ControllerWrapper>
             )}
           </AnimatePresence>
           <IncreaseButton
@@ -1035,4 +1020,20 @@ const BottomWrapper = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.color.background.secondary};
   max-height: 4em;
+`;
+
+const ControllerWrapper = styled(motion.div)`
+  position: absolute;
+  top: calc(-100% - 2.5rem);
+  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
+  width: 16rem;
+  height: 5.4rem;
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+  left: calc(-5.5rem);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  padding-top: 0.8rem;
+  background-color: ${(props) => props.theme.color.secondary.foreground};
 `;
