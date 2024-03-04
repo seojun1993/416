@@ -21,7 +21,7 @@ export const lightTheme = {
       foreground: "#1A254C",
     },
     background: {
-      card: "rgba(255,255,255,0.2)",
+      card: "rgba(255,255,255,0.1)",
       card2: "rgba(255,255,255,0.1)",
       secondary: "white",
     },

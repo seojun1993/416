@@ -642,7 +642,6 @@ const BottomBar = () => {
               event.stopPropagation();
               setZoom((idx) => idx - 1);
             }}
-            tabIndex={0}
           />
           <P3
             css={css`
@@ -665,9 +664,9 @@ const BottomBar = () => {
           `}
         >
           <Switch
+            tabIndex={1}
             isOpen={soundOn}
             setIsOpen={(state) => setSoundOn(state)}
-            tabIndex={1}
           />
           <P3
             css={css`
@@ -720,7 +719,7 @@ const BottomBar = () => {
                     position: relative;
                   `}
                 >
-                  <button
+                  <div
                     css={css`
                       border: none;
                       background-color: transparent;
@@ -743,9 +742,9 @@ const BottomBar = () => {
                     >
                       <rect id="minus" width="52" height="8" rx="4" />
                     </svg>
-                  </button>
+                  </div>
                   {volumeRange.map((item, volIdx) => (
-                    <button
+                    <div
                       key={item + "volumn"}
                       css={css`
                         background-color: transparent;
@@ -771,9 +770,9 @@ const BottomBar = () => {
                           position: relative;
                         `}
                       />
-                    </button>
+                    </div>
                   ))}
-                  <button
+                  <div
                     css={css`
                       border: none;
                       background-color: transparent;
@@ -813,7 +812,7 @@ const BottomBar = () => {
                         />
                       </g>
                     </svg>
-                  </button>
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -827,7 +826,6 @@ const BottomBar = () => {
               event.stopPropagation();
               setVolumnAction(volIndex - 1);
             }}
-            tabIndex={2}
           />
           <P3
             css={css`
@@ -960,7 +958,6 @@ const BottomBar = () => {
             )}
           </AnimatePresence>
           <IncreaseButton
-            tabIndex={3}
             onIncreaseClick={(event) => {
               event.stopPropagation();
               setSoundSpeed((idx) => idx + 1);
@@ -991,10 +988,10 @@ const BottomBar = () => {
           `}
         >
           <Switch
+            tabIndex={1}
             disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
             isOpen={signOn}
             setIsOpen={(state) => setSignOn(state)}
-            tabIndex={4}
           />
           <P3
             css={css`

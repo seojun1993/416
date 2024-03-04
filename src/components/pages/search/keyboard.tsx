@@ -3,7 +3,7 @@
 import { P3 } from "@/components/ui/text";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import * as hg from "hangul-js";
 type SpecificKeyTypes =
   | "Enter"
@@ -316,7 +316,13 @@ const keyMap: Key[][] = [
               />
             </g>
           </svg>
-          <P3>검색</P3>
+          <P3
+            css={css`
+              font-size: 1.12rem;
+            `}
+          >
+            검색
+          </P3>
         </SearchButtonChild>,
       ],
       renderItem: SearchButton,
@@ -428,35 +434,6 @@ const Keyboard = (
   };
   const inputValue = useRef<string>(defaultValue ?? "");
 
-  const handleArrowKeyDown = (event: KeyboardEvent) => {
-    const target = event.target as any;
-    const [x, y] = target.dataset.position.split(",").map(Number);
-    const keyHandler: {
-      ArrowUp: (position: Position) => [number, number] | null;
-      ArrowDown: (position: Position) => [number, number] | null;
-      ArrowRight: (position: Position) => [number, number] | null;
-      ArrowLeft: (position: Position) => [number, number] | null;
-    } = {
-      ArrowUp: ([argX, argY]) => (argX > 0 ? [argX - 1, argY] : null),
-      ArrowDown: ([argX, argY]) =>
-        argX < keyboardItem.length - 1 ? [argX + 1, argY] : null,
-      ArrowRight: ([argX, argY]) =>
-        y < keyboardItem[argX].length - 1 ? [argX, argY + 1] : null,
-      ArrowLeft: ([argX, argY]) => (argY > 0 ? [argX, argY - 1] : null),
-    };
-    if (Object.hasOwn(keyHandler, event.key)) {
-      const position = keyHandler[event.key as keyof typeof keyHandler]([x, y]);
-      if (position) {
-        const nextRef = document.querySelector(
-          `[data-position="${position[0]},${position[1]}"]`
-        ) as HTMLButtonElement;
-        if (nextRef) {
-          nextRef.focus();
-        }
-      }
-    }
-  };
-
   const getSpecificKeyPressHandler = (keyType?: SpecificKeyTypes) => {
     const key = keyType ?? "None";
     const specificKeyPressHandler: {
@@ -492,15 +469,6 @@ const Keyboard = (
     return specificKeyPressHandler[key];
   };
 
-  useEffect(() => {
-    if (keyboardContainerRef.current) {
-      const ref = keyboardContainerRef.current;
-      ref.addEventListener("keydown", handleArrowKeyDown);
-      return () => {
-        ref.removeEventListener("keydown", handleArrowKeyDown);
-      };
-    }
-  }, []);
   return (
     <div
       ref={keyboardContainerRef}
@@ -565,7 +533,7 @@ const Keyboard = (
                     box-shadow: inset 0 -0.12rem 0.06rem rgba(0, 0, 0, 0.15);
                     border: none;
                     transition: opacity 0.1s ease-in-out;
-
+                    outline-offset: 0.05rem !important;
                     &:active {
                       opacity: 0.8;
                     }

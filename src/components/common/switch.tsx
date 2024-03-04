@@ -25,16 +25,22 @@ const Switch = ({
     event?.stopPropagation();
     !disabled && setIsOpen(!isOpen);
   };
-  const handleKeyDown = useCallback((event: KeyboardEvent) => {
-    if (event.code === "Space" || event.code === "Enter") {
-      ref.current?.focus();
-    }
-  }, []);
-  const handleKeyUp = useCallback((event: KeyboardEvent) => {
-    if (event.code === "Space" || event.code === "Enter") {
-      toggleSwitch();
-    }
-  }, []);
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.code === "Space" || event.code === "Enter") {
+        ref.current?.focus();
+      }
+    },
+    [isOpen]
+  );
+  const handleKeyUp = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.code === "Space" || event.code === "Enter") {
+        toggleSwitch();
+      }
+    },
+    [isOpen]
+  );
 
   useEffect(() => {
     if (ref.current) {
@@ -46,7 +52,7 @@ const Switch = ({
         refs.removeEventListener("keydown", handleKeyDown);
       };
     }
-  }, []);
+  }, [handleKeyDown, handleKeyUp]);
 
   return (
     <label

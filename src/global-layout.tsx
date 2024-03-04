@@ -8,17 +8,14 @@ import { darkTheme, lightTheme } from "./styles/theme";
 
 const GlobalLayout = ({ children }: PropsWithChildren) => {
   const [themeMode] = useThemeMode();
-  const theme = useTheme();
   const { zoom } = useSettingStore();
+  const theme =
+    themeMode === "light"
+      ? { ...lightTheme, themeMode }
+      : { ...darkTheme, themeMode };
   return (
-    <ThemeProvider
-      theme={
-        themeMode === "light"
-          ? { ...lightTheme, themeMode }
-          : { ...darkTheme, themeMode }
-      }
-    >
-      <Global styles={style.reset(zoom)} />
+    <ThemeProvider theme={theme}>
+      <Global styles={style.reset(theme, zoom)} />
       {children}
     </ThemeProvider>
   );

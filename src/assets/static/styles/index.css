@@ -11,6 +11,7 @@
 .__focussed {
   outline-color: #fff500 !important;
 }
+
 .react-transform-wrapper {
   width: 100% !important;
   height: 100% !important;
@@ -25,7 +26,8 @@
 
 *:focus-visible,
 *:focus {
-  outline: 0.26em solid #fff500 !important;
+  outline: 0.1em dashed #fff500 !important;
+  outline-offset: 0.3rem;
 }
 
 .bounce-down {

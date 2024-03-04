@@ -103,8 +103,10 @@ const EmblaCarousel = <T,>({
           <LeftButton
             css={css`
               ${leftStyle}
+              border: 10px solid transparent;
+              transition: border-color 0.05s ease-in-out;
               &:active {
-                background-color: ${theme.color.accent.foreground};
+                border: 10px solid ${theme.color.accent.foreground};
               }
             `}
             onClick={() => {
@@ -255,7 +257,7 @@ const Viewport = styled.div`
   overflow: hidden;
   position: relative;
   margin: 0 auto;
-  padding: 0.26rem 0.2rem;
+  padding: 0.76rem 0.2rem;
   height: 100%;
 `;
 

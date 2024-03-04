@@ -21,7 +21,7 @@ export const MainShell = ({
         display: flex;
         padding: 2.4rem ${paddingHorizontal} 0 ${paddingHorizontal};
         height: 100%;
-        /* max-height: calc(100dvh - var(--bottom-height)); */
+        max-height: calc(100dvh - var(--bottom-height));
         overflow-y: clip;
         ${rest.css}
       `}

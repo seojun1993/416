@@ -73,13 +73,16 @@ const PreloadVideo = (props: PreloadVideoProps) => {
           animate={controls}
           transition={{
             ...props.transition,
-            duration: 0.5,
+            type: "tween",
+            ease: "linear",
           }}
           onClick={() => {
             if (videoRef.current) {
               if (isVideoPlaying(videoRef.current)) {
+                setIsPlaying(false);
                 videoRef.current.pause();
               } else {
+                setIsPlaying(true);
                 videoRef.current.play();
               }
             }
@@ -90,21 +93,25 @@ const PreloadVideo = (props: PreloadVideoProps) => {
               width: 100%;
               height: 100%;
               object-fit: cover;
+              filter: brightness(${isPlaying ? 1 : 0.6});
+              transition: filter 0.2s ease-in-out;
             `}
             loop
             ref={videoRef}
             {...props}
           />
-          <div
-            className="test"
+          <button
             css={css`
               position: absolute;
               left: 50%;
-              bottom: 0%;
+              bottom: -5%;
               transform: translate(-50%, -50%);
-              width: 4rem;
-              height: 4rem;
               z-index: 10;
+              background-color: transparent;
+              border: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             `}
           >
             <RestartIcon
@@ -163,21 +170,40 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                     fill="currentColor"
                   />
                 </g>
-                <g
-                  transform="matrix(1, 0, 0, 1, -1, -5)"
-                  filter="url(#패스_838)"
-                >
-                  <path
-                    id="패스_838-2"
-                    data-name="패스 838"
-                    d="M113.1,137.171q0-14.949,0-29.9c.013-6.3,3.875-8.6,9.26-5.492q25.967,15,51.91,30.038c5.587,3.239,5.534,7.631-.126,10.912q-25.531,14.8-51.08,29.567c-2.288,1.324-4.568,2.738-7.291,1.056-2.635-1.627-2.711-4.2-2.7-6.915.055-9.756.022-19.512.02-29.268"
-                    transform="translate(-23.03 -22.17)"
-                    fill="currentColor"
-                  />
-                </g>
+                {isPlaying ? (
+                  <g
+                    transform="matrix(1, 0, 0, 1, 0, 0)"
+                    filter="url(#패스_3342)"
+                  >
+                    <path
+                      id="패스_3342-2"
+                      data-name="패스 3342"
+                      d="M59.327,5.25v65M8.25,5.25v65"
+                      transform="translate(81.21 72.25)"
+                      fill="none"
+                      stroke="#fff"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="15"
+                    />
+                  </g>
+                ) : (
+                  <g
+                    transform="matrix(1, 0, 0, 1, -1, -5)"
+                    filter="url(#패스_838)"
+                  >
+                    <path
+                      id="패스_838-2"
+                      data-name="패스 838"
+                      d="M113.1,137.171q0-14.949,0-29.9c.013-6.3,3.875-8.6,9.26-5.492q25.967,15,51.91,30.038c5.587,3.239,5.534,7.631-.126,10.912q-25.531,14.8-51.08,29.567c-2.288,1.324-4.568,2.738-7.291,1.056-2.635-1.627-2.711-4.2-2.7-6.915.055-9.756.022-19.512.02-29.268"
+                      transform="translate(-23.03 -22.17)"
+                      fill="currentColor"
+                    />
+                  </g>
+                )}
               </g>
             </RestartIcon>
-          </div>
+          </button>
         </m.div>
         <div
           css={css`

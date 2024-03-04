@@ -138,7 +138,8 @@ const MemoryHeader = styled(H1)`
 const StarsSpace = styled.div`
   background-color: ${(props) => props.theme.color.background.card};
   box-shadow: 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.border};
-  border-width: 0.15rem;
+  border-width: 0.07rem;
+  border-color: rgba(255, 255, 255, 0.7);
   border-style: solid;
   transition: border-color 0.2s ease-in-out;
   border-radius: 0.4rem;

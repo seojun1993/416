@@ -17,21 +17,20 @@ import { css } from "@emotion/react";
 import { useSettingStore } from "@/contexts/setting.store";
 import PreloadVideo from "@/components/ui/preload-video";
 import { classSign } from "@/assets/videos";
-import vi from "@/assets/videos/sample.webm";
 
 const memoryItems = [
-  { title: "기억교실 연혁" as const },
+  { title: "기억교실 연혁" as const, sign: classSign.history },
   { title: "1반" as const, sign: classSign.class1 },
   { title: "2반" as const, sign: classSign.class2 },
-  { title: "3반" as const },
+  { title: "3반" as const, sign: classSign.class3 },
   { title: "4반" as const, sign: classSign.class4 },
   { title: "5반" as const, sign: classSign.class5 },
   { title: "6반" as const, sign: classSign.class6 },
-  { title: "7반" as const },
+  { title: "7반" as const, sign: classSign.class7 },
   { title: "8반" as const, sign: classSign.class8 },
   { title: "9반" as const, sign: classSign.class9 },
   { title: "10반" as const, sign: classSign.class10 },
-  { title: "교무실" as const },
+  { title: "교무실" as const, sign: classSign.teacher },
 ];
 
 const MemoryClass = () => {
@@ -150,6 +149,7 @@ const MemoryClass = () => {
 export default MemoryClass;
 const MemoryClassImg = styled(ImageX)`
   img {
+    border-radius: 0.6rem;
     object-fit: cover;
   }
 `;
@@ -165,7 +165,7 @@ const MemoryClassButton = styled(motion.button)<{ selected: boolean }>`
   font-family: "NanumSquareRoundOTF";
   font-size: 1.12rem;
   font-weight: 800;
-  width: 9.2rem;
+  width: 11rem;
   height: 2.6rem;
   background-color: ${(props) => props.theme.color.background.card};
   box-shadow: 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.border};
@@ -191,6 +191,8 @@ const DescriptionWrapper = styled.div`
 
 const MemoryClassContentDescription = styled.article`
   overflow-y: scroll;
+  width: 100%;
+  padding-right: 1rem;
 `;
 
 const DescriptionContent = styled(P3)`

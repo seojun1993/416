@@ -1,5 +1,5 @@
 import { Theme, css } from "@emotion/react";
-const reset = (zoom: number) => css`
+const reset = (theme: Theme, zoom: number) => css`
   *,
   :after,
   :before {
@@ -85,6 +85,13 @@ const reset = (zoom: number) => css`
     /* font-size: 1.303dvw; */
     font-size: 2.3dvh;
     font-family: "Pretendard";
+  }
+  button:focus:not([data-disable-focus-effect="true"]) {
+    background-color: ${theme.color.accent.foreground};
+    color: ${theme.color.secondary.foreground} !important;
+    /* svg * {
+      fill: ${theme.color.secondary.foreground} !important;
+    } */
   }
 `;
 export default reset;

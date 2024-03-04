@@ -3,13 +3,7 @@ import { getAllKeywordWithStudents } from "@/queries/keyword";
 import { css } from "@emotion/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import styled from "@emotion/styled";
-import {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from "react";
+import { PropsWithChildren, useId, useMemo, useRef } from "react";
 import { shuffle } from "@/libs/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, Variants, motion, useInView } from "framer-motion";
@@ -347,7 +341,7 @@ const StarCloud = () => {
                 return (
                   <StarWithLabel
                     star={star}
-                    id={tempIdx + starIdx + ""}
+                    id={tempIdx + starIdx + star.label}
                     key={tempIdx + starIdx + star.label}
                   />
                 );
@@ -393,12 +387,13 @@ function TmeplateItem({ children }: PropsWithChildren) {
 function StarWithLabel({ star, id }: { id: string; star: Star }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const selected = searchParams.get("label") === star.label;
-
+  const uid = useId();
   return (
     <Star
       {...star}
       selected={selected}
-      key={id}
+      data-disable-focus-effect="true"
+      key={uid}
       onClick={(event) => {
         event.stopPropagation();
         setSearchParams({ label: star.label });
@@ -670,7 +665,7 @@ const selectedStarVariants: Variants = {
 const fontSizesByWeight = [0.92, 1.08, 1.44, 1.84, 2.2];
 
 const STAR_COLOR_VALUE = (255 - 128) / 4;
-export const Star = styled.div<{
+export const Star = styled.button<{
   x: number;
   y: number;
   weight: number;
@@ -681,6 +676,9 @@ export const Star = styled.div<{
   font-size: calc(
     var(--font-size) * ${(props) => fontSizesByWeight[props.weight - 1]}
   );
+  border-radius: 9999rem;
+  background-color: transparent !important;
+  border: none;
   color: ${(props) =>
     props.selected
       ? props.theme.color.yellow

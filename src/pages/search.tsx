@@ -138,12 +138,11 @@ const Search = () => {
             disabled
             css={css`
               font-size: 1.6rem;
-              font-family: "NanumSquareRoundOTF", serif, system-ui,
+              /* font-family: "NanumSquareRoundOTF", serif, system-ui,
                 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
               font-weight: 800;
               font-display: swap;
-
               background-color: transparent;
               height: fit-content;
               flex: 1;
@@ -228,7 +227,13 @@ const Search = () => {
                 />
               </g>
             </svg>
-            <H4>검색</H4>
+            <H4
+              css={css`
+                font-size: 1.6rem;
+              `}
+            >
+              검색
+            </H4>
           </button>
         </div>
         <Keyboard
