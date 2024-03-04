@@ -86,7 +86,7 @@ const Stars = () => {
         <EmblaCarousel
           aspect={1 / SlideCardAspect}
           cssSlide={css`
-            width: calc((460px + 1.6rem) * ${SlideCardAspect});
+            width: calc((9.2rem + 1.6rem) * ${SlideCardAspect});
             display: flex;
             align-items: flex-end;
             height: fit-content;

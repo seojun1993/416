@@ -36,8 +36,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </QueryClientProvider>
   </React.StrictMode>
 );
-
-const jumja = window.chrome.webview.hostObjects.sync.jumjaplay;
 const injectKeyboardHandler = () => {
   return function () {
     document.addEventListener("keydown", (event) => {
@@ -56,59 +54,62 @@ const injectKeyboardHandler = () => {
       let nextElement = null; // 다음에 포커스될 요소
       const focusedElement = document.activeElement as HTMLElement;
       if (!focusedElement) {
-        nextElement = focusableElements[0];
-      } else {
-        const currentIndex = focusableElements.indexOf(focusedElement);
+        focusableElements[0].focus();
+      }
+      const currentIndex = focusableElements.indexOf(focusedElement);
 
-        const focusedRect = focusedElement.getBoundingClientRect();
+      const focusedRect = focusedElement.getBoundingClientRect();
 
-        if (event.key === "ArrowUp" || event.key === "ArrowDown") {
-          const currentCenter = {
-            x: focusedRect.left + focusedRect.width / 2,
-            y: focusedRect.top + focusedRect.height / 2,
+      if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+        const currentCenter = {
+          x: focusedRect.left + focusedRect.width / 2,
+          y: focusedRect.top + focusedRect.height / 2,
+        };
+
+        let closestDistance = Infinity;
+
+        focusableElements.forEach((el) => {
+          if (el === focusedElement) return;
+
+          const rect = el.getBoundingClientRect();
+          const currentCenterY = focusedRect.top + focusedRect.height / 2;
+          const elementCenterY = rect.top + rect.height / 2;
+
+          if (event.key === "ArrowDown" && elementCenterY <= currentCenterY)
+            return;
+          if (event.key === "ArrowUp" && elementCenterY >= currentCenterY)
+            return;
+
+          const center = {
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2,
           };
 
-          let closestDistance = Infinity;
+          const distance = Math.sqrt(
+            Math.pow(center.x - currentCenter.x, 2) +
+              Math.pow(center.y - currentCenter.y, 2)
+          );
 
-          focusableElements.forEach((el) => {
-            if (el === focusedElement) return;
-
-            const rect = el.getBoundingClientRect();
-            const currentCenterY = focusedRect.top + focusedRect.height / 2;
-            const elementCenterY = rect.top + rect.height / 2;
-
-            if (event.key === "ArrowDown" && elementCenterY <= currentCenterY)
-              return;
-            if (event.key === "ArrowUp" && elementCenterY >= currentCenterY)
-              return;
-
-            const center = {
-              x: rect.left + rect.width / 2,
-              y: rect.top + rect.height / 2,
-            };
-
-            const distance = Math.sqrt(
-              Math.pow(center.x - currentCenter.x, 2) +
-                Math.pow(center.y - currentCenter.y, 2)
-            );
-
-            if (distance < closestDistance) {
-              nextElement = el;
-              closestDistance = distance;
-            }
-          });
-        } else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-          const horizontalMove = event.key === "ArrowLeft" ? -1 : 1;
-          const nextIndex = currentIndex + horizontalMove;
-          if (nextIndex >= 0 && nextIndex < focusableElements.length) {
-            nextElement = focusableElements[nextIndex];
+          if (distance < closestDistance) {
+            nextElement = el;
+            closestDistance = distance;
           }
+        });
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        const horizontalMove = event.key === "ArrowLeft" ? -1 : 1;
+        const nextIndex = currentIndex + horizontalMove;
+        if (nextIndex >= 0 && nextIndex < focusableElements.length) {
+          nextElement = focusableElements[nextIndex];
         }
       }
 
       if (nextElement) {
         if (nextElement.dataset.a11yId) {
-          jumja.Play(nextElement.dataset.a11yId);
+          window.dispatchEvent(
+            new CustomEvent("a11y", {
+              detail: nextElement.dataset.a11yId,
+            })
+          );
         }
         nextElement.focus({
           preventScroll: !!nextElement?.dataset.preventScroll,

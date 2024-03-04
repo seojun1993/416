@@ -101,7 +101,7 @@ const createTooltipSlice: StateCreator<TooltipSlice> = (set) => ({
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
       set({ tooltipMode: null });
-    }, 5000);
+    }, 5000000);
   },
 });
 

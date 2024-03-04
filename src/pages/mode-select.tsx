@@ -303,7 +303,9 @@ const ModeSelectList = styled.div`
   justify-content: space-between;
   column-gap: 2rem;
   height: 100%;
+  width: 100%;
   align-items: center;
+  padding: 0 4.8rem;
 `;
 const ModelSelectCardWrapper = styled(Link)`
   background-color: ${(props) => props.theme.color.background.card};
@@ -316,15 +318,19 @@ const ModelSelectCardWrapper = styled(Link)`
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 20rem;
   border-radius: 0.8rem;
   aspect-ratio: 1/1;
-  padding-top: 4rem;
+  width: 100%;
+  justify-content: center;
+  > svg {
+    flex: 1;
+    width: 50%;
+  }
   > div {
+    flex: 0.4;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2.64rem;
     color: white;
     p {
       font-size: calc(var(--font-size) * 1.4);

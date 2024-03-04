@@ -24,8 +24,8 @@ const Timeline = () => {
           css={css`
             border-radius: 0.8rem;
             overflow: hidden;
-            width: 1440px;
-            height: 1488px;
+            width: 28.8rem;
+            height: 29.76rem;
           `}
           src={timelineImage}
         />

@@ -697,6 +697,7 @@ const BottomBar = () => {
                 css={css`
                   position: absolute;
                   top: calc(-100% - 0.5rem);
+                  height: 3.4rem;
                   box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
                   border-top-left-radius: 0.4rem;
                   border-top-right-radius: 0.4rem;
@@ -735,6 +736,10 @@ const BottomBar = () => {
                     }}
                   >
                     <svg
+                      css={css`
+                        width: 1.4rem;
+                        height: 0.8rem;
+                      `}
                       xmlns="http://www.w3.org/2000/svg"
                       width="52"
                       height="8"
@@ -788,6 +793,10 @@ const BottomBar = () => {
                     }}
                   >
                     <svg
+                      css={css`
+                        width: 1.4rem;
+                        height: 1.4rem;
+                      `}
                       xmlns="http://www.w3.org/2000/svg"
                       width="52"
                       height="52"

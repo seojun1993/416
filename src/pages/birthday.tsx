@@ -162,7 +162,7 @@ function Birth({ students }: BirthProps) {
         css={css`
           object-fit: cover;
           width: 100%;
-          height: 64%;
+          height: 23.2rem;
           margin-bottom: 4rem;
           overflow-y: clip;
           position: relative;
@@ -189,6 +189,10 @@ function Birth({ students }: BirthProps) {
           `}
         >
           <svg
+            css={css`
+              width: 1.8rem;
+              height: 2.04rem;
+            `}
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             width="90"

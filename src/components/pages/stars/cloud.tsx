@@ -566,6 +566,10 @@ function StarWithLabel({ star, id }: { id: string; star: Star }) {
           </motion.div>
         ) : (
           <motion.svg
+            css={css`
+              width: 1.6rem;
+              height: 1.52rem;
+            `}
             key={star.label + "unselected"}
             animate="animate"
             initial="initial"
@@ -654,7 +658,7 @@ const selectedStarVariants: Variants = {
   animate: ({ duration }: any) => ({
     scale: 2,
     opacity: 1,
-    y: -10,
+    // y: -10,
   }),
   exit: {
     scale: 0.01,
@@ -697,6 +701,6 @@ export const Star = styled.button<{
   align-items: center;
   position: absolute;
   left: ${(props) => props.x}%;
-  top: ${(props) => props.y}%;
+  top: calc(${(props) => props.y}% - 1.5vb);
   row-gap: 0.1rem;
 `;

@@ -66,7 +66,7 @@ export function sortDatesClosestToToday(a: Student, b: Student) {
 }
 
 export const getStudentFromJson = () =>
-  import("~/contens/students.json").then((res) => {
+  import("~/contents/students.json").then((res) => {
     const data = res.data.map((student) => {
       if (typeof student.keywords === "string") {
         student.keywords = JSON.parse(student.keywords as unknown as string);

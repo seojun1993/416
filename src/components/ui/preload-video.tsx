@@ -332,6 +332,8 @@ const PreloadVideo = (props: PreloadVideoProps) => {
 export default PreloadVideo;
 
 const RestartIcon = styled.svg`
+  width: 4.4rem;
+  height: 4.4rem;
   & * {
     fill: ${(props) => props.theme.color.main};
     transition: opacity 0.05s ease-in-out;
