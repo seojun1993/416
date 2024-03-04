@@ -31,7 +31,7 @@ const Switch = ({
         ref.current?.focus();
       }
     },
-    [isOpen]
+    [isOpen, disabled]
   );
   const handleKeyUp = useCallback(
     (event: KeyboardEvent) => {
@@ -39,7 +39,7 @@ const Switch = ({
         toggleSwitch();
       }
     },
-    [isOpen]
+    [isOpen, disabled]
   );
 
   useEffect(() => {

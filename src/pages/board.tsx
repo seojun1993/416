@@ -361,7 +361,7 @@ const Board = () => {
                   d="M-20078.957-17310.031l-40,40,40,40"
                   transform="translate(20124.955 17318.516)"
                   fill="none"
-                  stroke="#fb950a"
+                  stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="12"
@@ -380,7 +380,7 @@ const Board = () => {
                   d="M-20118.957-17310.031l40,40-40,40"
                   transform="translate(20127.441 17318.516)"
                   fill="none"
-                  stroke="#fb950a"
+                  stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="12"
@@ -413,6 +413,7 @@ const Board = () => {
           ) : null}
           <P3
             css={css`
+              font-size: 1.12rem;
               font-weight: 500;
             `}
           >

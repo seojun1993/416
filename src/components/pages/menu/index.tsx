@@ -83,6 +83,7 @@ export const MenuCard = ({
           white-space: pre-line;
           text-align: start;
           flex: 1;
+          font-size: 1.12rem;
         `}
       >
         {description}
