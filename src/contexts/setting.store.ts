@@ -4,9 +4,9 @@ import type { StateCreator } from "zustand";
 export type ThemeMode = "light" | "dark";
 export type UserMode = "normal" | "sound" | "sign";
 export const zooms = [
-  { value: 1, text: "x1" },
-  { value: 1.2, text: "x1.2" },
-  { value: 1.5, text: "x1.5" },
+  { value: 1, text: "보통" },
+  { value: 1.05, text: "크게" },
+  { value: 1.1, text: "매우크게" },
 ];
 
 export const VideoSpeeds = [

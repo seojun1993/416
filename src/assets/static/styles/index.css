@@ -4,14 +4,13 @@
 @import "../fonts/NanumSquareRound/NanumSquareRoundOTF.css";
 @import "../fonts/dokdo/dokdo.css";
 
-.__focussed-target {
+.__focussed-target:not([data-disabled-outline="true"]) {
   outline: 0.26em solid transparent !important;
   transition: outline 0.1s ease-in-out;
 }
-.__focussed {
+.__focussed:not([data-disabled-outline="true"]) {
   outline-color: #fff500 !important;
 }
-
 .react-transform-wrapper {
   width: 100% !important;
   height: 100% !important;
@@ -24,8 +23,8 @@
   flex-direction: column;
 }
 
-*:focus-visible,
-*:focus {
+*:focus-visible:not([data-disabled-outline="true"]),
+*:focus:not([data-disabled-outline="true"]) {
   outline: 0.1em dashed #fff500 !important;
   outline-offset: 0.3rem;
 }

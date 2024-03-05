@@ -10,8 +10,7 @@ const reset = (theme: Theme, zoom: number) => css`
   ::before {
     margin: 0;
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
-      color 0.2s ease-in-out, background-color 0.2s ease-in-out,
-      background 0.2s ease-in-out;
+      background-color 0.2s ease-in-out, background 0.2s ease-in-out;
   }
   * {
     min-width: 0;
@@ -89,9 +88,6 @@ const reset = (theme: Theme, zoom: number) => css`
   button:focus:not([data-disable-focus-effect="true"]) {
     background-color: ${theme.color.accent.foreground};
     color: ${theme.color.secondary.foreground} !important;
-    /* svg * {
-      fill: ${theme.color.secondary.foreground} !important;
-    } */
   }
 `;
 export default reset;

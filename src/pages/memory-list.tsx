@@ -166,7 +166,7 @@ const MemoryList = () => {
           `}
         >
           <AlbumVisualizer ref={visualizerRef} />
-          <MemoryQRCode>
+          <MemoryQRCode data-disable-focus-effect="true">
             <QRCode value="https://goe416.go.kr/?p=26&page=1&searchTxt=" />
 
             <P3
@@ -290,6 +290,7 @@ const AlbumVisualizer = forwardRef<{
         </div>
       </div>
       <LeftButton
+        data-disable-focus-effect="true"
         onClick={() => {
           if (columnVirtualizer.range?.endIndex) {
             moveScrollToIndex(columnVirtualizer.range.endIndex - 1);
@@ -313,8 +314,10 @@ const AlbumVisualizer = forwardRef<{
             strokeWidth="12"
           />
         </svg>
+        <P3 css={css``}>이전</P3>
       </LeftButton>
       <RightButton
+        data-disable-focus-effect="true"
         onClick={() => {
           if (
             columnVirtualizer.range &&
@@ -342,6 +345,7 @@ const AlbumVisualizer = forwardRef<{
             strokeWidth="12"
           />
         </svg>
+        <P3 css={css``}>다음</P3>
       </RightButton>
     </div>
   );
@@ -386,7 +390,7 @@ const MemoryAlbum = memo(
           height: 100%;
         `}
       >
-        <TransformWrapper ref={panRef}>
+        <TransformWrapper ref={panRef} maxScale={2}>
           <TransformComponent contentStyle={{ width: "100%" }}>
             <img
               css={css`
@@ -407,18 +411,35 @@ const LeftButton = styled.button`
   left: calc(0% - 2rem);
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 9999rem;
+  border-radius: 0.4rem;
   width: 4rem;
+  height: 4.8rem;
   aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
   > svg {
     width: 0.8rem;
     height: 1.6rem;
+  }
+  p {
+    color: black;
   }
 `;
 const RightButton = styled.button`
@@ -426,21 +447,38 @@ const RightButton = styled.button`
   right: calc(0% - 2rem);
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 9999rem;
+  border-radius: 0.4rem;
   width: 4rem;
+  height: 4.8rem;
   aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
   > svg {
     width: 0.8rem;
     height: 1.6rem;
   }
+  p {
+    color: black;
+  }
 `;
-const MemoryQRCode = styled.div`
+const MemoryQRCode = styled.button`
   padding: 1.2rem 0.6rem;
   background-color: ${(props) => props.theme.color.background.secondary};
   color: ${(props) => props.theme.color.text.main};
@@ -465,10 +503,14 @@ const MemoryContent = styled.div`
 `;
 
 const MemoryClassDescription = styled(P3)`
-  color: ${(props) => props.theme.color.secondary.foreground};
+  color: white;
   font-weight: 400;
   margin-bottom: 1.2rem;
   margin-top: 0.6rem;
+  strong {
+    color: ${(props) =>
+      props.theme.themeMode === "light" ? "white" : props.theme.color.yellow};
+  }
 `;
 
 const MemoryContentArticle = styled.article`
@@ -487,7 +529,7 @@ const MemoryListNav = styled.nav`
 `;
 const MemoryListButton = styled.button<{ selected: boolean }>`
   font-family: "NanumSquareRoundOTF";
-  font-size: 1.12rem;
+  font-size: calc(var(--font-size) * 1.12);
   font-weight: 800;
   width: 9.2rem;
   height: 2.6rem;

@@ -349,7 +349,10 @@ const Board = () => {
                 </Page>
               </HTMLFlipBook>
             ) : null}
-            <LeftButton onClick={handlePrevClick}>
+            <LeftButton
+              data-disable-focus-effect="true"
+              onClick={handlePrevClick}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="54.482"
@@ -367,8 +370,18 @@ const Board = () => {
                   strokeWidth="12"
                 />
               </svg>
+              <P3
+                css={css`
+                  font-size: 1.12rem;
+                `}
+              >
+                이전
+              </P3>
             </LeftButton>
-            <RightButton onClick={handleNextClick}>
+            <RightButton
+              data-disable-focus-effect="true"
+              onClick={handleNextClick}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="54.486"
@@ -386,6 +399,13 @@ const Board = () => {
                   strokeWidth="12"
                 />
               </svg>
+              <P3
+                css={css`
+                  font-size: 1.12rem;
+                `}
+              >
+                다음
+              </P3>
             </RightButton>
           </div>
         </div>
@@ -452,7 +472,7 @@ const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
         overflow: hidden;
       `}
     >
-      <TransformWrapper ref={panRef}>
+      <TransformWrapper ref={panRef} maxScale={2}>
         <div
           {...props}
           css={css`
@@ -481,19 +501,41 @@ const LeftButton = styled.button`
   left: -3%;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 9999rem;
+  border-radius: 0.4rem;
   width: 4rem;
+  height: 4.8rem;
   aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+
   z-index: 2;
   > svg {
     width: 0.8rem;
     height: 1.6rem;
+  }
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+  p {
+    color: black;
   }
 `;
 const RightButton = styled.button`
@@ -501,18 +543,35 @@ const RightButton = styled.button`
   right: -3%;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 9999rem;
+  border-radius: 0.4rem;
   width: 4rem;
+  height: 4.8rem;
   aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
   z-index: 2;
+  &:active {
+    opacity: 0.7;
+  }
   > svg {
     width: 0.8rem;
     height: 1.6rem;
+  }
+  p {
+    color: black;
   }
 `;

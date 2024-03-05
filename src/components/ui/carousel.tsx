@@ -18,6 +18,7 @@ import {
   useTransform,
   m,
 } from "framer-motion";
+import { P3 } from "./text";
 
 interface CarouselOption {
   animate?: boolean;
@@ -101,13 +102,9 @@ const EmblaCarousel = <T,>({
       {showArrow && (
         <>
           <LeftButton
+            data-disable-focus-effect="true"
             css={css`
               ${leftStyle}
-              border: 10px solid transparent;
-              transition: border-color 0.05s ease-in-out;
-              &:active {
-                border: 10px solid ${theme.color.accent.foreground};
-              }
             `}
             onClick={() => {
               emblaApi?.scrollPrev();
@@ -130,16 +127,15 @@ const EmblaCarousel = <T,>({
                 strokeWidth="12"
               />
             </svg>
+            <P3 css={css``}>이전</P3>
           </LeftButton>
           <RightButton
+            data-disable-focus-effect="true"
             onClick={() => {
               emblaApi?.scrollNext();
             }}
             css={css`
               ${rightStyle}
-              &:active {
-                background-color: ${theme.color.accent.foreground};
-              }
             `}
           >
             <svg
@@ -153,12 +149,13 @@ const EmblaCarousel = <T,>({
                 d="M-20118.957-17310.031l40,40-40,40"
                 transform="translate(20127.441 17318.516)"
                 fill="none"
-                stroke="currentcolor"
+                stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="12"
               />
             </svg>
+            <P3 css={css``}>다음</P3>
           </RightButton>
         </>
       )}
@@ -217,18 +214,35 @@ const LeftButton = styled.button`
   left: -2rem;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 9999rem;
+  border-radius: 0.4rem;
   width: 4rem;
+  height: 4.8rem;
   aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
   > svg {
     width: 0.8rem;
     height: 1.6rem;
+  }
+  p {
+    color: black;
   }
 `;
 const RightButton = styled.button`
@@ -236,18 +250,35 @@ const RightButton = styled.button`
   right: -2rem;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 9999rem;
+  border-radius: 0.4rem;
   width: 4rem;
+  height: 4.8rem;
   aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
   > svg {
     width: 0.8rem;
     height: 1.6rem;
+  }
+  p {
+    color: black;
   }
 `;
 

@@ -31,6 +31,8 @@ const Menu = () => {
       <section
         css={css`
           width: 100%;
+          display: flex;
+          flex-direction: column;
         `}
       >
         <H1
@@ -45,16 +47,18 @@ const Menu = () => {
           ref={emblaRef}
           css={css`
             overflow: hidden;
+            padding-right: 4rem;
+            flex-grow: 1;
           `}
         >
           <div
             css={css`
               padding: 0.8em 1.6em;
-              column-gap: 2.6rem;
+              column-gap: 2rem;
               backface-visibility: hidden;
               display: flex;
               touch-action: pan-y;
-              min-width: 0;
+              height: 100%;
             `}
           >
             {Object.entries(menuContent).map((메뉴, index) => (

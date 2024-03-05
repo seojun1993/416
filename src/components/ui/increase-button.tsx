@@ -6,7 +6,6 @@ interface IncreaseButtonProps extends HTMLAttributes<HTMLDivElement> {
   onDecreaseClick?: MouseEventHandler;
 }
 
-// #DDDDDD
 const IncreaseButton = ({
   onIncreaseClick,
   onDecreaseClick,
@@ -17,14 +16,12 @@ const IncreaseButton = ({
     <div
       {...props}
       css={css`
-        width: 3.85em;
+        /* width: 3.85em; */
         height: 1.54em;
-        border-radius: 999rem;
-        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0px 0px 0.3em rgb(0, 0, 0, 0.2);
+        column-gap: 0.8rem;
         > * {
           width: 100;
         }
@@ -34,14 +31,15 @@ const IncreaseButton = ({
       `}
     >
       <button
+        data-disabled-outline="true"
         onClick={onDecreaseClick}
         css={css`
-          width: 100%;
-          height: 100%;
+          width: calc(var(--font-size) * 2);
+          height: calc(var(--font-size) * 2);
           display: flex;
           align-items: center;
           justify-content: center;
-          flex: 0 0 50%;
+
           background-color: transparent;
           border: none;
           outline: none;
@@ -49,7 +47,9 @@ const IncreaseButton = ({
           transition: none;
           fill: ${theme.color.icon.button};
           color: ${theme.color.icon.button};
-
+          border-radius: 9999rem;
+          box-shadow: 0px 0px 0.3em rgb(0, 0, 0, 0.2);
+          aspect-ratio: 1/1;
           &:active {
             background-color: ${theme.color.accent.foreground};
             svg {
@@ -83,14 +83,15 @@ const IncreaseButton = ({
         </svg>
       </button>
       <button
+        data-disabled-outline="true"
         onClick={onIncreaseClick}
         css={css`
-          width: 100%;
-          height: 100%;
+          width: calc(var(--font-size) * 2);
+          height: calc(var(--font-size) * 2);
           display: flex;
           align-items: center;
           justify-content: center;
-          flex: 0 0 50%;
+
           background-color: transparent;
           border: none;
           outline: none;
@@ -98,6 +99,9 @@ const IncreaseButton = ({
           transition: none;
           fill: ${theme.color.icon.button};
           color: ${theme.color.icon.button};
+          border-radius: 9999rem;
+          box-shadow: 0px 0px 0.3em rgb(0, 0, 0, 0.2);
+          aspect-ratio: 1/1;
           &:active {
             background-color: ${theme.color.accent.foreground};
             svg {

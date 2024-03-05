@@ -137,7 +137,7 @@ const Search = () => {
             ref={inputRef}
             disabled
             css={css`
-              font-size: 1.6rem;
+              font-size: calc(var(--font-size) * 1.6);
               /* font-family: "NanumSquareRoundOTF", serif, system-ui,
                 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
                 Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
@@ -169,7 +169,7 @@ const Search = () => {
               transition: opacity 0.1s ease-in-out;
 
               &:active {
-                opacity: 0.8;
+                opacity: 0.2;
               }
             `}
           >
@@ -227,13 +227,7 @@ const Search = () => {
                 />
               </g>
             </svg>
-            <H4
-              css={css`
-                font-size: 1.6rem;
-              `}
-            >
-              검색
-            </H4>
+            <H4 css={css``}>검색</H4>
           </button>
         </div>
         <Keyboard

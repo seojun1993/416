@@ -6,6 +6,9 @@ export const lightTheme = {
       main: "#222222",
       sub: "#666666",
     },
+    line: {
+      pending: "#DDDDDD",
+    },
     card: {
       class: "#F2F2F2",
     },
@@ -16,6 +19,7 @@ export const lightTheme = {
     },
     icon: {
       button: "#666666",
+      badge: "#000000",
     },
     primary: {
       foreground: "#1A254C",
@@ -57,6 +61,9 @@ export const darkTheme: typeof lightTheme = {
       main: "#ffffff",
       sub: "#ffffff",
     },
+    line: {
+      pending: "#DDDDDD",
+    },
     card: {
       class: "#666666",
     },
@@ -67,6 +74,7 @@ export const darkTheme: typeof lightTheme = {
     },
     icon: {
       button: "#000000",
+      badge: "#ffffff",
     },
     background: {
       card: "rgba(0,0,0,0.5)",

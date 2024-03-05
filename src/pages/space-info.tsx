@@ -92,7 +92,7 @@ const SpaceInfo = () => {
     const floor = contents.MAP_LIST[selectedMapIdx - 1].MAP_INFO.floor;
     const pubList = new Set<string>([]);
     nodes.PUB_LIST.PUB_INFO.forEach((pub) => {
-      if (pub.floor === floor) {
+      if (pub.PUB_FLOOR.value === floor) {
         pubList.add(pub.PUB_CODE);
       }
     });
@@ -225,7 +225,7 @@ const SpaceInfo = () => {
                 height: 1003px;
               `}
             >
-              <TransformWrapper ref={pinchRef}>
+              <TransformWrapper ref={pinchRef} maxScale={2}>
                 <TransformComponent
                   contentStyle={{
                     width: 3080,
@@ -249,7 +249,7 @@ const SpaceInfo = () => {
                         urls[urls.length - 1]
                       }`;
 
-                      const currentPubList = nodes?.pubList[MAP_INFO.floor].map(
+                      const mapPubList = nodes?.pubList[MAP_INFO.floor].map(
                         (pub) => ({
                           ...pub,
                           icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
@@ -263,7 +263,7 @@ const SpaceInfo = () => {
                       return (
                         <MapItem
                           key={MAP_INFO.MAP_NAME}
-                          pubList={currentPubList}
+                          pubList={mapPubList}
                           classList={classMap.get(MAP_INFO.floor)}
                           name={MAP_INFO.MAP_NAME}
                           floor={MAP_INFO.floor}
@@ -312,6 +312,62 @@ const SpaceInfo = () => {
               animate="animate"
               exit="exit"
             >
+              {kioskNode?.getFloor() === selectedMapIdx && (
+                <MapPubButton
+                  key={selectedMapIdx + "KIOSK_POSITION"}
+                  variants={fadeInOutVariants}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    width="108.121"
+                    height="130"
+                    viewBox="0 0 108.121 130"
+                  >
+                    <defs>
+                      <filter
+                        id="빼기_5"
+                        x="0"
+                        y="0"
+                        width="108.121"
+                        height="130"
+                        filterUnits="userSpaceOnUse"
+                      >
+                        <feOffset in="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feFlood floodOpacity="0.8" />
+                        <feComposite operator="in" in2="blur" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                    </defs>
+                    <g
+                      id="그룹_698"
+                      data-name="그룹 698"
+                      transform="translate(-742.139 -164.998)"
+                    >
+                      <g
+                        transform="matrix(1, 0, 0, 1, 742.14, 165)"
+                        filter="url(#빼기_5)"
+                      >
+                        <path
+                          id="빼기_5-2"
+                          data-name="빼기 5"
+                          d="M39.055,100v0h0A132.69,132.69,0,0,1,27.987,89.3a169.61,169.61,0,0,1-12.873-15.51A104.663,104.663,0,0,1,4.446,56.108C1.5,49.69,0,43.9,0,38.888a38.677,38.677,0,0,1,11.442-27.5,39.139,39.139,0,0,1,55.24,0,38.686,38.686,0,0,1,11.44,27.5c0,5.008-1.424,10.642-4.229,16.743a97.3,97.3,0,0,1-10.3,16.889C55.991,82.779,46.925,92.167,39.057,100Zm.16-87.5A28.143,28.143,0,0,0,19.382,60.529,28.092,28.092,0,1,0,50.137,14.714,27.839,27.839,0,0,0,39.215,12.5Z"
+                          transform="translate(15 15)"
+                          fill="#fff500"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <P3
+                    css={css`
+                      color: white;
+                    `}
+                  >
+                    현위치
+                  </P3>
+                </MapPubButton>
+              )}
               {currentPubList?.map(({ PUB_INFO }) => (
                 <MapPubButton
                   key={selectedMapIdx + PUB_INFO.PUB_CODE}
@@ -322,6 +378,7 @@ const SpaceInfo = () => {
                   }}
                 >
                   <img
+                    alt={PUB_INFO.PUB_NAME}
                     css={css`
                       height: 100%;
                       border-radius: 9999rem;
@@ -724,7 +781,7 @@ const MemoryHeader = styled.div`
 `;
 const MemoryListButton = styled.button<{ selected: boolean }>`
   font-family: "NanumSquareRoundOTF";
-  font-size: 1.12rem;
+  font-size: calc(var(--font-size) * 1.12);
   font-weight: 800;
   width: 100%;
   height: 2.6rem;
