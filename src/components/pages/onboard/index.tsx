@@ -11,7 +11,7 @@ export const OnBoardTitle = ({ title }: OnBoardTitleProps) => {
     <H1
       css={css`
         font-family: EastSeaDokdo;
-        font-size: 5.2rem;
+        font-size: calc(var(--font-size) * 5.2);
         font-weight: 300;
         margin-bottom: 3rem;
       `}

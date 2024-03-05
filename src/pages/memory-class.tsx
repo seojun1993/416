@@ -35,14 +35,17 @@ const memoryItems = [
 
 const MemoryClass = () => {
   const [selected, setSelected] = useState(0);
-  const signActive = useSettingStore((state) => state.signActivate);
-  const [delaySignActive, setDelaySignActive] = useState(signActive);
+  const { signActivate, zoom } = useSettingStore(({ signActivate, zoom }) => ({
+    signActivate,
+    zoom,
+  }));
+  const [delaySignActive, setDelaySignActive] = useState(signActivate);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const [signRef, animate] = useAnimate();
   const videoSrc = memoryItems[selected].sign;
   useEffect(() => {
     async function toggleActive() {
-      if (!signActive && signRef.current) {
+      if (!signActivate && signRef.current) {
         await animate(
           signRef.current,
           {
@@ -53,15 +56,15 @@ const MemoryClass = () => {
           }
         );
       }
-      setDelaySignActive(signActive);
+      setDelaySignActive(signActivate);
     }
     toggleActive();
-  }, [signActive]);
+  }, [signActivate]);
   return (
     <MemoryShell>
       <motion.div
         layout
-        data-isopen={signActive}
+        data-isopen={signActivate}
         css={css`
           display: flex;
           flex-direction: column;
@@ -101,7 +104,11 @@ const MemoryClass = () => {
               exit={{ opacity: 0 }}
               key={memoryItems[selected].title}
             >
-              <MemoryClassContentImage>
+              <MemoryClassContentImage
+                css={css`
+                  transform: scale(${zoom});
+                `}
+              >
                 <MemoryClassImg src={classImg[selected]} />
               </MemoryClassContentImage>
               {Description}
@@ -163,7 +170,7 @@ const MemoryClassNav = styled.nav`
 `;
 const MemoryClassButton = styled(motion.button)<{ selected: boolean }>`
   font-family: "NanumSquareRoundOTF";
-  font-size: 1.12rem;
+  font-size: calc(var(--font-size) * 1.12);
   font-weight: 800;
   width: 11rem;
   height: 2.6rem;
@@ -193,6 +200,7 @@ const MemoryClassContentDescription = styled.article`
   overflow-y: scroll;
   width: 100%;
   padding-right: 1rem;
+  margin-left: 1rem;
 `;
 
 const DescriptionContent = styled(P3)`

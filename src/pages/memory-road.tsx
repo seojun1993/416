@@ -33,6 +33,9 @@ const MemoryRoad = () => {
         <H1>기억과 약속의 길</H1>
       </MemoryHeader>
       <MemoryListButton
+        css={css`
+          flex-shrink: 0;
+        `}
         selected={selected === 0}
         onClick={() => setSelected(0)}
       >
@@ -111,7 +114,7 @@ const MemoryHeader = styled.div`
 
 const MemoryListButton = styled.button<{ selected: boolean }>`
   font-family: "NanumSquareRoundOTF";
-  font-size: 1.12rem;
+  font-size: calc(var(--font-size) * 1.12);
   font-weight: 800;
   width: 100%;
   height: 2.6rem;
@@ -149,21 +152,25 @@ const MemoryRoadContentTitle = styled.h1`
   font-size: calc(var(--font-size) * 1.32);
   text-align: center;
   margin-bottom: 0.2rem;
+  line-height: 1.2;
 `;
 const MemoryRoadContentDescription = styled.p`
   font-family: "Pretendard";
   font-size: calc(var(--font-size) * 1.12);
   text-align: center;
+  line-height: 1.2;
 `;
 
-const MemoryBadge = styled.div`
+const MemoryBadge = styled.button`
   height: 6rem;
   width: 17rem;
   border-radius: 0.8rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   background-color: ${(props) => props.theme.color.badge.background};
+  border: none;
+  text-align: start;
 `;
 const MemoryQRDescription = styled.div`
   font-family: "Pretendard";
@@ -200,6 +207,7 @@ const RoadMapInfo = styled(m.div)`
   width: 26rem;
   height: 100%;
   border-radius: 0.8rem;
+  flex-shrink: 0;
 `;
 
 function RoadRoute({ selected }: { selected: number }) {
@@ -365,6 +373,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -380,6 +389,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -541,6 +551,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -556,6 +567,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -588,6 +600,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -603,6 +616,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -699,6 +713,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -714,6 +729,7 @@ function RoadRoute({ selected }: { selected: number }) {
           >
             <P3
               css={css`
+                font-size: 1.12rem;
                 color: white;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
               `}
@@ -938,6 +954,7 @@ const memorySummaryComponents: {
         flex-direction: column;
         align-items: start;
         height: 100%;
+        overflow-y: scroll;
         > p {
           color: white;
           text-align: start;
@@ -953,18 +970,14 @@ const memorySummaryComponents: {
         `}
       >
         희생자들이 걷고 뛰어 다녔던 그 길을 따라 걷다보면 단원고등학교에
-        <br />
         도착합니다.
         <br />
         2018년, ‘4ㆍ16 세월호 참사로 희생된 학생 및 교원이 못다 이룬 꿈을 단원고
-        <br />
         학생들이 실현하는 모습의 조형물’ 공모전 당선작 ‘노란 고래의 꿈‘을
-        <br />
-        설치하였습니다. 4.16민주시민교육원에 기억교실로서 개방되었습니다.
-        <br />
-        추모 조형물 ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한
-        <br />
-        것으로 희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
+        설치하였습니다.
+        <br /> 4.16민주시민교육원에 기억교실로서 개방되었습니다. 추모 조형물
+        ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한 것으로
+        희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
       </P3>
       <h2
         css={css`
@@ -985,6 +998,7 @@ const memorySummaryComponents: {
         flex-direction: column;
         align-items: start;
         height: 100%;
+        overflow-y: scroll;
         > p {
           color: white;
           text-align: start;
@@ -1028,6 +1042,7 @@ const memorySummaryComponents: {
         flex-direction: column;
         align-items: start;
         height: 100%;
+        overflow-y: scroll;
         > p {
           color: white;
           text-align: start;
@@ -1070,6 +1085,7 @@ const memorySummaryComponents: {
         align-items: center;
         row-gap: 1rem;
         flex-grow: 1;
+        overflow-y: scroll;
       `}
     >
       <MemoryRoadContentTitle>
@@ -1098,9 +1114,10 @@ const memorySummaryComponents: {
           flex-grow: 1;
           display: flex;
           column-gap: 1.6rem;
+          align-items: end;
         `}
       >
-        <MemoryBadge>
+        <MemoryBadge data-disable-focus-effect="true">
           <QRCode
             css={css`
               width: 4rem;
@@ -1116,7 +1133,7 @@ const memorySummaryComponents: {
             <b>사전예약이 가능</b>합니다.
           </MemoryQRDescription>
         </MemoryBadge>
-        <MemoryBadge>
+        <MemoryBadge data-disable-focus-effect="true">
           <CallIcon
             css={css`
               width: 4rem;
@@ -1205,6 +1222,7 @@ const memorySummaryComponents: {
         flex-direction: column;
         align-items: start;
         height: 100%;
+        overflow-y: scroll;
         > p {
           color: white;
           text-align: start;

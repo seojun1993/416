@@ -64,7 +64,8 @@ const CircleButtonStyle = styled.button<{ hasChild: boolean; active: boolean }>`
 const CircleButtonChildSpan = styled.span<{ hasIcon: boolean }>`
   margin-left: ${(props) => (props.hasIcon ? "0.4em" : "")};
   white-space: nowrap;
-  font-size: 0.68em;
+  /* font-size: 0.68em; */
+  font-size: calc(var(--font-size) * 1.12);
   font-weight: bold;
   line-height: 0.65em;
 `;

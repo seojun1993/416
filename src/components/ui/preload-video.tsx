@@ -11,12 +11,13 @@ import { isVideoPlaying } from "@/libs/utils";
 interface PreloadVideoProps extends HTMLMotionProps<"video"> {}
 
 const PreloadVideo = (props: PreloadVideoProps) => {
-  const { speed, setSpeed, isPlaying, setIsPlaying } = useSettingStore(
-    ({ speed, setSpeed, isPlaying, setIsPlaying }) => ({
+  const { speed, setSpeed, isPlaying, setIsPlaying, zoom } = useSettingStore(
+    ({ speed, setSpeed, isPlaying, setIsPlaying, zoom }) => ({
       speed,
       setSpeed,
       isPlaying,
       setIsPlaying,
+      zoom,
     })
   );
   const controls = useAnimation();
@@ -95,17 +96,20 @@ const PreloadVideo = (props: PreloadVideoProps) => {
               height: 100%;
               object-fit: cover;
               filter: brightness(${isPlaying ? 1 : 0.6});
-              transition: filter 0.2s ease-in-out;
+              transform: scale(${zoom});
+              transform-origin: bottom;
+              transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
             `}
             loop
             ref={videoRef}
             {...props}
           />
           <button
+            data-disable-focus-effect="true"
             css={css`
               position: absolute;
               left: 50%;
-              bottom: -5%;
+              bottom: -2.8rem;
               transform: translate(-50%, -50%);
               z-index: 10;
               background-color: transparent;
@@ -113,6 +117,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
               display: flex;
               align-items: center;
               justify-content: center;
+              flex-direction: column;
             `}
           >
             <RestartIcon
@@ -207,6 +212,15 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                 )}
               </g>
             </RestartIcon>
+            <RestartText>
+              <P3
+                css={css`
+                  color: black;
+                `}
+              >
+                다시재생
+              </P3>
+            </RestartText>
           </button>
         </m.div>
         <SignControllerWrapper>
@@ -214,7 +228,6 @@ const PreloadVideo = (props: PreloadVideoProps) => {
             css={css`
               margin-bottom: 0.5rem;
               line-height: 1.2;
-              font-size: 1.12em;
             `}
           >
             수어속도
@@ -267,27 +280,18 @@ const PreloadVideo = (props: PreloadVideoProps) => {
             `}
           >
             {VideoSpeeds.map((item) => (
-              <button
+              <SignControllerButton
                 key={item.text}
-                css={css`
-                  background-color: transparent;
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  border: none;
-                  padding: 0;
-                  border-radius: 9999rem;
-                  padding: 0;
-                `}
                 onClick={() => setSpeed(item.value)}
               >
                 <SignControllerCircle
                   selected={speed === item.value}
                   css={css`
                     border-radius: 9999rem;
+
                     &::after {
                       content: "${item.text}";
-                      color: ${theme.color.text.sub};
+                      color: ${theme.color.text.main};
                       white-space: nowrap;
                       pointer-events: none;
                       position: absolute;
@@ -295,8 +299,8 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                       transform: translateX(-50%);
                       top: 100%;
                       font-family: "Pretendard";
-                      /* font-size: calc(var(--font-size) * 1.12); */
-                      font-size: 1.12em;
+                      font-size: calc(var(--font-size) * 1.12);
+                      /* font-size: 1.12em; */
                       line-height: 1.2;
                       text-align: center;
                       font-weight: 700;
@@ -304,7 +308,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                     }
                   `}
                 />
-              </button>
+              </SignControllerButton>
             ))}
           </div>
         </SignControllerWrapper>
@@ -332,6 +336,23 @@ const SignControllerWrapper = styled.div`
   background-color: ${(props) => props.theme.color.secondary.foreground};
 `;
 
+const SignControllerButton = styled.button`
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  padding: 0;
+  border-radius: 9999rem;
+  padding: 0;
+  &:active,
+  &:focus,
+  &:focus-visible {
+    > div {
+      background-color: ${(props) => props.theme.color.accent.foreground};
+    }
+  }
+`;
 const SignControllerCircle = styled.div<{ selected: boolean }>`
   background-color: ${(props) =>
     props.selected
@@ -351,4 +372,16 @@ const RestartIcon = styled.svg`
     fill: ${(props) => props.theme.color.main};
     transition: opacity 0.05s ease-in-out;
   }
+`;
+
+const RestartText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.8rem;
+  height: 2rem;
+  border-radius: 9999rem;
+  margin-top: 0.4rem;
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "white" : props.theme.color.yellow};
 `;

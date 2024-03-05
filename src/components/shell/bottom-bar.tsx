@@ -228,8 +228,17 @@ const BottomBar = () => {
                 />
               </svg>
             }
-          />
+          >
+            이전
+          </CircleButton>
           <CircleButton
+            css={css`
+              flex-direction: row-reverse;
+              span {
+                margin-left: 0;
+                margin-right: 0.4rem;
+              }
+            `}
             onClick={() => window.history.forward()}
             icon={
               <svg
@@ -253,7 +262,9 @@ const BottomBar = () => {
                 />
               </svg>
             }
-          />
+          >
+            다음
+          </CircleButton>
         </div>
         <CircleButton
           css={css`
@@ -377,13 +388,6 @@ const BottomBar = () => {
         >
           고대비
         </CircleButton>
-      </div>
-      <div
-        css={css`
-          display: flex;
-          justify-content: center;
-        `}
-      >
         <CircleButton
           key="searchButton"
           css={
@@ -509,7 +513,7 @@ const BottomBar = () => {
             display: flex;
             flex-direction: column;
             row-gap: 0.23em;
-            width: 3.85em;
+            /* width: 3.85em; */
             position: relative;
           `}
         >
@@ -521,7 +525,7 @@ const BottomBar = () => {
               >
                 <P3
                   css={css`
-                    font-size: 1.12rem;
+                    /* font-size: 1.12rem; */
                   `}
                 >
                   글씨확대
@@ -542,23 +546,9 @@ const BottomBar = () => {
                         left: 0%;
                         transform: translate(-100%, -50%);
                         width: calc(100% + 4rem);
-                        background-color: gray;
+                        background-color: #dddddd;
                         height: 4px;
                       }
-                      /* &:not(:last-child) {
-                  } */
-                      /* &:last-of-type {
-                    &::before {
-                      content: "";
-                      position: absolute;
-                      top: 50%;
-                      transform: translateY(-50%);
-                      left: -1.5rem;
-                      width: 2rem;
-                      background-color: gray;
-                      height: 4px;
-                    }
-                  } */
                     }
                   `}
                 >
@@ -584,31 +574,11 @@ const BottomBar = () => {
                         );
                       }}
                     >
-                      <div
+                      <ControllerItem
+                        selected={zoom === item.value}
                         css={css`
-                          background-color: ${zoom === item.value
-                            ? "#8080FF"
-                            : "gray"};
-                          border-radius: 9999rem;
-                          width: 0.8rem;
-                          aspect-ratio: 1/1;
-                          border: none;
-                          position: relative;
                           &::after {
                             content: "${item.text}";
-                            white-space: nowrap;
-                            pointer-events: none;
-                            position: absolute;
-                            color: ${zoom === item.value ? "#8080FF" : "black"};
-                            left: 50%;
-                            transform: translateX(-50%);
-                            top: 100%;
-                            font-family: "Pretendard";
-                            font-size: 1.12rem;
-                            line-height: 1.2;
-                            text-align: center;
-                            font-weight: 700;
-                            margin-top: 0.2rem;
                           }
                         `}
                       />
@@ -630,7 +600,7 @@ const BottomBar = () => {
           />
           <P3
             css={css`
-              font-size: 0.865em;
+              /* font-size: 0.865em; */
               line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
@@ -645,7 +615,7 @@ const BottomBar = () => {
             display: flex;
             flex-direction: column;
             row-gap: 0.23em;
-            width: 3.85em;
+            /* width: 3.85em; */
           `}
         >
           <Switch
@@ -655,7 +625,7 @@ const BottomBar = () => {
           />
           <P3
             css={css`
-              font-size: 0.865em;
+              /* font-size: 0.865em; */
               line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
@@ -670,31 +640,23 @@ const BottomBar = () => {
             display: flex;
             flex-direction: column;
             row-gap: 0.23em;
-            width: 3.85em;
+            /* width: 3.85em; */
             position: relative;
           `}
         >
           <AnimatePresence mode="wait">
             {tooltipMode === "sound" && (
-              <motion.div
+              <ControllerWrapper
                 onClick={(event) => event.stopPropagation()}
                 {...fadeInOutVariants}
-                css={css`
-                  position: absolute;
-                  top: calc(-100% - 0.5rem);
-                  height: 3.4rem;
-                  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
-                  border-top-left-radius: 0.4rem;
-                  border-top-right-radius: 0.4rem;
-                  background-color: white;
-                  left: -100%;
-                  display: flex;
-                  flex-direction: column;
-                  row-gap: 0.5rem;
-                  padding-top: 0.8rem;
-                  padding-bottom: 1rem;
-                `}
               >
+                <P3
+                  css={css`
+                    /* font-size: 1.12rem; */
+                  `}
+                >
+                  음량조절
+                </P3>
                 <div
                   css={css`
                     display: flex;
@@ -720,7 +682,7 @@ const BottomBar = () => {
                       setVolumnAction(volIndex - 1);
                     }}
                   >
-                    <svg
+                    <ControllerIcon
                       css={css`
                         width: 1.4rem;
                         height: 0.8rem;
@@ -731,7 +693,7 @@ const BottomBar = () => {
                       viewBox="0 0 52 8"
                     >
                       <rect id="minus" width="52" height="8" rx="4" />
-                    </svg>
+                    </ControllerIcon>
                   </div>
                   {volumeRange.map((item, volIdx) => (
                     <div
@@ -747,11 +709,9 @@ const BottomBar = () => {
                         border-radius: 9999rem;
                       `}
                     >
-                      <div
+                      <ControllerItem
+                        selected={volIndex >= volIdx}
                         css={css`
-                          background-color: ${volIndex >= volIdx
-                            ? "#8080FF"
-                            : "gray"};
                           border-radius: 9999rem;
                           width: 0.28rem;
                           height: 1.6rem;
@@ -777,7 +737,7 @@ const BottomBar = () => {
                       setVolumnAction(volIndex + 1);
                     }}
                   >
-                    <svg
+                    <ControllerIcon
                       css={css`
                         width: 1.4rem;
                         height: 1.4rem;
@@ -805,10 +765,10 @@ const BottomBar = () => {
                           transform="translate(2944 1964) rotate(90)"
                         />
                       </g>
-                    </svg>
+                    </ControllerIcon>
                   </div>
                 </div>
-              </motion.div>
+              </ControllerWrapper>
             )}
           </AnimatePresence>
           <IncreaseButton
@@ -823,7 +783,7 @@ const BottomBar = () => {
           />
           <P3
             css={css`
-              font-size: 0.865em;
+              /* font-size: 0.865em; */
               line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
@@ -838,34 +798,19 @@ const BottomBar = () => {
             display: flex;
             flex-direction: column;
             row-gap: 0.23em;
-            width: 3.85em;
+            /* width: 3.85em; */
             position: relative;
           `}
         >
           <AnimatePresence mode="wait">
             {tooltipMode === "speed" && (
-              <motion.div
+              <ControllerWrapper
                 onClick={(event) => event.stopPropagation()}
                 {...fadeInOutVariants}
-                css={css`
-                  position: absolute;
-                  top: calc(-100% - 2.5rem);
-                  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
-                  width: 16rem;
-                  height: 5.4rem;
-                  border-top-left-radius: 0.4rem;
-                  border-top-right-radius: 0.4rem;
-                  background-color: white;
-                  left: calc(-5.5rem);
-                  display: flex;
-                  flex-direction: column;
-                  row-gap: 0.5rem;
-                  padding-top: 0.8rem;
-                `}
               >
                 <P3
                   css={css`
-                    font-size: 1.12rem;
+                    /* font-size: 1.12rem; */
                   `}
                 >
                   음성속도
@@ -914,12 +859,9 @@ const BottomBar = () => {
                         );
                       }}
                     >
-                      <div
+                      <ControllerItem
+                        selected={selectedSoundSpeedIndex === speedIdx}
                         css={css`
-                          background-color: ${selectedSoundSpeedIndex ===
-                          speedIdx
-                            ? "#8080FF"
-                            : "gray"};
                           border-radius: 9999rem;
                           width: 0.8rem;
                           aspect-ratio: 1/1;
@@ -927,28 +869,13 @@ const BottomBar = () => {
                           position: relative;
                           &::after {
                             content: "${item.text}";
-                            white-space: nowrap;
-                            pointer-events: none;
-                            position: absolute;
-                            color: ${selectedSoundSpeedIndex === speedIdx
-                              ? "#8080FF"
-                              : "black"};
-                            left: 50%;
-                            transform: translateX(-50%);
-                            top: 100%;
-                            font-family: "Pretendard";
-                            font-size: 1.12rem;
-                            line-height: 1.2;
-                            text-align: center;
-                            font-weight: 700;
-                            margin-top: 0.2rem;
                           }
                         `}
                       />
                     </button>
                   ))}
                 </div>
-              </motion.div>
+              </ControllerWrapper>
             )}
           </AnimatePresence>
           <IncreaseButton
@@ -963,7 +890,7 @@ const BottomBar = () => {
           />
           <P3
             css={css`
-              font-size: 0.865em;
+              /* font-size: 0.865em; */
               line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
@@ -978,7 +905,7 @@ const BottomBar = () => {
             display: flex;
             flex-direction: column;
             row-gap: 0.23em;
-            width: 3.85em;
+            /* width: 3.85em; */
           `}
         >
           <Switch
@@ -989,7 +916,7 @@ const BottomBar = () => {
           />
           <P3
             css={css`
-              font-size: 0.865em;
+              /* font-size: 0.865em; */
               line-height: 1.2;
               color: ${theme.color.text.main};
               text-align: center;
@@ -1010,7 +937,7 @@ const BottomWrapper = styled.div`
   position: relative;
   box-shadow: 0px -0.15em 0.15em rgba(0, 0, 0, 0.1);
   display: grid;
-  grid-template-columns: 1fr fit-content(30%) 1fr;
+  grid-template-columns: 1fr fit-content(50%);
   padding: 1.85dvh 2.1dvw 1.4dvh;
   font-size: 3dvh;
   /* gap: 0.6em; */
@@ -1036,4 +963,38 @@ const ControllerWrapper = styled(motion.div)`
   row-gap: 0.5rem;
   padding-top: 0.8rem;
   background-color: ${(props) => props.theme.color.secondary.foreground};
+`;
+
+const ControllerItem = styled.div<{ selected: boolean }>`
+  background-color: ${(props) =>
+    props.selected
+      ? props.theme.color.accent.foreground
+      : props.theme.color.switch.disable};
+  border-radius: 9999rem;
+  width: 0.8rem;
+  aspect-ratio: 1/1;
+  border: none;
+  position: relative;
+  &::after {
+    white-space: nowrap;
+    pointer-events: none;
+    position: absolute;
+    color: ${(props) =>
+      props.selected
+        ? props.theme.color.accent.foreground
+        : props.theme.color.text.main};
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-family: "Pretendard";
+    font-size: 1.12rem;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 0.2rem;
+  }
+`;
+
+const ControllerIcon = styled.svg`
+  fill: ${(props) => props.theme.color.icon.badge};
 `;

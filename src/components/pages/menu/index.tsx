@@ -6,6 +6,7 @@ import { HTMLAttributes, useRef } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { useCheckClick } from "@/hooks/use-check-click";
+import { useSettingStore } from "@/contexts/setting.store";
 
 type MenuCardProps = LinkProps &
   HTMLAttributes<HTMLAnchorElement> & {
@@ -41,6 +42,7 @@ export const MenuCard = ({
   ...rest
 }: MenuCardProps) => {
   const theme = useTheme();
+  const zoom = useSettingStore((state) => state.zoom);
   const ref = useRef<HTMLAnchorElement>(null);
   useCheckClick({
     ref,
@@ -57,13 +59,13 @@ export const MenuCard = ({
         border: 0.15rem solid white;
         text-decoration: none;
         border-radius: 0.8rem;
-        flex: 0 0 27%;
+        flex: 0 0 calc(29% + ${zoom - 0.4}%);
+        height: 100%;
         padding: 1.4rem 1rem;
         position: relative;
         display: flex;
         flex-direction: column;
         border-radius: 0.8rem;
-        aspect-ratio: 1/1.487;
       `}
     >
       <H3
@@ -83,7 +85,6 @@ export const MenuCard = ({
           white-space: pre-line;
           text-align: start;
           flex: 1;
-          font-size: 1.12rem;
         `}
       >
         {description}
@@ -101,6 +102,7 @@ export const MenuCard = ({
             width: 100%;
             height: 100%;
             margin: 0 auto;
+            transform: scale(${zoom});
             /* aspect-ratio: 1/1; */
           `}
         />

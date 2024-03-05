@@ -26,18 +26,18 @@ function Root() {
   const router = useNavigate();
   const timeoutId = useRef<NodeJS.Timeout>();
 
-  useEffect(() => {
-    const handleTimeout = () => {
-      clearTimeout(timeoutId.current);
-      timeoutId.current = setTimeout(() => {
-        router("/", { replace: true });
-      }, 1000 * 60 * 1.5);
-    };
-    window.addEventListener("click", handleTimeout);
-    return () => {
-      window.removeEventListener("click", handleTimeout);
-    };
-  }, [pathname]);
+  // useEffect(() => {
+  //   const handleTimeout = () => {
+  //     clearTimeout(timeoutId.current);
+  //     timeoutId.current = setTimeout(() => {
+  //       router("/", { replace: true });
+  //     }, 1000 * 60 * 1.5);
+  //   };
+  //   window.addEventListener("click", handleTimeout);
+  //   return () => {
+  //     window.removeEventListener("click", handleTimeout);
+  //   };
+  // }, [pathname]);
   return (
     <AppShell>
       <AnimatePresence mode="wait">

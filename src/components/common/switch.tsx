@@ -112,7 +112,7 @@ const Switch = ({
         <P3
           css={css`
             color: white;
-            font-size: 0.865em;
+            /* font-size: 0.865em; */
             ${mode === "dark" && "filter: invert(1);"}
             white-space: nowrap;
             ${isOpen ? "padding-left: 0.45em;" : "padding-right: 0.45em;"}

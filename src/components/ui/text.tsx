@@ -16,7 +16,7 @@ type Variant = { variant?: keyof typeof FontVariants };
 
 export const H1 = styled.h1<Variant>`
   font-family: "NanumSquareRoundOTF", sans-serif;
-  font-size: 2.4rem;
+  font-size: calc(var(--font-size) * 2.4);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
@@ -28,7 +28,7 @@ export const H2 = styled.h2<Variant>`
 `;
 export const H3 = styled.h3<Variant>`
   font-family: "NanumSquareRoundOTF", sans-serif;
-  font-size: 2rem;
+  font-size: calc(var(--font-size) * 2);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
 `;
