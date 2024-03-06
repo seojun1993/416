@@ -386,119 +386,119 @@ const BottomBar = () => {
         >
           고대비
         </CircleButton>
-        <CircleButton
-          data-a11y-id="search"
-          key="searchButton"
-          css={
-            pathname === "/search"
-              ? css`
-                  background-color: ${theme.color.accent.foreground};
-                  color: ${theme.color.background.secondary};
-                  fill: ${theme.color.background.secondary};
-                `
-              : ""
-          }
-          onClick={() =>
-            pathname === "/search" ? navigate(-1) : navigate("search")
-          }
-          icon={
-            pathname === "/search" ? (
-              <svg
-                id="그룹_136"
-                data-name="그룹 136"
-                xmlns="http://www.w3.org/2000/svg"
-                width="59.999"
-                height="60"
-                viewBox="0 0 59.999 60"
-              >
-                <rect
-                  id="사각형_95"
-                  data-name="사각형 95"
-                  width="9.428"
-                  height="75.423"
-                  rx="4.714"
-                  transform="translate(0 6.668) rotate(-45)"
-                />
-                <rect
-                  id="사각형_96"
-                  data-name="사각형 96"
-                  width="9.428"
-                  height="75.423"
-                  rx="4.714"
-                  transform="translate(53.332 0) rotate(45)"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="63.414"
-                height="60"
-                viewBox="0 0 63.414 60"
+      </div>
+      <CircleButton
+        data-a11y-id="search"
+        key="searchButton"
+        css={
+          pathname === "/search"
+            ? css`
+                background-color: ${theme.color.accent.foreground};
+                color: ${theme.color.background.secondary};
+                fill: ${theme.color.background.secondary};
+              `
+            : ""
+        }
+        onClick={() =>
+          pathname === "/search" ? navigate(-1) : navigate("search")
+        }
+        icon={
+          pathname === "/search" ? (
+            <svg
+              id="그룹_136"
+              data-name="그룹 136"
+              xmlns="http://www.w3.org/2000/svg"
+              width="59.999"
+              height="60"
+              viewBox="0 0 59.999 60"
+            >
+              <rect
+                id="사각형_95"
+                data-name="사각형 95"
+                width="9.428"
+                height="75.423"
+                rx="4.714"
+                transform="translate(0 6.668) rotate(-45)"
+              />
+              <rect
+                id="사각형_96"
+                data-name="사각형 96"
+                width="9.428"
+                height="75.423"
+                rx="4.714"
+                transform="translate(53.332 0) rotate(45)"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="63.414"
+              height="60"
+              viewBox="0 0 63.414 60"
+              style={{
+                fill: "none",
+              }}
+            >
+              <g
+                id="그룹_7"
+                data-name="그룹 7"
+                transform="translate(-1816 -2051)"
                 style={{
                   fill: "none",
+                  transition: "none",
                 }}
               >
                 <g
-                  id="그룹_7"
-                  data-name="그룹 7"
-                  transform="translate(-1816 -2051)"
+                  id="타원_2"
+                  data-name="타원 2"
+                  transform="translate(1816 2051)"
+                  fill="transparent"
+                  stroke="currentColor"
+                  strokeWidth="8"
                   style={{
                     fill: "none",
                     transition: "none",
                   }}
                 >
-                  <g
-                    id="타원_2"
-                    data-name="타원 2"
-                    transform="translate(1816 2051)"
-                    fill="transparent"
-                    stroke="currentColor"
-                    strokeWidth="8"
+                  <ellipse
+                    cx="26.417"
+                    cy="26.02"
+                    rx="26.417"
+                    ry="26.02"
+                    stroke="none"
                     style={{
                       fill: "none",
                       transition: "none",
                     }}
-                  >
-                    <ellipse
-                      cx="26.417"
-                      cy="26.02"
-                      rx="26.417"
-                      ry="26.02"
-                      stroke="none"
-                      style={{
-                        fill: "none",
-                        transition: "none",
-                      }}
-                    />
-                    <ellipse
-                      cx="26.417"
-                      cy="26.02"
-                      rx="22.417"
-                      ry="22.02"
-                      fill="none"
-                      style={{
-                        fill: "none",
-                        transition: "none",
-                      }}
-                    />
-                  </g>
-                  <rect
-                    id="사각형_14"
-                    data-name="사각형 14"
-                    width="8"
-                    height="26"
-                    rx="4"
-                    transform="translate(1855.373 2092.615) rotate(-45)"
-                    fill="currentColor"
+                  />
+                  <ellipse
+                    cx="26.417"
+                    cy="26.02"
+                    rx="22.417"
+                    ry="22.02"
+                    fill="none"
+                    style={{
+                      fill: "none",
+                      transition: "none",
+                    }}
                   />
                 </g>
-              </svg>
-            )
-          }
-        >
-          {pathname === "/search" ? "검색닫기" : "희생자검색"}
-        </CircleButton>
-      </div>
+                <rect
+                  id="사각형_14"
+                  data-name="사각형 14"
+                  width="8"
+                  height="26"
+                  rx="4"
+                  transform="translate(1855.373 2092.615) rotate(-45)"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          )
+        }
+      >
+        {pathname === "/search" ? "검색닫기" : "희생자검색"}
+      </CircleButton>
       <div
         css={css`
           display: flex;
@@ -952,7 +952,7 @@ const BottomWrapper = styled.div`
   position: relative;
   box-shadow: 0px -0.15em 0.15em rgba(0, 0, 0, 0.1);
   display: grid;
-  grid-template-columns: 1fr fit-content(50%);
+  grid-template-columns: 1fr fit-content(30%) 1fr;
   padding: 1.85dvh 2.1dvw 1.4dvh;
   font-size: 3dvh;
   /* gap: 0.6em; */
