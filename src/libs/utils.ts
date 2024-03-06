@@ -220,10 +220,16 @@ export function calculateDistance(vector1: Vector, vector2: Vector) {
   return ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;
 }
 
+let latestA11yId: string;
+
 export const sendA11yEvent = (id: string) => {
-  window.dispatchEvent(
-    new CustomEvent("a11y", {
-      detail: id,
-    })
-  );
+  if (latestA11yId !== id) {
+    latestA11yId = id;
+
+    window.dispatchEvent(
+      new CustomEvent("a11y", {
+        detail: id,
+      })
+    );
+  }
 };
