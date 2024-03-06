@@ -218,7 +218,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
                   color: black;
                 `}
               >
-                다시재생
+                {isPlaying ? "일시정지" : "다시재생"}
               </P3>
             </RestartText>
           </button>
