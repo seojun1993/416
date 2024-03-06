@@ -5,12 +5,15 @@ import { MainShell } from "@/components/common/main-shell";
 import { css, useTheme } from "@emotion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import { menuContent } from "@/constants/menu";
+import { useA11y } from "@/hooks/use-a11y";
 const Menu = () => {
   const theme = useTheme();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     skipSnaps: true,
     dragFree: true,
   });
+
+  useA11y("entire_menu");
   return (
     <MainShell
       padding={false}

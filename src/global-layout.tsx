@@ -22,6 +22,7 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
   }
   const handleA11y = (event: Event) => {
     if (isCustomEvent(event)) {
+      console.log(event);
       const url = jumja?.Play(event.detail);
       setSignVideoUrl(url ?? "");
     }

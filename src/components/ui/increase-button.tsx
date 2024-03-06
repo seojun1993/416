@@ -4,6 +4,10 @@ import { HTMLAttributes, MouseEventHandler } from "react";
 interface IncreaseButtonProps extends HTMLAttributes<HTMLDivElement> {
   onIncreaseClick?: MouseEventHandler;
   onDecreaseClick?: MouseEventHandler;
+  a11y?: {
+    increase?: string;
+    decrease?: string;
+  };
 }
 
 const IncreaseButton = ({
@@ -12,6 +16,7 @@ const IncreaseButton = ({
   ...props
 }: IncreaseButtonProps) => {
   const theme = useTheme();
+  const { a11y: { decrease, increase } = {} } = props;
   return (
     <div
       {...props}
@@ -31,6 +36,7 @@ const IncreaseButton = ({
       `}
     >
       <button
+        data-a11y-id={decrease}
         data-disabled-outline="true"
         onClick={onDecreaseClick}
         css={css`
@@ -83,6 +89,7 @@ const IncreaseButton = ({
         </svg>
       </button>
       <button
+        data-a11y-id={increase}
         data-disabled-outline="true"
         onClick={onIncreaseClick}
         css={css`

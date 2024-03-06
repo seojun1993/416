@@ -12,6 +12,7 @@ import { FormEventHandler, useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { filterNameContainFromPattern } from "@/fetcher/student";
 import NotFoundModal from "@/components/ui/not-found-modal";
+import { useA11y } from "@/hooks/use-a11y";
 
 const Search = () => {
   const theme = useTheme();
@@ -47,6 +48,7 @@ const Search = () => {
     }
   }, []);
 
+  useA11y("search_screen");
   return (
     <MainShell
       css={css`

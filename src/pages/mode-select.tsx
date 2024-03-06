@@ -1,15 +1,20 @@
 import { MainShell } from "@/components/common/main-shell";
 import { H1, H3 } from "@/components/ui/text";
 import { useSettingStore } from "@/contexts/setting.store";
+import { useA11y } from "@/hooks/use-a11y";
 import { useCheckClick } from "@/hooks/use-check-click";
+import { sendA11yEvent } from "@/libs/utils";
 import styled from "@emotion/styled";
-import { PropsWithChildren, useRef } from "react";
+import { PropsWithChildren, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const ModeSelect = () => {
   const { changeMode } = useSettingStore((state) => ({
     changeMode: state.onChangeMode,
   }));
+
+  useA11y("user_type");
+
   return (
     <ModeSelectShell>
       <H1>

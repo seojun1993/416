@@ -24,6 +24,7 @@ import QRCode from "react-qr-code";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "@/queries/student";
 import { getImagePath } from "../libs/utils";
+import { useA11y } from "@/hooks/use-a11y";
 const Board = () => {
   const { data: students } = useQuery(getStudentsQuery());
   const bookRef = useRef<HTMLDivElement>(null);
@@ -70,6 +71,8 @@ const Board = () => {
       };
     }
   }, []);
+
+  useA11y("personal_profile");
   return (
     <MainShell
       css={css`

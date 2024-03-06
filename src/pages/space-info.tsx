@@ -26,6 +26,7 @@ import { fadeInOutVariants } from "@/variants";
 import { curryingDijkstra } from "@/libs/way-finder/finder";
 import { NodeType, Vector } from "@/libs/way-finder/Vector";
 import { ClassInfo, PubInfo } from "@/types/kiosk-route";
+import { useA11y } from "@/hooks/use-a11y";
 
 const memoryItems = [
   { title: "지하 1층(주차장)" as const },
@@ -168,6 +169,7 @@ const SpaceInfo = () => {
     };
   }, []);
 
+  useA11y("space_guide");
   return (
     <activeMapContext.Provider
       value={{

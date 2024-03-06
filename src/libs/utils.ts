@@ -219,3 +219,11 @@ export function calculateDistance(vector1: Vector, vector2: Vector) {
   const { x: x2, y: y2 } = vector2.getPosition();
   return ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;
 }
+
+export const sendA11yEvent = (id: string) => {
+  window.dispatchEvent(
+    new CustomEvent("a11y", {
+      detail: id,
+    })
+  );
+};

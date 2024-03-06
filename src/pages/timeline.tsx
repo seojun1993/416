@@ -5,7 +5,9 @@ import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
 import timelineImage from "@/assets/images/timeline.png";
 import { css } from "@emotion/react";
+import { useA11y } from "@/hooks/use-a11y";
 const Timeline = () => {
+  useA11y("timeline");
   return (
     <MemoryShell>
       <MemoryHeader>

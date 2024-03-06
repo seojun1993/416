@@ -15,6 +15,7 @@ import styled from "@emotion/styled";
 import { H1, P1 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
 import { css } from "@emotion/react";
+import { useA11y } from "@/hooks/use-a11y";
 
 const MAX_ITEM_COUNT = 3;
 
@@ -36,6 +37,8 @@ const SearchResult = () => {
     () => Math.min(MAX_ITEM_COUNT, students?.length ?? 0),
     [students]
   );
+
+  useA11y("search_screen_result");
 
   return (
     <SearchShell>

@@ -25,6 +25,7 @@ import PreloadVideo from "@/components/ui/preload-video";
 import vi from "@/assets/videos/sample.webm";
 import { useSettingStore } from "@/contexts/setting.store";
 import { fadeInOutVariants } from "@/variants";
+import { useA11y } from "@/hooks/use-a11y";
 
 const Birthday = () => {
   const { data: students } = useQuery(
@@ -62,6 +63,8 @@ const Birthday = () => {
       emblaApi.scrollTo(Number(id));
     }
   }, [id]);
+
+  useA11y("birthday");
 
   return (
     <OnBoardShell>

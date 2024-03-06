@@ -32,6 +32,7 @@ import {
   TransformComponent,
   TransformWrapper,
 } from "react-zoom-pan-pinch";
+import { useA11y } from "@/hooks/use-a11y";
 
 const memoryItems = [
   { title: "1반" as const, class: 1 },
@@ -76,6 +77,8 @@ const MemoryList = () => {
       emblaApi?.destroy();
     };
   }, []);
+
+  useA11y("memory_list");
   return (
     <MemoryShell>
       <MemoryHeader>

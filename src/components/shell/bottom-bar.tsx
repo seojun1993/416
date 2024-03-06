@@ -9,7 +9,7 @@ import { useThemeMode } from "@/hooks/use-theme-mode";
 import Switch from "../common/switch";
 import IncreaseButton from "../ui/increase-button";
 import { P3 } from "../ui/text";
-import { SoundSpeed, useSettingStore, zooms } from "@/contexts/setting.store";
+import { useSettingStore, zooms } from "@/contexts/setting.store";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeInOutVariants } from "@/variants";
 
@@ -106,6 +106,7 @@ const BottomBar = () => {
         `}
       >
         <CircleButton
+          data-a11y-id="home"
           css={css`
             width: 5.25em;
           `}
@@ -139,6 +140,7 @@ const BottomBar = () => {
           홈화면
         </CircleButton>
         <CircleButton
+          data-a11y-id="menu"
           css={css`
             width: 5.25em;
           `}
@@ -201,6 +203,7 @@ const BottomBar = () => {
           `}
         >
           <CircleButton
+            data-a11y-id="back"
             onClick={() => {
               if (window.history.state.idx !== 0) {
                 navigate(-1);
@@ -239,6 +242,7 @@ const BottomBar = () => {
                 margin-right: 0.4rem;
               }
             `}
+            data-a11y-id="front"
             onClick={() => window.history.forward()}
             icon={
               <svg
@@ -267,6 +271,7 @@ const BottomBar = () => {
           </CircleButton>
         </div>
         <CircleButton
+          data-a11y-id="contrast"
           css={css`
             background-color: ${themeMode === "dark"
               ? theme.color.accent.foreground
@@ -389,6 +394,7 @@ const BottomBar = () => {
           고대비
         </CircleButton>
         <CircleButton
+          data-a11y-id="search"
           key="searchButton"
           css={
             pathname === "/search"
@@ -589,6 +595,10 @@ const BottomBar = () => {
             )}
           </AnimatePresence>
           <IncreaseButton
+            a11y={{
+              increase: "text_expansion",
+              decrease: "text_shrinkage",
+            }}
             onIncreaseClick={(event) => {
               event.stopPropagation();
               setZoom((idx) => idx + 1);
@@ -619,6 +629,7 @@ const BottomBar = () => {
           `}
         >
           <Switch
+            data-a11y-id="voice"
             tabIndex={1}
             isOpen={soundOn}
             setIsOpen={(state) => setSoundOn(state)}
@@ -667,7 +678,8 @@ const BottomBar = () => {
                     position: relative;
                   `}
                 >
-                  <div
+                  <button
+                    data-a11y-id="volume_down"
                     css={css`
                       border: none;
                       background-color: transparent;
@@ -694,7 +706,7 @@ const BottomBar = () => {
                     >
                       <rect id="minus" width="52" height="8" rx="4" />
                     </ControllerIcon>
-                  </div>
+                  </button>
                   {volumeRange.map((item, volIdx) => (
                     <div
                       key={item + "volumn"}
@@ -722,7 +734,8 @@ const BottomBar = () => {
                       />
                     </div>
                   ))}
-                  <div
+                  <button
+                    data-a11y-id="volume_up"
                     css={css`
                       border: none;
                       background-color: transparent;
@@ -766,12 +779,16 @@ const BottomBar = () => {
                         />
                       </g>
                     </ControllerIcon>
-                  </div>
+                  </button>
                 </div>
               </ControllerWrapper>
             )}
           </AnimatePresence>
           <IncreaseButton
+            a11y={{
+              increase: "volume_up",
+              decrease: "volume_down",
+            }}
             onIncreaseClick={(event) => {
               event.stopPropagation();
               setVolumnAction(volIndex + 1);
@@ -879,6 +896,10 @@ const BottomBar = () => {
             )}
           </AnimatePresence>
           <IncreaseButton
+            a11y={{
+              increase: "voice_speed_up",
+              decrease: "voice_speed_down",
+            }}
             onIncreaseClick={(event) => {
               event.stopPropagation();
               setSoundSpeed((idx) => idx + 1);
@@ -909,6 +930,7 @@ const BottomBar = () => {
           `}
         >
           <Switch
+            data-a11y-id="sign_language"
             tabIndex={1}
             disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
             isOpen={signOn}

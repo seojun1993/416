@@ -2,6 +2,7 @@
 import maps from "@/assets/images/maps";
 import { MainShell } from "@/components/common/main-shell";
 import { H1, H4, P3 } from "@/components/ui/text";
+import { useA11y } from "@/hooks/use-a11y";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -27,6 +28,8 @@ const MemoryRoad = () => {
   const [selected, setSelected] = useState(0);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const [themeMode] = useThemeMode();
+
+  useA11y("tour");
   return (
     <MemoryShell>
       <MemoryHeader>

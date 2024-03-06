@@ -17,6 +17,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { m } from "framer-motion";
 import { getAllKeywordWithStudents } from "@/queries/keyword";
 import { fadeInOutVariants } from "@/variants";
+import { useA11y } from "@/hooks/use-a11y";
 
 const Stars = () => {
   const { data: students } = useQuery(
@@ -41,6 +42,7 @@ const Stars = () => {
     [students, selectedStudents]
   );
 
+  useA11y("word_cloud");
   return (
     <MemoryShell
       initial={{

@@ -8,6 +8,7 @@ import GlobalLayout from "./global-layout.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AudioProvider from "./components/Audio-provider.tsx";
+import { sendA11yEvent } from "./libs/utils.ts";
 
 const client = new QueryClient({
   defaultOptions: {
@@ -104,19 +105,23 @@ const injectKeyboardHandler = () => {
       }
 
       if (nextElement) {
-        if (nextElement.dataset.a11yId) {
-          window.dispatchEvent(
-            new CustomEvent("a11y", {
-              detail: nextElement.dataset.a11yId,
-            })
-          );
-        }
         nextElement.focus({
           preventScroll: !!nextElement?.dataset.preventScroll,
         });
         event.preventDefault();
       }
     });
+
+    window.addEventListener(
+      "focusin",
+      (event) => {
+        const a11yId = (event.target as HTMLElement)?.dataset?.a11yId;
+        if (a11yId) {
+          sendA11yEvent(a11yId);
+        }
+      },
+      { passive: true }
+    );
   };
 };
 
