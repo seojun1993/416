@@ -20,6 +20,7 @@ interface CardProps {
   onBlur?: (ref: HTMLElement | null) => void;
   linkStyle?: SerializedStyles;
   contentHeaderStyle?: SerializedStyles;
+  a11y?: string;
 }
 export const Card = memo(
   ({
@@ -30,6 +31,7 @@ export const Card = memo(
     href,
     linkStyle,
     contentHeaderStyle,
+    a11y,
     onBlur,
     onFirstClick,
     onDoubleClick,
@@ -56,6 +58,7 @@ export const Card = memo(
 
     return (
       <CardLink
+        data-a11y-id={a11y}
         to={href ?? ""}
         ref={ref}
         css={css`

@@ -103,6 +103,7 @@ const Stars = () => {
             return (
               <SmallCard
                 key={item.id + index}
+                a11y={item.voicekey}
                 linkStyle={css`
                   width: ${(1 / SlideCardAspect) *
                   (emblaApi?.containerNode().children[0].clientWidth ?? 0)};
@@ -159,6 +160,7 @@ interface CardProps {
   onBlur?: (ref: HTMLElement | null) => void;
   linkStyle?: SerializedStyles;
   contentHeaderStyle?: SerializedStyles;
+  a11y?: string;
 }
 export const SmallCard = memo(
   ({
@@ -166,6 +168,7 @@ export const SmallCard = memo(
     image,
     badge,
     classDescription,
+    a11y,
     title,
     href,
     linkStyle,
@@ -196,6 +199,7 @@ export const SmallCard = memo(
 
     return (
       <CardLink
+        data-a11y-id={a11y}
         to={href ?? ""}
         ref={ref}
         css={css`

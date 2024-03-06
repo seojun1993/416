@@ -15,6 +15,7 @@ export interface Student {
   images: Image[];
   caricature: string;
   class_number_name: string;
+  voicekey: string;
 }
 
 export interface Keyword {
