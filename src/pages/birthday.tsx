@@ -50,16 +50,18 @@ const Birthday = () => {
     Prefetch({
       onSelect(selectedIndex) {
         setId(selectedIndex);
+        const target = students?.[Number(id)];
+        if (target) {
+          sendA11yEvent(target.voicekey);
+        }
       },
     }),
   ]);
 
   const studentOnCenter = useMemo(() => {
     const target = students?.[Number(id)];
-    if (target) {
-      sendA11yEvent(target.voicekey);
-    }
-    return id !== null && students?.[Number(id)];
+
+    return id !== null && target;
   }, [id, students]);
 
   useEffect(() => {
