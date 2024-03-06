@@ -67,7 +67,7 @@ interface UserModeSlice {
 }
 
 interface SoundSlice {
-  volumeRange: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  volumeRange: [50, 53, 56, 59, 62, 65, 68, 72, 75, 78, 80];
   soundSpeed: { text: string; value: number }[];
   selectedVolumeIndex: number;
   selectedSoundSpeedIndex: number;
@@ -158,7 +158,7 @@ const createSoundSlice: StateCreator<
   [],
   SoundSlice
 > = (set, get) => ({
-  volumeRange: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+  volumeRange: [50, 53, 56, 59, 62, 65, 68, 72, 75, 78, 80],
   selectedVolumeIndex: 5,
   selectedSoundSpeedIndex: 0,
   soundSpeed: SoundSpeed,
