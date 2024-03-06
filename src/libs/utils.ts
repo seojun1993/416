@@ -220,11 +220,21 @@ export function calculateDistance(vector1: Vector, vector2: Vector) {
   return ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;
 }
 
-let latestA11yId: string;
+let preA11yId: string;
 
 export const sendA11yEvent = (id: string) => {
-  if (latestA11yId !== id) {
-    latestA11yId = id;
+  console.log(
+    "%c[PREVIOUS A11Y ID]: " + `%c${preA11yId}`,
+    "color: #00BC68;",
+    "color: #4F98E9;"
+  );
+  console.log(
+    "%c[LATEST A11Y ID]: " + `%c${id}`,
+    "color: #00BC68;",
+    "color: #4F98E9;"
+  );
+  if (preA11yId !== id) {
+    preA11yId = id;
 
     window.dispatchEvent(
       new CustomEvent("a11y", {
