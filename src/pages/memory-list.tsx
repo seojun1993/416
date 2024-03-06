@@ -103,7 +103,7 @@ const MemoryList = () => {
                 `}
                 onClick={() => {
                   setSelected(item);
-                  visualizerRef.current?.moveScrollToIndex(0, item.class);
+                  // visualizerRef.current?.moveScrollToIndex(0, item.class);
                   emblaApi?.reInit(OPTIONS);
                 }}
                 selected={item.class === selected.class}
@@ -292,7 +292,7 @@ const AlbumVisualizer = forwardRef<{
             )}
         </div>
       </div>
-      <LeftButton
+      {/* <LeftButton
         data-disable-focus-effect="true"
         onClick={() => {
           if (columnVirtualizer.range?.endIndex) {
@@ -318,8 +318,8 @@ const AlbumVisualizer = forwardRef<{
           />
         </svg>
         <P3 css={css``}>이전</P3>
-      </LeftButton>
-      <RightButton
+      </LeftButton> */}
+      {/* <RightButton
         data-disable-focus-effect="true"
         onClick={() => {
           if (
@@ -349,7 +349,7 @@ const AlbumVisualizer = forwardRef<{
           />
         </svg>
         <P3 css={css``}>다음</P3>
-      </RightButton>
+      </RightButton> */}
     </div>
   );
 });

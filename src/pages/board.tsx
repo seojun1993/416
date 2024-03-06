@@ -352,7 +352,7 @@ const Board = () => {
                 </Page>
               </HTMLFlipBook>
             ) : null}
-            <LeftButton
+            {/* <LeftButton
               data-disable-focus-effect="true"
               onClick={handlePrevClick}
             >
@@ -409,7 +409,7 @@ const Board = () => {
               >
                 다음
               </P3>
-            </RightButton>
+            </RightButton> */}
           </div>
         </div>
       </div>
