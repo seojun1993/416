@@ -3,7 +3,7 @@ import { Card } from "@/components/common/card";
 import { MainShell } from "@/components/common/main-shell";
 import EmblaCarousel from "@/components/ui/carousel";
 import { H1, H4, P3 } from "@/components/ui/text";
-import { getImagePath } from "@/libs/utils";
+import { getImagePath, sendA11yEvent } from "@/libs/utils";
 import { getStudentsFromClass } from "@/queries/student";
 import { Student } from "@/types/student";
 import { css } from "@emotion/react";
@@ -33,6 +33,7 @@ import {
   TransformWrapper,
 } from "react-zoom-pan-pinch";
 import { useA11y } from "@/hooks/use-a11y";
+import { Prefetch } from "@/libs/plugins/prefetch";
 
 const memoryItems = [
   { title: "1반" as const, class: 1 },
@@ -59,7 +60,16 @@ const MemoryList = () => {
     moveScrollToIndex: (index: number, classNumber?: number) => void;
   }>(null);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
+    Prefetch({
+      onSelect(selectedIndex) {
+        const target = students?.[selectedIndex];
+        if (target) {
+          sendA11yEvent(target.voicekey);
+        }
+      },
+    }),
+  ]);
   const handleReInit = (ev: EmblaCarouselType) => {
     ev.scrollTo(0);
   };
@@ -561,6 +571,7 @@ function OnBoardItem({
 }) {
   return (
     <Card
+      a11y={item.voicekey}
       linkStyle={css`
         width: 10rem;
         height: 12rem;

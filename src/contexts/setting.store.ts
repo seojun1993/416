@@ -169,12 +169,22 @@ const createSoundSlice: StateCreator<
     get().setTooltipMode("speed");
     if (get().soundSpeed[soundIndex]?.value) {
       set({ selectedSoundSpeedIndex: soundIndex });
+      const jumja = window?.chrome?.webview?.hostObjects?.sync?.jumjaplay;
+      if (jumja) {
+        jumja.SetAudioSpeed(
+          get().soundSpeed[soundIndex]?.value ?? get().soundSpeed[soundIndex]
+        );
+      }
     }
   },
   setVolumnAction: (vol) => {
     get().setTooltipMode("sound");
     if (typeof get().volumeRange[vol] === "number") {
       set({ selectedVolumeIndex: vol });
+      const audio = window?.chrome?.webview?.hostObjects?.sync?.audiocontrol;
+      if (audio) {
+        audio.SetVolume(get().volumeRange[vol]);
+      }
     }
   },
 });

@@ -50,7 +50,7 @@ const Birthday = () => {
     Prefetch({
       onSelect(selectedIndex) {
         setId(selectedIndex);
-        const target = students?.[Number(id)];
+        const target = students?.[selectedIndex];
         if (target) {
           sendA11yEvent(target.voicekey);
         }

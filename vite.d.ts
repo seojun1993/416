@@ -11,7 +11,11 @@ export declare global {
         hostObjects: {
           sync: {
             jumjaplay: {
-              Play: (id: string) => string;
+              Play(id: string): string;
+              SetAudioSpeed(speed: number): void;
+            };
+            audiocontrol: {
+              SetVolume(volume: number): void;
             };
           };
         };
