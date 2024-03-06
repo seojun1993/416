@@ -107,9 +107,6 @@ const BottomBar = () => {
       >
         <CircleButton
           data-a11y-id="home"
-          css={css`
-            width: 5.25em;
-          `}
           active={pathname === "/"}
           onClick={() => {
             const id = sessionStorage.getItem("redirect_id");
@@ -137,13 +134,10 @@ const BottomBar = () => {
             </svg>
           }
         >
-          홈화면
+          홈
         </CircleButton>
         <CircleButton
           data-a11y-id="menu"
-          css={css`
-            width: 5.25em;
-          `}
           active={pathname === "/menu"}
           onClick={() => navigate("menu")}
           icon={
@@ -276,7 +270,6 @@ const BottomBar = () => {
             background-color: ${themeMode === "dark"
               ? theme.color.accent.foreground
               : theme.color.background.secondary};
-            width: 5.25em;
           `}
           onClick={toggleTheme}
           icon={
