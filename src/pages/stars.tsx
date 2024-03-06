@@ -212,12 +212,8 @@ export const SmallCard = memo(
       >
         <CardAvatar src={image}></CardAvatar>
         <CardContent>
-          <CardClassNumber>
-            <P3>{classDescription}</P3>
-          </CardClassNumber>
           <CardContentHeader contentHeaderStyle={contentHeaderStyle}>
-            <span>{title}</span>
-            <span>{birthText}</span>
+            {title}
           </CardContentHeader>
         </CardContent>
       </CardLink>
@@ -264,7 +260,6 @@ const CardBadge = styled(P2)`
 `;
 
 const CardAvatar = styled(ImageX)`
-  height: 19rem;
   background-color: #fff;
   object-fit: fill;
 `;
@@ -274,6 +269,7 @@ const CardContent = styled.div`
   flex-grow: 1;
   flex-direction: column;
   text-align: center;
+  height: 30%;
 `;
 
 const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`

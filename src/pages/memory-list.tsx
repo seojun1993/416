@@ -565,9 +565,9 @@ function OnBoardItem({
         width: 10rem;
         height: 12rem;
       `}
-      contentHeaderStyle={css`
-        font-size: 1.12rem;
-      `}
+      // contentHeaderStyle={css`
+      //   font-size: 1.12rem;
+      // `}
       classDescription={item.class_number_name}
       onFirstClick={onFirstClick}
       onDoubleClick={onDoubleClick}

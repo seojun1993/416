@@ -26,7 +26,6 @@ export const Card = memo(
     birth,
     image,
     badge,
-    classDescription,
     title,
     href,
     linkStyle,
@@ -68,12 +67,11 @@ export const Card = memo(
           {badge && <CardBadge>{badge}</CardBadge>}
         </CardAvatar>
         <CardContent>
-          <CardClassNumber>
+          {/* <CardClassNumber>
             <P3>{classDescription}</P3>
-          </CardClassNumber>
+          </CardClassNumber> */}
           <CardContentHeader contentHeaderStyle={contentHeaderStyle}>
-            <span>{title}</span>
-            <span>{birthText}</span>
+            {title}
           </CardContentHeader>
         </CardContent>
       </CardLink>
@@ -120,7 +118,7 @@ const CardBadge = styled(P2)`
 `;
 
 const CardAvatar = styled(ImageX)`
-  height: 19rem;
+  /* height: 19rem; */
   background-color: #fff;
   object-fit: fill;
 `;
@@ -130,6 +128,7 @@ const CardContent = styled.div`
   flex-grow: 1;
   flex-direction: column;
   text-align: center;
+  height: 30%;
 `;
 
 const CardContentHeader = styled(H4)<{ contentHeaderStyle?: SerializedStyles }>`
@@ -140,18 +139,4 @@ const CardContentHeader = styled(H4)<{ contentHeaderStyle?: SerializedStyles }>`
   padding: 0.5rem 0;
   color: ${(props) => props.theme.color.text.main};
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
-  > span:first-of-type {
-    display: inline-flex;
-    position: relative;
-    &::after {
-      content: "";
-      display: block;
-      width: 0.14em;
-      flex: 1;
-      background-color: ${(props) => props.theme.color.accent.foreground};
-
-      border-radius: 1rem;
-      margin: 0.2rem 0.5rem;
-    }
-  }
 `;
