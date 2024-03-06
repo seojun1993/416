@@ -115,8 +115,10 @@ const injectKeyboardHandler = () => {
     window.addEventListener(
       "focusin",
       (event) => {
+        console.log(`[FOCUS-IN TRIGGERED]`);
         const a11yId = (event.target as HTMLElement)?.dataset?.a11yId;
         if (a11yId) {
+          console.log(`[SEND A11Y ID] : ${a11yId}`);
           sendA11yEvent(a11yId);
         }
       },

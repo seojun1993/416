@@ -3,7 +3,7 @@ import { MainShell } from "@/components/common/main-shell";
 import ImageX from "@/components/ui/image";
 import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
-import { ComponentType, ReactNode, useEffect, useState } from "react";
+import { ComponentType, useEffect, useState } from "react";
 import classImg from "@/assets/images/classinfo";
 import {
   AnimatePresence,

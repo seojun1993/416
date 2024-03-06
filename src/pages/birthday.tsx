@@ -7,7 +7,7 @@ import OnboardCompoents from "@/components/pages/onboard";
 import useEmblaCarousel from "embla-carousel-react";
 import { useQuery } from "@tanstack/react-query";
 import { getFilteredStudentsByMonthQuery } from "@/queries/student";
-import { getImagePath } from "../libs/utils";
+import { getImagePath, sendA11yEvent } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -55,6 +55,10 @@ const Birthday = () => {
   ]);
 
   const studentOnCenter = useMemo(() => {
+    const target = students?.[Number(id)];
+    if (target) {
+      sendA11yEvent(target.voicekey);
+    }
     return id !== null && students?.[Number(id)];
   }, [id, students]);
 
