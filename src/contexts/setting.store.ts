@@ -32,11 +32,11 @@ export const SoundSpeed = [
 
   {
     text: "보통",
-    value: 1.5,
+    value: 5,
   },
   {
     text: "빠르게",
-    value: 2,
+    value: 10,
   },
 ];
 
@@ -170,6 +170,7 @@ const createSoundSlice: StateCreator<
     if (get().soundSpeed[soundIndex]?.value) {
       set({ selectedSoundSpeedIndex: soundIndex });
       const jumja = window?.chrome?.webview?.hostObjects?.sync?.jumjaplay;
+
       if (jumja) {
         jumja.SetAudioSpeed(
           get().soundSpeed[soundIndex]?.value ?? get().soundSpeed[soundIndex]

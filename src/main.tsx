@@ -115,10 +115,14 @@ const injectKeyboardHandler = () => {
     window.addEventListener(
       "focusin",
       (event) => {
-        console.log(`[FOCUS-IN TRIGGERED]`);
+        console.log("%c[FOCUS-IN TRIGGERED]", "color: #00BC68;");
         const a11yId = (event.target as HTMLElement)?.dataset?.a11yId;
         if (a11yId) {
-          console.log(`[SEND A11Y ID] : ${a11yId}`);
+          console.log(
+            "%c[SEND A11Y ID]: " + `%c${a11yId}`,
+            "color: #00BC68;",
+            "color: #4F98E9;"
+          );
           sendA11yEvent(a11yId);
         }
       },
