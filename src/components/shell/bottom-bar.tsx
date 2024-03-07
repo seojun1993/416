@@ -966,7 +966,7 @@ const BottomWrapper = styled.div`
 
 const ControllerWrapper = styled(motion.div)`
   position: absolute;
-  top: calc(-100% - 2.5rem);
+  top: -6.19rem;
   box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
   width: 16rem;
   height: 5.4rem;

@@ -54,6 +54,10 @@ export const useCheckClick = (options: usecheckClickOption) => {
     }
   };
 
+  const handleBlur = (event: FocusEvent) => {
+    clicked.current = false;
+  };
+
   useEffect(() => {
     if (ref.current) {
       const domRef = ref.current;
@@ -63,11 +67,13 @@ export const useCheckClick = (options: usecheckClickOption) => {
       window.addEventListener("click", handleWindowClick, false);
       domRef.addEventListener("click", handleClick, false);
       domRef.addEventListener("keydown", handleKeydown);
+      domRef.addEventListener("blur", handleBlur);
       return () => {
         domRef.removeEventListener("click", handleClick, false);
         domRef.removeEventListener("keydown", handleKeydown);
         domRef.classList.remove("__focussed-target");
         window.removeEventListener("click", handleWindowClick, false);
+        domRef.removeEventListener("blur", handleBlur);
       };
     }
   }, [onFirstClick, onDoubleClick]);

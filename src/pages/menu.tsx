@@ -66,6 +66,7 @@ const Menu = () => {
           >
             {Object.entries(menuContent).map((메뉴, index) => (
               <MenuComponents.MenuCard
+                data-a11y-id={메뉴[1].a11y}
                 key={메뉴[1].title}
                 onFirstClick={() => {
                   emblaApi?.scrollTo(index - 1);

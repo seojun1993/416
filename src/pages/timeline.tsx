@@ -22,15 +22,36 @@ const Timeline = () => {
           column-gap: 2rem;
         `}
       >
-        <ImageX
+        <button
+          data-disable-focus-effect
           css={css`
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 0.8rem;
             overflow: hidden;
-            width: 28.8rem;
-            height: 29.76rem;
+            border: none;
+            flex: 1;
+            display: flex;
+            padding: 0.2rem;
+            transition: transform 0.1s ease-in-out,
+              outline 0.1s ease-in-out 0.05s;
+            &:focus {
+              transform: scale(0.97);
+            }
           `}
-          src={timelineImage}
-        />
+        >
+          <div
+            css={css`
+              flex: 1;
+              background-color: transparent;
+              border: none;
+              border-radius: 0.6rem;
+              overflow: hidden;
+              height: 100%;
+            `}
+          >
+            <ImageX src={timelineImage} />
+          </div>
+        </button>
         <div
           css={css`
             flex: 1;

@@ -106,6 +106,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
           />
           <button
             data-disable-focus-effect="true"
+            data-a11y-id={isPlaying ? "pause" : "play"}
             css={css`
               position: absolute;
               left: 50%;

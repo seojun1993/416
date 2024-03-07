@@ -169,6 +169,8 @@ const SpaceInfo = () => {
     };
   }, []);
 
+  useA11y(`space_guide_0${selectedMapIdx - 1}`, [selectedMapIdx]);
+
   useA11y("space_guide");
   return (
     <activeMapContext.Provider

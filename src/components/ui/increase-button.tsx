@@ -16,10 +16,10 @@ const IncreaseButton = ({
   ...props
 }: IncreaseButtonProps) => {
   const theme = useTheme();
-  const { a11y: { decrease, increase } = {} } = props;
+  const { a11y: { decrease, increase } = {}, ...rest } = props;
   return (
     <div
-      {...props}
+      {...rest}
       css={css`
         /* width: 3.85em; */
         height: 1.54em;

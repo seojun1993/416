@@ -156,6 +156,7 @@ const Search = () => {
             `}
           />
           <button
+            data-a11y-id="search"
             css={css`
               display: flex;
               align-items: center;

@@ -388,9 +388,11 @@ function StarWithLabel({ star, id }: { id: string; star: Star }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const selected = searchParams.get("label") === star.label;
   const uid = useId();
+
   return (
     <Star
       {...star}
+      data-a11y-id={star.label}
       selected={selected}
       data-disable-focus-effect="true"
       key={uid}

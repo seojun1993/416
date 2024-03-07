@@ -23,6 +23,7 @@ interface SizeOptions {
 interface Key {
   icon: ReactNode[];
   value?: string[];
+  a11y?: string[];
   keyType?: SpecificKeyTypes;
   aspect?: number;
   renderItem?: (item: KeyWithSizeOption) => ReactNode;
@@ -172,50 +173,62 @@ const keyMap: Key[][] = [
     {
       icon: ["ㅂ"],
       value: ["ㅂ"],
+      a11y: ["text_06"],
     },
     {
       icon: ["ㅈ"],
       value: ["ㅈ"],
+      a11y: ["text_09"],
     },
     {
       icon: ["ㄷ"],
       value: ["ㄷ"],
+      a11y: ["text_03"],
     },
     {
       icon: ["ㄱ"],
       value: ["ㄱ"],
+      a11y: ["text_01"],
     },
     {
       icon: ["ㅅ"],
       value: ["ㅅ"],
+      a11y: ["text_07"],
     },
     {
       icon: ["ㅛ"],
       value: ["ㅛ"],
+      a11y: ["text_20"],
     },
     {
       icon: ["ㅕ"],
       value: ["ㅕ"],
+      a11y: ["text_18"],
     },
     {
       icon: ["ㅑ"],
       value: ["ㅑ"],
+      a11y: ["text_16"],
     },
     {
       icon: ["ㅐ"],
       value: ["ㅐ"],
+      a11y: ["text_25"],
     },
     {
       icon: ["ㅒ"],
       value: ["ㅒ"],
+      a11y: ["text_26"],
     },
     {
       icon: ["ㅔ"],
       value: ["ㅔ"],
+      a11y: ["text_27"],
     },
     {
       icon: ["ㅖ"],
       value: ["ㅖ"],
+      a11y: ["text_28"],
     },
 
     // {
@@ -230,38 +243,47 @@ const keyMap: Key[][] = [
     {
       icon: ["ㅁ"],
       value: ["ㅁ"],
+      a11y: ["text_05"],
     },
     {
       icon: ["ㄴ"],
       value: ["ㄴ"],
+      a11y: ["text_02"],
     },
     {
       icon: ["ㅇ"],
       value: ["ㅇ"],
+      a11y: ["text_08"],
     },
     {
       icon: ["ㄹ"],
       value: ["ㄹ"],
+      a11y: ["text_04"],
     },
     {
       icon: ["ㅎ"],
       value: ["ㅎ"],
+      a11y: ["text_14"],
     },
     {
       icon: ["ㅗ"],
       value: ["ㅗ"],
+      a11y: ["text_19"],
     },
     {
       icon: ["ㅓ"],
       value: ["ㅓ"],
+      a11y: ["text_17"],
     },
     {
       icon: ["ㅏ"],
       value: ["ㅏ"],
+      a11y: ["text_15"],
     },
     {
       icon: ["ㅣ"],
       value: ["ㅣ"],
+      a11y: ["text_24"],
     },
     // {
     //   icon: [
@@ -369,6 +391,7 @@ const keyMap: Key[][] = [
       ],
       // renderItem: SearchButton,
       keyType: "Backspace",
+      a11y: ["remove"],
       aspect: 2,
     },
   ],
@@ -405,13 +428,13 @@ const keyMap: Key[][] = [
     //   ],
     //   keyType: "Shift",
     // },
-    { icon: ["ㅋ"], value: ["ㅋ"] },
-    { icon: ["ㅌ"], value: ["ㅌ"] },
-    { icon: ["ㅊ"], value: ["ㅊ"] },
-    { icon: ["ㅍ"], value: ["ㅍ"] },
-    { icon: ["ㅠ"], value: ["ㅠ"] },
-    { icon: ["ㅜ"], value: ["ㅜ"] },
-    { icon: ["ㅡ"], value: ["ㅡ"] },
+    { icon: ["ㅋ"], value: ["ㅋ"], a11y: ["text_11"] },
+    { icon: ["ㅌ"], value: ["ㅌ"], a11y: ["text_12"] },
+    { icon: ["ㅊ"], value: ["ㅊ"], a11y: ["text_10"] },
+    { icon: ["ㅍ"], value: ["ㅍ"], a11y: ["text_13"] },
+    { icon: ["ㅠ"], value: ["ㅠ"], a11y: ["text_22"] },
+    { icon: ["ㅜ"], value: ["ㅜ"], a11y: ["text_21"] },
+    { icon: ["ㅡ"], value: ["ㅡ"], a11y: ["text_23"] },
     // { icon: [","] },
     // { icon: ["."] },
     // { icon: ["/"] },
@@ -545,6 +568,7 @@ const Keyboard = (
                 })
               ) : item.icon?.length ? (
                 <button
+                  data-a11y-id={item.a11y?.[+isShifter] ?? item.a11y?.[0]}
                   data-position={[x, y]}
                   type="button"
                   onClick={() => {

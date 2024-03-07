@@ -179,7 +179,7 @@ const MemoryList = () => {
           `}
         >
           <AlbumVisualizer ref={visualizerRef} />
-          <MemoryQRCode data-disable-focus-effect="true">
+          <MemoryQRCode data-disable-focus-effect="true" data-a11y-id="QR_ALL">
             <QRCode value="https://goe416.go.kr/?p=26&page=1&searchTxt=" />
 
             <P3
@@ -210,7 +210,8 @@ const AlbumVisualizer = forwardRef<{
 
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
-    count: albums?.length ?? 0,
+    // count: albums?.length ?? 0,
+    count: 1,
     getScrollElement: () => parentRef.current,
     estimateSize: () => parentWidth,
     overscan: 5,
@@ -389,8 +390,10 @@ const MemoryAlbum = memo(
       };
     }, []);
     return (
-      <div
+      <button
         key={item.key}
+        data-disable-focus-effect="true"
+        data-a11y-id="graduation_IMG"
         style={{
           transform: `translateX(${item.start}px)`,
         }}
@@ -414,7 +417,7 @@ const MemoryAlbum = memo(
             />
           </TransformComponent>
         </TransformWrapper>
-      </div>
+      </button>
     );
   }
 );

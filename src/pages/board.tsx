@@ -5,6 +5,7 @@ import { H1, H4, P3 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
+  ComponentPropsWithoutRef,
   PropsWithChildren,
   forwardRef,
   useEffect,
@@ -107,7 +108,7 @@ const Board = () => {
             /* outline: 8px solid ${theme.color.accent.foreground}; */
           `}
         >
-          <InformationModal
+          {/* <InformationModal
             duration={0}
             modal={false}
             cssStyles={css`
@@ -245,7 +246,7 @@ const Board = () => {
                 손가락을 이용하여 확대해보세요
               </H4>
             </div>
-          </InformationModal>
+          </InformationModal> */}
           <div
             ref={bookRef}
             css={css`
@@ -288,7 +289,11 @@ const Board = () => {
                 showPageCorners={false}
                 disableFlipByClick={false}
               >
-                <Page>
+                <Page
+                  data-disable-focus-effect="true"
+                  data-a11y-id="personal_profile_CH"
+                  tabIndex={1}
+                >
                   <div
                     css={css`
                       display: flex;
@@ -308,8 +313,13 @@ const Board = () => {
                     />
                   </div>
                 </Page>
-                {student?.images?.map((image) => (
-                  <Page key={image.id}>
+                {student?.images?.map((image, index) => (
+                  <Page
+                    key={image.id}
+                    disabled={index > 0}
+                    data-disable-focus-effect="true"
+                    data-a11y-id="personal_profile_IMG"
+                  >
                     <div
                       css={css`
                         display: flex;
@@ -330,7 +340,7 @@ const Board = () => {
                     </div>
                   </Page>
                 ))}
-                <Page>
+                <Page disabled>
                   <div
                     css={css`
                       display: flex;
@@ -419,7 +429,9 @@ const Board = () => {
           align-items: flex-end;
         `}
       >
-        <div
+        <button
+          data-disable-focus-effect="true"
+          data-a11y-id="QR_Personal"
           css={css`
             padding: 1.2rem 0.6rem;
             background-color: ${theme.color.background.secondary};
@@ -446,7 +458,7 @@ const Board = () => {
             <br />
             작성할 수 있습니다.
           </P3>
-        </div>
+        </button>
       </div>
     </MainShell>
   );
@@ -454,7 +466,10 @@ const Board = () => {
 
 export default Board;
 
-const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
+const Page = forwardRef<
+  HTMLButtonElement,
+  PropsWithChildren<ComponentPropsWithoutRef<"button">>
+>((props, ref) => {
   const panRef = useRef<ReactZoomPanPinchContentRef>(null);
   const handlePageChange = () => {
     panRef.current?.resetTransform();
@@ -468,16 +483,19 @@ const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
     };
   }, []);
   return (
-    <div
+    <button
+      {...props}
       ref={ref}
       css={css`
         box-shadow: inset -7px 0 10px -7px rgba(0, 0, 0, 0.4);
         overflow: hidden;
+        &:focus {
+          outline-width: 0.2em !important;
+        }
       `}
     >
       <TransformWrapper ref={panRef} maxScale={2}>
         <div
-          {...props}
           css={css`
             width: 100%;
             height: 100%;
@@ -495,7 +513,7 @@ const Page = forwardRef<HTMLDivElement, PropsWithChildren>((props, ref) => {
           </TransformComponent>
         </div>
       </TransformWrapper>
-    </div>
+    </button>
   );
 });
 

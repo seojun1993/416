@@ -18,10 +18,10 @@ import QRCode from "react-qr-code";
 
 const memoryItems = [
   { title: "기억과 약속의 길" as const },
-  { title: "단원고4.16기억교실" as const },
-  { title: "단원고등학교" as const },
-  { title: "4.16기억전시관" as const },
-  { title: "(가칭)4.16생명안전공원" as const },
+  { title: "단원고4.16기억교실" as const, a11y: "tour_01" },
+  { title: "단원고등학교" as const, a11y: "tour_02" },
+  { title: "4.16기억전시관" as const, a11y: "tour_03" },
+  { title: "(가칭)4.16생명안전공원" as const, a11y: "tour_04" },
 ];
 
 const MemoryRoad = () => {
@@ -47,6 +47,7 @@ const MemoryRoad = () => {
       <MemoryListSmallButtons>
         {memoryItems.slice(1, memoryItems.length).map((item, index) => (
           <MemoryListButton
+            data-a11y-id={item.a11y}
             key={item.title}
             selected={index + 1 === selected}
             onClick={() => setSelected(index + 1)}
@@ -1118,6 +1119,7 @@ const memorySummaryComponents: {
           display: flex;
           column-gap: 1.6rem;
           align-items: end;
+          padding-bottom: 0.4rem;
         `}
       >
         <MemoryBadge data-disable-focus-effect="true">
@@ -1136,7 +1138,7 @@ const memorySummaryComponents: {
             <b>사전예약이 가능</b>합니다.
           </MemoryQRDescription>
         </MemoryBadge>
-        <MemoryBadge data-disable-focus-effect="true">
+        <MemoryBadge data-disable-focus-effect="true" data-a11y-id="enquiry">
           <CallIcon
             css={css`
               width: 4rem;

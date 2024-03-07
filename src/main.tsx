@@ -51,9 +51,10 @@ const injectKeyboardHandler = () => {
           getComputedStyle(el).visibility !== "hidden"
       );
 
+      const focusedElement = document.activeElement as HTMLElement;
       if (focusableElements.length === 0) return;
       let nextElement = null; // 다음에 포커스될 요소
-      const focusedElement = document.activeElement as HTMLElement;
+
       if (!focusedElement) {
         focusableElements[0].focus();
       }
