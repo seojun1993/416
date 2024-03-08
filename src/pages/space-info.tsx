@@ -93,10 +93,9 @@ const SpaceInfo = () => {
     const floor = contents.MAP_LIST[selectedMapIdx - 1].MAP_INFO.floor;
     const pubList = new Set<string>([]);
     nodes.PUB_LIST.PUB_INFO.forEach((pub) => {
-      if (pub.PUB_FLOOR.value === floor) {
-        pubList.add(pub.PUB_CODE);
-      }
+      pubList.add(pub.PUB_CODE);
     });
+    console.log(nodes.PUB_LIST.PUB_INFO);
     return [...pubList].map((pubCode) => {
       return contents.PUB_INFO_LIST.find(
         (item) => item.PUB_INFO.PUB_CODE === pubCode

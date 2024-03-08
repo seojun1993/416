@@ -4,9 +4,9 @@ import type { StateCreator } from "zustand";
 export type ThemeMode = "light" | "dark";
 export type UserMode = "normal" | "sound" | "sign";
 export const zooms = [
-  { value: 1, text: "보통" },
-  { value: 1.05, text: "크게" },
-  { value: 1.1, text: "매우크게" },
+  { value: 1, text: "x1.0" },
+  { value: 1.05, text: "x1.2" },
+  { value: 1.1, text: "x1.5" },
 ];
 
 export const VideoSpeeds = [
@@ -26,16 +26,16 @@ export const VideoSpeeds = [
 ];
 export const SoundSpeed = [
   {
-    text: "느리게",
+    text: "x1.0",
     value: 1,
   },
 
   {
-    text: "보통",
+    text: "x1.2",
     value: 5,
   },
   {
-    text: "빠르게",
+    text: "x1.5",
     value: 10,
   },
 ];
@@ -67,7 +67,7 @@ interface UserModeSlice {
 }
 
 interface SoundSlice {
-  volumeRange: [50, 53, 56, 59, 62, 65, 68, 72, 75, 78, 80];
+  volumeRange: number[];
   soundSpeed: { text: string; value: number }[];
   selectedVolumeIndex: number;
   selectedSoundSpeedIndex: number;
@@ -158,8 +158,8 @@ const createSoundSlice: StateCreator<
   [],
   SoundSlice
 > = (set, get) => ({
-  volumeRange: [50, 53, 56, 59, 62, 65, 68, 72, 75, 78, 80],
-  selectedVolumeIndex: 5,
+  volumeRange: [80, 75, 67, 58, 50, 0],
+  selectedVolumeIndex: 4,
   selectedSoundSpeedIndex: 0,
   soundSpeed: SoundSpeed,
   soundActivate: true,

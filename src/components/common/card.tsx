@@ -4,7 +4,7 @@ import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { memo, useCallback, useRef } from "react";
 import ImageX from "../ui/image";
-import { H4, P2, P3 } from "../ui/text";
+import { H4, P2 } from "../ui/text";
 import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -59,7 +59,7 @@ export const Card = memo(
     return (
       <CardLink
         data-a11y-id={a11y}
-        to={href ?? ""}
+        to={window.location.href}
         ref={ref}
         css={css`
           aspect-ratio: 25/32;

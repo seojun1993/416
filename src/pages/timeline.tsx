@@ -22,7 +22,7 @@ const Timeline = () => {
           column-gap: 2rem;
         `}
       >
-        <button
+        {/* <button
           data-disable-focus-effect
           css={css`
             background-color: rgba(255, 255, 255, 0.2);
@@ -51,7 +51,7 @@ const Timeline = () => {
           >
             <ImageX src={timelineImage} />
           </div>
-        </button>
+        </button> */}
         <div
           css={css`
             flex: 1;

@@ -120,7 +120,7 @@ const Birthday = () => {
             </EmblaCarousel>
           ) : null}
         </Saver>
-        <AnimatePresence mode="wait">
+        {/* <AnimatePresence mode="wait">
           {signActive ? (
             <div
               css={css`
@@ -133,7 +133,7 @@ const Birthday = () => {
           ) : (
             <Birth key="none" students={students} />
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </LazyMotion>
     </OnBoardShell>
   );

@@ -58,44 +58,14 @@ const MemoryRoad = () => {
       </MemoryListSmallButtons>
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
-          {selected === 0 ? (
-            <MemoryRoadContent
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              key={memoryItems[selected].title}
-            >
-              {Description}
-            </MemoryRoadContent>
-          ) : (
-            <MemoryRoadContent>
-              <RoadMapInfo
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <img
-                  css={css`
-                    object-fit: cover;
-                    width: 100%;
-                    height: 100%;
-                  `}
-                  src={maps[themeMode]}
-                />
-                <RoadRoute selected={selected} />
-              </RoadMapInfo>
-              <AnimatePresence mode="wait">
-                <m.div
-                  key={selected}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  {Description}
-                </m.div>
-              </AnimatePresence>
-            </MemoryRoadContent>
-          )}
+          <MemoryRoadContent
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            key={memoryItems[selected].title}
+          >
+            {Description}
+          </MemoryRoadContent>
         </AnimatePresence>
       </LazyMotion>
     </MemoryShell>
@@ -952,18 +922,21 @@ const memorySummaryComponents: {
   단원고등학교: (
     <div
       css={css`
-        flex-grow: 1;
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: start;
-        height: 100%;
+        align-items: center;
+        row-gap: 1rem;
+        flex-grow: 1;
+        padding: 0 5rem;
         overflow-y: scroll;
         > p {
+          line-break: auto;
+          word-break: keep-all;
           color: white;
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
+          text-align: center;
         }
       `}
     >
@@ -977,10 +950,13 @@ const memorySummaryComponents: {
         도착합니다.
         <br />
         2018년, ‘4ㆍ16 세월호 참사로 희생된 학생 및 교원이 못다 이룬 꿈을 단원고
-        학생들이 실현하는 모습의 조형물’ 공모전 당선작 ‘노란 고래의 꿈‘을
-        설치하였습니다.
-        <br /> 4.16민주시민교육원에 기억교실로서 개방되었습니다. 추모 조형물
-        ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한 것으로
+        학생들이 실현하는 모습의 조형물’
+        <br />
+        공모전 당선작 ‘노란 고래의 꿈‘을 설치하였습니다.
+        <br />
+        추모 조형물 ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한
+        것으로
+        <br />
         희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
       </P3>
       <h2
@@ -996,18 +972,21 @@ const memorySummaryComponents: {
   "(가칭)4.16생명안전공원": (
     <div
       css={css`
-        flex-grow: 1;
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: start;
-        height: 100%;
+        align-items: center;
+        row-gap: 1rem;
+        flex-grow: 1;
+        padding: 0 5rem;
         overflow-y: scroll;
         > p {
+          line-break: auto;
+          word-break: keep-all;
           color: white;
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
+          text-align: center;
         }
       `}
     >
@@ -1017,15 +996,14 @@ const memorySummaryComponents: {
           text-align: start;
         `}
       >
-        4.16생명안전공원은 세월호 참사로 희생된 단원고 희생학생 250명을
+        4.16생명안전공원은 세월호 참사로 희생된 단원고 희생학생 250명을 잊지
+        않고 기억하겠다는 우리들의 약속이며,
         <br />
-        잊지 않고 기억하겠다는 우리들의 약속이며, 슬픔을 딛고 안전한
+        슬픔을 딛고 안전한 대한민국을 만들고자 하는 우리 모두의 다짐과
+        희망입니다.
         <br />
-        대한민국을 만들고자 하는 우리 모두의 다짐과 희망입니다.
-        <br />
-        전국 8곳에 흩어져있는 단원고 희생학생들의 추억이 깃들어있는
-        <br />
-        화랑유원지에 4.16생명안전공원이 건립될 것입니다.
+        전국 8곳에 흩어져있는 단원고 희생학생들의 추억이 깃들어있는 화랑유원지에
+        4.16생명안전공원이 건립될 것입니다.
       </P3>
       <h2
         css={css`
@@ -1040,18 +1018,21 @@ const memorySummaryComponents: {
   "4.16기억전시관": (
     <div
       css={css`
-        flex-grow: 1;
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: start;
-        height: 100%;
+        align-items: center;
+        row-gap: 1rem;
+        flex-grow: 1;
+        padding: 0 5rem;
         overflow-y: scroll;
         > p {
+          line-break: auto;
+          word-break: keep-all;
           color: white;
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
+          text-align: center;
         }
       `}
     >
@@ -1062,14 +1043,12 @@ const memorySummaryComponents: {
         `}
       >
         4.16기억전시관은 4.16기억저장소에서 운영하고 있으며 매년 새로운 전시를
-        <br />
         통하여 시민들과 세월호 참사를 공유하여 기억을 확산시키고 희망의 담론을
+        만들어내는 것을 목적으로 하고 있습니다.
         <br />
-        만들어내는 것을 목적으로 하고 있습니다. 전시관 안에는 세월호 참사 희생자
+        전시관 안에는 세월호 참사 희생자 304명의 기억함이 있으며 희생자를
+        기억하기 위한 기억 물품이 담겨져 있습니다.
         <br />
-        304명의 기억함이 있으며 희생자를 기억하기 위한 기억 물품이
-        <br />
-        담겨져 있습니다.
       </P3>
       <h2
         css={css`
@@ -1221,18 +1200,21 @@ const memorySummaryComponents: {
   "단원고4.16기억교실": (
     <div
       css={css`
-        flex-grow: 1;
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: start;
-        height: 100%;
+        align-items: center;
+        row-gap: 1rem;
+        flex-grow: 1;
+        padding: 0 5rem;
         overflow-y: scroll;
         > p {
+          line-break: auto;
+          word-break: keep-all;
           color: white;
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
+          text-align: center;
         }
       `}
     >
@@ -1243,13 +1225,13 @@ const memorySummaryComponents: {
         `}
       >
         단원고 희생자 가족들은 참사의 현장이자 교육의 현장인 [단원고 교실
-        존치]를
+        존치]를 원하셨지만
         <br />
-        원하셨지만 2016년 5월 단원고 교육 정상화를 위해 사회적 합의로 이전을
+        2016년 5월 단원고 교육 정상화를 위해 사회적 합의로 이전을
+        결정하였습니다.
         <br />
-        결정하였습니다. 2016년 8월 안산교육지원청 별관 이전, 2018년 8월
-        <br />
-        안산교육지원청 본관 이전을 거쳐 2021년 4월 12일 설립된
+        2016년 8월 안산교육지원청 별관 이전, 2018년 8월 안산교육지원청 본관
+        이전을 거쳐 2021년 4월 12일 설립된
         <br />
         4.16민주시민교육원에 기억교실로서 개방되었습니다.
       </P3>

@@ -200,7 +200,7 @@ export const SmallCard = memo(
     return (
       <CardLink
         data-a11y-id={a11y}
-        to={href ?? ""}
+        to={window.location.href}
         ref={ref}
         css={css`
           aspect-ratio: 25/32;

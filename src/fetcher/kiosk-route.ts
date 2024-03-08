@@ -6,17 +6,10 @@ import { KioskRouteResponse, PubInfo } from "@/types/kiosk-route";
 import { XMLParser } from "fast-xml-parser";
 
 export const fetchKioskRouteNodes = async () => {
-  const parser = new XMLParser({
-    parseAttributeValue: true,
-    attributeNamePrefix: "",
-    textNodeName: "value",
-    ignoreAttributes: false,
-    ignoreDeclaration: true,
-  });
-  const url = new URL(import.meta.env.VITE_MAP_SERVER_URL);
-  url.pathname = "/zcommonfiles/route/kiosk_route_0.2.xml";
-  const xml = await fetch(url).then((response) => response.text());
-  const response = (parser.parse(xml) as KioskRouteResponse).KIOSK;
+  const response = // @ts-ignore
+    ((await import("~/xml/kiosk_route.xml")).default as KioskRouteResponse)
+      .KIOSK;
+
   const graph: Graph = new Map<string, Vector>();
   response.NODE_LIST.NODE_INFO.forEach((node) => {
     const vector =
@@ -113,17 +106,8 @@ export const fetchKioskRouteNodes = async () => {
 };
 
 export const fetchKioskRouteContents = async (kioskCode = "K001") => {
-  const parser = new XMLParser({
-    parseAttributeValue: true,
-    attributeNamePrefix: "",
-    textNodeName: "value",
-    ignoreAttributes: false,
-    ignoreDeclaration: true,
-  });
-  const url = new URL(window.location.origin);
-  url.pathname = "/xml/kiosk_contents.xml";
-  const xml = await fetch(url).then((response) => response.text());
-  const response = parser.parse(xml).KIOSK as KioskContents;
+  const response = // @ts-ignore
+    (await import("~/xml/kiosk_contents.xml")).default.KIOSK as KioskContents;
   response.KIOSK_LIST.forEach((kioskCode) => {
     kioskCode.KIOSK_INFO.KIOSK_CODE = kioskCode.KIOSK_INFO.KIOSK_CODE.trim();
   });
