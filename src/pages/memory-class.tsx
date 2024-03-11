@@ -3,7 +3,7 @@ import { MainShell } from "@/components/common/main-shell";
 import ImageX from "@/components/ui/image";
 import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
-import { ComponentType, useEffect, useState } from "react";
+import { ComponentType, useEffect, useRef, useState } from "react";
 import classImg from "@/assets/images/classinfo";
 import {
   AnimatePresence,
@@ -18,6 +18,7 @@ import { useSettingStore } from "@/contexts/setting.store";
 import PreloadVideo from "@/components/ui/preload-video";
 import { classSign } from "@/assets/videos";
 import { useA11y } from "@/hooks/use-a11y";
+import { sendA11yEvent } from "@/libs/utils";
 
 const memoryItems = [
   { title: "기억교실 연혁" as const, sign: classSign.history, a11y: "c_time" },
@@ -43,6 +44,7 @@ const MemoryClass = () => {
   const [delaySignActive, setDelaySignActive] = useState(signActivate);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const [signRef, animate] = useAnimate();
+  const timeoutId = useRef<NodeJS.Timeout>();
   const videoSrc = memoryItems[selected].sign;
   useEffect(() => {
     async function toggleActive() {
@@ -89,7 +91,11 @@ const MemoryClass = () => {
           <MemoryClassNav>
             {memoryItems.map((item, index) => (
               <MemoryClassButton
-                data-a11y-id={item.a11y}
+                onFocus={() => {
+                  timeoutId.current = setTimeout(() => {
+                    sendA11yEvent(item.a11y);
+                  }, 150);
+                }}
                 layoutId={item.title}
                 onClick={() => setSelected(index)}
                 selected={index === selected}

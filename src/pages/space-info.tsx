@@ -104,7 +104,7 @@ const SpaceInfo = () => {
       )!;
     });
   }, [contents, nodes, selectedMapIdx]);
-
+  console.log(currentPubList, "currentPubList");
   const wayfind = useCallback(
     (id: string, className: string) => {
       if (!parsedData) return;
@@ -203,9 +203,9 @@ const SpaceInfo = () => {
             <MemoryListButton
               key={item.title}
               selected={idx + 1 === selectedMapIdx}
+              data-a11y-id={`space_guide_0${idx}`}
               onClick={() => {
                 pinchRef.current?.resetTransform(500, "easeOutCubic");
-                sendA11yEvent(`space_guide_0${idx + 1}`);
                 setSelectedMapIdx(idx + 1);
               }}
             >

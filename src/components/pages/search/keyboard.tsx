@@ -331,7 +331,7 @@ const keyMap: Key[][] = [
     // },
     {
       icon: [
-        <SearchButtonChild>
+        <SearchButtonChild data-a11y-id="remove">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="56"

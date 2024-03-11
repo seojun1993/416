@@ -36,6 +36,7 @@ const MemoryRoad = () => {
         <H1>기억과 약속의 길</H1>
       </MemoryHeader>
       <MemoryListButton
+        data-a11y-id="tour"
         css={css`
           flex-shrink: 0;
         `}

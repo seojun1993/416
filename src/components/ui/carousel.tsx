@@ -103,6 +103,7 @@ const EmblaCarousel = <T,>({
         <>
           <LeftButton
             data-disable-focus-effect="true"
+            data-a11y-id="이전"
             css={css`
               ${leftStyle}
             `}
@@ -131,6 +132,7 @@ const EmblaCarousel = <T,>({
           </LeftButton>
           <RightButton
             data-disable-focus-effect="true"
+            data-a11y-id="다음"
             onClick={() => {
               emblaApi?.scrollNext();
             }}

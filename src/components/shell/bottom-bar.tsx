@@ -506,7 +506,9 @@ const BottomBar = () => {
               >
                 {zooms.map((item) => (
                   <Button
-                    data-a11y-id={item.text.replace("x", "") + "배"}
+                    data-a11y-id={
+                      item.text.replace("x", "").replace(".0", "") + "배"
+                    }
                     active={zoom === item.value}
                     key={item.text + "sign"}
                     onClick={(event) => {
@@ -518,7 +520,7 @@ const BottomBar = () => {
                       );
                     }}
                   >
-                    {item.text}
+                    {item.text.replace("x", "")}
                   </Button>
                 ))}
               </ControllerWrapper>
@@ -544,7 +546,10 @@ const BottomBar = () => {
               color: black;
             `}
           >
-            {zooms.find((v) => v.value === zoom)?.text?.replace("x", "") ?? ""}
+            {zooms
+              .find((v) => v.value === zoom)
+              ?.text?.replace("x", "")
+              .replace(".0", "") ?? ""}
           </div>
         }
       >
@@ -650,7 +655,9 @@ const BottomBar = () => {
             >
               {soundSpeed.map((item, soundSpeedIdx) => (
                 <Button
-                  data-a11y-id={item.text.replace("x", "") + "배속"}
+                  data-a11y-id={
+                    item.text.replace("x", "").replace(".0", "") + "배속"
+                  }
                   active={selectedSoundSpeedIndex === soundSpeedIdx}
                   key={item.text + "speed"}
                   onClick={(event) => {

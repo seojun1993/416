@@ -100,7 +100,8 @@ function OnBoardItem({
 }) {
   return (
     <Card
-      badge={item.title_keyword}
+      a11y={item.voicekey}
+      // badge={item.title_keyword}
       classDescription={item.class_number_name}
       onFirstClick={onFirstClick}
       onDoubleClick={onDoubleClick}
