@@ -8,7 +8,7 @@ import { darkTheme, lightTheme } from "./styles/theme";
 
 const GlobalLayout = ({ children }: PropsWithChildren) => {
   const [themeMode] = useThemeMode();
-  const { zoom, setSignVideoUrl } = useSettingStore();
+  const { zoom, setSignVideoUrl, setKioskCode } = useSettingStore();
   const jumja = useRef(
     window?.chrome?.webview?.hostObjects?.sync?.jumjaplay
   ).current;
@@ -28,6 +28,11 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
   };
   useEffect(() => {
     window.addEventListener("a11y", handleA11y);
+    if (jumja) {
+      {
+        setKioskCode(jumja.GetKioskCode());
+      }
+    }
     return () => {
       window.removeEventListener("a11y", handleA11y);
     };

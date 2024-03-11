@@ -22,6 +22,7 @@ const ModeSelect = () => {
       </H1>
       <ModeSelectList>
         <ModelSelectCard
+          data-a11y-id="터치안내"
           to="birthday"
           onDoubleClick={() => {
             changeMode("normal");
@@ -149,6 +150,7 @@ const ModeSelect = () => {
           </div>
         </ModelSelectCard>
         <ModelSelectCard
+          data-a11y-id="음성안내"
           to="menu"
           onDoubleClick={() => {
             changeMode("sound");
@@ -215,6 +217,7 @@ const ModeSelect = () => {
           </div>
         </ModelSelectCard>
         <ModelSelectCard
+          data-a11y-id="수어안내"
           to="birthday"
           onDoubleClick={() => {
             changeMode("sign");
@@ -276,6 +279,7 @@ const ModelSelectCard = ({
   onBlur,
   onDoubleClick,
   onFirstClick,
+  ...rest
 }: PropsWithChildren<ModelSelectCardProps>) => {
   const ref = useRef<HTMLAnchorElement>(null);
   useCheckClick({
@@ -286,7 +290,7 @@ const ModelSelectCard = ({
   });
 
   return (
-    <ModelSelectCardWrapper ref={ref} to={to}>
+    <ModelSelectCardWrapper ref={ref} to={to} {...rest}>
       {children}
     </ModelSelectCardWrapper>
   );

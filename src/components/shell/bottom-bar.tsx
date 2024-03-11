@@ -16,10 +16,12 @@ import Switch from "../common/switch";
 import { useSettingStore, zooms } from "@/contexts/setting.store";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeInOutVariants } from "@/variants";
+import { sendA11yEvent } from "@/libs/utils";
 
 const SIGN_SUPPORT_PATH = ["/memory-class"];
 
 const BottomBar = () => {
+  const timeoutId = useRef<NodeJS.Timeout>();
   const [themeMode, toggleTheme] = useThemeMode();
   const theme = useTheme();
 
@@ -191,8 +193,13 @@ const BottomBar = () => {
         메뉴
       </SquareButton>
       <SquareButton
-        data-a11y-id="back"
-        onClick={() => {
+        onFocus={(event) => {
+          timeoutId.current = setTimeout(() => {
+            sendA11yEvent("back");
+          }, 150);
+        }}
+        onClick={(event) => {
+          clearTimeout(timeoutId.current);
           if (window.history.state.idx !== 0) {
             navigate(-1);
           }
@@ -223,8 +230,15 @@ const BottomBar = () => {
         이전
       </SquareButton>
       <SquareButton
-        data-a11y-id="front"
-        onClick={() => window.history.forward()}
+        onFocus={(event) => {
+          timeoutId.current = setTimeout(() => {
+            sendA11yEvent("front");
+          }, 150);
+        }}
+        onClick={() => {
+          clearTimeout(timeoutId.current);
+          window.history.forward();
+        }}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +274,10 @@ const BottomBar = () => {
             ? theme.color.accent.foreground
             : theme.color.text.main};
         `}
-        onClick={toggleTheme}
+        onClick={() => {
+          sendA11yEvent(themeMode === "light" ? "contrast_off" : "contrast_on");
+          toggleTheme();
+        }}
         icon={
           themeMode === "light" ? (
             <div
@@ -366,12 +383,17 @@ const BottomBar = () => {
         고대비
       </SquareButton>
       <SquareButton
-        data-a11y-id="search"
         key="searchButton"
         active={pathname === "/search"}
-        onClick={() =>
-          pathname === "/search" ? navigate(-1) : navigate("search")
-        }
+        onFocus={() => {
+          timeoutId.current = setTimeout(() => {
+            sendA11yEvent("search");
+          }, 150);
+        }}
+        onClick={() => {
+          clearTimeout(timeoutId.current);
+          pathname === "/search" ? navigate(-1) : navigate("search");
+        }}
         icon={
           pathname === "/search" ? (
             <svg
@@ -589,7 +611,7 @@ const BottomBar = () => {
       </SquareButton>
 
       <SquareButton
-        data-a11y-id="음성 속도"
+        data-a11y-id="음성속도"
         onClick={(event) => {
           event.stopPropagation();
           setTooltipMode("speed");
@@ -620,12 +642,15 @@ const BottomBar = () => {
         <AnimatePresence mode="wait">
           {tooltipMode === "speed" && (
             <ControllerWrapper
+              css={css`
+                max-height: calc(100dvh - (var(--bottom-height)));
+              `}
               onClick={(event) => event.stopPropagation()}
               {...fadeInOutVariants}
             >
               {soundSpeed.map((item, soundSpeedIdx) => (
                 <Button
-                  data-a11y-id={item.text.replace("x", "") + "배"}
+                  data-a11y-id={item.text.replace("x", "") + "배속"}
                   active={selectedSoundSpeedIndex === soundSpeedIdx}
                   key={item.text + "speed"}
                   onClick={(event) => {
@@ -649,7 +674,10 @@ const BottomBar = () => {
       <SquareButton
         disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
         data-a11y-id="sign_language"
-        onClick={() => setSignOn(!signOn)}
+        onClick={() => {
+          sendA11yEvent(signOn ? "sign_language_off" : "sign_language_on");
+          setSignOn(!signOn);
+        }}
         css={css`
           display: flex;
           flex-direction: column;
@@ -659,7 +687,6 @@ const BottomBar = () => {
         icon={
           <Switch
             disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
-            tabIndex={1}
             isOpen={signOn}
             setIsOpen={(state) => setSignOn(state)}
           />

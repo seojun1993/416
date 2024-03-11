@@ -13,6 +13,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { filterNameContainFromPattern } from "@/fetcher/student";
 import NotFoundModal from "@/components/ui/not-found-modal";
 import { useA11y } from "@/hooks/use-a11y";
+import { sendA11yEvent } from "@/libs/utils";
 
 const Search = () => {
   const theme = useTheme();
@@ -31,6 +32,7 @@ const Search = () => {
       inputRef.current!.value.trim()
     );
     if (!foundStudents?.length) {
+      sendA11yEvent("bell");
       return setOpen(true);
     }
 

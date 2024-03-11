@@ -1101,7 +1101,10 @@ const memorySummaryComponents: {
           padding-bottom: 0.4rem;
         `}
       >
-        <MemoryBadge data-disable-focus-effect="true">
+        <MemoryBadge
+          data-disable-focus-effect="true"
+          data-a11y-id="QR_사전예약"
+        >
           <QRCode
             css={css`
               width: 4rem;

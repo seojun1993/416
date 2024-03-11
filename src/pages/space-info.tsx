@@ -28,6 +28,7 @@ import { NodeType, Vector } from "@/libs/way-finder/Vector";
 import { ClassInfo, PubInfo } from "@/types/kiosk-route";
 import { useA11y } from "@/hooks/use-a11y";
 import { sendA11yEvent } from "@/libs/utils";
+import { useSettingStore } from "@/contexts/setting.store";
 
 const memoryItems = [
   { title: "지하 1층(주차장)" as const },
@@ -52,6 +53,7 @@ const activeMapContext = createContext<{
 });
 
 const SpaceInfo = () => {
+  const kioskCode = useSettingStore((state) => state.kioskCode);
   const [selectedMapIdx, setSelectedMapIdx] = useState(1);
   const [selectedPubCode, setSelectedPubCode] = useState("");
   const [foundPath, setFoundPath] = useState<Vector[]>([]);
@@ -59,7 +61,7 @@ const SpaceInfo = () => {
   const boxRef = useRef<HTMLDivElement>(null);
   const pinchRef = useRef<ReactZoomPanPinchContentRef>(null);
   const [{ data: nodesData }, { data: contentsData }] = useSuspenseQueries({
-    queries: [getKioskRoute, getKioskContents("K001")],
+    queries: [getKioskRoute, getKioskContents(kioskCode)],
   });
 
   const parsedData = useMemo(() => {
@@ -96,7 +98,6 @@ const SpaceInfo = () => {
     nodes.PUB_LIST.PUB_INFO.forEach((pub) => {
       pubList.add(pub.PUB_CODE);
     });
-    console.log(nodes.PUB_LIST.PUB_INFO);
     return [...pubList].map((pubCode) => {
       return contents.PUB_INFO_LIST.find(
         (item) => item.PUB_INFO.PUB_CODE === pubCode
@@ -105,7 +106,7 @@ const SpaceInfo = () => {
   }, [contents, nodes, selectedMapIdx]);
 
   const wayfind = useCallback(
-    (id: string) => {
+    (id: string, className: string) => {
       if (!parsedData) return;
       const vector = graph?.get(id);
       if (vector) {
@@ -114,6 +115,7 @@ const SpaceInfo = () => {
           setFoundPath(found.path);
           setSelectedMapIdx(parsedData.kioskNode.getFloor());
           setAnimationState(true);
+          sendA11yEvent(`${kioskCode}_${className}`);
           pinchRef.current?.resetTransform(500, "easeOutCubic");
         }
       }
@@ -136,7 +138,11 @@ const SpaceInfo = () => {
   );
 
   const onAnimationEnd = (floor: number) => {
-    if (destination !== null && floor !== destination.getFloor()) {
+    if (
+      animationState &&
+      destination !== null &&
+      floor !== destination.getFloor()
+    ) {
       setSelectedMapIdx(destination.getFloor());
     }
   };
@@ -441,7 +447,7 @@ function MapItem({
   selectedPubCode?: string;
   classList?: ClassInfo[];
   pubList?: (PubInfo & { icon?: string })[];
-  wayfind: (id: string) => void;
+  wayfind: (id: string, className: string) => void;
   onAnimationEnd?: (floor: number) => void;
 }) {
   const [scope, animate] = useAnimate();
@@ -629,7 +635,7 @@ function MapItem({
             <button
               onClick={() => {
                 if (cls.node) {
-                  wayfind(cls.node.id);
+                  wayfind(cls.node.id, cls.CLASS_NAME);
                 }
               }}
               data-prevent-scroll="true"
@@ -727,8 +733,6 @@ function Path({
             onComplete() {
               if (active) {
                 if (destination?.getFloor() === floor) {
-                  console.log(destination?.getFloor() === floor, "!!");
-                  console.log(animationState, "animationState");
                   dispatchEvent(new CustomEvent("endpath"));
                 }
                 onAnimationComplete?.();

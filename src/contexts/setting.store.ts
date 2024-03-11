@@ -27,12 +27,12 @@ export const VideoSpeeds = [
 export const SoundSpeed = [
   {
     text: "x1.0",
-    value: 1,
+    value: 5,
   },
 
   {
     text: "x1.2",
-    value: 5,
+    value: 7,
   },
   {
     text: "x1.5",
@@ -47,6 +47,11 @@ export type tooltipMode =
   | "speed"
   | null
   | undefined;
+
+export interface KioskSettingSlice {
+  kioskCode: string;
+  setKioskCode: (kioskCode: string) => void;
+}
 
 export interface TooltipSlice {
   tooltipMode: tooltipMode;
@@ -92,6 +97,10 @@ interface CombineUserModeSlice {
   onChangeMode: (mode: UserMode) => void;
 }
 
+const createKioskSettingSlice: StateCreator<KioskSettingSlice> = (set) => ({
+  kioskCode: "K001",
+  setKioskCode: (kioskCode) => kioskCode && set({ kioskCode }),
+});
 let timeoutId: NodeJS.Timeout;
 const createTooltipSlice: StateCreator<TooltipSlice> = (set) => ({
   tooltipMode: undefined,
@@ -191,7 +200,8 @@ const createSoundSlice: StateCreator<
 });
 
 export const useSettingStore = create<
-  ZoomSlice &
+  KioskSettingSlice &
+    ZoomSlice &
     ThemeSlice &
     SignSlice &
     UserModeSlice &
@@ -199,6 +209,7 @@ export const useSettingStore = create<
     CombineUserModeSlice &
     TooltipSlice
 >()((...a) => ({
+  ...createKioskSettingSlice(...a),
   ...createThemeSlice(...a),
   ...createZoomSlice(...a),
   ...createSignLangSlice(...a),
