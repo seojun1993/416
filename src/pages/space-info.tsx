@@ -27,6 +27,7 @@ import { curryingDijkstra } from "@/libs/way-finder/finder";
 import { NodeType, Vector } from "@/libs/way-finder/Vector";
 import { ClassInfo, PubInfo } from "@/types/kiosk-route";
 import { useA11y } from "@/hooks/use-a11y";
+import { sendA11yEvent } from "@/libs/utils";
 
 const memoryItems = [
   { title: "지하 1층(주차장)" as const },
@@ -168,9 +169,7 @@ const SpaceInfo = () => {
     };
   }, []);
 
-  useA11y(`space_guide_0${selectedMapIdx - 1}`, [selectedMapIdx]);
-
-  useA11y("space_guide");
+  useA11y({ once: "space_guide", id: "" });
   return (
     <activeMapContext.Provider
       value={{
@@ -200,6 +199,7 @@ const SpaceInfo = () => {
               selected={idx + 1 === selectedMapIdx}
               onClick={() => {
                 pinchRef.current?.resetTransform(500, "easeOutCubic");
+                sendA11yEvent(`space_guide_0${idx + 1}`);
                 setSelectedMapIdx(idx + 1);
               }}
             >
@@ -727,6 +727,8 @@ function Path({
             onComplete() {
               if (active) {
                 if (destination?.getFloor() === floor) {
+                  console.log(destination?.getFloor() === floor, "!!");
+                  console.log(animationState, "animationState");
                   dispatchEvent(new CustomEvent("endpath"));
                 }
                 onAnimationComplete?.();

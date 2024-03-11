@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.5",
+    "@rollup/pluginutils": "^5.1.0",
     "@tanstack/eslint-plugin-query": "^5.17.20",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.43",

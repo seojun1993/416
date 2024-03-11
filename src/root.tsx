@@ -6,6 +6,7 @@ import { getStudentsQuery } from "./queries/student";
 import { lazy, useEffect, useRef } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
+import { sendA11yEvent } from "./libs/utils";
 
 const ModeSelect = Loadable(lazy(() => import("@/pages/mode-select")));
 const Birthday = Loadable(lazy(() => import("@/pages/birthday")));
@@ -23,8 +24,35 @@ function Root() {
   const location = useLocation();
   useQuery(getStudentsQuery());
   const pathname = useLocation().pathname;
-  const router = useNavigate();
+  const navigate = useNavigate();
   const timeoutId = useRef<NodeJS.Timeout>();
+
+  const keydownHandler: { [key: string]: (event: KeyboardEvent) => void } = {
+    Space: (event) => {
+      navigate("/");
+    },
+    Backspace: (event) => {
+      navigate("/menu");
+    },
+    Digit0: () => {
+      sendA11yEvent("", true);
+    },
+  };
+
+  const handleKioskButtonClick = (event: KeyboardEvent) => {
+    if (Object.hasOwn(keydownHandler, event.code)) {
+      event.stopPropagation();
+      event.preventDefault();
+      keydownHandler[event.code](event);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKioskButtonClick);
+    return () => {
+      document.removeEventListener("keydown", handleKioskButtonClick);
+    };
+  }, []);
 
   // useEffect(() => {
   //   const handleTimeout = () => {

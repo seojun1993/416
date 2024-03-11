@@ -222,7 +222,7 @@ export function calculateDistance(vector1: Vector, vector2: Vector) {
 
 let preA11yId: string;
 
-export const sendA11yEvent = (id: string) => {
+export const sendA11yEvent = (id: string, sameId?: boolean) => {
   console.log(
     "%c[PREVIOUS A11Y ID]: " + `%c${preA11yId}`,
     "color: #00BC68;",
@@ -233,9 +233,25 @@ export const sendA11yEvent = (id: string) => {
     "color: #00BC68;",
     "color: #4F98E9;"
   );
-  if (preA11yId !== id) {
-    preA11yId = id;
 
+  if (sameId && preA11yId) {
+    console.log(
+      "%c[SEND A11Y ID]: " + `%c${preA11yId}`,
+      "color: #00BC68;",
+      "color: #4F98E9;"
+    );
+    window.dispatchEvent(
+      new CustomEvent("a11y", {
+        detail: preA11yId,
+      })
+    );
+  } else if (preA11yId !== id) {
+    preA11yId = id;
+    console.log(
+      "%c[SEND A11Y ID]: " + `%c${id}`,
+      "color: #00BC68;",
+      "color: #4F98E9;"
+    );
     window.dispatchEvent(
       new CustomEvent("a11y", {
         detail: id,
