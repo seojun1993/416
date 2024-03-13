@@ -922,12 +922,12 @@ const SquareButtonWrapper = styled.button<{ active?: boolean }>`
   &:focus {
     outline: none;
   }
-  &:active {
+  /* &:active {
     color: ${(props) => props.theme.color.accent.foreground};
     svg * {
       fill: ${(props) => props.theme.color.accent.foreground};
     }
-  }
+  } */
 `;
 
 const SquareButtonChildSpan = styled.span`

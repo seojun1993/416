@@ -110,7 +110,7 @@ const createTooltipSlice: StateCreator<TooltipSlice> = (set) => ({
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
       set({ tooltipMode: null });
-    }, 5000000);
+    }, 5000);
   },
 });
 
@@ -147,6 +147,13 @@ const createCombineUserModeSlice: StateCreator<
   CombineUserModeSlice
 > = (set, get) => ({
   onChangeMode(mode) {
+    if (mode === "sound") {
+      if (get().selectedVolumeIndex === get().volumeRange.length - 1) {
+        get().setVolumnAction(get().volumeRange.length - 2);
+      }
+    } else {
+      get().setVolumnAction(get().volumeRange.length - 1);
+    }
     get().changeMode(mode);
   },
 });
