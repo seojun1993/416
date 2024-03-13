@@ -67,6 +67,7 @@ const Switch = ({
           : !disabled
           ? theme.color.switch.disable
           : theme.color.switch["disable/30"]};
+        border: 4px solid ${theme.color.switch.border};
         display: flex;
         align-items: center;
         border-radius: 1rem;

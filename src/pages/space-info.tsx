@@ -53,7 +53,10 @@ const activeMapContext = createContext<{
 });
 
 const SpaceInfo = () => {
-  const kioskCode = useSettingStore((state) => state.kioskCode);
+  const { kioskCode, mode } = useSettingStore(({ kioskCode, mode }) => ({
+    kioskCode,
+    mode,
+  }));
   const [selectedMapIdx, setSelectedMapIdx] = useState(1);
   const [selectedPubCode, setSelectedPubCode] = useState("");
   const [foundPath, setFoundPath] = useState<Vector[]>([]);
@@ -93,7 +96,6 @@ const SpaceInfo = () => {
 
   const currentPubList = useMemo(() => {
     if (!contents || !nodes) return;
-    const floor = contents.MAP_LIST[selectedMapIdx - 1].MAP_INFO.floor;
     const pubList = new Set<string>([]);
     nodes.PUB_LIST.PUB_INFO.forEach((pub) => {
       pubList.add(pub.PUB_CODE);
@@ -104,7 +106,7 @@ const SpaceInfo = () => {
       )!;
     });
   }, [contents, nodes, selectedMapIdx]);
-  console.log(currentPubList, "currentPubList");
+
   const wayfind = useCallback(
     (id: string, className: string) => {
       if (!parsedData) return;
@@ -175,7 +177,10 @@ const SpaceInfo = () => {
     };
   }, []);
 
-  useA11y({ once: "space_guide", id: "" });
+  useA11y({
+    once: mode === "sound" ? "space_guide_detail" : "space_guide",
+    id: "",
+  });
   return (
     <activeMapContext.Provider
       value={{
@@ -194,221 +199,240 @@ const SpaceInfo = () => {
         <div
           css={css`
             display: flex;
-            margin-bottom: 0.8rem;
-            column-gap: 0.82rem;
-            width: 100%;
-          `}
-        >
-          {memoryItems.map((item, idx) => (
-            <MemoryListButton
-              key={item.title}
-              selected={idx + 1 === selectedMapIdx}
-              data-a11y-id={`space_guide_0${idx}`}
-              onClick={() => {
-                pinchRef.current?.resetTransform(500, "easeOutCubic");
-                setSelectedMapIdx(idx + 1);
-              }}
-            >
-              {item.title}
-            </MemoryListButton>
-          ))}
-        </div>
-        <MemoryMapBox
-          ref={boxRef}
-          css={css`
-            width: 100%;
-            flex-grow: 1;
-            overflow: hidden;
+            flex-direction: ${mode === "wheel" ? "column-reverse" : "column"};
+            height: 100%;
           `}
         >
           <div
             css={css`
-              height: 100%;
               display: flex;
-              align-items: center;
+              ${mode === "wheel"
+                ? "margin-top: 0.8rem;"
+                : "margin-bottom: 0.8rem;"}
+
+              column-gap: 0.82rem;
+              width: 100%;
+            `}
+          >
+            {memoryItems.map((item, idx) => (
+              <MemoryListButton
+                disabled={mode === "wheel"}
+                key={item.title}
+                selected={idx + 1 === selectedMapIdx}
+                data-a11y-id={`space_guide_0${idx}`}
+                onClick={() => {
+                  pinchRef.current?.resetTransform(500, "easeOutCubic");
+                  setSelectedMapIdx(idx + 1);
+                }}
+              >
+                {item.title}
+              </MemoryListButton>
+            ))}
+          </div>
+          <MemoryMapBox
+            ref={boxRef}
+            css={css`
+              width: 100%;
+              flex-grow: 1;
+              overflow: hidden;
             `}
           >
             <div
               css={css`
-                width: 3080px;
-                height: 1003px;
+                height: 100%;
+                display: flex;
+                align-items: center;
               `}
             >
-              <TransformWrapper ref={pinchRef} maxScale={2}>
-                <TransformComponent
-                  contentStyle={{
-                    width: 3080,
-                    height: 1003,
-                  }}
+              <div
+                css={css`
+                  width: 3080px;
+                  height: 1003px;
+                `}
+              >
+                <TransformWrapper
+                  disabled={mode === "wheel"}
+                  ref={pinchRef}
+                  maxScale={2}
                 >
-                  <div
-                    css={css`
-                      position: absolute;
-                      z-index: 5;
-                      width: ${3080}px;
-                      height: ${1003}px;
-                      height: 100%;
-                      left: 50%;
-                      top: 50%;
-                    `}
+                  <TransformComponent
+                    contentStyle={{
+                      width: 3080,
+                      height: 1003,
+                    }}
                   >
-                    {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
-                      const urls = MAP_INFO.MAIN_MAP_URL.split("/");
-                      const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
-                        urls[urls.length - 1]
-                      }`;
-
-                      const mapPubList = nodes?.pubList[MAP_INFO.floor].map(
-                        (pub) => ({
-                          ...pub,
-                          icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
-                            contents.PUB_INFO_LIST.find(
-                              (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
-                            )?.PUB_INFO.PUB_URL
-                          }`,
-                        })
-                      );
-
-                      return (
-                        <MapItem
-                          key={MAP_INFO.MAP_NAME}
-                          pubList={mapPubList}
-                          classList={classMap.get(MAP_INFO.floor)}
-                          name={MAP_INFO.MAP_NAME}
-                          floor={MAP_INFO.floor}
-                          selectedPubCode={selectedPubCode}
-                          width={3080 ?? 0}
-                          height={1003 ?? 0}
-                          url={url}
-                          kioskNode={kioskNode}
-                          index={idx}
-                          boxSize={{
-                            width:
-                              3080 /
-                              (contentsData.HEADER.MAP_RESOLUTION.width ?? 1),
-                            height:
-                              1003 /
-                              (contentsData.HEADER.MAP_RESOLUTION.height ?? 1),
-                          }}
-                          selectedIndex={selectedMapIdx}
-                          path={foundPath}
-                          wayfind={wayfind}
-                          onAnimationEnd={onAnimationEnd}
-                        />
-                      );
-                    })}
-                  </div>
-                </TransformComponent>
-              </TransformWrapper>
-            </div>
-          </div>
-          <AnimatePresence mode="popLayout">
-            <MapPubList
-              key={selectedMapIdx}
-              variants={{
-                ...fadeInOutVariants,
-                animate: {
-                  ...fadeInOutVariants.animate,
-                  transition: {
-                    staggerChildren: 0.08,
-                  },
-                },
-                exit: {
-                  ...fadeInOutVariants.exit,
-                },
-              }}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              {kioskNode?.getFloor() === selectedMapIdx && (
-                <MapPubButton
-                  key={selectedMapIdx + "KIOSK_POSITION"}
-                  variants={fadeInOutVariants}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    width="108.121"
-                    height="130"
-                    viewBox="0 0 108.121 130"
-                  >
-                    <defs>
-                      <filter
-                        id="빼기_5"
-                        x="0"
-                        y="0"
-                        width="108.121"
-                        height="130"
-                        filterUnits="userSpaceOnUse"
-                      >
-                        <feOffset in="SourceAlpha" />
-                        <feGaussianBlur stdDeviation="5" result="blur" />
-                        <feFlood floodOpacity="0.8" />
-                        <feComposite operator="in" in2="blur" />
-                        <feComposite in="SourceGraphic" />
-                      </filter>
-                    </defs>
-                    <g
-                      id="그룹_698"
-                      data-name="그룹 698"
-                      transform="translate(-742.139 -164.998)"
+                    <div
+                      css={css`
+                        position: absolute;
+                        z-index: 5;
+                        width: ${3080}px;
+                        height: ${1003}px;
+                        height: 100%;
+                        left: 50%;
+                        top: 50%;
+                      `}
                     >
+                      {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
+                        const urls = MAP_INFO.MAIN_MAP_URL.split("/");
+                        const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
+                          urls[urls.length - 1]
+                        }`;
+
+                        const mapPubList = nodes?.pubList[MAP_INFO.floor].map(
+                          (pub) => ({
+                            ...pub,
+                            icon: `${import.meta.env.VITE_MAP_SERVER_URL}${
+                              contents.PUB_INFO_LIST.find(
+                                (p) => p.PUB_INFO.PUB_CODE === pub.PUB_CODE
+                              )?.PUB_INFO.PUB_URL
+                            }`,
+                          })
+                        );
+
+                        return (
+                          <MapItem
+                            key={MAP_INFO.MAP_NAME}
+                            pubList={mapPubList}
+                            classList={classMap.get(MAP_INFO.floor)}
+                            name={MAP_INFO.MAP_NAME}
+                            floor={MAP_INFO.floor}
+                            selectedPubCode={selectedPubCode}
+                            width={3080 ?? 0}
+                            height={1003 ?? 0}
+                            url={url}
+                            kioskNode={kioskNode}
+                            index={idx}
+                            boxSize={{
+                              width:
+                                3080 /
+                                (contentsData.HEADER.MAP_RESOLUTION.width ?? 1),
+                              height:
+                                1003 /
+                                (contentsData.HEADER.MAP_RESOLUTION.height ??
+                                  1),
+                            }}
+                            selectedIndex={selectedMapIdx}
+                            path={foundPath}
+                            wayfind={wayfind}
+                            onAnimationEnd={onAnimationEnd}
+                          />
+                        );
+                      })}
+                    </div>
+                  </TransformComponent>
+                </TransformWrapper>
+              </div>
+            </div>
+            <AnimatePresence mode="popLayout">
+              <MapPubList
+                variants={{
+                  ...fadeInOutVariants,
+                  animate: {
+                    ...fadeInOutVariants.animate,
+                    transition: {
+                      staggerChildren: 0.08,
+                    },
+                  },
+                  exit: {
+                    ...fadeInOutVariants.exit,
+                  },
+                }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                {kioskNode?.getFloor() === selectedMapIdx && (
+                  <MapPubButton
+                    disabled={mode === "wheel"}
+                    key={selectedMapIdx + "KIOSK_POSITION"}
+                    variants={fadeInOutVariants}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      width="108.121"
+                      height="130"
+                      viewBox="0 0 108.121 130"
+                    >
+                      <defs>
+                        <filter
+                          id="빼기_5"
+                          x="0"
+                          y="0"
+                          width="108.121"
+                          height="130"
+                          filterUnits="userSpaceOnUse"
+                        >
+                          <feOffset in="SourceAlpha" />
+                          <feGaussianBlur stdDeviation="5" result="blur" />
+                          <feFlood floodOpacity="0.8" />
+                          <feComposite operator="in" in2="blur" />
+                          <feComposite in="SourceGraphic" />
+                        </filter>
+                      </defs>
                       <g
-                        transform="matrix(1, 0, 0, 1, 742.14, 165)"
-                        filter="url(#빼기_5)"
+                        id="그룹_698"
+                        data-name="그룹 698"
+                        transform="translate(-742.139 -164.998)"
                       >
-                        <path
-                          id="빼기_5-2"
-                          data-name="빼기 5"
-                          d="M39.055,100v0h0A132.69,132.69,0,0,1,27.987,89.3a169.61,169.61,0,0,1-12.873-15.51A104.663,104.663,0,0,1,4.446,56.108C1.5,49.69,0,43.9,0,38.888a38.677,38.677,0,0,1,11.442-27.5,39.139,39.139,0,0,1,55.24,0,38.686,38.686,0,0,1,11.44,27.5c0,5.008-1.424,10.642-4.229,16.743a97.3,97.3,0,0,1-10.3,16.889C55.991,82.779,46.925,92.167,39.057,100Zm.16-87.5A28.143,28.143,0,0,0,19.382,60.529,28.092,28.092,0,1,0,50.137,14.714,27.839,27.839,0,0,0,39.215,12.5Z"
-                          transform="translate(15 15)"
-                          fill="#fff500"
-                        />
+                        <g
+                          transform="matrix(1, 0, 0, 1, 742.14, 165)"
+                          filter="url(#빼기_5)"
+                        >
+                          <path
+                            id="빼기_5-2"
+                            data-name="빼기 5"
+                            d="M39.055,100v0h0A132.69,132.69,0,0,1,27.987,89.3a169.61,169.61,0,0,1-12.873-15.51A104.663,104.663,0,0,1,4.446,56.108C1.5,49.69,0,43.9,0,38.888a38.677,38.677,0,0,1,11.442-27.5,39.139,39.139,0,0,1,55.24,0,38.686,38.686,0,0,1,11.44,27.5c0,5.008-1.424,10.642-4.229,16.743a97.3,97.3,0,0,1-10.3,16.889C55.991,82.779,46.925,92.167,39.057,100Zm.16-87.5A28.143,28.143,0,0,0,19.382,60.529,28.092,28.092,0,1,0,50.137,14.714,27.839,27.839,0,0,0,39.215,12.5Z"
+                            transform="translate(15 15)"
+                            fill="#fff500"
+                          />
+                        </g>
                       </g>
-                    </g>
-                  </svg>
-                  <P3
-                    css={css`
-                      color: white;
-                    `}
+                    </svg>
+                    <P3
+                      css={css`
+                        color: white;
+                      `}
+                    >
+                      현위치
+                    </P3>
+                  </MapPubButton>
+                )}
+                {currentPubList?.map(({ PUB_INFO }) => (
+                  <MapPubButton
+                    disabled={mode === "wheel"}
+                    data-a11y-id={PUB_INFO.PUB_NAME}
+                    key={PUB_INFO.PUB_CODE}
+                    variants={fadeInOutVariants}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setSelectedPubCode(PUB_INFO.PUB_CODE);
+                    }}
                   >
-                    현위치
-                  </P3>
-                </MapPubButton>
-              )}
-              {currentPubList?.map(({ PUB_INFO }) => (
-                <MapPubButton
-                  key={selectedMapIdx + PUB_INFO.PUB_CODE}
-                  variants={fadeInOutVariants}
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setSelectedPubCode(PUB_INFO.PUB_CODE);
-                  }}
-                >
-                  <img
-                    alt={PUB_INFO.PUB_NAME}
-                    css={css`
-                      height: 100%;
-                      border-radius: 9999rem;
-                      aspect-ratio: 1/1;
-                    `}
-                    src={`${import.meta.env.VITE_MAP_SERVER_URL}${
-                      PUB_INFO.PUB_URL
-                    }`}
-                  />
-                  <P3
-                    css={css`
-                      color: white;
-                    `}
-                  >
-                    {PUB_INFO.PUB_NAME}
-                  </P3>
-                </MapPubButton>
-              ))}
-            </MapPubList>
-          </AnimatePresence>
-        </MemoryMapBox>
+                    <img
+                      alt={PUB_INFO.PUB_NAME}
+                      css={css`
+                        height: 100%;
+                        border-radius: 9999rem;
+                        aspect-ratio: 1/1;
+                      `}
+                      src={`${import.meta.env.VITE_MAP_SERVER_URL}${
+                        PUB_INFO.PUB_URL
+                      }`}
+                    />
+                    <P3
+                      css={css`
+                        color: white;
+                      `}
+                    >
+                      {PUB_INFO.PUB_NAME}
+                    </P3>
+                  </MapPubButton>
+                ))}
+              </MapPubList>
+            </AnimatePresence>
+          </MemoryMapBox>
+        </div>
       </MemoryShell>
     </activeMapContext.Provider>
   );
@@ -452,7 +476,9 @@ function MapItem({
 }) {
   const [scope, animate] = useAnimate();
   const initialMount = useRef(false);
-
+  const { mode } = useSettingStore(({ mode }) => ({
+    mode,
+  }));
   const direction =
     index + 1 - selectedIndex > 0
       ? "BOTTOM"
@@ -633,11 +659,14 @@ function MapItem({
         {classList?.map((cls, index) => {
           return (
             <button
+              key={cls.CLASS_NAME + floor}
+              disabled={mode === "wheel" || !(selectedIndex === floor)}
               onClick={() => {
                 if (cls.node) {
                   wayfind(cls.node.id, cls.CLASS_NAME);
                 }
               }}
+              data-a11y-id={`공간안내_${cls.CLASS_NAME}`}
               data-prevent-scroll="true"
               tabIndex={direction === "ACTIVE" ? 0 : -1}
               css={css`
@@ -658,7 +687,6 @@ function MapItem({
                 color: ${cls.FONT_COLOR};
                 pointer-events: all;
               `}
-              key={cls.CLASS_NAME}
             >
               {cls.CLASS_NAME}
             </button>

@@ -20,7 +20,7 @@ interface SizeOptions {
   gap: string;
   position: Position;
 }
-interface Key {
+export interface Key {
   icon: ReactNode[];
   value?: string[];
   a11y?: string[];
@@ -496,6 +496,7 @@ const Keyboard = (
   const { keyboardItem, gap, defaultValue } = {
     ...defaultOptions,
     ...options,
+    keyboardItem: options.keyboardItem ?? defaultOptions.keyboardItem,
   };
   const inputValue = useRef<string>(defaultValue ?? "");
 
@@ -538,7 +539,7 @@ const Keyboard = (
     <div
       ref={keyboardContainerRef}
       css={css`
-        margin-top: 2rem;
+        margin: 2rem 0;
         display: flex;
         flex-direction: column;
         align-items: center;

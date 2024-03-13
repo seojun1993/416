@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { H3, P3 } from "@/components/ui/text";
+import { H3, H4, P3 } from "@/components/ui/text";
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { HTMLAttributes, useRef } from "react";
@@ -42,7 +42,7 @@ export const MenuCard = ({
   ...rest
 }: MenuCardProps) => {
   const theme = useTheme();
-  const zoom = useSettingStore((state) => state.zoom);
+  const { zoom, mode } = useSettingStore(({ zoom, mode }) => ({ zoom, mode }));
   const ref = useRef<HTMLAnchorElement>(null);
   useCheckClick({
     ref,
@@ -59,26 +59,29 @@ export const MenuCard = ({
         border: 0.15rem solid white;
         text-decoration: none;
         border-radius: 0.8rem;
-        flex: 0 0 calc(29% + ${zoom - 0.4}%);
-        height: 100%;
+        /* flex: 0 0 calc(29% + ${zoom - 0.4}%); */
         padding: 1.4rem 1rem;
         position: relative;
         display: flex;
         flex-direction: column;
         border-radius: 0.8rem;
+        width: 100%;
+        ${mode !== "wheel"
+          ? `aspect-ratio: 1/1.36;
+        height: 23.8rem;`
+          : ""}
       `}
     >
-      <H3
+      <H4
         css={css`
           color: white;
-          padding-top: 0.6rem;
           letter-spacing: -0.05em;
         `}
       >
         {title}
-      </H3>
-      <Divider />
-      <P3
+      </H4>
+      {mode !== "wheel" && <Divider />}
+      {/* <P3
         variant="secondary"
         css={css`
           color: white;
@@ -88,25 +91,37 @@ export const MenuCard = ({
         `}
       >
         {description}
-      </P3>
-      <div
-        css={css`
-          border-radius: 0.8rem;
-          overflow: hidden;
-          position: relative;
-        `}
-      >
-        <img
-          src={img}
+      </P3> */}
+      {mode !== "wheel" && (
+        <div
           css={css`
-            width: 100%;
-            height: 100%;
-            margin: 0 auto;
-            transform: scale(${zoom});
-            /* aspect-ratio: 1/1; */
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
           `}
-        />
-      </div>
+        >
+          <div
+            css={css`
+              overflow: hidden;
+              border-radius: 0.8rem;
+              position: relative;
+            `}
+          >
+            <img
+              src={img}
+              css={css`
+                border-radius: 0.8rem;
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                transform: scale(${zoom});
+                /* aspect-ratio: 1/1; */
+              `}
+            />
+          </div>
+        </div>
+      )}
     </Link>
   );
 };

@@ -43,7 +43,7 @@ const injectKeyboardHandler = () => {
     document.addEventListener("keydown", (event) => {
       const focusableElements = Array.from(
         document.querySelectorAll<HTMLElement>(
-          'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+          'a[href], button:not(:disabled), input, textarea, select, [tabindex]:not([tabindex="-1"])'
         )
       ).filter(
         (el) =>
@@ -56,9 +56,18 @@ const injectKeyboardHandler = () => {
       if (focusableElements.length === 0) return;
       let nextElement = null; // 다음에 포커스될 요소
 
+      if (document.body === focusedElement) {
+        const el = focusableElements.find((el: any) => !el.disabled);
+        if (el) {
+          el.focus();
+          return;
+        }
+      }
+
       if (!focusedElement) {
         focusableElements[0].focus();
       }
+
       const currentIndex = focusableElements.indexOf(focusedElement);
 
       const focusedRect = focusedElement.getBoundingClientRect();

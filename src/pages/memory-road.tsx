@@ -1,9 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import maps from "@/assets/images/maps";
 import { MainShell } from "@/components/common/main-shell";
 import { H1, H4, P3 } from "@/components/ui/text";
+import { useSettingStore } from "@/contexts/setting.store";
 import { useA11y } from "@/hooks/use-a11y";
-import { useThemeMode } from "@/hooks/use-theme-mode";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
@@ -27,48 +26,93 @@ const memoryItems = [
 const MemoryRoad = () => {
   const [selected, setSelected] = useState(0);
   const Description = memorySummaryComponents[memoryItems[selected].title];
-  const [themeMode] = useThemeMode();
+  const mode = useSettingStore((state) => state.mode);
 
-  useA11y("tour");
+  useA11y(mode === "sound" ? "tour_detail" : "tour");
   return (
     <MemoryShell>
       <MemoryHeader>
         <H1>기억과 약속의 길</H1>
       </MemoryHeader>
-      <MemoryListButton
-        data-a11y-id="tour"
-        css={css`
-          flex-shrink: 0;
-        `}
-        selected={selected === 0}
-        onClick={() => setSelected(0)}
-      >
-        기억과 약속의 길
-      </MemoryListButton>
-      <MemoryListSmallButtons>
-        {memoryItems.slice(1, memoryItems.length).map((item, index) => (
+      {mode === "wheel" ? (
+        <>
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence mode="wait">
+              <MemoryRoadContent
+                css={css`
+                  margin-top: 0;
+                  margin-bottom: 1.6rem;
+                `}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                key={memoryItems[selected].title}
+              >
+                {Description}
+              </MemoryRoadContent>
+            </AnimatePresence>
+          </LazyMotion>
           <MemoryListButton
-            data-a11y-id={item.a11y}
-            key={item.title}
-            selected={index + 1 === selected}
-            onClick={() => setSelected(index + 1)}
+            data-a11y-id="tour"
+            css={css`
+              flex-shrink: 0;
+            `}
+            selected={selected === 0}
+            onClick={() => setSelected(0)}
           >
-            {item.title}
+            기억과 약속의 길
           </MemoryListButton>
-        ))}
-      </MemoryListSmallButtons>
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence mode="wait">
-          <MemoryRoadContent
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key={memoryItems[selected].title}
+          <MemoryListSmallButtons>
+            {memoryItems.slice(1, memoryItems.length).map((item, index) => (
+              <MemoryListButton
+                data-a11y-id={item.a11y}
+                key={item.title}
+                selected={index + 1 === selected}
+                onClick={() => setSelected(index + 1)}
+              >
+                {item.title}
+              </MemoryListButton>
+            ))}
+          </MemoryListSmallButtons>
+        </>
+      ) : (
+        <>
+          <MemoryListButton
+            data-a11y-id="tour"
+            css={css`
+              flex-shrink: 0;
+            `}
+            selected={selected === 0}
+            onClick={() => setSelected(0)}
           >
-            {Description}
-          </MemoryRoadContent>
-        </AnimatePresence>
-      </LazyMotion>
+            기억과 약속의 길
+          </MemoryListButton>
+          <MemoryListSmallButtons>
+            {memoryItems.slice(1, memoryItems.length).map((item, index) => (
+              <MemoryListButton
+                data-a11y-id={item.a11y}
+                key={item.title}
+                selected={index + 1 === selected}
+                onClick={() => setSelected(index + 1)}
+              >
+                {item.title}
+              </MemoryListButton>
+            ))}
+          </MemoryListSmallButtons>
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence mode="wait">
+              <MemoryRoadContent
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                key={memoryItems[selected].title}
+              >
+                {Description}
+              </MemoryRoadContent>
+            </AnimatePresence>
+          </LazyMotion>
+        </>
+      )}
     </MemoryShell>
   );
 };

@@ -19,6 +19,7 @@ const MemoryList = Loadable(lazy(() => import("@/pages/memory-list")));
 const MemoryRoad = Loadable(lazy(() => import("@/pages/memory-road")));
 const Timeline = Loadable(lazy(() => import("@/pages/timeline")));
 const SpaceInfo = Loadable(lazy(() => import("@/pages/space-info")));
+const Manual = Loadable(lazy(() => import("@/pages/manual")));
 
 function Root() {
   const location = useLocation();
@@ -82,6 +83,7 @@ function Root() {
           <Route path="timeline" element={<Timeline />} />
           <Route path="space-info" element={<SpaceInfo />} />
           <Route path="search-result" element={<SearchResult />} />
+          <Route path="manual" element={<Manual />} />
         </Routes>
       </AnimatePresence>
     </AppShell>

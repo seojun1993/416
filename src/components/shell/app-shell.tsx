@@ -19,6 +19,7 @@ const Shell = styled.div((props) => ({
   flexDirection: "column",
   height: "100%",
   color: "white",
+  backgroundImage: 'url("/assets/bg.png")',
 }));
 
 const ShellContent = styled.div`

@@ -104,285 +104,315 @@ const BottomBar = () => {
   }, [mode, pathname]);
 
   return (
-    <BottomWrapper ref={bottomRef}>
-      <SquareButton
-        data-a11y-id="home"
-        active={pathname === "/"}
-        data-disabled-outline
-        onClick={() => {
-          const id = sessionStorage.getItem("redirect_id");
-          if (id) {
-            sessionStorage.removeItem("redirect_id");
-          }
-          navigate("/");
-        }}
-        icon={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="56"
-            height="56.471"
-            viewBox="0 0 56 56.471"
-            style={{ transition: "none" }}
-          >
-            <path
-              id="집"
-              data-name="집"
-              d="M28.666,1,1,22.176V57.471H19V34.529H39V57.471H57V22.176Z"
-              transform="translate(-1 -1)"
-              fill="currentColor"
-              style={{ transition: "none" }}
-            />
-          </svg>
-        }
-      >
-        홈
-      </SquareButton>
-
-      <SquareButton
-        data-a11y-id="menu"
-        active={pathname === "/menu"}
-        onClick={() => navigate("menu")}
-        icon={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="52"
-            height="40"
-            viewBox="0 0 52 40"
-            style={{ transition: "none" }}
-          >
-            <g
-              id="메뉴"
-              data-name="메뉴"
-              transform="translate(-240 -2066)"
-              style={{ transition: "none" }}
-            >
-              <rect
-                id="윗사각형"
-                data-name="윗사각형"
-                width="52"
-                height="8"
-                rx="4"
-                transform="translate(240 2066)"
-                fill="currentColor"
-                style={{ transition: "none" }}
-              />
-              <rect
-                id="중간사각형"
-                data-name="중간사각형"
-                width="52"
-                height="8"
-                rx="4"
-                transform="translate(240 2082)"
-                fill="currentColor"
-                style={{ transition: "none" }}
-              />
-              <rect
-                id="아랫사각형"
-                data-name="아랫사각형"
-                width="52"
-                height="8"
-                rx="4"
-                transform="translate(240 2098)"
-                fill="currentColor"
-                style={{ transition: "none" }}
-              />
-            </g>
-          </svg>
-        }
-      >
-        메뉴
-      </SquareButton>
-      <SquareButton
-        onFocus={(event) => {
-          timeoutId.current = setTimeout(() => {
-            sendA11yEvent("back");
-          }, 150);
-        }}
-        onClick={(event) => {
-          clearTimeout(timeoutId.current);
-          if (window.history.state.idx !== 0) {
-            navigate(-1);
-          }
-        }}
-        icon={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="35.656"
-            height="61.312"
-            viewBox="0 0 35.656 61.312"
-          >
-            <path
-              id="prev_icon"
-              d="M435.533,2062.63l-26,25,26,25"
-              transform="translate(-405.533 -2056.974)"
-              fill="none"
-              style={{
-                fill: "none",
-              }}
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="8"
-            />
-          </svg>
-        }
-      >
-        이전
-      </SquareButton>
-      <SquareButton
-        onFocus={(event) => {
-          timeoutId.current = setTimeout(() => {
-            sendA11yEvent("front");
-          }, 150);
-        }}
-        onClick={() => {
-          clearTimeout(timeoutId.current);
-          window.history.forward();
-        }}
-        icon={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="35.656"
-            height="61.312"
-            viewBox="0 0 35.656 61.312"
-          >
-            <path
-              id="next_icon"
-              d="M409.533,2062.63l26,25-26,25"
-              transform="translate(-403.878 -2056.974)"
-              fill="none"
-              stroke="currentColor"
-              style={{
-                fill: "none",
-              }}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="8"
-            />
-          </svg>
-        }
-      >
-        다음
-      </SquareButton>
-      <SquareButton
-        data-a11y-id="contrast"
+    <BottomWrapper
+      css={css`
+        ${pathname === "/manual" ? `background-color:#122f5f;` : ""}
+      `}
+      ref={bottomRef}
+    >
+      <div
         css={css`
-          color: ${themeMode === "dark"
-            ? theme.color.accent.foreground
-            : theme.color.text.main};
-          fill: ${themeMode === "dark"
-            ? theme.color.accent.foreground
-            : theme.color.text.main};
+          display: flex;
+          column-gap: 0.6rem;
         `}
-        onClick={() => {
-          sendA11yEvent(themeMode === "light" ? "contrast_off" : "contrast_on");
-          toggleTheme();
-        }}
-        icon={
-          themeMode === "light" ? (
-            <div
-              css={css`
-                aspect-ratio: 1/1;
-                display: flex;
-                align-items: center;
-              `}
+      >
+        <SquareButton
+          css={css`
+            width: 5.6rem;
+          `}
+          data-a11y-id="home"
+          active={pathname === "/"}
+          data-disabled-outline
+          onClick={() => {
+            const id = sessionStorage.getItem("redirect_id");
+            if (id) {
+              sessionStorage.removeItem("redirect_id");
+            }
+            navigate("/");
+          }}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="56"
+              height="56.471"
+              viewBox="0 0 56 56.471"
+              style={{ transition: "none" }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="39"
-                height="69.999"
-                viewBox="0 0 39 69.999"
+              <path
+                id="집"
+                data-name="집"
+                d="M28.666,1,1,22.176V57.471H19V34.529H39V57.471H57V22.176Z"
+                transform="translate(-1 -1)"
+                fill="currentColor"
+                style={{ transition: "none" }}
+              />
+            </svg>
+          }
+        >
+          홈
+        </SquareButton>
+
+        <SquareButton
+          css={css`
+            width: 5.6rem;
+          `}
+          data-a11y-id="menu"
+          active={pathname === "/menu"}
+          onClick={() => navigate("menu")}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="52"
+              height="40"
+              viewBox="0 0 52 40"
+              style={{ transition: "none" }}
+            >
+              <g
+                id="메뉴"
+                data-name="메뉴"
+                transform="translate(-240 -2066)"
+                style={{ transition: "none" }}
               >
-                <g
-                  id="태양_절반"
-                  data-name="태양_절반"
-                  transform="translate(-373.001 -2045)"
+                <rect
+                  id="윗사각형"
+                  data-name="윗사각형"
+                  width="52"
+                  height="8"
+                  rx="4"
+                  transform="translate(240 2066)"
+                  fill="currentColor"
+                  style={{ transition: "none" }}
+                />
+                <rect
+                  id="중간사각형"
+                  data-name="중간사각형"
+                  width="52"
+                  height="8"
+                  rx="4"
+                  transform="translate(240 2082)"
+                  fill="currentColor"
+                  style={{ transition: "none" }}
+                />
+                <rect
+                  id="아랫사각형"
+                  data-name="아랫사각형"
+                  width="52"
+                  height="8"
+                  rx="4"
+                  transform="translate(240 2098)"
+                  fill="currentColor"
+                  style={{ transition: "none" }}
+                />
+              </g>
+            </svg>
+          }
+        >
+          메뉴
+        </SquareButton>
+        <SquareButton
+          css={css`
+            width: 5.6rem;
+          `}
+          onFocus={(event) => {
+            timeoutId.current = setTimeout(() => {
+              sendA11yEvent("back");
+            }, 150);
+          }}
+          onClick={(event) => {
+            clearTimeout(timeoutId.current);
+            if (window.history.state.idx !== 0) {
+              navigate(-1);
+            }
+          }}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35.656"
+              height="61.312"
+              viewBox="0 0 35.656 61.312"
+            >
+              <path
+                id="prev_icon"
+                d="M435.533,2062.63l-26,25,26,25"
+                transform="translate(-405.533 -2056.974)"
+                fill="none"
+                style={{
+                  fill: "none",
+                }}
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="8"
+              />
+            </svg>
+          }
+        >
+          이전
+        </SquareButton>
+        <SquareButton
+          css={css`
+            width: 5.6rem;
+          `}
+          onFocus={(event) => {
+            timeoutId.current = setTimeout(() => {
+              sendA11yEvent("front");
+            }, 150);
+          }}
+          onClick={() => {
+            clearTimeout(timeoutId.current);
+            window.history.forward();
+          }}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35.656"
+              height="61.312"
+              viewBox="0 0 35.656 61.312"
+            >
+              <path
+                id="next_icon"
+                d="M409.533,2062.63l26,25-26,25"
+                transform="translate(-403.878 -2056.974)"
+                fill="none"
+                stroke="currentColor"
+                style={{
+                  fill: "none",
+                }}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="8"
+              />
+            </svg>
+          }
+        >
+          다음
+        </SquareButton>
+        <SquareButton
+          data-a11y-id="contrast"
+          css={css`
+            width: 5.6rem;
+            color: ${themeMode === "dark"
+              ? theme.color.accent.foreground
+              : "white"};
+            fill: ${themeMode === "dark"
+              ? theme.color.accent.foreground
+              : "white"};
+          `}
+          onClick={() => {
+            sendA11yEvent(
+              themeMode === "dark" ? "contrast_off" : "contrast_on"
+            );
+            toggleTheme();
+          }}
+          icon={
+            themeMode === "light" ? (
+              <div
+                css={css`
+                  aspect-ratio: 1/1;
+                  display: flex;
+                  align-items: center;
+                `}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="39"
+                  height="69.999"
+                  viewBox="0 0 39 69.999"
                 >
                   <g
-                    id="태양_절반_그룹"
-                    data-name="태양_절반_그룹"
+                    id="태양_절반"
+                    data-name="태양_절반"
+                    transform="translate(-373.001 -2045)"
+                  >
+                    <g
+                      id="태양_절반_그룹"
+                      data-name="태양_절반_그룹"
+                      transform="translate(64 426.445)"
+                    >
+                      <path
+                        id="중앙원"
+                        data-name="중앙원"
+                        d="M17.5,36A17.146,17.146,0,0,1,5.126,30.728a18.365,18.365,0,0,1,0-25.456A17.165,17.165,0,0,1,21,.36V35.64A17.163,17.163,0,0,1,17.5,36Z"
+                        transform="translate(327 1634.555)"
+                        fill="currentColor"
+                      />
+                      <path
+                        id="햇살"
+                        data-name="햇살"
+                        d="M34.746,67.873V58.4A2.127,2.127,0,1,1,39,58.4v9.471a2.127,2.127,0,0,1-4.254,0ZM9.168,61.68a2.011,2.011,0,0,1,0-2.912l7.019-6.794a2.179,2.179,0,0,1,3.009,0,2.012,2.012,0,0,1,0,2.911l-7.02,6.794a2.177,2.177,0,0,1-3.008,0ZM2.059,37.058a2.059,2.059,0,0,1,0-4.118H12.124a2.059,2.059,0,0,1,0,4.118ZM16.187,18.023l-7.02-6.794a2.012,2.012,0,0,1,0-2.911,2.179,2.179,0,0,1,3.009,0L19.2,15.112a2.011,2.011,0,0,1,0,2.912,2.177,2.177,0,0,1-3.008,0ZM34.746,11.6V2.127a2.127,2.127,0,0,1,4.254,0V11.6a2.127,2.127,0,0,1-4.254,0Z"
+                        transform="translate(309 1618.555)"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </g>
+                </svg>
+                <div
+                  css={css`
+                    height: 100%;
+                    width: 0.44em;
+                  `}
+                />
+              </div>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="73.999"
+                height="70"
+                viewBox="0 0 73.999 70"
+              >
+                <g id="reversal_icon" transform="translate(-373.001 -2045)">
+                  <g
+                    id="그룹_4"
+                    data-name="그룹 4"
                     transform="translate(64 426.445)"
                   >
                     <path
-                      id="중앙원"
-                      data-name="중앙원"
+                      id="빼기_1"
+                      data-name="빼기 1"
                       d="M17.5,36A17.146,17.146,0,0,1,5.126,30.728a18.365,18.365,0,0,1,0-25.456A17.165,17.165,0,0,1,21,.36V35.64A17.163,17.163,0,0,1,17.5,36Z"
                       transform="translate(327 1634.555)"
                       fill="currentColor"
                     />
                     <path
-                      id="햇살"
-                      data-name="햇살"
+                      id="합치기_1"
+                      data-name="합치기 1"
                       d="M34.746,67.873V58.4A2.127,2.127,0,1,1,39,58.4v9.471a2.127,2.127,0,0,1-4.254,0ZM9.168,61.68a2.011,2.011,0,0,1,0-2.912l7.019-6.794a2.179,2.179,0,0,1,3.009,0,2.012,2.012,0,0,1,0,2.911l-7.02,6.794a2.177,2.177,0,0,1-3.008,0ZM2.059,37.058a2.059,2.059,0,0,1,0-4.118H12.124a2.059,2.059,0,0,1,0,4.118ZM16.187,18.023l-7.02-6.794a2.012,2.012,0,0,1,0-2.911,2.179,2.179,0,0,1,3.009,0L19.2,15.112a2.011,2.011,0,0,1,0,2.912,2.177,2.177,0,0,1-3.008,0ZM34.746,11.6V2.127a2.127,2.127,0,0,1,4.254,0V11.6a2.127,2.127,0,0,1-4.254,0Z"
                       transform="translate(309 1618.555)"
                       fill="currentColor"
                     />
                   </g>
+                  <g
+                    id="그룹_5"
+                    data-name="그룹 5"
+                    transform="translate(408 2045)"
+                  >
+                    <path
+                      id="빼기_1-2"
+                      data-name="빼기 1"
+                      d="M17.5,0A17.145,17.145,0,0,0,5.126,5.272a18.365,18.365,0,0,0,0,25.456A17.165,17.165,0,0,0,21,35.64V.36A17.163,17.163,0,0,0,17.5,0Z"
+                      transform="translate(21.001 52) rotate(180)"
+                      fill="currentColor"
+                    />
+                    <path
+                      id="합치기_1-2"
+                      data-name="합치기 1"
+                      d="M34.744,67.872V58.4A2.128,2.128,0,0,1,39,58.4v9.471a2.128,2.128,0,0,1-4.255,0ZM9.167,61.682a2.013,2.013,0,0,1,0-2.912l7.02-6.793a2.176,2.176,0,0,1,3.008,0,2.012,2.012,0,0,1,0,2.911l-7.019,6.794a2.179,2.179,0,0,1-3.009,0ZM2.058,37.059a2.059,2.059,0,0,1,0-4.118H12.122a2.059,2.059,0,1,1,0,4.118ZM16.187,18.025l-7.02-6.794a2.012,2.012,0,0,1,0-2.911,2.179,2.179,0,0,1,3.009,0l7.02,6.793a2.013,2.013,0,0,1,0,2.912,2.179,2.179,0,0,1-3.009,0ZM34.744,11.6V2.127a2.128,2.128,0,0,1,4.255,0V11.6a2.128,2.128,0,0,1-4.255,0Z"
+                      transform="translate(39 70) rotate(180)"
+                      fill="currentColor"
+                    />
+                  </g>
                 </g>
               </svg>
-              <div
-                css={css`
-                  height: 100%;
-                  width: 0.44em;
-                `}
-              />
-            </div>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="73.999"
-              height="70"
-              viewBox="0 0 73.999 70"
-            >
-              <g id="reversal_icon" transform="translate(-373.001 -2045)">
-                <g
-                  id="그룹_4"
-                  data-name="그룹 4"
-                  transform="translate(64 426.445)"
-                >
-                  <path
-                    id="빼기_1"
-                    data-name="빼기 1"
-                    d="M17.5,36A17.146,17.146,0,0,1,5.126,30.728a18.365,18.365,0,0,1,0-25.456A17.165,17.165,0,0,1,21,.36V35.64A17.163,17.163,0,0,1,17.5,36Z"
-                    transform="translate(327 1634.555)"
-                    fill="currentColor"
-                  />
-                  <path
-                    id="합치기_1"
-                    data-name="합치기 1"
-                    d="M34.746,67.873V58.4A2.127,2.127,0,1,1,39,58.4v9.471a2.127,2.127,0,0,1-4.254,0ZM9.168,61.68a2.011,2.011,0,0,1,0-2.912l7.019-6.794a2.179,2.179,0,0,1,3.009,0,2.012,2.012,0,0,1,0,2.911l-7.02,6.794a2.177,2.177,0,0,1-3.008,0ZM2.059,37.058a2.059,2.059,0,0,1,0-4.118H12.124a2.059,2.059,0,0,1,0,4.118ZM16.187,18.023l-7.02-6.794a2.012,2.012,0,0,1,0-2.911,2.179,2.179,0,0,1,3.009,0L19.2,15.112a2.011,2.011,0,0,1,0,2.912,2.177,2.177,0,0,1-3.008,0ZM34.746,11.6V2.127a2.127,2.127,0,0,1,4.254,0V11.6a2.127,2.127,0,0,1-4.254,0Z"
-                    transform="translate(309 1618.555)"
-                    fill="currentColor"
-                  />
-                </g>
-                <g
-                  id="그룹_5"
-                  data-name="그룹 5"
-                  transform="translate(408 2045)"
-                >
-                  <path
-                    id="빼기_1-2"
-                    data-name="빼기 1"
-                    d="M17.5,0A17.145,17.145,0,0,0,5.126,5.272a18.365,18.365,0,0,0,0,25.456A17.165,17.165,0,0,0,21,35.64V.36A17.163,17.163,0,0,0,17.5,0Z"
-                    transform="translate(21.001 52) rotate(180)"
-                    fill="currentColor"
-                  />
-                  <path
-                    id="합치기_1-2"
-                    data-name="합치기 1"
-                    d="M34.744,67.872V58.4A2.128,2.128,0,0,1,39,58.4v9.471a2.128,2.128,0,0,1-4.255,0ZM9.167,61.682a2.013,2.013,0,0,1,0-2.912l7.02-6.793a2.176,2.176,0,0,1,3.008,0,2.012,2.012,0,0,1,0,2.911l-7.019,6.794a2.179,2.179,0,0,1-3.009,0ZM2.058,37.059a2.059,2.059,0,0,1,0-4.118H12.122a2.059,2.059,0,1,1,0,4.118ZM16.187,18.025l-7.02-6.794a2.012,2.012,0,0,1,0-2.911,2.179,2.179,0,0,1,3.009,0l7.02,6.793a2.013,2.013,0,0,1,0,2.912,2.179,2.179,0,0,1-3.009,0ZM34.744,11.6V2.127a2.128,2.128,0,0,1,4.255,0V11.6a2.128,2.128,0,0,1-4.255,0Z"
-                    transform="translate(39 70) rotate(180)"
-                    fill="currentColor"
-                  />
-                </g>
-              </g>
-            </svg>
-          )
-        }
-      >
-        고대비
-      </SquareButton>
+            )
+          }
+        >
+          고대비
+        </SquareButton>
+      </div>
       <SquareButton
+        css={css`
+          width: 7.2rem;
+        `}
         key="searchButton"
         active={pathname === "/search"}
         onFocus={() => {
@@ -491,216 +521,245 @@ const BottomBar = () => {
       >
         {pathname === "/search" ? "검색닫기" : "희생자검색"}
       </SquareButton>
-      <SquareButton
-        data-a11y-id="글씨크기 선택"
-        onClick={(event) => {
-          event.stopPropagation();
-          setTooltipMode("text");
-        }}
-        topEl={
+      <div
+        css={css`
+          display: flex;
+          justify-content: flex-end;
+          column-gap: 0.6rem;
+        `}
+      >
+        <SquareButton
+          css={css`
+            width: 7.8rem;
+          `}
+          data-a11y-id="글씨크기 선택"
+          onClick={(event) => {
+            event.stopPropagation();
+            setTooltipMode("text");
+          }}
+          topEl={
+            <AnimatePresence mode="wait">
+              {tooltipMode === "text" && (
+                <ControllerWrapper
+                  {...fadeInOutVariants}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  {zooms.map((item) => (
+                    <Button
+                      data-a11y-id={
+                        item.text.replace("x", "").replace(".0", "") + "배"
+                      }
+                      active={zoom === item.value}
+                      key={item.text + "sign"}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setZoom(() =>
+                          zooms.findIndex(
+                            (zoomValue) => zoomValue.value === item.value
+                          )
+                        );
+                      }}
+                    >
+                      {item.text.replace("x", "")}
+                    </Button>
+                  ))}
+                </ControllerWrapper>
+              )}
+            </AnimatePresence>
+          }
+          icon={
+            <div
+              data-disable-focus-effect
+              data-disabled-outline
+              css={css`
+                width: 5rem;
+                height: 2rem;
+                font-size: 1.12rem;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                background-color: white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                font-weight: bold;
+                color: black;
+              `}
+            >
+              {zooms
+                .find((v) => v.value === zoom)
+                ?.text?.replace("x", "")
+                .replace(".0", "") ?? ""}
+            </div>
+          }
+        >
+          글씨크기
+        </SquareButton>
+
+        <SquareButton
+          data-a11y-id="voice"
+          onClick={() => {
+            setVolumnAction(
+              volumeRange.length - (volumeRange[volIndex] !== 0 ? 1 : 2)
+            );
+            sendA11yEvent(
+              volumeRange[volIndex] !== 0 ? "voice_off" : "voice_on"
+            );
+          }}
+          css={css`
+            width: 7.8rem;
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
+            /* width: 3.85em; */
+          `}
+          icon={
+            <Switch
+              isOpen={volumeRange[volIndex] !== 0}
+              setIsOpen={(state) => {
+                setVolumnAction(
+                  volumeRange.length - (volumeRange[volIndex] !== 0 ? 1 : 2)
+                );
+                sendA11yEvent(
+                  volumeRange[volIndex] !== 0 ? "voice_off" : "voice_on"
+                );
+              }}
+            />
+          }
+        >
+          음성안내
+        </SquareButton>
+
+        <SquareButton
+          css={css`
+            width: 7.8rem;
+          `}
+          data-a11y-id="음량 선택"
+          onClick={(event) => {
+            event.stopPropagation();
+            setTooltipMode("sound");
+          }}
+          icon={
+            <div
+              data-disable-focus-effect
+              data-disabled-outline
+              css={css`
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 5rem;
+                height: 2rem;
+                font-size: 1.12rem;
+                border-radius: 1rem;
+                border: none;
+                background-color: white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                font-weight: bold;
+                color: black;
+              `}
+            >
+              {100 -
+                volumeRange.findIndex(
+                  (_, volumeIndex) => volumeIndex === volIndex
+                ) *
+                  5 *
+                  volumeRange.length}
+            </div>
+          }
+        >
           <AnimatePresence mode="wait">
-            {tooltipMode === "text" && (
+            {tooltipMode === "sound" && (
               <ControllerWrapper
-                {...fadeInOutVariants}
                 onClick={(event) => event.stopPropagation()}
+                {...fadeInOutVariants}
               >
-                {zooms.map((item) => (
+                {volumeRange.map((item, volIdx) => (
                   <Button
-                    data-a11y-id={
-                      item.text.replace("x", "").replace(".0", "") + "배"
-                    }
-                    active={zoom === item.value}
-                    key={item.text + "sign"}
+                    data-a11y-id={100 - volIdx * 5 * volumeRange.length}
+                    active={volIndex === volIdx}
+                    key={item + "volumn" + volIdx}
                     onClick={(event) => {
                       event.stopPropagation();
-                      setZoom(() =>
-                        zooms.findIndex(
-                          (zoomValue) => zoomValue.value === item.value
-                        )
-                      );
+
+                      setVolumnAction(volIdx);
                     }}
                   >
-                    {item.text.replace("x", "")}
+                    {100 - volIdx * 5 * volumeRange.length}
                   </Button>
                 ))}
               </ControllerWrapper>
             )}
           </AnimatePresence>
-        }
-        icon={
-          <div
-            data-disable-focus-effect
-            data-disabled-outline
-            css={css`
-              width: 5rem;
-              height: 2rem;
-              font-size: 1.12rem;
-              border-radius: 1rem;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border: none;
-              background-color: white;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-              font-weight: bold;
-              color: black;
-            `}
-          >
-            {zooms
-              .find((v) => v.value === zoom)
-              ?.text?.replace("x", "")
-              .replace(".0", "") ?? ""}
-          </div>
-        }
-      >
-        글씨크기
-      </SquareButton>
+          음량
+        </SquareButton>
 
-      <SquareButton
-        data-a11y-id="음량 선택"
-        onClick={(event) => {
-          event.stopPropagation();
-          setTooltipMode("sound");
-        }}
-        icon={
-          <div
-            data-disable-focus-effect
-            data-disabled-outline
-            css={css`
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 5rem;
-              height: 2rem;
-              font-size: 1.12rem;
-              border-radius: 1rem;
-              border: none;
-              background-color: white;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-              font-weight: bold;
-              color: black;
-            `}
-          >
-            {100 -
-              volumeRange.findIndex(
-                (_, volumeIndex) => volumeIndex === volIndex
-              ) *
-                20}
-          </div>
-        }
-      >
-        <AnimatePresence mode="wait">
-          {tooltipMode === "sound" && (
-            <ControllerWrapper
-              onClick={(event) => event.stopPropagation()}
-              {...fadeInOutVariants}
-            >
-              {volumeRange.map((item, volIdx) => (
-                <Button
-                  data-a11y-id={100 - volIdx * 20}
-                  active={volIndex === volIdx}
-                  key={item + "volumn" + volIdx}
-                  onClick={(event) => {
-                    event.stopPropagation();
-
-                    setVolumnAction(volIdx);
-                  }}
-                >
-                  {100 - volIdx * 20}
-                </Button>
-              ))}
-            </ControllerWrapper>
-          )}
-        </AnimatePresence>
-        음량선택
-      </SquareButton>
-
-      <SquareButton
-        data-a11y-id="음성속도"
-        onClick={(event) => {
-          event.stopPropagation();
-          setTooltipMode("speed");
-        }}
-        icon={
-          <div
-            data-disable-focus-effect
-            data-disabled-outline
-            css={css`
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 5rem;
-              height: 2rem;
-              font-size: 1.12rem;
-              border-radius: 1rem;
-              border: none;
-              background-color: white;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-              font-weight: bold;
-              color: black;
-            `}
-          >
-            {soundSpeed[selectedSoundSpeedIndex].text}
-          </div>
-        }
-      >
-        <AnimatePresence mode="wait">
-          {tooltipMode === "speed" && (
-            <ControllerWrapper
+        <SquareButton
+          css={css`
+            width: 7.8rem;
+          `}
+          data-a11y-id="음성속도"
+          onClick={(event) => {
+            event.stopPropagation();
+            setTooltipMode("speed");
+          }}
+          icon={
+            <div
+              data-disable-focus-effect
+              data-disabled-outline
               css={css`
-                max-height: calc(100dvh - (var(--bottom-height)));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 5rem;
+                height: 2rem;
+                font-size: 1.12rem;
+                border-radius: 1rem;
+                border: none;
+                background-color: white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                font-weight: bold;
+                color: black;
               `}
-              onClick={(event) => event.stopPropagation()}
-              {...fadeInOutVariants}
             >
-              {soundSpeed.map((item, soundSpeedIdx) => (
-                <Button
-                  data-a11y-id={
-                    item.text.replace("x", "").replace(".0", "") + "배속"
-                  }
-                  active={selectedSoundSpeedIndex === soundSpeedIdx}
-                  key={item.text + "speed"}
-                  onClick={(event) => {
-                    event.stopPropagation();
+              {soundSpeed[selectedSoundSpeedIndex].text}
+            </div>
+          }
+        >
+          <AnimatePresence mode="wait">
+            {tooltipMode === "speed" && (
+              <ControllerWrapper
+                css={css`
+                  max-height: calc(100dvh - (var(--bottom-height)));
+                `}
+                onClick={(event) => event.stopPropagation()}
+                {...fadeInOutVariants}
+              >
+                {soundSpeed.map((item, soundSpeedIdx) => (
+                  <Button
+                    data-a11y-id={
+                      item.text.replace("x", "").replace(".0", "") + "배속"
+                    }
+                    active={selectedSoundSpeedIndex === soundSpeedIdx}
+                    key={item.text + "speed"}
+                    onClick={(event) => {
+                      event.stopPropagation();
 
-                    setSoundSpeed(() =>
-                      soundSpeed.findIndex(
-                        (soundValue) => soundValue.value === item.value
-                      )
-                    );
-                  }}
-                >
-                  {item.text}
-                </Button>
-              ))}
-            </ControllerWrapper>
-          )}
-        </AnimatePresence>
-        음성속도
-      </SquareButton>
-      <SquareButton
-        disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
-        data-a11y-id="sign_language"
-        onClick={() => {
-          sendA11yEvent(signOn ? "sign_language_off" : "sign_language_on");
-          setSignOn(!signOn);
-        }}
-        css={css`
-          display: flex;
-          flex-direction: column;
-          row-gap: 0.23em;
-          /* width: 3.85em; */
-        `}
-        icon={
-          <Switch
-            disabled={!SIGN_SUPPORT_PATH.includes(pathname)}
-            isOpen={signOn}
-            setIsOpen={(state) => setSignOn(state)}
-          />
-        }
-      >
-        수어안내
-      </SquareButton>
+                      setSoundSpeed(() =>
+                        soundSpeed.findIndex(
+                          (soundValue) => soundValue.value === item.value
+                        )
+                      );
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                ))}
+              </ControllerWrapper>
+            )}
+          </AnimatePresence>
+          음성속도
+        </SquareButton>
+      </div>
     </BottomWrapper>
   );
 };
@@ -709,12 +768,19 @@ export default BottomBar;
 
 const BottomWrapper = styled.div`
   position: relative;
-  box-shadow: 0px -0.15em 0.15em rgba(0, 0, 0, 0.1);
-  display: flex;
+  background-color: ${(props) => props.theme.color.background.card};
+  box-shadow: 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.border},
+    inset 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.inner};
+  border-top: 0.15rem solid white;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr fit-content(30%) 1fr;
   z-index: 10;
-  background-color: #666666;
-  height: 5.2rem;
+  padding: 0.8rem 0.6rem 0.6rem 0.6rem;
   column-gap: 0.2rem;
+  > div {
+    display: flex;
+  }
 `;
 
 const ControllerWrapper = styled(motion.div)`
@@ -829,28 +895,28 @@ const SquareButtonWrapper = styled.button<{ active?: boolean }>`
   padding-inline: 0;
   height: 100%;
   position: relative;
-  flex: 6;
-  grid-template-rows: 1fr 2.6rem;
-  display: grid;
+  /* grid-template-rows: 1fr 2.6rem; */
+  display: flex;
+  height: 4rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.color.background.secondary};
+  background-color: ${(props) =>
+    props.active
+      ? props.theme.color.accent.foreground
+      : props.theme.color.background.square};
+  border-radius: 0.4rem;
   color: ${(props) =>
-    props.active
-      ? props.theme.color.accent.foreground
-      : props.theme.color.text.main};
+    props.active ? props.theme.color.secondary.foreground : "white"};
   fill: ${(props) =>
-    props.active
-      ? props.theme.color.accent.foreground
-      : props.theme.color.text.main};
+    props.active ? props.theme.color.secondary.foreground : "white"};
   > * {
     transition: background-color 0.1s ease-in-out;
     width: 100;
   }
   &:focus-visible,
   &:focus {
-    outline: 0.2em solid ${(props) => props.theme.color.accent.foreground} !important;
+    outline: 0.2em solid ${(props) => props.theme.color.yellow} !important;
     outline-offset: -0.2rem;
   }
   &:focus {

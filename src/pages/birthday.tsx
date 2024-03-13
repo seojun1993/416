@@ -10,19 +10,12 @@ import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { getImagePath, sendA11yEvent } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
-import {
-  AnimatePresence,
-  LazyMotion,
-  domAnimation,
-  motion,
-} from "framer-motion";
+import { LazyMotion, domAnimation, motion } from "framer-motion";
 import { Student } from "@/types/student";
 import { H4, P3 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
 import { css } from "@emotion/react";
-import PreloadVideo from "@/components/ui/preload-video";
 
-import vi from "@/assets/videos/sample.webm";
 import { useSettingStore } from "@/contexts/setting.store";
 import { fadeInOutVariants } from "@/variants";
 import { useA11y } from "@/hooks/use-a11y";

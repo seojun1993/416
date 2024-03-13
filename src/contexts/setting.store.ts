@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 import type { StateCreator } from "zustand";
 export type ThemeMode = "light" | "dark";
-export type UserMode = "normal" | "sound" | "sign";
+export type UserMode = "normal" | "sound" | "wheel" | "sign";
 export const zooms = [
   { value: 1, text: "x1.0" },
   { value: 1.05, text: "x1.2" },
@@ -167,7 +167,7 @@ const createSoundSlice: StateCreator<
   [],
   SoundSlice
 > = (set, get) => ({
-  volumeRange: [80, 75, 67, 58, 50, 0],
+  volumeRange: [80, 70, 60, 50, 0],
   selectedVolumeIndex: 4,
   selectedSoundSpeedIndex: 0,
   soundSpeed: SoundSpeed,
@@ -188,7 +188,6 @@ const createSoundSlice: StateCreator<
     }
   },
   setVolumnAction: (vol) => {
-    get().setTooltipMode("sound");
     if (typeof get().volumeRange[vol] === "number") {
       set({ selectedVolumeIndex: vol });
       const audio = window?.chrome?.webview?.hostObjects?.sync?.audiocontrol;

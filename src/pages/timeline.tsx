@@ -1,13 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
-import ImageX from "@/components/ui/image";
+
 import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
-import timelineImage from "@/assets/images/timeline.png";
+
 import { css } from "@emotion/react";
 import { useA11y } from "@/hooks/use-a11y";
+import { useSettingStore } from "@/contexts/setting.store";
 const Timeline = () => {
-  useA11y("timeline");
+  const mode = useSettingStore((state) => state.mode);
+  useA11y(mode === "sound" ? "timeline_detail" : "timeline");
   return (
     <MemoryShell>
       <MemoryHeader>

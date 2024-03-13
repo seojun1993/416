@@ -16,11 +16,13 @@ import { H1, P1 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
 import { css } from "@emotion/react";
 import { useA11y } from "@/hooks/use-a11y";
+import { useSettingStore } from "@/contexts/setting.store";
 
 const MAX_ITEM_COUNT = 3;
 
 const SearchResult = () => {
   const [searchParam] = useSearchParams();
+  const mode = useSettingStore((state) => state.mode);
   const keyword = searchParam.get("keyword");
   if (!keyword) {
     redirect("/search");
@@ -38,7 +40,9 @@ const SearchResult = () => {
     [students]
   );
 
-  useA11y("search_screen_result");
+  useA11y(
+    mode === "sound" ? "search_screen_result_detail" : "search_screen_result"
+  );
 
   return (
     <SearchShell>

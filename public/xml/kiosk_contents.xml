@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<KIOSK>
+    <HEADER>
+        <MAKE_TIME>20240311173138</MAKE_TIME>
+        <RET_CODE>SUCC</RET_CODE>
+        <BRN_ID>1</BRN_ID>
+        <BRN_CODE>416</BRN_CODE>
+        <KIOSK_ID>4</KIOSK_ID>
+<KIOSK_CODE>K002</KIOSK_CODE>
+        <KIOSK_SECT><![CDATA[K]]></KIOSK_SECT>
+        <KIOSK_MAP><![CDATA[W]]></KIOSK_MAP>
+        <KIOSK_NAME><![CDATA[2층]]></KIOSK_NAME>
+        <KIOSK_FLOOR pos_x="825" pos_y="589" floor="2F"></KIOSK_FLOOR>
+<URL_STATUS>http://52.79.79.68:8416/user/xml/kiosk_status.jsp</URL_STATUS>
+        <URL_REPORT>http://52.79.79.68:8416/user/xml/kiosk_use.jsp</URL_REPORT>
+        <URL_SENSOR></URL_SENSOR>
+        <CLEAR_TIME>180</CLEAR_TIME>
+        <URL_NOTICE>http://52.79.79.68:8416/user/xml/notice_xml.jsp</URL_NOTICE>
+<MAP_RESOLUTION width="3360" height="1450"></MAP_RESOLUTION>
+        <PUB_ICON_RESOLUTION width="60" height="60"></PUB_ICON_RESOLUTION>
+    </HEADER>
+    <KIOSK_LIST>
+                    <KIOSK_INFO kioskId="3" floor="2">
+                        <KIOSK_CODE><![CDATA[ K001 ]]></KIOSK_CODE>
+                        <KIOSK_POS pos_x="1162" pos_y="534"/>
+                            </KIOSK_INFO>
+                </KIOSK_LIST>
+            <KIOSK_LIST>
+                    <KIOSK_INFO kioskId="4" floor="3">
+                        <KIOSK_CODE><![CDATA[ K002 ]]></KIOSK_CODE>
+                        <KIOSK_POS pos_x="825" pos_y="589"/>
+                            </KIOSK_INFO>
+                </KIOSK_LIST>
+            <KIOSK_LIST>
+                    <KIOSK_INFO kioskId="5" floor="4">
+                        <KIOSK_CODE><![CDATA[ K003 ]]></KIOSK_CODE>
+                        <KIOSK_POS pos_x="827" pos_y="590"/>
+                            </KIOSK_INFO>
+                </KIOSK_LIST>
+            <MAP_LIST>
+                    <MAP_INFO floor="1" direction="">
+                        <MAP_NAME><![CDATA[ 지하1층 ]]></MAP_NAME>
+                        <MAIN_MAP_URL>/contents/map/FLOOR_202402070516217040.png</MAIN_MAP_URL>
+                            </MAP_INFO>
+                </MAP_LIST>
+            <MAP_LIST>
+                    <MAP_INFO floor="2" direction="">
+                        <MAP_NAME><![CDATA[ 1층 ]]></MAP_NAME>
+                        <MAIN_MAP_URL>/contents/map/FLOOR_202402220158183940.png</MAIN_MAP_URL>
+                            </MAP_INFO>
+                </MAP_LIST>
+            <MAP_LIST>
+                    <MAP_INFO floor="3" direction="">
+                        <MAP_NAME><![CDATA[ 2층 ]]></MAP_NAME>
+                        <MAIN_MAP_URL>/contents/map/FLOOR_202402070530052100.png</MAIN_MAP_URL>
+                            </MAP_INFO>
+                </MAP_LIST>
+            <MAP_LIST>
+                    <MAP_INFO floor="4" direction="">
+                        <MAP_NAME><![CDATA[ 3층 ]]></MAP_NAME>
+                        <MAIN_MAP_URL>/contents/map/FLOOR_202402070530142540.png</MAIN_MAP_URL>
+                            </MAP_INFO>
+                </MAP_LIST>
+            <MAP_LIST>
+                    <MAP_INFO floor="5" direction="">
+                        <MAP_NAME><![CDATA[ 4층 ]]></MAP_NAME>
+                        <MAIN_MAP_URL>/contents/map/FLOOR_202402070530232920.png</MAIN_MAP_URL>
+                            </MAP_INFO>
+                </MAP_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="35" classCode = "1">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="4"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 1반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="36" classCode = "2">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="4"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 2반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="37" classCode = "3">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="4"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 3반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="38" classCode = "4">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="4"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 4반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="39" classCode = "5">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="4"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 5반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="40" classCode = "6">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="4"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 6반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="41" classCode = "7">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="3"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 7반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="42" classCode = "8">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="3"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 8반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="43" classCode = "9">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="3"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 9반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="44" classCode = "10">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="3"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 10반 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="45" classCode = "99">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="3"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 교무실 ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <CLASS_LIST>
+                        <CLASS_INFO classIdx="46" classCode = "416">
+                            <CLASS_POS pos_x="" pos_y="" gate_pos_x="" gate_pos_y="" floor="2"></CLASS_POS>
+                                <CLASS_NAME><![CDATA[ 사월홀(영상실) ]]></CLASS_NAME>
+                        </CLASS_INFO>
+                    </CLASS_LIST>
+            <PUB_INFO_LIST>
+                    <PUB_INFO>
+                        <PUB_CODE><![CDATA[ P01 ]]></PUB_CODE>
+                        <PUB_NAME><![CDATA[ 엘레베이터 ]]></PUB_NAME>
+                        <PUB_URL>/zcommonfiles/facility/facility_202403110155181400.png</PUB_URL>
+                            </PUB_INFO>
+                </PUB_INFO_LIST>
+            <PUB_INFO_LIST>
+                    <PUB_INFO>
+                        <PUB_CODE><![CDATA[ P03 ]]></PUB_CODE>
+                        <PUB_NAME><![CDATA[ 화장실 ]]></PUB_NAME>
+                        <PUB_URL>/zcommonfiles/facility/facility_202403110153248600.png</PUB_URL>
+                            </PUB_INFO>
+                </PUB_INFO_LIST>
+            <PUB_INFO_LIST>
+                    <PUB_INFO>
+                        <PUB_CODE><![CDATA[ P04 ]]></PUB_CODE>
+                        <PUB_NAME><![CDATA[ 주차장 ]]></PUB_NAME>
+                        <PUB_URL>/zcommonfiles/facility/facility_202403110153562540.png</PUB_URL>
+                            </PUB_INFO>
+                </PUB_INFO_LIST>
+            <PUB_INFO_LIST>
+                    <PUB_INFO>
+                        <PUB_CODE><![CDATA[ P05 ]]></PUB_CODE>
+                        <PUB_NAME><![CDATA[ 하늘정원 ]]></PUB_NAME>
+                        <PUB_URL>/zcommonfiles/facility/facility_202403110154106940.png</PUB_URL>
+                            </PUB_INFO>
+                </PUB_INFO_LIST>
+            <PUB_INFO_LIST>
+                    <PUB_INFO>
+                        <PUB_CODE><![CDATA[ P06 ]]></PUB_CODE>
+                        <PUB_NAME><![CDATA[ 비상구 ]]></PUB_NAME>
+                        <PUB_URL>/zcommonfiles/facility/facility_202403110154388530.png</PUB_URL>
+                            </PUB_INFO>
+                </PUB_INFO_LIST>
+            </KIOSK>
+        

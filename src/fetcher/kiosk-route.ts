@@ -4,11 +4,22 @@ import { findClosestVector } from "@/libs/way-finder/utils";
 import { KioskContents } from "@/types/kiosk-contents";
 import { KioskRouteResponse, PubInfo } from "@/types/kiosk-route";
 import { XMLParser } from "fast-xml-parser";
-
+const parser = new XMLParser({
+  parseAttributeValue: true,
+  attributeNamePrefix: "",
+  textNodeName: "value",
+  ignoreAttributes: false,
+  ignoreDeclaration: true,
+});
 export const fetchKioskRouteNodes = async () => {
+  // const response = // @ts-ignore
+  //   ((await import("~/xml/kiosk_route.xml")).default as KioskRouteResponse)
+  //     .KIOSK;
   const response = // @ts-ignore
-    ((await import("~/xml/kiosk_route.xml")).default as KioskRouteResponse)
-      .KIOSK;
+    await fetch("/xml/kiosk_route.xml")
+      .then((res) => res.text())
+      .then((res) => parser.parse(res) as KioskRouteResponse)
+      .then((res) => res.KIOSK);
 
   const graph: Graph = new Map<string, Vector>();
   response.NODE_LIST.NODE_INFO.forEach((node) => {
@@ -106,8 +117,13 @@ export const fetchKioskRouteNodes = async () => {
 };
 
 export const fetchKioskRouteContents = async (kioskCode = "K001") => {
+  // const response = // @ts-ignore
+  //   (await import("~/xml/kiosk_contents.xml")).default.KIOSK as KioskContents;
   const response = // @ts-ignore
-    (await import("~/xml/kiosk_contents.xml")).default.KIOSK as KioskContents;
+    await fetch("/xml/kiosk_contents.xml")
+      .then((res) => res.text())
+      .then((res) => parser.parse(res))
+      .then((res) => res.KIOSK as KioskContents);
   response.KIOSK_LIST.forEach((kioskCode) => {
     kioskCode.KIOSK_INFO.KIOSK_CODE = kioskCode.KIOSK_INFO.KIOSK_CODE.trim();
   });

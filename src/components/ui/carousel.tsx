@@ -1,14 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import {
+  ComponentPropsWithoutRef,
+  ComponentRef,
   PropsWithChildren,
   ReactNode,
   memo,
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from "react";
 import { EmblaCarouselType, UseEmblaCarouselType } from "embla-carousel-react";
-import { SerializedStyles, css, useTheme } from "@emotion/react";
+import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
   useScroll,
@@ -18,7 +21,7 @@ import {
   useTransform,
   m,
 } from "framer-motion";
-import { P3 } from "./text";
+import { H4, P3 } from "./text";
 
 interface CarouselOption {
   animate?: boolean;
@@ -52,18 +55,25 @@ const EmblaCarousel = <T,>({
     ...options,
   };
   const [emblaRef, emblaApi] = carouselType;
-  const theme = useTheme();
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollX = useScroll({ container: containerRef });
+  const [selectedIndex, setSelectedIndex] = useState(
+    emblaApi?.selectedScrollSnap() ?? 0
+  );
 
   const onScroll = (embla: EmblaCarouselType) => {
     scrollX.scrollXProgress.set(embla.scrollProgress());
   };
 
   useEffect(() => {
+    setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
+    console.log(console.log(emblaApi?.selectedScrollSnap()));
     if (animate) {
       emblaApi?.on("scroll", onScroll);
+      emblaApi?.on("select", () => {
+        setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
+      });
       return () => {
         emblaApi?.off("scroll", onScroll);
       };
@@ -72,35 +82,51 @@ const EmblaCarousel = <T,>({
 
   return (
     <div
-      ref={ref}
       css={css`
-        width: 80dvw;
-        ${cssSlide && cssSlide}
-        position: relative;
+        display: flex;
+        flex-direction: column;
       `}
     >
-      <Viewport ref={emblaRef}>
-        <LazyMotion features={domAnimation}>
-          <Container ref={containerRef}>
-            {typeof children === "function"
-              ? slides.map((item, index) => (
-                  <ScaleChildren
-                    enabled={animate}
-                    aspect={aspect}
-                    index={index}
-                    maxLength={slides.length}
-                    scrollX={scrollX.scrollXProgress}
-                    key={index}
-                  >
-                    {children(item, index)}
-                  </ScaleChildren>
-                ))
-              : children}
-          </Container>
-        </LazyMotion>
-      </Viewport>
+      <div
+        ref={ref}
+        css={css`
+          width: 80dvw;
+          ${cssSlide && cssSlide}
+        `}
+      >
+        <Viewport ref={emblaRef}>
+          <LazyMotion features={domAnimation}>
+            <Container ref={containerRef}>
+              {typeof children === "function"
+                ? slides.map((item, index) => (
+                    <ScaleChildren
+                      onFocus={() => {
+                        emblaApi?.scrollTo(index);
+                      }}
+                      enabled={animate}
+                      aspect={aspect}
+                      index={index}
+                      maxLength={slides.length}
+                      scrollX={scrollX.scrollXProgress}
+                      key={index}
+                    >
+                      {children(item, index)}
+                    </ScaleChildren>
+                  ))
+                : children}
+            </Container>
+          </LazyMotion>
+        </Viewport>
+      </div>
       {showArrow && (
-        <>
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 1rem;
+          `}
+        >
           <LeftButton
             data-disable-focus-effect="true"
             data-a11y-id="이전"
@@ -113,23 +139,27 @@ const EmblaCarousel = <T,>({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="54.482"
-              height="96.969"
-              viewBox="0 0 54.482 96.969"
+              width="36.07"
+              height="64.141"
+              viewBox="0 0 36.07 64.141"
             >
               <path
-                id="prev_icon"
-                d="M-20078.957-17310.031l-40,40,40,40"
-                transform="translate(20124.955 17318.516)"
+                id="naxt_icon"
+                d="M-20094.957-17310.031l-24,25,24,25"
+                transform="translate(20123.957 17317.102)"
                 fill="none"
                 stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="10"
               />
             </svg>
+
             <P3 css={css``}>이전</P3>
           </LeftButton>
+          <H4>
+            <b>{selectedIndex + 1}</b>&nbsp; /&nbsp;{slides.length}
+          </H4>
           <RightButton
             data-disable-focus-effect="true"
             data-a11y-id="다음"
@@ -142,24 +172,25 @@ const EmblaCarousel = <T,>({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="54.486"
-              height="96.969"
-              viewBox="0 0 54.486 96.969"
+              width="36.07"
+              height="64.141"
+              viewBox="0 0 36.07 64.141"
             >
               <path
                 id="naxt_icon"
-                d="M-20118.957-17310.031l40,40-40,40"
-                transform="translate(20127.441 17318.516)"
+                d="M-20118.957-17310.031l24,25-24,25"
+                transform="translate(20126.027 17317.102)"
                 fill="none"
                 stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="10"
               />
             </svg>
+
             <P3 css={css``}>다음</P3>
           </RightButton>
-        </>
+        </div>
       )}
     </div>
   );
@@ -173,13 +204,15 @@ const ScaleChildren = memo(
     scrollX,
     enabled,
     aspect = 0.33,
+    ...rest
   }: PropsWithChildren<{
     index: number;
     maxLength: number;
     aspect?: number;
     scrollX: MotionValue<number>;
     enabled: boolean;
-  }>) => {
+  }> &
+    ComponentPropsWithoutRef<"div">) => {
     const center = useMemo(() => index / maxLength, []);
     const weight = useMemo(
       () => (((index + 1) % maxLength) / maxLength || 1) - center,
@@ -202,6 +235,7 @@ const ScaleChildren = memo(
 
           /* margin: 0 auto; */
         `}
+        {...rest}
       >
         <m.div style={{ scale: t }}>{children}</m.div>
       </div>
@@ -212,20 +246,16 @@ const ScaleChildren = memo(
 export default EmblaCarousel;
 
 const LeftButton = styled.button`
-  position: absolute;
-  left: -2rem;
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 0.4rem;
-  width: 4rem;
-  height: 4.8rem;
+  width: 5.2rem;
+  height: 2.6rem;
   aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  column-gap: 0.3rem;
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
   row-gap: 0.48rem;
@@ -248,19 +278,16 @@ const LeftButton = styled.button`
   }
 `;
 const RightButton = styled.button`
-  position: absolute;
-  right: -2rem;
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 0.4rem;
-  width: 4rem;
-  height: 4.8rem;
+  width: 5.2rem;
+  height: 2.6rem;
   aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: row-reverse;
   border: none;
+  column-gap: 0.3rem;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};

@@ -37,6 +37,10 @@ export const H4 = styled.h4<Variant>`
   font-size: calc(var(--font-size) * 1.6);
   line-height: 1;
   ${(props) => FontVariants[props.variant ?? "primary"]}
+  b {
+    color: ${(props) => props.theme.color.yellow};
+    font-weight: 800;
+  }
 `;
 export const H5 = styled.h5<Variant>`
   font-family: "NanumSquareRoundOTF", sans-serif;

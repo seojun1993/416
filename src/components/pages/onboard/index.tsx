@@ -13,7 +13,7 @@ export const OnBoardTitle = ({ title }: OnBoardTitleProps) => {
         font-family: EastSeaDokdo;
         font-size: calc(var(--font-size) * 5.2);
         font-weight: 300;
-        margin-bottom: 3rem;
+        margin-bottom: 1.6rem;
       `}
     >
       <span

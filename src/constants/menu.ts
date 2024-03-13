@@ -44,14 +44,6 @@ export const menuContent: MenuData = {
   //   href: "/stars",
   //   a11y: "menu_word_cloud",
   // },
-  공간안내: {
-    title: "공간 안내",
-    description: "시설에 대한 안내를 받으실 수 있습니다.",
-    src: 메뉴이미지들.공간안내,
-    imagePainter: "4.16 민주시민교육원",
-    href: "/space-info",
-    a11y: "menu_space_guide",
-  },
   기억과약속의길: {
     title: "기억과 약속의 길",
     description: "기억과 약속의 길을 걸어보세요.",
@@ -59,6 +51,14 @@ export const menuContent: MenuData = {
     imagePainter: "대명중학교 박은후",
     href: "/memory-road",
     a11y: "menu_tour",
+  },
+  공간안내: {
+    title: "공간 안내",
+    description: "시설에 대한 안내를 받으실 수 있습니다.",
+    src: 메뉴이미지들.공간안내,
+    imagePainter: "4.16 민주시민교육원",
+    href: "/space-info",
+    a11y: "menu_space_guide",
   },
   세월호타임라인: {
     title: "세월호 타임라인",

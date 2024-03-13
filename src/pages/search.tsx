@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
-import Keyboard from "@/components/pages/search/keyboard";
+import Keyboard, { Key } from "@/components/pages/search/keyboard";
 import { H1, H4, P1 } from "@/components/ui/text";
 import {
   getStudentsFromSearchQuery,
@@ -14,6 +14,206 @@ import { filterNameContainFromPattern } from "@/fetcher/student";
 import NotFoundModal from "@/components/ui/not-found-modal";
 import { useA11y } from "@/hooks/use-a11y";
 import { sendA11yEvent } from "@/libs/utils";
+import { useSettingStore } from "@/contexts/setting.store";
+import styled from "@emotion/styled";
+const SearchButtonChild = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  column-gap: 0.2rem;
+  /* fill: ${(props) => props.theme.color.secondary.foreground};
+  color: ${(props) => props.theme.color.secondary.foreground}; */
+  p {
+    /* color: ${(props) => props.theme.color.secondary.foreground}; */
+  }
+`;
+
+const keyMap: Key[][] = [
+  [
+    {
+      icon: ["ㅂ"],
+      value: ["ㅂ"],
+      a11y: ["text_06"],
+    },
+    {
+      icon: ["ㅈ"],
+      value: ["ㅈ"],
+      a11y: ["text_09"],
+    },
+    {
+      icon: ["ㄷ"],
+      value: ["ㄷ"],
+      a11y: ["text_03"],
+    },
+    {
+      icon: ["ㄱ"],
+      value: ["ㄱ"],
+      a11y: ["text_01"],
+    },
+    {
+      icon: ["ㅅ"],
+      value: ["ㅅ"],
+      a11y: ["text_07"],
+    },
+    {
+      icon: ["ㅛ"],
+      value: ["ㅛ"],
+      a11y: ["text_20"],
+    },
+    {
+      icon: ["ㅕ"],
+      value: ["ㅕ"],
+      a11y: ["text_18"],
+    },
+    {
+      icon: ["ㅑ"],
+      value: ["ㅑ"],
+      a11y: ["text_16"],
+    },
+    {
+      icon: ["ㅐ"],
+      value: ["ㅐ"],
+      a11y: ["text_25"],
+    },
+    {
+      icon: ["ㅒ"],
+      value: ["ㅒ"],
+      a11y: ["text_26"],
+    },
+    {
+      icon: ["ㅔ"],
+      value: ["ㅔ"],
+      a11y: ["text_27"],
+    },
+    {
+      icon: ["ㅖ"],
+      value: ["ㅖ"],
+      a11y: ["text_28"],
+    },
+    {
+      icon: [
+        <SearchButtonChild data-a11y-id="remove">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="56"
+            height="38"
+            viewBox="0 0 56 38"
+            css={css`
+              /* margin-right: 0.3rem; */
+              aspect-ratio: 1/1;
+              height: 100%;
+              width: fit-content;
+              transition: none;
+              * {
+                transition: none;
+              }
+            `}
+          >
+            <g id="back" transform="translate(2 2)">
+              <path
+                id="패스"
+                d="M1581.813,449l-17.189,17,17.189,17h34.811V449Z"
+                transform="translate(-1564.624 -449)"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="4"
+              />
+              <path
+                id="패스-2"
+                data-name="패스"
+                d="M1583.446,471.773l-2.462-2.408,14.9-14.572,2.462,2.408Z"
+                transform="translate(-1556.214 -446.283)"
+                fill="currentColor"
+              />
+              <path
+                id="패스-3"
+                data-name="패스"
+                d="M2.408,17.357,0,14.9,14.572,0,16.98,2.461Z"
+                transform="translate(24.77 25.49) rotate(-90)"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <p
+            css={css`
+              font-size: 1.12rem;
+              font-family: "Pretendard";
+              font-size: calc(var(--font-size) * 1.12);
+              line-height: 1.2;
+              text-align: center;
+              font-weight: 700;
+            `}
+          >
+            지움
+          </p>
+        </SearchButtonChild>,
+      ],
+      // renderItem: SearchButton,
+      keyType: "Backspace",
+      a11y: ["remove"],
+      aspect: 2,
+    },
+  ],
+  [
+    {
+      icon: ["ㅁ"],
+      value: ["ㅁ"],
+      a11y: ["text_05"],
+    },
+    {
+      icon: ["ㄴ"],
+      value: ["ㄴ"],
+      a11y: ["text_02"],
+    },
+    {
+      icon: ["ㅇ"],
+      value: ["ㅇ"],
+      a11y: ["text_08"],
+    },
+    {
+      icon: ["ㄹ"],
+      value: ["ㄹ"],
+      a11y: ["text_04"],
+    },
+    {
+      icon: ["ㅎ"],
+      value: ["ㅎ"],
+      a11y: ["text_14"],
+    },
+    {
+      icon: ["ㅗ"],
+      value: ["ㅗ"],
+      a11y: ["text_19"],
+    },
+    {
+      icon: ["ㅓ"],
+      value: ["ㅓ"],
+      a11y: ["text_17"],
+    },
+    {
+      icon: ["ㅏ"],
+      value: ["ㅏ"],
+      a11y: ["text_15"],
+    },
+    {
+      icon: ["ㅣ"],
+      value: ["ㅣ"],
+      a11y: ["text_24"],
+    },
+
+    { icon: ["ㅋ"], value: ["ㅋ"], a11y: ["text_11"] },
+    { icon: ["ㅌ"], value: ["ㅌ"], a11y: ["text_12"] },
+    { icon: ["ㅊ"], value: ["ㅊ"], a11y: ["text_10"] },
+    { icon: ["ㅍ"], value: ["ㅍ"], a11y: ["text_13"] },
+    { icon: ["ㅠ"], value: ["ㅠ"], a11y: ["text_22"] },
+    { icon: ["ㅜ"], value: ["ㅜ"], a11y: ["text_21"] },
+    { icon: ["ㅡ"], value: ["ㅡ"], a11y: ["text_23"] },
+  ],
+];
 
 const Search = () => {
   const theme = useTheme();
@@ -23,6 +223,7 @@ const Search = () => {
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
 
+  const mode = useSettingStore((state) => state.mode);
   const { data } = useQuery(getStudentsQuery());
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
@@ -55,9 +256,17 @@ const Search = () => {
     <MainShell
       css={css`
         width: fit-content;
+        flex-direction: column;
         margin: 0 auto;
       `}
     >
+      {mode === "wheel" && (
+        <div
+          css={css`
+            flex: 1;
+          `}
+        />
+      )}
       <form
         onSubmit={handleSubmit}
         css={css`
@@ -237,6 +446,7 @@ const Search = () => {
         </div>
         <Keyboard
           defaultValue={searchParam.get("keyword") ?? ""}
+          keyboardItem={mode === "wheel" ? keyMap : undefined}
           onChange={(value) => {
             if (inputRef.current) {
               inputRef.current.value = value;
