@@ -3,7 +3,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "./queries/student";
-import { lazy, useEffect, useRef } from "react";
+import { lazy, useCallback, useEffect, useRef } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
 import { sendA11yEvent } from "./libs/utils";
@@ -40,6 +40,10 @@ function Root() {
     },
   };
 
+  const handleGuideClick = useCallback(() => {
+    navigate("/manual");
+  }, []);
+
   const handleKioskButtonClick = (event: KeyboardEvent) => {
     if (Object.hasOwn(keydownHandler, event.code)) {
       event.stopPropagation();
@@ -49,8 +53,11 @@ function Root() {
   };
 
   useEffect(() => {
+    window.addEventListener("manualClick", handleGuideClick);
     document.addEventListener("keydown", handleKioskButtonClick);
     return () => {
+      window.removeEventListener("manualClick", handleGuideClick);
+
       document.removeEventListener("keydown", handleKioskButtonClick);
     };
   }, []);
