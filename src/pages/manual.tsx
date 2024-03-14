@@ -8,26 +8,26 @@ import styled from "@emotion/styled";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { useState } from "react";
 import manualImage from "@/assets/images/manual";
-import src from "@/assets/images/0_메인_수어on.png";
 import ImageX from "@/components/ui/image";
 import { fadeInOutVariants } from "@/variants";
 const memoryItems = [
   {
     title: "볼륨 및 속도 조절" as const,
+    a11y: "",
     description:
       "<b>화면 오른쪽 아래의 버튼</b>을 사용해 음량 및 음성 속도, 글씨 크기를 <b>조절</b>할 수 있습니다.",
     image: manualImage.manual_1,
   },
   {
     title: "점자 및 키패드" as const,
-    a11y: "tour_01",
+    a11y: "",
     description:
       "기기 왼쪽 아래에는 <b>점자 패드</b>가 있습니다. 점자 패드를 사용하시면 주요 콘텐츠의 내용을 <b>점자로 확인</b>할 수 있습니다.",
     image: manualImage.manual_2,
   },
   {
     title: "화면 높낮이 조절 안내" as const,
-    a11y: "tour_02",
+    a11y: "",
     description: `키패드의 네모는 숫자, 삼각형은 방향, 동그라미는 확인, 세모는 홈 확인 및 취소 버튼 입니다.<br/>
   <b>키패드의 숫자로 메뉴와 정보를 선택</b>할 수 있습니다.`,
     image: manualImage.manual_3,
@@ -39,7 +39,7 @@ const MemoryRoad = () => {
 
   const mode = useSettingStore((state) => state.mode);
 
-  useA11y(mode === "sound" ? "tour_detail" : "tour");
+  // useA11y(mode === "sound" ? "tour_detail" : "tour");
   return (
     <MemoryShell>
       <LazyMotion features={domAnimation}>

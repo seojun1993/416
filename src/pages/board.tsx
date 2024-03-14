@@ -409,7 +409,12 @@ const Board = () => {
                 <P3 css={css``}>이전</P3>
               </LeftButton>
               <H4>
-                <b>{page + 1}</b>&nbsp; /&nbsp;
+                <b>
+                  {page > (student?.images.length ?? 0 + 1)
+                    ? student?.images.length ?? 0 + 1
+                    : page + 1}
+                </b>
+                &nbsp; /&nbsp;
                 {(student?.images.length ?? 0) + 1}
               </H4>
               <RightButton

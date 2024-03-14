@@ -1,6 +1,6 @@
 import "@/assets/static/styles/index.css";
 import { Global, ThemeProvider } from "@emotion/react";
-import { PropsWithChildren, useEffect, useRef } from "react";
+import { PropsWithChildren, useCallback, useEffect, useRef } from "react";
 import style from "@/styles";
 import { useSettingStore } from "./contexts/setting.store";
 import { useThemeMode } from "./hooks/use-theme-mode";
@@ -8,7 +8,7 @@ import { darkTheme, lightTheme } from "./styles/theme";
 
 const GlobalLayout = ({ children }: PropsWithChildren) => {
   const [themeMode] = useThemeMode();
-  const { zoom, setSignVideoUrl, setKioskCode } = useSettingStore();
+  const { zoom, setSignVideoUrl, setKioskCode, clear } = useSettingStore();
   const jumja = useRef(
     window?.chrome?.webview?.hostObjects?.sync?.jumjaplay
   ).current;
@@ -20,6 +20,11 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
   function isCustomEvent(event: Event): event is CustomEvent {
     return "detail" in event;
   }
+
+  const handleClear = useCallback(() => {
+    clear();
+  }, []);
+
   const handleA11y = (event: Event) => {
     if (isCustomEvent(event)) {
       const url = jumja?.Play(event.detail);
@@ -28,6 +33,7 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
   };
   useEffect(() => {
     window.addEventListener("a11y", handleA11y);
+    window.addEventListener("webClearEvent", handleClear);
     if (jumja) {
       {
         setKioskCode(jumja.GetKioskCode());
@@ -35,6 +41,7 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
     }
     return () => {
       window.removeEventListener("a11y", handleA11y);
+      window.removeEventListener("webClearEvent", handleClear);
     };
   }, []);
   return (

@@ -97,6 +97,33 @@ interface CombineUserModeSlice {
   onChangeMode: (mode: UserMode) => void;
 }
 
+interface CombineAllSlice {
+  clear: () => void;
+}
+
+const createCombineAllSlice: StateCreator<
+  KioskSettingSlice &
+    ZoomSlice &
+    ThemeSlice &
+    SignSlice &
+    UserModeSlice &
+    SoundSlice &
+    CombineUserModeSlice &
+    TooltipSlice,
+  [],
+  [],
+  CombineAllSlice
+> = (set, get) => ({
+  clear: () => {
+    const { setSoundSpeed, setVolumnAction, setZoom, soundSpeed, changeMode } =
+      get();
+    changeMode("sound");
+    setVolumnAction(get().volumeRange.length - 2);
+    setZoom(() => 1);
+    setSoundSpeed(() => soundSpeed.length - 1);
+  },
+});
+
 const createKioskSettingSlice: StateCreator<KioskSettingSlice> = (set) => ({
   kioskCode: "K001",
   setKioskCode: (kioskCode) => kioskCode && set({ kioskCode }),
@@ -175,7 +202,7 @@ const createSoundSlice: StateCreator<
   SoundSlice
 > = (set, get) => ({
   volumeRange: [80, 70, 60, 50, 0],
-  selectedVolumeIndex: 4,
+  selectedVolumeIndex: 3,
   selectedSoundSpeedIndex: SoundSpeed.length - 1,
   soundSpeed: SoundSpeed,
   soundActivate: true,
@@ -213,7 +240,8 @@ export const useSettingStore = create<
     UserModeSlice &
     SoundSlice &
     CombineUserModeSlice &
-    TooltipSlice
+    TooltipSlice &
+    CombineAllSlice
 >()((...a) => ({
   ...createKioskSettingSlice(...a),
   ...createThemeSlice(...a),
@@ -223,4 +251,5 @@ export const useSettingStore = create<
   ...createSoundSlice(...a),
   ...createCombineUserModeSlice(...a),
   ...createTooltipSlice(...a),
+  ...createCombineAllSlice(...a),
 }));
