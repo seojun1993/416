@@ -2,11 +2,11 @@
 import { Card } from "@/components/common/card";
 import { MainShell } from "@/components/common/main-shell";
 import EmblaCarousel from "@/components/ui/carousel";
-import { H1, H4, P3 } from "@/components/ui/text";
+import { H1, H4, H5, P2, P3 } from "@/components/ui/text";
 import { getImagePath, sendA11yEvent } from "@/libs/utils";
 import { getStudentsFromClass } from "@/queries/student";
 import { Student } from "@/types/student";
-import { css } from "@emotion/react";
+import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel-react";
@@ -34,6 +34,9 @@ import {
 } from "react-zoom-pan-pinch";
 import { useA11y } from "@/hooks/use-a11y";
 import { Prefetch } from "@/libs/plugins/prefetch";
+import { Link } from "react-router-dom";
+import ImageX from "@/components/ui/image";
+import { useCheckClick } from "@/hooks/use-check-click";
 
 const memoryItems = [
   { title: "1반" as const, class: 1 },
@@ -113,7 +116,7 @@ const MemoryList = () => {
                 `}
                 onClick={() => {
                   setSelected(item);
-                  // visualizerRef.current?.moveScrollToIndex(0, item.class);
+                  visualizerRef.current?.moveScrollToIndex(0, item.class);
                   emblaApi?.reInit(OPTIONS);
                 }}
                 selected={item.class === selected.class}
@@ -134,6 +137,7 @@ const MemoryList = () => {
                   display: flex;
                   flex-direction: column;
                   align-items: center;
+                  padding-top: 1rem;
                 `}
               >
                 <H4>{selected.title}</H4>
@@ -141,30 +145,37 @@ const MemoryList = () => {
                   명단을 터치하시면 <strong>개인화면</strong>으로 이동합니다.
                 </MemoryClassDescription>
                 {students ? (
-                  <EmblaCarousel
-                    carouselType={[emblaRef, emblaApi]}
-                    slides={students}
-                    cssSlide={css`
-                      flex: 1;
-                      width: 90%;
+                  <div
+                    css={css`
+                      width: 100%;
                     `}
                   >
-                    {(item, index) => {
-                      return (
-                        <OnBoardItem
-                          key={item.id}
-                          item={item}
-                          index={index}
-                          onFirstClick={() => {
-                            emblaApi?.scrollTo(index);
-                          }}
-                          onDoubleClick={() => {
-                            // sessionStorage.setItem("redirect_id", id + "");
-                          }}
-                        />
-                      );
-                    }}
-                  </EmblaCarousel>
+                    <EmblaCarousel
+                      carouselType={[emblaRef, emblaApi]}
+                      slides={students}
+                      cssSlide={css`
+                        flex: 1;
+                        width: 90%;
+                        margin: 0 auto;
+                      `}
+                    >
+                      {(item, index) => {
+                        return (
+                          <OnBoardItem
+                            key={item.id}
+                            item={item}
+                            index={index}
+                            onFirstClick={() => {
+                              emblaApi?.scrollTo(index);
+                            }}
+                            onDoubleClick={() => {
+                              // sessionStorage.setItem("redirect_id", id + "");
+                            }}
+                          />
+                        );
+                      }}
+                    </EmblaCarousel>
+                  </div>
                 ) : null}
               </m.div>
             </AnimatePresence>
@@ -210,8 +221,7 @@ const AlbumVisualizer = forwardRef<{
 
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
-    // count: albums?.length ?? 0,
-    count: 1,
+    count: albums?.length ?? 0,
     getScrollElement: () => parentRef.current,
     estimateSize: () => parentWidth,
     overscan: 5,
@@ -265,6 +275,9 @@ const AlbumVisualizer = forwardRef<{
         flex: 1;
         height: 100%;
         margin-right: 2rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
       `}
     >
       <div
@@ -303,64 +316,81 @@ const AlbumVisualizer = forwardRef<{
             )}
         </div>
       </div>
-      {/* <LeftButton
-        data-disable-focus-effect="true"
-        onClick={() => {
-          if (columnVirtualizer.range?.endIndex) {
-            moveScrollToIndex(columnVirtualizer.range.endIndex - 1);
-          }
-        }}
+      <div
+        css={css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          column-gap: 1rem;
+        `}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="54.482"
-          height="96.969"
-          viewBox="0 0 54.482 96.969"
+        <LeftButton
+          data-disable-focus-effect="true"
+          data-a11y-id="이전"
+          onClick={() => {
+            if (columnVirtualizer.range?.endIndex) {
+              moveScrollToIndex(columnVirtualizer.range.endIndex - 1);
+            }
+          }}
         >
-          <path
-            id="prev_icon"
-            d="M-20078.957-17310.031l-40,40,40,40"
-            transform="translate(20124.955 17318.516)"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="12"
-          />
-        </svg>
-        <P3 css={css``}>이전</P3>
-      </LeftButton> */}
-      {/* <RightButton
-        data-disable-focus-effect="true"
-        onClick={() => {
-          if (
-            columnVirtualizer.range &&
-            albums &&
-            columnVirtualizer.range?.endIndex < albums?.length
-          ) {
-            moveScrollToIndex(columnVirtualizer.range.endIndex + 1);
-          }
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="54.486"
-          height="96.969"
-          viewBox="0 0 54.486 96.969"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36.07"
+            height="64.141"
+            viewBox="0 0 36.07 64.141"
+          >
+            <path
+              id="naxt_icon"
+              d="M-20094.957-17310.031l-24,25,24,25"
+              transform="translate(20123.957 17317.102)"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="10"
+            />
+          </svg>
+
+          <P3 css={css``}>이전</P3>
+        </LeftButton>
+        <H4>
+          <b>{(columnVirtualizer.range?.startIndex ?? 0) + 1}</b>&nbsp; /&nbsp;
+          {albums?.length ?? 0}
+        </H4>
+        <RightButton
+          data-disable-focus-effect="true"
+          data-a11y-id="다음"
+          onClick={() => {
+            if (
+              columnVirtualizer.range &&
+              albums &&
+              columnVirtualizer.range?.endIndex < albums?.length
+            ) {
+              moveScrollToIndex(columnVirtualizer.range.endIndex + 1);
+            }
+          }}
         >
-          <path
-            id="naxt_icon"
-            d="M-20118.957-17310.031l40,40-40,40"
-            transform="translate(20127.441 17318.516)"
-            fill="none"
-            stroke="currentcolor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="12"
-          />
-        </svg>
-        <P3 css={css``}>다음</P3>
-      </RightButton> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36.07"
+            height="64.141"
+            viewBox="0 0 36.07 64.141"
+          >
+            <path
+              id="naxt_icon"
+              d="M-20118.957-17310.031l24,25-24,25"
+              transform="translate(20126.027 17317.102)"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="10"
+            />
+          </svg>
+
+          <P3 css={css``}>다음</P3>
+        </RightButton>
+      </div>
     </div>
   );
 });
@@ -423,20 +453,16 @@ const MemoryAlbum = memo(
 );
 
 const LeftButton = styled.button`
-  position: absolute;
-  left: calc(0% - 2rem);
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 0.4rem;
-  width: 4rem;
-  height: 4.8rem;
+  width: 5.2rem;
+  height: 2.6rem;
   aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  column-gap: 0.3rem;
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
   row-gap: 0.48rem;
@@ -459,19 +485,16 @@ const LeftButton = styled.button`
   }
 `;
 const RightButton = styled.button`
-  position: absolute;
-  right: calc(0% - 2rem);
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 0.4rem;
-  width: 4rem;
-  height: 4.8rem;
+  width: 5.2rem;
+  height: 2.6rem;
   aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: row-reverse;
   border: none;
+  column-gap: 0.3rem;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
@@ -494,6 +517,7 @@ const RightButton = styled.button`
     color: black;
   }
 `;
+
 const MemoryQRCode = styled.button`
   padding: 1.2rem 0.6rem;
   background-color: ${(props) => props.theme.color.background.secondary};
@@ -521,7 +545,6 @@ const MemoryContent = styled.div`
 const MemoryClassDescription = styled(P3)`
   color: white;
   font-weight: 400;
-  margin-bottom: 1.2rem;
   margin-top: 0.6rem;
   strong {
     color: ${(props) =>
@@ -573,7 +596,7 @@ function OnBoardItem({
   onBlur?: (ref: HTMLElement | null) => void;
 }) {
   return (
-    <Card
+    <SmallCard
       a11y={item.voicekey}
       linkStyle={css`
         width: 10rem;
@@ -593,3 +616,155 @@ function OnBoardItem({
     />
   );
 }
+
+interface CardProps {
+  image: string;
+  title: string;
+  birth: string | Date;
+  classDescription: string;
+  badge?: string;
+  href?: string;
+  onFirstClick?: (ref: HTMLElement) => void;
+  onDoubleClick?: (ref: HTMLElement) => void;
+  onBlur?: (ref: HTMLElement | null) => void;
+  linkStyle?: SerializedStyles;
+  contentHeaderStyle?: SerializedStyles;
+  a11y?: string;
+}
+export const SmallCard = memo(
+  ({
+    birth,
+    image,
+    badge,
+    classDescription,
+    a11y,
+    title,
+    href,
+    linkStyle,
+    contentHeaderStyle,
+    onBlur,
+    onFirstClick,
+    onDoubleClick,
+  }: CardProps) => {
+    const ref = useRef<HTMLAnchorElement>(null);
+    const getBirthText = useCallback((birth: Date) => {
+      const month = birth.getMonth() + 1;
+      const date = birth.getDate();
+      return `${(month + "").padStart(2, "0")}.${(date + "").padStart(2, "0")}`;
+      // return `${(month + "").padStart(2, "0")}월 ${(date + "").padStart(
+      //   2,
+      //   "0"
+      // )}일`;
+    }, []);
+    const birthText = getBirthText(
+      birth instanceof Date ? birth : new Date(birth)
+    );
+    useCheckClick({
+      ref,
+      onFirstClick,
+      onDoubleClick,
+      onBlur,
+    });
+
+    return (
+      <CardLink
+        data-a11y-id={a11y}
+        to={window.location.href}
+        ref={ref}
+        css={css`
+          aspect-ratio: 25/32;
+          ${linkStyle && linkStyle}
+        `}
+      >
+        <CardAvatar src={image}>
+          {badge && <CardBadge>{badge}</CardBadge>}
+        </CardAvatar>
+        <CardContent>
+          <CardClassNumber>
+            <P3>{classDescription}</P3>
+          </CardClassNumber>
+          <CardContentHeader contentHeaderStyle={contentHeaderStyle}>
+            <span>{title}</span>
+            <span>{birthText}</span>
+          </CardContentHeader>
+        </CardContent>
+      </CardLink>
+    );
+  }
+);
+
+const CardClassNumber = styled.div`
+  padding: 0.3rem 0;
+  background-color: ${(props) => props.theme.color.card.class};
+`;
+
+const CardLink = styled(Link)`
+  width: 9.2rem;
+  height: 100%;
+  outline: 1px solid #eeeeee;
+  border-radius: 0.7em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: ${(props) => props.theme.color.background.secondary};
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  column-gap: 0.8rem;
+  text-decoration: none;
+  margin: 0 auto;
+  color: ${(props) => props.theme.color.text.main};
+
+  & > div + div {
+    border-top: 0.13dvw solid #999999;
+  }
+`;
+
+const CardBadge = styled(P2)`
+  white-space: nowrap;
+  position: absolute;
+  top: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 2rem;
+  border-radius: 9999rem;
+  border: 0.16rem solid ${(props) => props.theme.color.badge.border};
+  background-color: ${(props) => props.theme.color.badge.background};
+  color: ${(props) => props.theme.color.badge.text};
+`;
+
+const CardAvatar = styled(ImageX)`
+  background-color: #fff;
+  object-fit: fill;
+`;
+
+const CardContent = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  text-align: center;
+  height: 30%;
+`;
+
+const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`
+  display: inline-flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 auto;
+  padding-bottom: 0.5rem;
+  margin-top: 0.2rem;
+  color: ${(props) => props.theme.color.text.main};
+  ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
+  > span:first-of-type {
+    display: inline-flex;
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      width: 0.14em;
+      flex: 1;
+      background-color: ${(props) => props.theme.color.accent.foreground};
+
+      border-radius: 1rem;
+      margin: 0.2rem 0.5rem;
+    }
+  }
+`;

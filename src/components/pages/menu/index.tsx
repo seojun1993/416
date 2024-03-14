@@ -59,8 +59,8 @@ export const MenuCard = ({
         border: 0.15rem solid white;
         text-decoration: none;
         border-radius: 0.8rem;
-        /* flex: 0 0 calc(29% + ${zoom - 0.4}%); */
-        padding: 1.4rem 1rem;
+        flex: 0 0 calc(29% + ${zoom - 0.4}%);
+        padding: 1.4rem 1rem 1.2rem 1rem;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -68,58 +68,60 @@ export const MenuCard = ({
         width: 100%;
         ${mode !== "wheel"
           ? `aspect-ratio: 1/1.36;
-        height: 23.8rem;`
+        `
           : ""}
       `}
     >
-      <H4
+      <div
         css={css`
-          color: white;
-          letter-spacing: -0.05em;
-        `}
-      >
-        {title}
-      </H4>
-      {mode !== "wheel" && <Divider />}
-      {/* <P3
-        variant="secondary"
-        css={css`
-          color: white;
-          white-space: pre-line;
-          text-align: start;
+          display: flex;
+          flex-direction: column;
           flex: 1;
         `}
       >
-        {description}
-      </P3> */}
+        <H4
+          css={css`
+            color: white;
+            letter-spacing: -0.05em;
+          `}
+        >
+          {title}
+        </H4>
+        {mode !== "wheel" && <Divider />}
+        {mode !== "wheel" && (
+          <P3
+            variant="secondary"
+            css={css`
+              color: white;
+              white-space: pre-line;
+              text-align: start;
+              flex: 1;
+            `}
+          >
+            {description}
+          </P3>
+        )}
+      </div>
       {mode !== "wheel" && (
         <div
           css={css`
-            flex-grow: 1;
+            flex: 2.5;
             display: flex;
             align-items: flex-end;
             overflow: hidden;
           `}
         >
-          <div
+          <img
+            src={img}
             css={css`
-              overflow: hidden;
               border-radius: 0.8rem;
-              position: relative;
+              width: 100%;
+              height: 100%;
+              margin: 0 auto;
+              transform: scale(${zoom});
+              /* aspect-ratio: 1/1; */
             `}
-          >
-            <img
-              src={img}
-              css={css`
-                border-radius: 0.8rem;
-                width: 100%;
-                height: 100%;
-                margin: 0 auto;
-                transform: scale(${zoom});
-                /* aspect-ratio: 1/1; */
-              `}
-            />
-          </div>
+          />
         </div>
       )}
     </Link>

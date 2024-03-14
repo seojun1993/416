@@ -4,7 +4,7 @@ import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { memo, useCallback, useRef } from "react";
 import ImageX from "../ui/image";
-import { H4, P2 } from "../ui/text";
+import { H4, P2, P3 } from "../ui/text";
 import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -28,6 +28,7 @@ export const Card = memo(
     image,
     badge,
     title,
+    classDescription,
     href,
     linkStyle,
     contentHeaderStyle,
@@ -59,7 +60,7 @@ export const Card = memo(
     return (
       <CardLink
         data-a11y-id={a11y}
-        to={window.location.href}
+        to={href ?? ""}
         ref={ref}
         css={css`
           aspect-ratio: 25/32;
@@ -70,11 +71,12 @@ export const Card = memo(
           {badge && <CardBadge>{badge}</CardBadge>}
         </CardAvatar>
         <CardContent>
-          {/* <CardClassNumber>
+          <CardClassNumber>
             <P3>{classDescription}</P3>
-          </CardClassNumber> */}
+          </CardClassNumber>
           <CardContentHeader contentHeaderStyle={contentHeaderStyle}>
-            {title}
+            <span>{title}</span>
+            <span>{birthText}</span>
           </CardContentHeader>
         </CardContent>
       </CardLink>
@@ -142,4 +144,18 @@ const CardContentHeader = styled(H4)<{ contentHeaderStyle?: SerializedStyles }>`
   padding: 0.5rem 0;
   color: ${(props) => props.theme.color.text.main};
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
+  > span:first-of-type {
+    display: inline-flex;
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      width: 0.14em;
+      flex: 1;
+      background-color: ${(props) => props.theme.color.accent.foreground};
+
+      border-radius: 1rem;
+      margin: 0.2rem 0.5rem;
+    }
+  }
 `;

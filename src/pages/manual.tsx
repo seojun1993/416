@@ -152,9 +152,9 @@ function MemoryContent({ item }: MemoryContentProps) {
                 transform="translate(20123.957 17317.102)"
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="10"
               />
             </svg>
 
@@ -182,9 +182,9 @@ function MemoryContent({ item }: MemoryContentProps) {
                 transform="translate(20126.027 17317.102)"
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="10"
               />
             </svg>
 

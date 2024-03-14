@@ -1,8 +1,10 @@
 /** @jsxImportSource @emotion/react */
+import maps from "@/assets/images/maps";
 import { MainShell } from "@/components/common/main-shell";
 import { H1, H4, P3 } from "@/components/ui/text";
 import { useSettingStore } from "@/contexts/setting.store";
 import { useA11y } from "@/hooks/use-a11y";
+import { useThemeMode } from "@/hooks/use-theme-mode";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
@@ -27,6 +29,7 @@ const MemoryRoad = () => {
   const [selected, setSelected] = useState(0);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const mode = useSettingStore((state) => state.mode);
+  const [themeMode] = useThemeMode();
 
   useA11y(mode === "sound" ? "tour_detail" : "tour");
   return (
@@ -38,18 +41,54 @@ const MemoryRoad = () => {
         <>
           <LazyMotion features={domAnimation}>
             <AnimatePresence mode="wait">
-              <MemoryRoadContent
-                css={css`
-                  margin-top: 0;
-                  margin-bottom: 1.6rem;
-                `}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key={memoryItems[selected].title}
-              >
-                {Description}
-              </MemoryRoadContent>
+              {selected === 0 ? (
+                <MemoryRoadContent
+                  css={css`
+                    margin-bottom: 2.46rem;
+                  `}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  key={memoryItems[selected].title}
+                >
+                  {Description}
+                </MemoryRoadContent>
+              ) : (
+                <MemoryRoadContent
+                  css={css`
+                    margin-bottom: 2.46rem;
+                  `}
+                >
+                  <RoadMapInfo
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <img
+                      css={css`
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                      `}
+                      src={maps[themeMode]}
+                    />
+                    <RoadRoute selected={selected} />
+                  </RoadMapInfo>
+                  <AnimatePresence mode="wait">
+                    <m.div
+                      key={selected}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      css={css`
+                        display: flex;
+                      `}
+                    >
+                      {Description}
+                    </m.div>
+                  </AnimatePresence>
+                </MemoryRoadContent>
+              )}
             </AnimatePresence>
           </LazyMotion>
           <MemoryListButton
@@ -101,14 +140,51 @@ const MemoryRoad = () => {
           </MemoryListSmallButtons>
           <LazyMotion features={domAnimation}>
             <AnimatePresence mode="wait">
-              <MemoryRoadContent
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key={memoryItems[selected].title}
-              >
-                {Description}
-              </MemoryRoadContent>
+              {selected === 0 ? (
+                <MemoryRoadContent
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  key={memoryItems[selected].title}
+                >
+                  {Description}
+                </MemoryRoadContent>
+              ) : (
+                <MemoryRoadContent
+                  css={css`
+                    margin-top: 2.46rem;
+                  `}
+                >
+                  <RoadMapInfo
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <img
+                      css={css`
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                      `}
+                      src={maps[themeMode]}
+                    />
+                    <RoadRoute selected={selected} />
+                  </RoadMapInfo>
+                  <AnimatePresence mode="wait">
+                    <m.div
+                      key={selected}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      css={css`
+                        display: flex;
+                      `}
+                    >
+                      {Description}
+                    </m.div>
+                  </AnimatePresence>
+                </MemoryRoadContent>
+              )}
             </AnimatePresence>
           </LazyMotion>
         </>
@@ -160,7 +236,6 @@ const MemoryRoadContent = styled(m.div)`
   display: flex;
   column-gap: 1rem;
   flex-grow: 1;
-  margin-top: 2.46rem;
 `;
 
 const MemoryRoadAccentText = styled.b`
@@ -969,11 +1044,11 @@ const memorySummaryComponents: {
       css={css`
         display: flex;
         flex-direction: column;
-        align-items: center;
+
         row-gap: 1rem;
         flex-grow: 1;
-        padding: 0 5rem;
         overflow-y: scroll;
+        margin: auto 0;
         > p {
           line-break: auto;
           word-break: keep-all;
@@ -981,7 +1056,6 @@ const memorySummaryComponents: {
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
-          text-align: center;
         }
       `}
     >
@@ -1019,10 +1093,9 @@ const memorySummaryComponents: {
       css={css`
         display: flex;
         flex-direction: column;
-        align-items: center;
+        margin: auto 0;
         row-gap: 1rem;
         flex-grow: 1;
-        padding: 0 5rem;
         overflow-y: scroll;
         > p {
           line-break: auto;
@@ -1031,7 +1104,6 @@ const memorySummaryComponents: {
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
-          text-align: center;
         }
       `}
     >
@@ -1065,10 +1137,9 @@ const memorySummaryComponents: {
       css={css`
         display: flex;
         flex-direction: column;
-        align-items: center;
+        margin: auto 0;
         row-gap: 1rem;
         flex-grow: 1;
-        padding: 0 5rem;
         overflow-y: scroll;
         > p {
           line-break: auto;
@@ -1077,7 +1148,6 @@ const memorySummaryComponents: {
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
-          text-align: center;
         }
       `}
     >
@@ -1250,10 +1320,9 @@ const memorySummaryComponents: {
       css={css`
         display: flex;
         flex-direction: column;
-        align-items: center;
+        margin: auto 0;
         row-gap: 1rem;
         flex-grow: 1;
-        padding: 0 5rem;
         overflow-y: scroll;
         > p {
           line-break: auto;
@@ -1262,7 +1331,6 @@ const memorySummaryComponents: {
           text-align: start;
           font-weight: 400;
           margin-bottom: 1rem;
-          text-align: center;
         }
       `}
     >

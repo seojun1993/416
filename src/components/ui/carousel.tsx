@@ -40,6 +40,10 @@ interface EmblaCarouselProps<T> {
   aspect?: number;
   showArrow?: boolean;
   children?: ReactNode | ((item: T, index: number) => ReactNode);
+  arrow?: (
+    embla: EmblaCarouselType | undefined,
+    currentIndex: number
+  ) => ReactNode;
 }
 const EmblaCarousel = <T,>({
   slides,
@@ -47,6 +51,7 @@ const EmblaCarousel = <T,>({
   children,
   cssSlide,
   aspect,
+  arrow,
   showArrow = true,
   options = {},
 }: EmblaCarouselProps<T>) => {
@@ -68,16 +73,20 @@ const EmblaCarousel = <T,>({
 
   useEffect(() => {
     setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
-    console.log(console.log(emblaApi?.selectedScrollSnap()));
+    emblaApi?.on("select", () => {
+      setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
+    });
     if (animate) {
       emblaApi?.on("scroll", onScroll);
-      emblaApi?.on("select", () => {
-        setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
-      });
       return () => {
         emblaApi?.off("scroll", onScroll);
       };
     }
+    return () => {
+      emblaApi?.off("select", () => {
+        setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
+      });
+    };
   }, [emblaApi]);
 
   return (
@@ -85,6 +94,7 @@ const EmblaCarousel = <T,>({
       css={css`
         display: flex;
         flex-direction: column;
+        position: relative;
       `}
     >
       <div
@@ -118,80 +128,83 @@ const EmblaCarousel = <T,>({
           </LazyMotion>
         </Viewport>
       </div>
-      {showArrow && (
-        <div
-          css={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            column-gap: 1rem;
-          `}
-        >
-          <LeftButton
-            data-disable-focus-effect="true"
-            data-a11y-id="이전"
+      {showArrow &&
+        (typeof arrow === "function" ? (
+          arrow(emblaApi, selectedIndex)
+        ) : (
+          <div
             css={css`
-              ${leftStyle}
-            `}
-            onClick={() => {
-              emblaApi?.scrollPrev();
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36.07"
-              height="64.141"
-              viewBox="0 0 36.07 64.141"
-            >
-              <path
-                id="naxt_icon"
-                d="M-20094.957-17310.031l-24,25,24,25"
-                transform="translate(20123.957 17317.102)"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="10"
-              />
-            </svg>
-
-            <P3 css={css``}>이전</P3>
-          </LeftButton>
-          <H4>
-            <b>{selectedIndex + 1}</b>&nbsp; /&nbsp;{slides.length}
-          </H4>
-          <RightButton
-            data-disable-focus-effect="true"
-            data-a11y-id="다음"
-            onClick={() => {
-              emblaApi?.scrollNext();
-            }}
-            css={css`
-              ${rightStyle}
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              column-gap: 1rem;
             `}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36.07"
-              height="64.141"
-              viewBox="0 0 36.07 64.141"
+            <LeftButton
+              data-disable-focus-effect="true"
+              data-a11y-id="이전"
+              css={css`
+                ${leftStyle}
+              `}
+              onClick={() => {
+                emblaApi?.scrollPrev();
+              }}
             >
-              <path
-                id="naxt_icon"
-                d="M-20118.957-17310.031l24,25-24,25"
-                transform="translate(20126.027 17317.102)"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="10"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36.07"
+                height="64.141"
+                viewBox="0 0 36.07 64.141"
+              >
+                <path
+                  id="naxt_icon"
+                  d="M-20094.957-17310.031l-24,25,24,25"
+                  transform="translate(20123.957 17317.102)"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="10"
+                />
+              </svg>
 
-            <P3 css={css``}>다음</P3>
-          </RightButton>
-        </div>
-      )}
+              <P3 css={css``}>이전</P3>
+            </LeftButton>
+            <H4>
+              <b>{selectedIndex + 1}</b>&nbsp; /&nbsp;{slides.length}
+            </H4>
+            <RightButton
+              data-disable-focus-effect="true"
+              data-a11y-id="다음"
+              onClick={() => {
+                emblaApi?.scrollNext();
+              }}
+              css={css`
+                ${rightStyle}
+              `}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36.07"
+                height="64.141"
+                viewBox="0 0 36.07 64.141"
+              >
+                <path
+                  id="naxt_icon"
+                  d="M-20118.957-17310.031l24,25-24,25"
+                  transform="translate(20126.027 17317.102)"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="10"
+                />
+              </svg>
+
+              <P3 css={css``}>다음</P3>
+            </RightButton>
+          </div>
+        ))}
     </div>
   );
 };

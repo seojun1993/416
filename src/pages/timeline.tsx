@@ -3,7 +3,8 @@ import { MainShell } from "@/components/common/main-shell";
 
 import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
-
+import timelineImage from "@/assets/images/timeline.png";
+import ImageX from "@/components/ui/image";
 import { css } from "@emotion/react";
 import { useA11y } from "@/hooks/use-a11y";
 import { useSettingStore } from "@/contexts/setting.store";
@@ -24,7 +25,7 @@ const Timeline = () => {
           column-gap: 2rem;
         `}
       >
-        {/* <button
+        <button
           data-disable-focus-effect
           css={css`
             background-color: rgba(255, 255, 255, 0.2);
@@ -53,7 +54,7 @@ const Timeline = () => {
           >
             <ImageX src={timelineImage} />
           </div>
-        </button> */}
+        </button>
         <div
           css={css`
             flex: 1;

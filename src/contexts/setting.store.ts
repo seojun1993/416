@@ -4,9 +4,9 @@ import type { StateCreator } from "zustand";
 export type ThemeMode = "light" | "dark";
 export type UserMode = "normal" | "sound" | "wheel" | "sign";
 export const zooms = [
-  { value: 1, text: "x1.0" },
-  { value: 1.05, text: "x1.2" },
   { value: 1.1, text: "x1.5" },
+  { value: 1.05, text: "x1.2" },
+  { value: 1, text: "x1.0" },
 ];
 
 export const VideoSpeeds = [
@@ -26,8 +26,8 @@ export const VideoSpeeds = [
 ];
 export const SoundSpeed = [
   {
-    text: "x1.0",
-    value: 5,
+    text: "x1.5",
+    value: 10,
   },
 
   {
@@ -35,8 +35,8 @@ export const SoundSpeed = [
     value: 7,
   },
   {
-    text: "x1.5",
-    value: 10,
+    text: "x1.0",
+    value: 5,
   },
 ];
 
@@ -176,7 +176,7 @@ const createSoundSlice: StateCreator<
 > = (set, get) => ({
   volumeRange: [80, 70, 60, 50, 0],
   selectedVolumeIndex: 4,
-  selectedSoundSpeedIndex: 0,
+  selectedSoundSpeedIndex: SoundSpeed.length - 1,
   soundSpeed: SoundSpeed,
   soundActivate: true,
   setSoundActivate: (state) => set({ soundActivate: state }),

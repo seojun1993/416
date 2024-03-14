@@ -28,6 +28,7 @@ import { getImagePath } from "../libs/utils";
 import { useA11y } from "@/hooks/use-a11y";
 const Board = () => {
   const { data: students } = useQuery(getStudentsQuery());
+  const [page, setPage] = useState(0);
   const bookRef = useRef<HTMLDivElement>(null);
   const animatedBookRef = useRef<any>(null);
   const [bookSize, setBookSize] = useState([0, 0]);
@@ -61,7 +62,7 @@ const Board = () => {
       dispatchEvent(new CustomEvent("onPageChange"));
     }
   };
-
+  console.log(animatedBookRef);
   useEffect(() => {
     handleBookResize();
     if (bookRef.current) {
@@ -102,13 +103,16 @@ const Board = () => {
         </div>
         <div
           css={css`
-            width: 80%;
-            flex: 0 0 87%;
+            width: 76%;
+            height: 76%;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
             /* outline: 8px solid ${theme.color.accent.foreground}; */
           `}
         >
-          {/* <InformationModal
+          <InformationModal
             duration={0}
             modal={false}
             cssStyles={css`
@@ -246,14 +250,15 @@ const Board = () => {
                 손가락을 이용하여 확대해보세요
               </H4>
             </div>
-          </InformationModal> */}
+          </InformationModal>
           <div
             ref={bookRef}
             css={css`
               position: relative;
               /* padding: 10px 74px 10px 94px; */
+              width: 100%;
+              flex-grow: 1;
               padding: 0.45dvh 1.925dvw 0dvh 2.45dvw;
-              height: 100%;
               background: url(${Book});
               background-size: cover;
               background-repeat: no-repeat;
@@ -266,6 +271,10 @@ const Board = () => {
                 drawShadow={false}
                 style={{
                   zIndex: 1,
+                }}
+                onChangeState={(e) => {
+                  setPage(e.object.pages.currentPageIndex);
+                  console.log(e);
                 }}
                 data-density="soft"
                 mobileScrollSupport={false}
@@ -362,64 +371,73 @@ const Board = () => {
                 </Page>
               </HTMLFlipBook>
             ) : null}
-            {/* <LeftButton
-              data-disable-focus-effect="true"
-              onClick={handlePrevClick}
+            <div
+              css={css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: 1rem;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -4rem;
+              `}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="54.482"
-                height="96.969"
-                viewBox="0 0 54.482 96.969"
+              <LeftButton
+                data-disable-focus-effect="true"
+                data-a11y-id="이전"
+                onClick={handlePrevClick}
               >
-                <path
-                  id="prev_icon"
-                  d="M-20078.957-17310.031l-40,40,40,40"
-                  transform="translate(20124.955 17318.516)"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="12"
-                />
-              </svg>
-              <P3
-                css={css`
-                  font-size: 1.12rem;
-                `}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36.07"
+                  height="64.141"
+                  viewBox="0 0 36.07 64.141"
+                >
+                  <path
+                    id="naxt_icon"
+                    d="M-20094.957-17310.031l-24,25,24,25"
+                    transform="translate(20123.957 17317.102)"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="10"
+                  />
+                </svg>
+
+                <P3 css={css``}>이전</P3>
+              </LeftButton>
+              <H4>
+                <b>{page + 1}</b>&nbsp; /&nbsp;
+                {(student?.images.length ?? 0) + 1}
+              </H4>
+              <RightButton
+                data-disable-focus-effect="true"
+                data-a11y-id="다음"
+                onClick={handleNextClick}
               >
-                이전
-              </P3>
-            </LeftButton>
-            <RightButton
-              data-disable-focus-effect="true"
-              onClick={handleNextClick}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="54.486"
-                height="96.969"
-                viewBox="0 0 54.486 96.969"
-              >
-                <path
-                  id="naxt_icon"
-                  d="M-20118.957-17310.031l40,40-40,40"
-                  transform="translate(20127.441 17318.516)"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="12"
-                />
-              </svg>
-              <P3
-                css={css`
-                  font-size: 1.12rem;
-                `}
-              >
-                다음
-              </P3>
-            </RightButton> */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36.07"
+                  height="64.141"
+                  viewBox="0 0 36.07 64.141"
+                >
+                  <path
+                    id="naxt_icon"
+                    d="M-20118.957-17310.031l24,25-24,25"
+                    transform="translate(20126.027 17317.102)"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="10"
+                  />
+                </svg>
+
+                <P3 css={css``}>다음</P3>
+              </RightButton>
+            </div>
           </div>
         </div>
       </div>
@@ -518,29 +536,19 @@ const Page = forwardRef<
 });
 
 const LeftButton = styled.button`
-  position: absolute;
-  left: -3%;
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 0.4rem;
-  width: 4rem;
-  height: 4.8rem;
+  width: 5.2rem;
+  height: 2.6rem;
   aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  column-gap: 0.3rem;
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
   row-gap: 0.48rem;
-
-  z-index: 2;
-  > svg {
-    width: 0.8rem;
-    height: 1.6rem;
-  }
   path {
     stroke: ${(props) =>
       props.theme.themeMode === "light"
@@ -560,19 +568,16 @@ const LeftButton = styled.button`
   }
 `;
 const RightButton = styled.button`
-  position: absolute;
-  right: -3%;
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 0.4rem;
-  width: 4rem;
-  height: 4.8rem;
+  width: 5.2rem;
+  height: 2.6rem;
   aspect-ratio: 1/1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: row-reverse;
   border: none;
+  column-gap: 0.3rem;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
@@ -584,7 +589,6 @@ const RightButton = styled.button`
         : "black"};
   }
   transition: opacity 0.2s ease-in-out;
-  z-index: 2;
   &:active {
     opacity: 0.7;
   }

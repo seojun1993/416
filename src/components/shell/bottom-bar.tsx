@@ -531,6 +531,9 @@ const BottomBar = () => {
         <SquareButton
           css={css`
             width: 7.8rem;
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.23em;
           `}
           data-a11y-id="글씨크기 선택"
           onClick={(event) => {
@@ -568,29 +571,12 @@ const BottomBar = () => {
             </AnimatePresence>
           }
           icon={
-            <div
-              data-disable-focus-effect
-              data-disabled-outline
-              css={css`
-                width: 5rem;
-                height: 2rem;
-                font-size: 1.12rem;
-                border-radius: 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: none;
-                background-color: white;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-                font-weight: bold;
-                color: black;
-              `}
-            >
+            <SquareBadge data-disable-focus-effect data-disabled-outline>
               {zooms
                 .find((v) => v.value === zoom)
                 ?.text?.replace("x", "")
                 .replace(".0", "") ?? ""}
-            </div>
+            </SquareBadge>
           }
         >
           글씨크기
@@ -640,31 +626,14 @@ const BottomBar = () => {
             setTooltipMode("sound");
           }}
           icon={
-            <div
-              data-disable-focus-effect
-              data-disabled-outline
-              css={css`
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 5rem;
-                height: 2rem;
-                font-size: 1.12rem;
-                border-radius: 1rem;
-                border: none;
-                background-color: white;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-                font-weight: bold;
-                color: black;
-              `}
-            >
+            <SquareBadge data-disable-focus-effect data-disabled-outline>
               {100 -
                 volumeRange.findIndex(
                   (_, volumeIndex) => volumeIndex === volIndex
                 ) *
                   5 *
                   volumeRange.length}
-            </div>
+            </SquareBadge>
           }
         >
           <AnimatePresence mode="wait">
@@ -703,26 +672,9 @@ const BottomBar = () => {
             setTooltipMode("speed");
           }}
           icon={
-            <div
-              data-disable-focus-effect
-              data-disabled-outline
-              css={css`
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 5rem;
-                height: 2rem;
-                font-size: 1.12rem;
-                border-radius: 1rem;
-                border: none;
-                background-color: white;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-                font-weight: bold;
-                color: black;
-              `}
-            >
+            <SquareBadge data-disable-focus-effect data-disabled-outline>
               {soundSpeed[selectedSoundSpeedIndex].text}
-            </div>
+            </SquareBadge>
           }
         >
           <AnimatePresence mode="wait">
@@ -769,9 +721,13 @@ export default BottomBar;
 const BottomWrapper = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.color.background.card};
-  box-shadow: 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.border},
-    inset 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.inner};
-  border-top: 0.15rem solid white;
+  ${(props) =>
+    props.theme.themeMode === "dark"
+      ? ""
+      : `box-shadow: 0px 0px 0.4rem ${props.theme.color.shadow.card.border},
+    inset 0px 0px 0.4rem ${props.theme.color.shadow.card.inner};`}
+  border-top: 0.15rem solid
+    ${(props) => (props.theme.themeMode === "dark" ? "transparent" : "white")};
   text-decoration: none;
   display: grid;
   grid-template-columns: 1fr fit-content(30%) 1fr;
@@ -790,8 +746,9 @@ const ControllerWrapper = styled(motion.div)`
   transform: translateX(-50%);
   box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.8);
   width: 100%;
-  border-top-left-radius: 0.4rem;
-  border-top-right-radius: 0.4rem;
+  border-radius: 0.4rem;
+  /* border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem; */
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
@@ -856,7 +813,7 @@ const SquareButton = ({
       <div
         css={css`
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           justify-content: center;
           width: 100%;
           height: 100%;
@@ -864,7 +821,6 @@ const SquareButton = ({
       >
         <div
           css={css`
-            height: 1.4rem;
             display: flex;
             align-items: center;
           `}
@@ -893,6 +849,7 @@ const SquareButtonWrapper = styled.button<{ active?: boolean }>`
   outline: none;
   padding-block: 0;
   padding-inline: 0;
+  padding: 0.3rem 0;
   height: 100%;
   position: relative;
   /* grid-template-rows: 1fr 2.6rem; */
@@ -960,6 +917,22 @@ const Button = styled.button<{ active?: boolean }>`
       : props.active
       ? "white"
       : "black"};
+`;
+
+const SquareBadge = styled.div`
+  width: 5rem;
+  height: 1.8rem;
+  font-size: 1.12rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: ${(props) => props.theme.color.badge.background};
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: ${(props) => props.theme.color.badge.text};
+  border: 8px solid ${(props) => props.theme.color.main};
 `;
 
 // 음성안내 버튼

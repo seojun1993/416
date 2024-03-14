@@ -1,8 +1,8 @@
 import 메뉴이미지들 from "@/assets/images/menu";
 type MenuTitle =
   | "세월호타임라인"
-  // | "기억명단"
-  // | "별을통한만남"
+  | "기억명단"
+  | "별을통한만남"
   | "단원고416기억교실"
   | "기억과약속의길"
   | "공간안내";
@@ -28,22 +28,22 @@ export const menuContent: MenuData = {
     href: "/memory-class",
     a11y: "menu_class",
   },
-  // 기억명단: {
-  //   title: "기억 명단",
-  //   description: "희생된 261명에 대한 정보를\n반 기준으로 제공하는 화면입니다.",
-  //   src: 메뉴이미지들.기억명단,
-  //   imagePainter: "영덕고등학교 정하은",
-  //   href: "/memory-list",
-  //   a11y: "menu_memory_list",
-  // },
-  // 별을통한만남: {
-  //   title: "별을 통한 만남",
-  //   description: "별(꿈, 취미, 별명)을 터치하여 희생자를\n만날 수 있습니다.",
-  //   src: 메뉴이미지들.별을통한만남,
-  //   imagePainter: "방포고등학교 정미솔",
-  //   href: "/stars",
-  //   a11y: "menu_word_cloud",
-  // },
+  기억명단: {
+    title: "기억 명단",
+    description: "희생된 261명에 대한 정보를\n반 기준으로 제공하는 화면입니다.",
+    src: 메뉴이미지들.기억명단,
+    imagePainter: "영덕고등학교 정하은",
+    href: "/memory-list",
+    a11y: "menu_memory_list",
+  },
+  별을통한만남: {
+    title: "별을 통한 만남",
+    description: "별(꿈, 취미, 별명)을 터치하여 희생자를\n만날 수 있습니다.",
+    src: 메뉴이미지들.별을통한만남,
+    imagePainter: "방포고등학교 정미솔",
+    href: "/stars",
+    a11y: "menu_word_cloud",
+  },
   기억과약속의길: {
     title: "기억과 약속의 길",
     description: "기억과 약속의 길을 걸어보세요.",

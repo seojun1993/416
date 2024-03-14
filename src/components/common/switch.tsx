@@ -61,7 +61,7 @@ const Switch = ({
       css={css`
         forced-color-adjust: none;
         width: fit-content;
-        height: 2rem;
+        height: 1.8rem;
         background-color: ${isOpen
           ? theme.color.switch.enable
           : !disabled
@@ -89,8 +89,8 @@ const Switch = ({
 
         .handle {
           position: relative;
-          width: 1.6rem;
-          height: 1.6rem;
+          width: 1.4rem;
+          height: 1.4rem;
           background-color: ${theme.color.secondary.foreground};
           opacity: ${disabled ? "0.5" : "1"};
           border-radius: 9999rem;

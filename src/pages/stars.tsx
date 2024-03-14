@@ -98,6 +98,60 @@ const Stars = () => {
           carouselType={[emblaRef, emblaApi]}
           slides={selectedStudents ?? students}
           options={{ animate: false }}
+          arrow={() => (
+            <>
+              <LeftButton
+                data-disable-focus-effect="true"
+                onClick={() => {
+                  emblaApi?.scrollPrev();
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="54.482"
+                  height="96.969"
+                  viewBox="0 0 54.482 96.969"
+                >
+                  <path
+                    id="prev_icon"
+                    d="M-20078.957-17310.031l-40,40,40,40"
+                    transform="translate(20124.955 17318.516)"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="12"
+                  />
+                </svg>
+                <P3 css={css``}>이전</P3>
+              </LeftButton>
+              <RightButton
+                data-disable-focus-effect="true"
+                onClick={() => {
+                  emblaApi?.scrollNext();
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="54.486"
+                  height="96.969"
+                  viewBox="0 0 54.486 96.969"
+                >
+                  <path
+                    id="naxt_icon"
+                    d="M-20118.957-17310.031l40,40-40,40"
+                    transform="translate(20127.441 17318.516)"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="12"
+                  />
+                </svg>
+                <P3 css={css``}>다음</P3>
+              </RightButton>
+            </>
+          )}
         >
           {(item, index) => {
             return (
@@ -128,6 +182,80 @@ const Stars = () => {
 };
 
 export default Stars;
+
+const LeftButton = styled.button`
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0.4rem;
+  width: 4rem;
+  height: 4.8rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+  p {
+    color: black;
+  }
+`;
+const RightButton = styled.button`
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0.4rem;
+  width: 4rem;
+  height: 4.8rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
+  > svg {
+    width: 0.8rem;
+    height: 1.6rem;
+  }
+  p {
+    color: black;
+  }
+`;
+
 const MemoryShell = styled(MainShell)`
   flex-direction: column;
   align-items: center;
@@ -200,7 +328,7 @@ export const SmallCard = memo(
     return (
       <CardLink
         data-a11y-id={a11y}
-        to={window.location.href}
+        to={href ?? ""}
         ref={ref}
         css={css`
           aspect-ratio: 25/32;
@@ -214,10 +342,16 @@ export const SmallCard = memo(
           delay: 0.5,
         }}
       >
-        <CardAvatar src={image}></CardAvatar>
+        <CardAvatar src={image}>
+          {badge && <CardBadge>{badge}</CardBadge>}
+        </CardAvatar>
         <CardContent>
+          <CardClassNumber>
+            <P3>{classDescription}</P3>
+          </CardClassNumber>
           <CardContentHeader contentHeaderStyle={contentHeaderStyle}>
-            {title}
+            <span>{title}</span>
+            <span>{birthText}</span>
           </CardContentHeader>
         </CardContent>
       </CardLink>
@@ -281,7 +415,8 @@ const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`
   align-items: center;
   flex-grow: 1;
   margin: 0 auto;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
+  margin-top: 0.2rem;
   color: ${(props) => props.theme.color.text.main};
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
   > span:first-of-type {

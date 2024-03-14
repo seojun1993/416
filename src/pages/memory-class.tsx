@@ -44,118 +44,134 @@ const MemoryClass = () => {
       mode,
     })
   );
-  const [delaySignActive, setDelaySignActive] = useState(signActivate);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const [signRef, animate] = useAnimate();
   const timeoutId = useRef<NodeJS.Timeout>();
   const videoSrc = memoryItems[selected].sign;
-  useEffect(() => {
-    async function toggleActive() {
-      if (!signActivate && signRef.current) {
-        await animate(
-          signRef.current,
-          {
-            opacity: 0,
-          },
-          {
-            duration: 0.5,
-          }
-        );
-      }
-      setDelaySignActive(signActivate);
-    }
-    toggleActive();
-  }, [signActivate]);
 
   useA11y(mode === "sound" ? "class_detail" : "class");
   return (
     <MemoryShell>
       {mode === "wheel" ? (
-        <motion.div
-          layout
-          data-isopen={signActivate}
-          css={css`
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: space-between;
-            transform-origin: right;
-            padding-bottom: 2rem;
-            &[data-isOpen="true"] {
-              width: 100%;
-            }
-          `}
-          transition={{
-            type: "tween",
-            ease: "linear",
-          }}
-        >
-          <div
-            css={css`
-              flex: 1;
-              flex-shrink: 0;
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              flex-direction: column;
-              flex: 1;
-            `}
-          >
-            <MemoryHeader>
-              <H1>단원고 4.16기억교실</H1>
-            </MemoryHeader>
-            <LazyMotion features={domAnimation}>
-              <AnimatePresence mode="wait">
-                <MemoryClassContent
-                  css={css`
-                    height: 10rem;
-                    margin: 1.8rem 0;
-                  `}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  key={memoryItems[selected].title}
-                >
-                  <Description />
-                </MemoryClassContent>
-              </AnimatePresence>
-            </LazyMotion>
-            <MemoryClassNav>
-              {memoryItems.map((item, index) => (
-                <MemoryClassButton
-                  onFocus={() => {
-                    timeoutId.current = setTimeout(() => {
-                      sendA11yEvent(item.a11y);
-                    }, 150);
-                  }}
-                  layoutId={item.title}
-                  onClick={() => {
-                    clearTimeout(timeoutId.current);
-                    setSelected(index);
-                  }}
-                  selected={index === selected}
-                  key={item.title}
-                >
-                  {item.title}
-                </MemoryClassButton>
-              ))}
-            </MemoryClassNav>
-          </div>
-        </motion.div>
-      ) : (
         <>
           <motion.div
             layout
-            data-isopen={signActivate}
+            data-isopen
             css={css`
               display: flex;
               flex-direction: column;
               height: 100%;
               justify-content: space-between;
               transform-origin: right;
-              padding-bottom: 2rem;
+              padding-bottom: 1.6rem;
+              &[data-isOpen="true"] {
+                width: 100%;
+              }
+            `}
+            transition={{
+              type: "tween",
+              ease: "linear",
+            }}
+          >
+            <div
+              css={css`
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+              `}
+            >
+              <MemoryHeader>
+                <H1>단원고 4.16기억교실</H1>
+              </MemoryHeader>
+              <LazyMotion features={domAnimation}>
+                <AnimatePresence mode="wait">
+                  <MemoryClassContent
+                    css={css`
+                      margin: 0.8rem 0;
+                    `}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    key={memoryItems[selected].title}
+                  >
+                    <MemoryClassContentImage>
+                      <MemoryClassImg src={classImg[selected]} />
+                    </MemoryClassContentImage>
+                    <Description />
+                  </MemoryClassContent>
+                </AnimatePresence>
+              </LazyMotion>
+
+              <MemoryClassNav>
+                {memoryItems.map((item, index) => (
+                  <MemoryClassButton
+                    onFocus={() => {
+                      timeoutId.current = setTimeout(() => {
+                        sendA11yEvent(item.a11y);
+                      }, 150);
+                    }}
+                    layoutId={item.title}
+                    onClick={() => {
+                      clearTimeout(timeoutId.current);
+                      setSelected(index);
+                    }}
+                    selected={index === selected}
+                    key={item.title}
+                  >
+                    {item.title}
+                  </MemoryClassButton>
+                ))}
+              </MemoryClassNav>
+            </div>
+          </motion.div>
+          <AnimatePresence mode="wait">
+            {videoSrc && (
+              <motion.div
+                key={videoSrc}
+                ref={signRef}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    delay: 0.5,
+                  },
+                }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  type: "tween",
+                  ease: "linear",
+                }}
+                css={css`
+                  /* width: 36rem; */
+                  flex: 0 0 20rem;
+                  display: flex;
+                  flex-direction: column;
+                  height: 100%;
+                `}
+              >
+                <PreloadVideo
+                  key={videoSrc}
+                  src={videoSrc}
+                  autoPlay
+                  muted
+                ></PreloadVideo>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      ) : (
+        <>
+          <motion.div
+            layout
+            css={css`
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              justify-content: space-between;
+              transform-origin: right;
+              padding-bottom: 1.6rem;
               &[data-isOpen="true"] {
                 width: 100%;
               }
@@ -167,7 +183,11 @@ const MemoryClass = () => {
           >
             <MemoryHeader>
               <H1>단원고 4.16기억교실</H1>
-              <MemoryClassNav>
+              <MemoryClassNav
+                css={css`
+                  margin-bottom: 2rem;
+                `}
+              >
                 {memoryItems.map((item, index) => (
                   <MemoryClassButton
                     onFocus={() => {
@@ -208,39 +228,42 @@ const MemoryClass = () => {
               </AnimatePresence>
             </LazyMotion>
           </motion.div>
-          {delaySignActive && videoSrc && (
-            <motion.div
-              key={videoSrc}
-              ref={signRef}
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-                transition: {
-                  delay: 0.5,
-                },
-              }}
-              transition={{
-                type: "tween",
-                ease: "linear",
-              }}
-              css={css`
-                /* width: 36rem; */
-                flex: 0 0 20rem;
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-              `}
-            >
-              <PreloadVideo
+          <AnimatePresence mode="wait">
+            {videoSrc && (
+              <motion.div
                 key={videoSrc}
-                src={videoSrc}
-                autoPlay
-                muted
-              ></PreloadVideo>
-            </motion.div>
-          )}
+                ref={signRef}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    delay: 0.5,
+                  },
+                }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  type: "tween",
+                  ease: "linear",
+                }}
+                css={css`
+                  /* width: 36rem; */
+                  flex: 0 0 20rem;
+                  display: flex;
+                  flex-direction: column;
+                  height: 100%;
+                `}
+              >
+                <PreloadVideo
+                  key={videoSrc}
+                  src={videoSrc}
+                  autoPlay
+                  muted
+                ></PreloadVideo>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </>
       )}
     </MemoryShell>
@@ -266,7 +289,7 @@ const MemoryClassButton = styled(motion.button)<{ selected: boolean }>`
   font-family: "NanumSquareRoundOTF";
   font-size: calc(var(--font-size) * 1.12);
   font-weight: 800;
-  width: 11rem;
+  width: 12rem;
   height: 2.6rem;
   background-color: ${(props) => props.theme.color.background.card};
   box-shadow: 0px 0px 0.4rem ${(props) => props.theme.color.shadow.card.border};
@@ -310,17 +333,18 @@ const DescriptionTitle = styled.h1`
   line-height: 1;
 `;
 const MemoryClassContentImage = styled.div`
-  width: 19.36rem;
   padding: 0.4rem;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 0.8rem;
   flex-shrink: 0;
+  aspect-ratio: 1/1;
 `;
 const MemoryClassContent = styled(m.div)`
   width: 100%;
   display: flex;
   column-gap: 1rem;
   height: 18.32rem;
+  flex-grow: 1;
 `;
 
 const MemoryHeader = styled.div`

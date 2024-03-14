@@ -60,7 +60,7 @@ const ModeSelect = () => {
                       height="200"
                       fill="none"
                       stroke="#fff"
-                      stroke-width="8"
+                      strokeWidth="8"
                     />
                   </clipPath>
                 </defs>
@@ -76,8 +76,8 @@ const ModeSelect = () => {
                     transform="translate(39.665 70.733)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <path
                     id="패스_3334"
@@ -86,8 +86,8 @@ const ModeSelect = () => {
                     transform="translate(102.06 66.241)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <path
                     id="패스_3335"
@@ -96,8 +96,8 @@ const ModeSelect = () => {
                     transform="translate(79.594 66.051)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <path
                     id="패스_3336"
@@ -106,8 +106,8 @@ const ModeSelect = () => {
                     transform="translate(57.129 33.026)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <line
                     id="선_6"
@@ -116,8 +116,8 @@ const ModeSelect = () => {
                     transform="translate(22.951 51.223)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <line
                     id="선_7"
@@ -127,8 +127,8 @@ const ModeSelect = () => {
                     transform="translate(38.977 13.266)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <line
                     id="선_8"
@@ -137,8 +137,8 @@ const ModeSelect = () => {
                     transform="translate(79.623 0.001)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <line
                     id="선_9"
@@ -148,8 +148,8 @@ const ModeSelect = () => {
                     transform="translate(106.08 13.634)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                   <line
                     id="선_10"
@@ -158,8 +158,8 @@ const ModeSelect = () => {
                     transform="translate(115.926 51.744)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="8"
+                    strokeLinejoin="round"
+                    strokeWidth="8"
                   />
                 </g>
               </svg>
@@ -194,7 +194,7 @@ const ModeSelect = () => {
                       height="200"
                       fill="none"
                       stroke="#fff"
-                      stroke-width="9"
+                      strokeWidth="9"
                     />
                   </clipPath>
                 </defs>
@@ -210,8 +210,8 @@ const ModeSelect = () => {
                     transform="translate(11.816 27.445)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="9"
+                    strokeLinejoin="round"
+                    strokeWidth="9"
                   />
                   <path
                     id="패스_3338"
@@ -220,8 +220,8 @@ const ModeSelect = () => {
                     transform="translate(130.799 33.377)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="9"
+                    strokeLinejoin="round"
+                    strokeWidth="9"
                   />
                   <path
                     id="패스_3339"
@@ -230,8 +230,8 @@ const ModeSelect = () => {
                     transform="translate(118.166 49.875)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linejoin="round"
-                    stroke-width="9"
+                    strokeLinejoin="round"
+                    strokeWidth="9"
                   />
                 </g>
               </svg>
@@ -382,7 +382,7 @@ const ModeSelect = () => {
                     transform="translate(3150 704)"
                     fill="none"
                     stroke="#fff"
-                    stroke-width="10"
+                    strokeWidth="10"
                   >
                     <ellipse
                       cx="90.498"

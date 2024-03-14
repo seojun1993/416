@@ -81,7 +81,7 @@ export const darkTheme: typeof lightTheme = {
     background: {
       card: "rgba(0,0,0,0.5)",
       card2: "rgba(0,0,0,0.8)",
-      square: "rgba(255,255,255,0.25)",
+      square: "#000000",
       secondary: "#222222",
     },
     shadow: {

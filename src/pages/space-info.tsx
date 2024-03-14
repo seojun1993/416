@@ -216,7 +216,6 @@ const SpaceInfo = () => {
           >
             {memoryItems.map((item, idx) => (
               <MemoryListButton
-                disabled={mode === "wheel"}
                 key={item.title}
                 selected={idx + 1 === selectedMapIdx}
                 data-a11y-id={`space_guide_0${idx}`}
@@ -250,11 +249,7 @@ const SpaceInfo = () => {
                   height: 1003px;
                 `}
               >
-                <TransformWrapper
-                  disabled={mode === "wheel"}
-                  ref={pinchRef}
-                  maxScale={2}
-                >
+                <TransformWrapper ref={pinchRef} maxScale={2}>
                   <TransformComponent
                     contentStyle={{
                       width: 3080,
@@ -343,7 +338,6 @@ const SpaceInfo = () => {
               >
                 {kioskNode?.getFloor() === selectedMapIdx && (
                   <MapPubButton
-                    disabled={mode === "wheel"}
                     key={selectedMapIdx + "KIOSK_POSITION"}
                     variants={fadeInOutVariants}
                   >
@@ -400,7 +394,6 @@ const SpaceInfo = () => {
                 )}
                 {currentPubList?.map(({ PUB_INFO }) => (
                   <MapPubButton
-                    disabled={mode === "wheel"}
                     data-a11y-id={PUB_INFO.PUB_NAME}
                     key={PUB_INFO.PUB_CODE}
                     variants={fadeInOutVariants}
@@ -660,7 +653,7 @@ function MapItem({
           return (
             <button
               key={cls.CLASS_NAME + floor}
-              disabled={mode === "wheel" || !(selectedIndex === floor)}
+              disabled={!(selectedIndex === floor)}
               onClick={() => {
                 if (cls.node) {
                   wayfind(cls.node.id, cls.CLASS_NAME);
