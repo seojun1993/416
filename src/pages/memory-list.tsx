@@ -8,7 +8,11 @@ import { getStudentsFromClass } from "@/queries/student";
 import { Student } from "@/types/student";
 import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useQuery,
+  useQueryClient,
+  useSuspenseQuery,
+} from "@tanstack/react-query";
 import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
@@ -53,11 +57,15 @@ const memoryItems = [
 ];
 const MemoryList = () => {
   const [selected, setSelected] = useState(memoryItems[0]);
-  const { data: students } = useQuery(getStudentsFromClass(selected.class));
+  const { data: students } = useSuspenseQuery(
+    getStudentsFromClass(selected.class)
+  );
   const OPTIONS: EmblaOptionsType = useMemo(
     () => ({ loop: true, startIndex: Number(0) }),
     []
   );
+
+  const isMounted = useRef(false);
 
   const visualizerRef = useRef<{
     moveScrollToIndex: (index: number, classNumber?: number) => void;
@@ -86,8 +94,10 @@ const MemoryList = () => {
     }
   }, [emblaApi, selected.class]);
   useEffect(() => {
+    isMounted.current = true;
     return () => {
       emblaApi?.destroy();
+      isMounted.current = false;
     };
   }, []);
 

@@ -11,6 +11,7 @@ export function Prefetch(options?: PrefetchOptions): CreatePluginType<
   },
   {}
 > {
+  let isRendered = false;
   let emblaApi: EmblaCarouselType;
   let nodes: HTMLElement[];
 
@@ -31,6 +32,11 @@ export function Prefetch(options?: PrefetchOptions): CreatePluginType<
         }
       }
     });
+    if (isRendered) {
+      options?.onSelect &&
+        options?.onSelect(emblaApi.internalEngine().index.get());
+    }
+    isRendered = true;
   }
 
   function handleSelect() {
@@ -43,15 +49,14 @@ export function Prefetch(options?: PrefetchOptions): CreatePluginType<
       emblaApi = embla;
       nodes = emblaApi.slideNodes();
       emblaApi.on("slidesInView", onSlideInView);
-      emblaApi.on("select", handleSelect);
-      emblaApi.on("slidesInView", handleSelect);
+      // emblaApi.on("select", handleSelect);
     },
     name: "virtual",
     options: {},
     destroy() {
       emblaApi.off("slidesInView", onSlideInView);
-      emblaApi.off("select", handleSelect);
-      emblaApi.off("slidesInView", handleSelect);
+      // emblaApi.off("select", handleSelect);
+      isRendered = false;
     },
   };
 }

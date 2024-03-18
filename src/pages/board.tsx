@@ -62,7 +62,7 @@ const Board = () => {
       dispatchEvent(new CustomEvent("onPageChange"));
     }
   };
-  console.log(animatedBookRef);
+
   useEffect(() => {
     handleBookResize();
     if (bookRef.current) {

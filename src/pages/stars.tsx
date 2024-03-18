@@ -90,8 +90,8 @@ const Stars = () => {
           cssSlide={css`
             width: calc((9.2rem + 1.6rem) * ${SlideCardAspect});
             display: flex;
-            align-items: flex-end;
-            height: fit-content;
+            /* align-items: flex-end; */
+            align-items: center;
             /* max-height: 11.4rem; */
           `}
           showArrow={SlideCardAspect >= 5}
@@ -161,7 +161,7 @@ const Stars = () => {
                 linkStyle={css`
                   width: ${(1 / SlideCardAspect) *
                   (emblaApi?.containerNode().children[0].clientWidth ?? 0)};
-                  aspect-ratio: 10 / 12.3;
+                  /* aspect-ratio: 10 / 12.3; */
                 `}
                 badge={""}
                 classDescription={item.class_number_name}
@@ -331,7 +331,7 @@ export const SmallCard = memo(
         to={href ?? ""}
         ref={ref}
         css={css`
-          aspect-ratio: 25/32;
+          /* aspect-ratio: 25/32; */
           ${linkStyle && linkStyle}
         `}
         initial="initial"
@@ -365,8 +365,8 @@ const CardClassNumber = styled.div`
 `;
 
 const CardLink = styled(m(Link))`
-  width: 9.2rem;
-  height: 100%;
+  width: 9.4rem;
+  height: 11.6rem;
   outline: 1px solid #eeeeee;
   border-radius: 0.7em;
   overflow: hidden;
@@ -400,6 +400,7 @@ const CardBadge = styled(P2)`
 const CardAvatar = styled(ImageX)`
   background-color: #fff;
   object-fit: fill;
+  height: 7.2rem;
 `;
 
 const CardContent = styled.div`
@@ -415,8 +416,7 @@ const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`
   align-items: center;
   flex-grow: 1;
   margin: 0 auto;
-  padding-bottom: 0.5rem;
-  margin-top: 0.2rem;
+  padding: 0.5rem 0;
   color: ${(props) => props.theme.color.text.main};
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
   > span:first-of-type {

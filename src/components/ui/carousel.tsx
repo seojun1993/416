@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {
   ComponentPropsWithoutRef,
-  ComponentRef,
   PropsWithChildren,
   ReactNode,
   memo,
