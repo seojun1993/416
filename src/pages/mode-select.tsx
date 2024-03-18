@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
+import ImageX from "@/components/ui/image";
 import { H1, H3 } from "@/components/ui/text";
 import { useSettingStore } from "@/contexts/setting.store";
 import { useA11y } from "@/hooks/use-a11y";
@@ -8,7 +9,9 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { PropsWithChildren, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import mainImage from "@/assets/images/main.png";
+import { fadeInOutVariants } from "@/variants";
 const ModeSelect = () => {
   const { changeMode } = useSettingStore((state) => ({
     changeMode: state.onChangeMode,
@@ -17,12 +20,20 @@ const ModeSelect = () => {
   useA11y("user_type");
 
   return (
-    <ModeSelectShell>
-      <div
+    <ModeSelectShell
+      css={css`
+        row-gap: 3rem;
+      `}
+    >
+      <motion.div
+        {...fadeInOutVariants}
         css={css`
           flex: 1;
+          width: 100%;
         `}
-      />
+      >
+        <ImageX src={mainImage} />
+      </motion.div>
       <div
         css={css`
           flex: 1;

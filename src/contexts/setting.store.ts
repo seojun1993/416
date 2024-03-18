@@ -226,6 +226,7 @@ const createSoundSlice: StateCreator<
       set({ selectedVolumeIndex: vol });
       const audio = window?.chrome?.webview?.hostObjects?.sync?.audiocontrol;
       if (audio) {
+        console.log("!?!?!?!?");
         audio.SetVolume(get().volumeRange[vol]);
       }
     }

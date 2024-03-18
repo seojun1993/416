@@ -272,7 +272,6 @@ const SpaceInfo = () => {
                         const url = `${
                           import.meta.env.VITE_MAP_SERVER_URL
                         }/zcommonfiles/floor/${urls[urls.length - 1]}`;
-
                         const mapPubList = nodes?.pubList[MAP_INFO.floor].map(
                           (pub) => ({
                             ...pub,

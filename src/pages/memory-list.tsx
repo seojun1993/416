@@ -43,17 +43,17 @@ import ImageX from "@/components/ui/image";
 import { useCheckClick } from "@/hooks/use-check-click";
 
 const memoryItems = [
-  { title: "1반" as const, class: 1 },
-  { title: "2반" as const, class: 2 },
-  { title: "3반" as const, class: 3 },
-  { title: "4반" as const, class: 4 },
-  { title: "5반" as const, class: 5 },
-  { title: "6반" as const, class: 6 },
-  { title: "7반" as const, class: 7 },
-  { title: "8반" as const, class: 8 },
-  { title: "9반" as const, class: 9 },
-  { title: "10반" as const, class: 10 },
-  { title: "교무실" as const, class: 99 },
+  { title: "1반" as const, class: 1, a11y: "c_01" },
+  { title: "2반" as const, class: 2, a11y: "c_02" },
+  { title: "3반" as const, class: 3, a11y: "c_03" },
+  { title: "4반" as const, class: 4, a11y: "c_04" },
+  { title: "5반" as const, class: 5, a11y: "c_05" },
+  { title: "6반" as const, class: 6, a11y: "c_06" },
+  { title: "7반" as const, class: 7, a11y: "c_07" },
+  { title: "8반" as const, class: 8, a11y: "c_08" },
+  { title: "9반" as const, class: 9, a11y: "c_09" },
+  { title: "10반" as const, class: 10, a11y: "c_10" },
+  { title: "교무실" as const, class: 99, a11y: "c_11" },
 ];
 const MemoryList = () => {
   const [selected, setSelected] = useState(memoryItems[0]);
@@ -124,6 +124,7 @@ const MemoryList = () => {
                 css={css`
                   width: 8.3rem;
                 `}
+                data-a11y-id={item.a11y}
                 onClick={() => {
                   setSelected(item);
                   visualizerRef.current?.moveScrollToIndex(0, item.class);

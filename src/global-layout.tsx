@@ -8,7 +8,14 @@ import { darkTheme, lightTheme } from "./styles/theme";
 
 const GlobalLayout = ({ children }: PropsWithChildren) => {
   const [themeMode] = useThemeMode();
-  const { zoom, setSignVideoUrl, setKioskCode, clear } = useSettingStore();
+  const {
+    zoom,
+    setSignVideoUrl,
+    setKioskCode,
+    clear,
+    setVolumnAction,
+    volumeRange,
+  } = useSettingStore();
   const jumja = useRef(
     window?.chrome?.webview?.hostObjects?.sync?.jumjaplay
   ).current;
@@ -36,7 +43,19 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
     window.addEventListener("webClearEvent", handleClear);
     if (jumja) {
       {
-        setKioskCode(jumja.GetKioskCode());
+        const kioskCode = jumja.GetKioskCode();
+        const HARD_VOLUME: { [key: string]: number } = {
+          K001: 50,
+          K002: 25,
+          K003: 25,
+        };
+        setKioskCode(kioskCode);
+        const vol = volumeRange.findIndex(
+          (item) => item === HARD_VOLUME[kioskCode]
+        );
+        if (vol >= -1) {
+          setVolumnAction(vol);
+        }
       }
     }
     return () => {
