@@ -269,9 +269,9 @@ const SpaceInfo = () => {
                     >
                       {contents?.MAP_LIST?.map(({ MAP_INFO }, idx) => {
                         const urls = MAP_INFO.MAIN_MAP_URL.split("/");
-                        const url = `http://192.168.0.143:8416/zcommonfiles/floor/${
-                          urls[urls.length - 1]
-                        }`;
+                        const url = `${
+                          import.meta.env.VITE_MAP_SERVER_URL
+                        }/zcommonfiles/floor/${urls[urls.length - 1]}`;
 
                         const mapPubList = nodes?.pubList[MAP_INFO.floor].map(
                           (pub) => ({

@@ -3,7 +3,7 @@ import { MainShell } from "@/components/common/main-shell";
 import ImageX from "@/components/ui/image";
 import { H1, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
-import { ComponentType, useEffect, useRef, useState } from "react";
+import { ComponentType, useRef, useState } from "react";
 import classImg from "@/assets/images/classinfo";
 import {
   AnimatePresence,
@@ -16,23 +16,22 @@ import {
 import { css } from "@emotion/react";
 import { useSettingStore } from "@/contexts/setting.store";
 import PreloadVideo from "@/components/ui/preload-video";
-import { classSign } from "@/assets/videos";
 import { useA11y } from "@/hooks/use-a11y";
 import { sendA11yEvent } from "@/libs/utils";
 
 const memoryItems = [
-  { title: "기억교실 연혁" as const, sign: classSign.history, a11y: "c_time" },
-  { title: "1반" as const, sign: classSign.class1, a11y: "c_01" },
-  { title: "2반" as const, sign: classSign.class2, a11y: "c_02" },
-  { title: "3반" as const, sign: classSign.class3, a11y: "c_03" },
-  { title: "4반" as const, sign: classSign.class4, a11y: "c_04" },
-  { title: "5반" as const, sign: classSign.class5, a11y: "c_05" },
-  { title: "6반" as const, sign: classSign.class6, a11y: "c_06" },
-  { title: "7반" as const, sign: classSign.class7, a11y: "c_07" },
-  { title: "8반" as const, sign: classSign.class8, a11y: "c_08" },
-  { title: "9반" as const, sign: classSign.class9, a11y: "c_09" },
-  { title: "10반" as const, sign: classSign.class10, a11y: "c_10" },
-  { title: "교무실" as const, sign: classSign.teacher, a11y: "c_11" },
+  { title: "기억교실 연혁" as const, sign: "/videos/0.webm", a11y: "c_time" },
+  { title: "1반" as const, sign: "/videos/1.webm", a11y: "c_01" },
+  { title: "2반" as const, sign: "/videos/2.webm", a11y: "c_02" },
+  { title: "3반" as const, sign: "/videos/3.webm", a11y: "c_03" },
+  { title: "4반" as const, sign: "/videos/4.webm", a11y: "c_04" },
+  { title: "5반" as const, sign: "/videos/5.webm", a11y: "c_05" },
+  { title: "6반" as const, sign: "/videos/6.webm", a11y: "c_06" },
+  { title: "7반" as const, sign: "/videos/7.webm", a11y: "c_07" },
+  { title: "8반" as const, sign: "/videos/8.webm", a11y: "c_08" },
+  { title: "9반" as const, sign: "/videos/9.webm", a11y: "c_09" },
+  { title: "10반" as const, sign: "/videos/10.webm", a11y: "c_10" },
+  { title: "교무실" as const, sign: "/videos/11.webm", a11y: "c_11" },
 ];
 
 const MemoryClass = () => {

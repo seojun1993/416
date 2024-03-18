@@ -67,7 +67,7 @@ const ModeSelect = () => {
                 <g
                   id="그룹_777"
                   data-name="그룹 777"
-                  clip-path="url(#clip-path)"
+                  clipPath="url(#clip-path)"
                 >
                   <path
                     id="패스_3333"
@@ -201,7 +201,7 @@ const ModeSelect = () => {
                 <g
                   id="그룹_779"
                   data-name="그룹 779"
-                  clip-path="url(#clip-path)"
+                  clipPath="url(#clip-path)"
                 >
                   <path
                     id="패스_3337"
@@ -369,8 +369,8 @@ const ModeSelect = () => {
                     data-name="?"
                     transform="translate(3209 829)"
                     fill="#fff"
-                    font-size="120"
-                    font-family="NanumSquareRoundOTFR, NanumSquareRoundOTF"
+                    fontSize="120"
+                    fontFamily="NanumSquareRoundOTFR, NanumSquareRoundOTF"
                   >
                     <tspan x="0" y="0">
                       ?
@@ -475,7 +475,7 @@ const ModelSelectCardWrapper = styled(Link)`
   width: 16rem;
   aspect-ratio: 800/570;
   justify-content: center;
-  > div:first-child > svg {
+  > div:first-of-type > svg {
     flex: 1;
   }
   > div {

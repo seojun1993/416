@@ -669,7 +669,7 @@ export const SmallCard = memo(
     return (
       <CardLink
         data-a11y-id={a11y}
-        to={window.location.href}
+        to={href ?? ""}
         ref={ref}
         css={css`
           aspect-ratio: 25/32;
@@ -734,23 +734,22 @@ const CardBadge = styled(P2)`
 const CardAvatar = styled(ImageX)`
   background-color: #fff;
   object-fit: fill;
+  flex-grow: 1;
 `;
 
 const CardContent = styled.div`
   display: flex;
-  flex-grow: 1;
+
   flex-direction: column;
   text-align: center;
-  height: 30%;
 `;
 
 const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`
   display: inline-flex;
   align-items: center;
-  flex-grow: 1;
   margin: 0 auto;
-  padding-bottom: 0.5rem;
-  margin-top: 0.2rem;
+  padding: 0.5rem;
+
   color: ${(props) => props.theme.color.text.main};
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
   > span:first-of-type {

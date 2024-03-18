@@ -6,7 +6,7 @@ import { useA11y } from "@/hooks/use-a11y";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import manualImage from "@/assets/images/manual";
 import ImageX from "@/components/ui/image";
 import { fadeInOutVariants } from "@/variants";
@@ -37,9 +37,19 @@ const memoryItems = [
 const MemoryRoad = () => {
   const [selected, setSelected] = useState(0);
 
-  const mode = useSettingStore((state) => state.mode);
+  const { mode, setVolumnAction, volumeRange } = useSettingStore(
+    ({ mode, setVolumnAction, volumeRange }) => ({
+      mode,
+      setVolumnAction,
+      volumeRange,
+    })
+  );
 
   // useA11y(mode === "sound" ? "tour_detail" : "tour");
+
+  useEffect(() => {
+    setVolumnAction(volumeRange.length - 2);
+  }, []);
   return (
     <MemoryShell>
       <LazyMotion features={domAnimation}>

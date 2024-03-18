@@ -10,19 +10,13 @@ import { getFilteredStudentsByMonthQuery } from "@/queries/student";
 import { getImagePath, sendA11yEvent } from "../libs/utils";
 import { Prefetch } from "../libs/plugins/prefetch";
 import { useEffect, useMemo, useState } from "react";
-import {
-  AnimatePresence,
-  LazyMotion,
-  domAnimation,
-  motion,
-} from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 import { Student } from "@/types/student";
-import { H4, P3 } from "@/components/ui/text";
+import { H4 } from "@/components/ui/text";
 import { Card } from "@/components/common/card";
 import { css } from "@emotion/react";
 import birthdaySign from "@/assets/videos/birthday.webm";
 import { useSettingStore } from "@/contexts/setting.store";
-import { fadeInOutVariants } from "@/variants";
 import { useA11y } from "@/hooks/use-a11y";
 import PreloadVideo from "@/components/ui/preload-video";
 
@@ -128,7 +122,7 @@ const Birthday = () => {
           >
             <PreloadVideo
               key="video"
-              src={birthdaySign}
+              src={"/videos/birthday.webm"}
               autoPlay
               muted
             ></PreloadVideo>
