@@ -39,30 +39,43 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
     }
   };
   useEffect(() => {
+    let intervalId: NodeJS.Timeout;
     window.addEventListener("a11y", handleA11y);
     window.addEventListener("webClearEvent", handleClear);
     if (jumja) {
-      {
-        const kioskCode = jumja.GetKioskCode();
-        const HARD_VOLUME: { [key: string]: number } = {
-          K001: 50,
-          K002: 25,
-          K003: 25,
-        };
-        setKioskCode(kioskCode);
-        const vol = volumeRange.findIndex(
-          (item) => item === HARD_VOLUME[kioskCode]
-        );
-        if (vol >= -1) {
-          setVolumnAction(vol);
-        }
-      }
+      const HARD_VOLUME: { [key: string]: number } = {
+        K001: 50,
+        K002: 25,
+        K003: 25,
+      };
+
+      const kioskCode = jumja.GetKioskCode() ?? "K001";
+      setKioskCode(kioskCode);
+
+      let count = 0;
+      setTimeout(() => {
+        intervalId = setInterval(() => {
+          if (count > 3) {
+            clearInterval(intervalId);
+          } else {
+            const vol = volumeRange.findIndex(
+              (item) => item === HARD_VOLUME[kioskCode]
+            );
+            if (vol >= -1) {
+              count += 3;
+              setVolumnAction(vol);
+            }
+          }
+          count++;
+        }, 1000);
+      }, 1000);
     }
     return () => {
+      clearInterval(intervalId);
       window.removeEventListener("a11y", handleA11y);
       window.removeEventListener("webClearEvent", handleClear);
     };
-  }, []);
+  }, [jumja]);
   return (
     <ThemeProvider theme={theme}>
       <Global styles={style.reset(theme, zoom)} />

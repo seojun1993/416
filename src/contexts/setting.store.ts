@@ -201,7 +201,7 @@ const createSoundSlice: StateCreator<
   [],
   SoundSlice
 > = (set, get) => ({
-  volumeRange: [80, 70, 60, 50, 0],
+  volumeRange: [80, 70, 50, 25, 0],
   selectedVolumeIndex: 3,
   selectedSoundSpeedIndex: SoundSpeed.length - 1,
   soundSpeed: SoundSpeed,
@@ -226,7 +226,6 @@ const createSoundSlice: StateCreator<
       set({ selectedVolumeIndex: vol });
       const audio = window?.chrome?.webview?.hostObjects?.sync?.audiocontrol;
       if (audio) {
-        console.log("!?!?!?!?");
         audio.SetVolume(get().volumeRange[vol]);
       }
     }

@@ -71,16 +71,7 @@ const MemoryList = () => {
     moveScrollToIndex: (index: number, classNumber?: number) => void;
   }>(null);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
-    Prefetch({
-      onSelect(selectedIndex) {
-        const target = students?.[selectedIndex];
-        if (target) {
-          sendA11yEvent(target.voicekey);
-        }
-      },
-    }),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [Prefetch({})]);
   const handleReInit = (ev: EmblaCarouselType) => {
     ev.scrollTo(0);
   };
@@ -164,6 +155,9 @@ const MemoryList = () => {
                     <EmblaCarousel
                       carouselType={[emblaRef, emblaApi]}
                       slides={students}
+                      onIndexChange={(index) =>
+                        sendA11yEvent(students?.[index].voicekey)
+                      }
                       cssSlide={css`
                         flex: 1;
                         width: 90%;

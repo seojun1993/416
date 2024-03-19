@@ -21,6 +21,7 @@ import {
   m,
 } from "framer-motion";
 import { H4, P3 } from "./text";
+import { sendA11yEvent } from "@/libs/utils";
 
 interface CarouselOption {
   animate?: boolean;
@@ -38,6 +39,7 @@ interface EmblaCarouselProps<T> {
   carouselType: UseEmblaCarouselType;
   aspect?: number;
   showArrow?: boolean;
+  onIndexChange?: (index: number) => void;
   children?: ReactNode | ((item: T, index: number) => ReactNode);
   arrow?: (
     embla: EmblaCarouselType | undefined,
@@ -51,6 +53,7 @@ const EmblaCarousel = <T,>({
   cssSlide,
   aspect,
   arrow,
+  onIndexChange,
   showArrow = true,
   options = {},
 }: EmblaCarouselProps<T>) => {
@@ -58,6 +61,7 @@ const EmblaCarousel = <T,>({
     ...defaultCarouselOptions,
     ...options,
   };
+  const timeoutId = useRef<NodeJS.Timeout>();
   const [emblaRef, emblaApi] = carouselType;
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,6 +72,10 @@ const EmblaCarousel = <T,>({
 
   const onScroll = (embla: EmblaCarouselType) => {
     scrollX.scrollXProgress.set(embla.scrollProgress());
+  };
+
+  const handleIndexChange = (index: number) => {
+    onIndexChange && onIndexChange(index);
   };
 
   useEffect(() => {
@@ -141,12 +149,19 @@ const EmblaCarousel = <T,>({
           >
             <LeftButton
               data-disable-focus-effect="true"
-              data-a11y-id="이전"
+              onFocus={(event) => {
+                timeoutId.current = setTimeout(() => {
+                  sendA11yEvent("이전");
+                }, 150);
+              }}
               css={css`
                 ${leftStyle}
               `}
               onClick={() => {
+                clearTimeout(timeoutId.current);
                 emblaApi?.scrollPrev();
+                emblaApi?.internalEngine() &&
+                  handleIndexChange(emblaApi?.internalEngine().index.get());
               }}
             >
               <svg
@@ -174,9 +189,16 @@ const EmblaCarousel = <T,>({
             </H4>
             <RightButton
               data-disable-focus-effect="true"
-              data-a11y-id="다음"
+              onFocus={(event) => {
+                timeoutId.current = setTimeout(() => {
+                  sendA11yEvent("다음");
+                }, 150);
+              }}
               onClick={() => {
+                clearTimeout(timeoutId.current);
                 emblaApi?.scrollNext();
+                emblaApi?.internalEngine() &&
+                  handleIndexChange(emblaApi?.internalEngine().index.get());
               }}
               css={css`
                 ${rightStyle}

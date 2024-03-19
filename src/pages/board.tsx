@@ -113,7 +113,7 @@ const Board = () => {
           `}
         >
           <InformationModal
-            duration={0}
+            duration={3000}
             modal={false}
             cssStyles={css`
               justify-content: flex-end;
@@ -298,11 +298,7 @@ const Board = () => {
                 showPageCorners={false}
                 disableFlipByClick={false}
               >
-                <Page
-                  data-disable-focus-effect="true"
-                  data-a11y-id="personal_profile_CH"
-                  tabIndex={1}
-                >
+                <Page>
                   <div
                     css={css`
                       display: flex;
@@ -323,12 +319,7 @@ const Board = () => {
                   </div>
                 </Page>
                 {student?.images?.map((image, index) => (
-                  <Page
-                    key={image.id}
-                    disabled={index > 0}
-                    data-disable-focus-effect="true"
-                    data-a11y-id="personal_profile_IMG"
-                  >
+                  <Page key={image.id}>
                     <div
                       css={css`
                         display: flex;
@@ -349,7 +340,7 @@ const Board = () => {
                     </div>
                   </Page>
                 ))}
-                <Page disabled>
+                <Page>
                   <div
                     css={css`
                       display: flex;
@@ -490,8 +481,8 @@ const Board = () => {
 export default Board;
 
 const Page = forwardRef<
-  HTMLButtonElement,
-  PropsWithChildren<ComponentPropsWithoutRef<"button">>
+  HTMLDivElement,
+  PropsWithChildren<ComponentPropsWithoutRef<"div">>
 >((props, ref) => {
   const panRef = useRef<ReactZoomPanPinchContentRef>(null);
   const handlePageChange = () => {
@@ -506,7 +497,7 @@ const Page = forwardRef<
     };
   }, []);
   return (
-    <button
+    <div
       {...props}
       ref={ref}
       css={css`
@@ -536,7 +527,7 @@ const Page = forwardRef<
           </TransformComponent>
         </div>
       </TransformWrapper>
-    </button>
+    </div>
   );
 });
 

@@ -19,14 +19,24 @@ const InformationModal = ({
   const [open, setOpen] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout>();
 
+  const handleClick = () => {
+    setOpen(false);
+    window.removeEventListener("click", handleClick);
+  };
+
   useEffect(() => {
+    window.addEventListener("click", handleClick);
     if (open) {
       if (duration > 0) {
         timeoutRef.current = setTimeout(() => {
           setOpen(false);
-        }, 2000);
+        }, duration);
       }
     }
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
   }, []);
   return modal ? (
     createPortal(
