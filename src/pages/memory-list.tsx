@@ -362,7 +362,11 @@ const AlbumVisualizer = forwardRef<{
 
           <P3 css={css``}>이전</P3>
         </LeftButton>
-        <H4>
+        <H4
+          css={css`
+            white-space: nowrap;
+          `}
+        >
           <b>{(columnVirtualizer.range?.startIndex ?? 0) + 1}</b>&nbsp; /&nbsp;
           {albums?.length ?? 0}
         </H4>
