@@ -82,6 +82,7 @@ const EmblaCarousel = <T,>({
     setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
     emblaApi?.on("select", () => {
       setSelectedIndex(emblaApi?.selectedScrollSnap() ?? 0);
+      onIndexChange && onIndexChange(emblaApi?.selectedScrollSnap() ?? 0);
     });
     if (animate) {
       emblaApi?.on("scroll", onScroll);

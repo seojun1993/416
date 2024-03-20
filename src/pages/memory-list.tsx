@@ -9,6 +9,7 @@ import { Student } from "@/types/student";
 import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
+  useQueries,
   useQuery,
   useQueryClient,
   useSuspenseQuery,
@@ -56,6 +57,9 @@ const memoryItems = [
   { title: "교무실" as const, class: 99, a11y: "c_11" },
 ];
 const MemoryList = () => {
+  useQueries({
+    queries: memoryItems.map((item) => getStudentsFromClass(item.class)),
+  });
   const [selected, setSelected] = useState(memoryItems[0]);
   const { data: students } = useSuspenseQuery(
     getStudentsFromClass(selected.class)
@@ -231,7 +235,6 @@ const AlbumVisualizer = forwardRef<{
     estimateSize: () => parentWidth,
     overscan: 5,
   });
-
   const handleResize = useCallback(() => {
     if (!parentRef.current) return;
     setParentWidth(parentRef.current.clientWidth);
