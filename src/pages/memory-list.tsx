@@ -205,6 +205,7 @@ const MemoryList = () => {
             <P3
               css={css`
                 font-weight: 500;
+                letter-spacing: -1px;
               `}
             >
               해당 QR을 통해
@@ -280,12 +281,12 @@ const AlbumVisualizer = forwardRef<{
     <div
       css={css`
         position: relative;
-        flex: 1;
         height: 100%;
         margin-right: 2rem;
         display: flex;
         flex-direction: column;
         row-gap: 1rem;
+        width: 989.16px;
       `}
     >
       <div
