@@ -86,7 +86,7 @@ const MemoryClass = () => {
                 <AnimatePresence mode="wait">
                   <MemoryClassContent
                     css={css`
-                      margin: 0.8rem 0;
+                      margin-top: 1.6rem;
                     `}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -101,7 +101,11 @@ const MemoryClass = () => {
                 </AnimatePresence>
               </LazyMotion>
 
-              <MemoryClassNav>
+              <MemoryClassNav
+                css={css`
+                  margin-top: 2rem;
+                `}
+              >
                 {memoryItems.map((item, index) => (
                   <MemoryClassButton
                     onFocus={() => {
@@ -144,7 +148,7 @@ const MemoryClass = () => {
                 }}
                 css={css`
                   /* width: 36rem; */
-                  flex: 0 0 24.8rem;
+                  flex: 0 0 21.7rem;
                   display: flex;
                   flex-direction: column;
                   height: 100%;
@@ -371,9 +375,8 @@ const memorySummaryComponents: {
             단원고 4.16기억교실 이전,복원 경과
           </DescriptionTitle>
           <DescriptionContent>
-            2014년 4월 설레는 마음으로 수학여행을 떠났던 단원고등학교
-            <br />
-            2학년 학생 250명, 선생님 11명은 학교로 돌아오지 못했습니다.
+            2014년 4월 설레는 마음으로 수학여행을 떠났던 단원고등학교 2학년 학생
+            250명, 선생님 11명은 학교로 돌아오지 못했습니다.
             <br />
             교실에는 아이들과 선생님을 그리워하며 추모하는 마음의 편지
             <br />와 메모 등이 쌓였고 학생들이 공부했던 교실은 돌아오지 못한
@@ -381,20 +384,15 @@ const memorySummaryComponents: {
             희생자들을 추모하고 기억하는 공간이 되었습니다.
             <br />
             이후 교실을 그대로 남겨달라는 시민들의 목소리가 커졌고 경기
+            도교육청, 4.16세월호참사가족협의회, 경기도교육청, 경기도의 회,
+            안산시, 경기도안산교육지원청, 단원고등학교는 협약을 통해 별도의 시설
+            건립 후 이전·복원하기로 결정했습니다.
             <br />
-            도교육청, 4.16세월호참사가족협의회, 경기도교육청, 경기도의
-            <br />
-            회, 안산시, 경기도안산교육지원청, 단원고등학교는 협약을 통해
-            <br />
-            별도의 시설 건립 후 이전·복원하기로 결정했습니다.
-            <br />
-            단원고 4.16기억교실은 2020년 교육원 건립과 함께 임시공간
-            <br />
-            에서 이전하였으며 단원고 학생들이 사용하였던 책상, 의자, 칠<br />
-            판, 게시판, 교실 문틀, 교실 문, 창틀, 창문, 천장텍스, 몰딩 등 교
-            <br />실 기록물을 그대로 복원하여 4.16민주시민교육원 기억관 2층,
-            <br />
-            3층에 자리 잡게 되었습니다.
+            단원고 4.16기억교실은 2020년 교육원 건립과 함께 임시공간 에서
+            이전하였으며 단원고 학생들이 사용하였던 책상, 의자, 칠판, 게시판,
+            교실 문틀, 교실 문, 창틀, 창문, 천장텍스, 몰딩 등 교 실 기록물을
+            그대로 복원하여 4.16민주시민교육원 기억관 2층, 3층에 자리 잡게
+            되었습니다.
             <br />
             단원고 4.16기억교실은 4.16기억저장소 기록화 자료를 토대로
             <br />

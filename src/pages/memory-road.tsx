@@ -2,7 +2,7 @@
 import maps from "@/assets/images/maps";
 import { MainShell } from "@/components/common/main-shell";
 import { H1, H4, P3 } from "@/components/ui/text";
-import { useSettingStore } from "@/contexts/setting.store";
+import { UserMode, useSettingStore } from "@/contexts/setting.store";
 import { useA11y } from "@/hooks/use-a11y";
 import { useThemeMode } from "@/hooks/use-theme-mode";
 import { css } from "@emotion/react";
@@ -30,7 +30,6 @@ const MemoryRoad = () => {
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const mode = useSettingStore((state) => state.mode);
   const [themeMode] = useThemeMode();
-
   useA11y(mode === "sound" ? "tour_detail" : "tour");
   return (
     <MemoryShell>
@@ -43,9 +42,7 @@ const MemoryRoad = () => {
             <AnimatePresence mode="wait">
               {selected === 0 ? (
                 <MemoryRoadContent
-                  css={css`
-                    margin-bottom: 2.46rem;
-                  `}
+                  mode={mode}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -55,6 +52,7 @@ const MemoryRoad = () => {
                 </MemoryRoadContent>
               ) : (
                 <MemoryRoadContent
+                  mode={mode}
                   css={css`
                     margin-bottom: 2.46rem;
                   `}
@@ -142,6 +140,7 @@ const MemoryRoad = () => {
             <AnimatePresence mode="wait">
               {selected === 0 ? (
                 <MemoryRoadContent
+                  mode={mode}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -151,6 +150,7 @@ const MemoryRoad = () => {
                 </MemoryRoadContent>
               ) : (
                 <MemoryRoadContent
+                  mode={mode}
                   css={css`
                     margin-top: 2.46rem;
                   `}
@@ -231,11 +231,13 @@ const MemoryListSmallButtons = styled.div`
   margin-top: 1rem;
 `;
 
-const MemoryRoadContent = styled(m.div)`
+const MemoryRoadContent = styled(m.div)<{ mode: UserMode }>`
   width: 100%;
   display: flex;
   column-gap: 1rem;
   flex-grow: 1;
+  ${(props) =>
+    props.mode === "wheel" ? "margin-bottom:2.46rem;" : "margin-top:2.46rem;"}
 `;
 
 const MemoryRoadAccentText = styled.b`
