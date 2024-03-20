@@ -2,6 +2,32 @@ import { getSolar } from "@/libs/holiday-kr";
 import { isContain초성 } from "@/libs/utils";
 import { Student } from "@/types/student";
 
+export interface StudentJson {
+  result: boolean;
+  data: StudentResponse[];
+}
+
+export interface StudentResponse {
+  id: string;
+  name: string;
+  voicekey: string;
+  "416_id": number;
+  memory_id: number;
+  class: number;
+  class_name: string;
+  class_number: number;
+  class_number_name: string;
+  guestbook_url: string;
+  mgmt_id: number;
+  collection_url: string;
+  title_keyword: string;
+  keywords: string;
+  birthday: string;
+  is_lunar_birth: boolean;
+  images: string;
+  caricature: string;
+}
+
 export function findNextBirthdayIndex(data: Student[]) {
   const today = new Date(
     `1997-${(new Date().getMonth() + 1).toFixed().padStart(2, "0")}-${new Date()
@@ -66,30 +92,32 @@ export function sortDatesClosestToToday(a: Student, b: Student) {
 }
 
 export const getStudentFromJson = () =>
-  import("~/contents/students.json").then((res) => {
-    const data = res.data.map((student) => {
-      if (typeof student.keywords === "string") {
-        student.keywords = JSON.parse(student.keywords as unknown as string);
-      }
-      if (typeof student.images === "string") {
-        student.images = JSON.parse(student.images as unknown as string);
-      }
-      const birthday = student.is_lunar_birth
-        ? // 음력은 생일년도 기준 날짜를 당해년도의 음력날짜와 매핑해야함
-          getSolar(
-            new Date(
-              new Date(student.birthday).setFullYear(new Date().getFullYear())
+  fetch("/contents/students.json")
+    .then((res) => res.json() as Promise<StudentJson>)
+    .then((res) => {
+      const data = res.data.map((student) => {
+        if (typeof student.keywords === "string") {
+          student.keywords = JSON.parse(student.keywords as unknown as string);
+        }
+        if (typeof student.images === "string") {
+          student.images = JSON.parse(student.images as unknown as string);
+        }
+        const birthday = student.is_lunar_birth
+          ? // 음력은 생일년도 기준 날짜를 당해년도의 음력날짜와 매핑해야함
+            getSolar(
+              new Date(
+                new Date(student.birthday).setFullYear(new Date().getFullYear())
+              )
             )
-          )
-        : student.birthday;
-      return {
-        ...student,
-        birthday,
-      };
-    }) as unknown as Student[];
-    const newSortedData = data.sort((a, b) => sortDatesClosestToToday(a, b));
-    return newSortedData;
-  });
+          : student.birthday;
+        return {
+          ...student,
+          birthday,
+        };
+      }) as unknown as Student[];
+      const newSortedData = data.sort((a, b) => sortDatesClosestToToday(a, b));
+      return newSortedData;
+    });
 
 export const filterNameContainFromPattern = (
   data: Student[],

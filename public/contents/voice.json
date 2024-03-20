@@ -1,0 +1,16 @@
+{
+  "result": true,
+  "data": {
+    "intro": {
+      "voice": "/voice/voiceintro.mp3",
+      "braille": "인트로",
+      "sign": "/sign/signintro.mp3"
+    },
+    "event": {
+      "voice": "/voice/voiceevent.mp3",
+      "braille": "이벤트",
+      "sign": "/sign/signevent.mp3"
+    }
+  },
+  "msg": ""
+}
