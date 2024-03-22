@@ -7,6 +7,7 @@ import { lazy, useCallback, useEffect, useRef } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
 import { sendA11yEvent } from "./libs/utils";
+import { useSettingStore } from "./contexts/setting.store";
 
 const ModeSelect = Loadable(lazy(() => import("@/pages/mode-select")));
 const Birthday = Loadable(lazy(() => import("@/pages/birthday")));
@@ -22,6 +23,7 @@ const SpaceInfo = Loadable(lazy(() => import("@/pages/space-info")));
 const Manual = Loadable(lazy(() => import("@/pages/manual")));
 
 function Root() {
+  const { clear } = useSettingStore(({ clear }) => ({ clear }));
   const location = useLocation();
   useQuery(getStudentsQuery());
   const pathname = useLocation().pathname;
@@ -51,13 +53,19 @@ function Root() {
       keydownHandler[event.code](event);
     }
   };
+  const handleClear = useCallback(() => {
+    clear();
+    navigate("/", { replace: true });
+  }, []);
 
   useEffect(() => {
+    window.addEventListener("webClearEvent", handleClear);
+
     window.addEventListener("manualClick", handleGuideClick);
     document.addEventListener("keydown", handleKioskButtonClick);
     return () => {
+      window.removeEventListener("webClearEvent", handleClear);
       window.removeEventListener("manualClick", handleGuideClick);
-
       document.removeEventListener("keydown", handleKioskButtonClick);
     };
   }, []);

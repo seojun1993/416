@@ -45,7 +45,7 @@ const MemoryRoad = () => {
     })
   );
 
-  // useA11y(mode === "sound" ? "tour_detail" : "tour");
+  useA11y("silence");
 
   useEffect(() => {
     setVolumnAction(volumeRange.length - 2);

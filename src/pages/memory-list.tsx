@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { Card } from "@/components/common/card";
 import { MainShell } from "@/components/common/main-shell";
 import EmblaCarousel from "@/components/ui/carousel";
 import { H1, H4, H5, P2, P3 } from "@/components/ui/text";
@@ -762,7 +761,7 @@ const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`
   align-items: center;
   margin: 0 auto;
   padding: 0.5rem;
-
+  font-size: calc(var(--font-size) * 1.1);
   color: ${(props) => props.theme.color.text.main};
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
   > span:first-of-type {

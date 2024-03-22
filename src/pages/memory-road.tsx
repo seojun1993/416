@@ -1046,8 +1046,6 @@ const memorySummaryComponents: {
       css={css`
         display: flex;
         flex-direction: column;
-
-        row-gap: 1rem;
         flex-grow: 1;
         overflow-y: scroll;
         margin: auto 0;
@@ -1076,9 +1074,7 @@ const memorySummaryComponents: {
         공모전 당선작 ‘노란 고래의 꿈‘을 설치하였습니다.
         <br />
         추모 조형물 ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한
-        것으로
-        <br />
-        희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
+        것으로 희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
       </P3>
       <h2
         css={css`
@@ -1096,7 +1092,6 @@ const memorySummaryComponents: {
         display: flex;
         flex-direction: column;
         margin: auto 0;
-        row-gap: 1rem;
         flex-grow: 1;
         overflow-y: scroll;
         > p {
@@ -1140,7 +1135,6 @@ const memorySummaryComponents: {
         display: flex;
         flex-direction: column;
         margin: auto 0;
-        row-gap: 1rem;
         flex-grow: 1;
         overflow-y: scroll;
         > p {
@@ -1183,7 +1177,6 @@ const memorySummaryComponents: {
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: 1rem;
         flex-grow: 1;
         overflow-y: scroll;
       `}
@@ -1323,7 +1316,6 @@ const memorySummaryComponents: {
         display: flex;
         flex-direction: column;
         margin: auto 0;
-        row-gap: 1rem;
         flex-grow: 1;
         overflow-y: scroll;
         > p {
@@ -1343,15 +1335,16 @@ const memorySummaryComponents: {
         `}
       >
         단원고 희생자 가족들은 참사의 현장이자 교육의 현장인 [단원고 교실
-        존치]를 원하셨지만
+        존치]를 원하셨지만 2016년 5월 단원고 교육 정상화를 위해 사회적 합의로
+        이전을 결정하였습니다.
         <br />
-        2016년 5월 단원고 교육 정상화를 위해 사회적 합의로 이전을
-        결정하였습니다.
+        단원고 4.16기억교실은 2016년 8월 안산교육지원청 별관으로 이전, 2018년
+        8월 안산교육지원청 본관으로 이전, 2020년 4.16민주시민교육원 기억관 2층,
+        3층에 원형 복원, 2021년 4월 12일 정식 개방하였습니다. 그리고 단원고
+        4.16기억교실 기록물류는 2021년 12월 27일 국가지정기록물 제14호로
+        지정되었습니다.
         <br />
-        2016년 8월 안산교육지원청 별관 이전, 2018년 8월 안산교육지원청 본관
-        이전을 거쳐 2021년 4월 12일 설립된
-        <br />
-        4.16민주시민교육원에 기억교실로서 개방되었습니다.
+        (소장기관: 4.16민주시민교육원, 4.16기억저장소)
       </P3>
       <h2
         css={css`
@@ -1359,7 +1352,15 @@ const memorySummaryComponents: {
           font-weight: 700;
         `}
       >
-        주소: 경기도 안산시 단원구 적금로134 4.16민주시민교육원 기억관 2~3층
+        주소: 경기도 안산시 단원구 적금로134{" "}
+        <span
+          css={css`
+            letter-spacing: -0.1rem;
+          `}
+        >
+          4.16민주시민교육원{" "}
+        </span>
+        기억관 2~3층
       </h2>
     </div>
   ),

@@ -249,7 +249,6 @@ const ModeSelect = () => {
             </div>
             <div>
               <H3>음성 안내</H3>
-              <p>시각장애인</p>
             </div>
           </ModelSelectCard>
           <ModelSelectCard
@@ -353,8 +352,7 @@ const ModeSelect = () => {
               </svg>
             </div>
             <div>
-              <H3>휠체어 안내</H3>
-              <p>휠체어장애인</p>
+              <H3>낮은자세 안내</H3>
             </div>
           </ModelSelectCard>
           <ModelSelectCard
@@ -414,7 +412,11 @@ const ModeSelect = () => {
               </svg>
             </div>
             <div>
-              <H3>사용법 안내</H3>
+              <H3>
+                키오스크
+                <br />
+                사용법 안내
+              </H3>
             </div>
           </ModelSelectCard>
         </ModeSelectList>

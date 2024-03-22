@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
 import ImageX from "@/components/ui/image";
-import { H1, P3 } from "@/components/ui/text";
+import { H1, H2, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
 import { ComponentType, useRef, useState } from "react";
 import classImg from "@/assets/images/classinfo";
@@ -374,19 +374,35 @@ const memorySummaryComponents: {
           <DescriptionTitle>
             단원고 4.16기억교실 이전,복원 경과
           </DescriptionTitle>
+          <H2
+            css={css`
+              font-size: calc(var(--font-size) * 1.2);
+              color: #ffffe0;
+              font-family: "Pretendard";
+            `}
+          >
+            4.16기억저장소 기록화 자료 토대로 원형 복원
+          </H2>
           <DescriptionContent>
             2014년 4월 설레는 마음으로 수학여행을 떠났던 단원고등학교 2학년 학생
-            250명, 선생님 11명은 학교로 돌아오지 못했습니다.
+            250명, 선생님 11명은 학교로 돌아오지 못했습
+            <span
+              css={css`
+                letter-spacing: -0.1rem;
+              `}
+            >
+              니다.
+            </span>{" "}
             <br />
             교실에는 아이들과 선생님을 그리워하며 추모하는 마음의 편지
             <br />와 메모 등이 쌓였고 학생들이 공부했던 교실은 돌아오지 못한
             <br />
             희생자들을 추모하고 기억하는 공간이 되었습니다.
             <br />
-            이후 교실을 그대로 남겨달라는 시민들의 목소리가 커졌고 경기
-            도교육청, 4.16세월호참사가족협의회, 경기도교육청, 경기도의 회,
-            안산시, 경기도안산교육지원청, 단원고등학교는 협약을 통해 별도의 시설
-            건립 후 이전·복원하기로 결정했습니다.
+            이후 교실을 그대로 남겨달라는 시민들의 목소리가 커졌고 경기도교육청,
+            4.16세월호참사가족협의회, 경기도, 경기도의회, 안산시,
+            경기도안산교육지원청, 단원고등학교는 협약을 통해 별도의 시설 건립 후
+            이전·복원하기로 결정했습니다.
             <br />
             단원고 4.16기억교실은 2020년 교육원 건립과 함께 임시공간 에서
             이전하였으며 단원고 학생들이 사용하였던 책상, 의자, 칠판, 게시판,
@@ -459,7 +475,19 @@ const memorySummaryComponents: {
             <br />
             2021. 4. 12
             <br />
-            <strong>기억교실 정식 오픈</strong>
+            <strong>기억교실 정식 개방</strong>
+            <br />
+            <br />
+            2021. 12. 27
+            <br />
+            <strong
+              css={css`
+                color: #ffffe0;
+              `}
+            >
+              「단원고 4.16기억교실 기록물류」 국가지정기록물 제14호 지정
+            </strong>
+            <br />
           </DescriptionContent>
         </DescriptionWrapper>
       </MemoryClassContentDescription>

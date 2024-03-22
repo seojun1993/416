@@ -195,14 +195,17 @@ const createSignLangSlice: StateCreator<SignSlice> = (set) => ({
   speed: 1.5,
   setSpeed: (speed) => set({ speed }),
 });
+
+export const INITIAL_VOL_INDEX = 3;
+
 const createSoundSlice: StateCreator<
   SoundSlice & TooltipSlice,
   [],
   [],
   SoundSlice
 > = (set, get) => ({
-  volumeRange: [80, 70, 50, 25, 0],
-  selectedVolumeIndex: 3,
+  volumeRange: [100, 75, 50, 25, 0],
+  selectedVolumeIndex: INITIAL_VOL_INDEX,
   selectedSoundSpeedIndex: SoundSpeed.length - 1,
   soundSpeed: SoundSpeed,
   soundActivate: true,
@@ -228,6 +231,7 @@ const createSoundSlice: StateCreator<
       if (audio) {
         audio.SetVolume(get().volumeRange[vol]);
       }
+      console.log("VOLUME ACTIONS");
     }
   },
 });
