@@ -38,17 +38,7 @@ const Birthday = () => {
     []
   );
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
-    Prefetch({
-      onSelect(selectedIndex) {
-        setId(selectedIndex);
-        const target = students?.[selectedIndex];
-        if (target) {
-          sendA11yEvent(target.voicekey);
-        }
-      },
-    }),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [Prefetch({})]);
 
   const studentOnCenter = useMemo(() => {
     const target = students?.[Number(id)];
@@ -76,6 +66,10 @@ const Birthday = () => {
           ) : null}
           {students ? (
             <EmblaCarousel
+              onIndexChange={(index) => {
+                setId(index);
+                sendA11yEvent(students?.[index]?.voicekey);
+              }}
               cssSlide={css`
                 width: 60dvw;
                 display: flex;

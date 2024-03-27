@@ -14,22 +14,27 @@ const memoryItems = [
   {
     title: "볼륨 및 속도 조절" as const,
     a11y: "",
-    description:
+    description: [
       "<b>화면 오른쪽 아래의 버튼</b>을 사용해 음량 및 음성 속도, 글씨 크기를 <b>조절</b>할 수 있습니다.",
+    ],
     image: manualImage.manual_1,
   },
   {
     title: "점자 및 키패드" as const,
     a11y: "",
-    description:
+    description: [
       "기기 왼쪽 아래에는 <b>점자 패드</b>가 있습니다. 점자 패드를 사용하시면 주요 콘텐츠의 내용을 <b>점자로 확인</b>할 수 있습니다.",
+      `키패드의 네모는 숫자, 삼각형은 방향, 동그라미는 확인, 세모는 홈 확인 및 취소 버튼 입니다.<br/>
+  <b>키패드의 숫자로 메뉴와 정보를 선택</b>할 수 있습니다.`,
+    ],
     image: manualImage.manual_2,
   },
   {
     title: "화면 높낮이 조절 안내" as const,
     a11y: "",
-    description: `키패드의 네모는 숫자, 삼각형은 방향, 동그라미는 확인, 세모는 홈 확인 및 취소 버튼 입니다.<br/>
-  <b>키패드의 숫자로 메뉴와 정보를 선택</b>할 수 있습니다.`,
+    description: [
+      "오른쪽 아래에 <b>키오스크 화면 높낮이 조절 버튼</b>이 있습니다. <br/>위, 아래 방향 버튼으로 <b>높이를 조절</b>할 수 있습니다. 기기가 움직일 때 안전에 유의하세요.",
+    ],
     image: manualImage.manual_3,
   },
 ];
@@ -53,33 +58,12 @@ const MemoryRoad = () => {
   return (
     <MemoryShell>
       <LazyMotion features={domAnimation}>
-        <AnimatePresence mode="wait">
-          <MemoryHeader key={selected}>
-            <H1>키오스크 사용 안내</H1>
-            <TitleDescription
-              variants={fadeInOutVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              css={css`
-                margin-top: 0.4rem;
-                color: white;
-                font-weight: 400;
-                b {
-                  color: #fff500;
-                  font-weight: 800;
-                }
-              `}
-              dangerouslySetInnerHTML={{
-                __html: memoryItems[selected].description,
-              }}
-            ></TitleDescription>
-          </MemoryHeader>
-          <MemoryContent
-            key={memoryItems[selected].title}
-            item={memoryItems[selected]}
-          />
-        </AnimatePresence>
+        <H1>키오스크 사용 안내</H1>
+
+        <MemoryContent
+          key={memoryItems[selected].title}
+          item={memoryItems[selected]}
+        />
         <MemoryListSmallButtons>
           {memoryItems.map((item, index) => (
             <MemoryListButton
@@ -102,7 +86,7 @@ export default MemoryRoad;
 interface MemoryContentProps {
   item: {
     title: string;
-    description: string;
+    description: string[];
     image: string[];
   };
 }
@@ -112,97 +96,118 @@ const ContentImage = m(ImageX);
 function MemoryContent({ item }: MemoryContentProps) {
   const [page, setPage] = useState(0);
   return (
-    <MemoryRoadContent
-      variants={fadeInOutVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      css={css`
-        margin-top: 0;
-        margin-bottom: 1rem;
-      `}
-      key={item.title}
-    >
-      <div
+    <>
+      <TitleDescription
+        variants={fadeInOutVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         css={css`
-          width: 48rem;
-          height: 18.8rem;
-          margin: 0 auto;
-          border: 4px solid white;
+          margin-top: 0.4rem;
+          color: white;
+          font-weight: 400;
+          margin-bottom: 1.6rem;
+          b {
+            color: #fff500;
+            font-weight: 800;
+          }
         `}
+        dangerouslySetInnerHTML={{
+          __html: item.description[page],
+        }}
+      ></TitleDescription>
+      <MemoryRoadContent
+        variants={fadeInOutVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        css={css`
+          margin-top: 0;
+          margin-bottom: 1rem;
+        `}
+        key={item.title}
       >
-        <ContentImage key={page + item.title} src={item.image[page]} />
-        <AnimatePresence mode="wait"></AnimatePresence>
-      </div>
-      {item.image.length > 1 ? (
         <div
           css={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            column-gap: 1rem;
+            width: 48rem;
+            height: 18.8rem;
+            margin: 0 auto;
+            border: 4px solid white;
           `}
         >
-          <LeftButton
-            data-disable-focus-effect="true"
-            data-a11y-id="이전"
-            onClick={() => {
-              if (page > 0) setPage((prev) => prev - 1);
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36.07"
-              height="64.141"
-              viewBox="0 0 36.07 64.141"
-            >
-              <path
-                id="naxt_icon"
-                d="M-20094.957-17310.031l-24,25,24,25"
-                transform="translate(20123.957 17317.102)"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="10"
-              />
-            </svg>
-
-            <P3 css={css``}>이전</P3>
-          </LeftButton>
-          <H4>
-            <b>{page + 1}</b>&nbsp; /&nbsp;{item.image.length}
-          </H4>
-          <RightButton
-            data-disable-focus-effect="true"
-            data-a11y-id="다음"
-            onClick={() => {
-              if (page < item.image.length - 1) setPage((prev) => prev + 1);
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36.07"
-              height="64.141"
-              viewBox="0 0 36.07 64.141"
-            >
-              <path
-                id="naxt_icon"
-                d="M-20118.957-17310.031l24,25-24,25"
-                transform="translate(20126.027 17317.102)"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="10"
-              />
-            </svg>
-
-            <P3 css={css``}>다음</P3>
-          </RightButton>
+          <ContentImage key={page + item.title} src={item.image[page]} />
+          <AnimatePresence mode="wait"></AnimatePresence>
         </div>
-      ) : null}
-    </MemoryRoadContent>
+        {item.image.length > 1 ? (
+          <div
+            css={css`
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              column-gap: 1rem;
+            `}
+          >
+            <LeftButton
+              data-disable-focus-effect="true"
+              data-a11y-id="이전"
+              onClick={() => {
+                if (page > 0) setPage((prev) => prev - 1);
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36.07"
+                height="64.141"
+                viewBox="0 0 36.07 64.141"
+              >
+                <path
+                  id="naxt_icon"
+                  d="M-20094.957-17310.031l-24,25,24,25"
+                  transform="translate(20123.957 17317.102)"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="10"
+                />
+              </svg>
+
+              <P3 css={css``}>이전</P3>
+            </LeftButton>
+            <H4>
+              <b>{page + 1}</b>&nbsp; /&nbsp;{item.image.length}
+            </H4>
+            <RightButton
+              data-disable-focus-effect="true"
+              data-a11y-id="다음"
+              onClick={() => {
+                if (page < item.image.length - 1) setPage((prev) => prev + 1);
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36.07"
+                height="64.141"
+                viewBox="0 0 36.07 64.141"
+              >
+                <path
+                  id="naxt_icon"
+                  d="M-20118.957-17310.031l24,25-24,25"
+                  transform="translate(20126.027 17317.102)"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="10"
+                />
+              </svg>
+
+              <P3 css={css``}>다음</P3>
+            </RightButton>
+          </div>
+        ) : null}
+      </MemoryRoadContent>
+    </>
   );
 }
 

@@ -158,6 +158,7 @@ const MemoryList = () => {
                     <EmblaCarousel
                       carouselType={[emblaRef, emblaApi]}
                       slides={students}
+                      aspect={0.35}
                       onIndexChange={(index) =>
                         sendA11yEvent(students?.[index].voicekey)
                       }

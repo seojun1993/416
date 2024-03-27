@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { EmblaCarouselType, UseEmblaCarouselType } from "embla-carousel-react";
-import { SerializedStyles, css } from "@emotion/react";
+import { SerializedStyles, css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
   useScroll,
@@ -121,6 +121,7 @@ const EmblaCarousel = <T,>({
                       onFocus={() => {
                         emblaApi?.scrollTo(index);
                       }}
+                      selectedIndex={selectedIndex}
                       enabled={animate}
                       aspect={aspect}
                       index={index}
@@ -233,6 +234,7 @@ const EmblaCarousel = <T,>({
 
 const ScaleChildren = memo(
   <T,>({
+    selectedIndex,
     children,
     index,
     maxLength,
@@ -241,6 +243,7 @@ const ScaleChildren = memo(
     aspect = 0.33,
     ...rest
   }: PropsWithChildren<{
+    selectedIndex: number;
     index: number;
     maxLength: number;
     aspect?: number;
@@ -248,10 +251,11 @@ const ScaleChildren = memo(
     enabled: boolean;
   }> &
     ComponentPropsWithoutRef<"div">) => {
+    const theme = useTheme();
     const center = useMemo(() => index / maxLength, []);
     const weight = useMemo(
       () => (((index + 1) % maxLength) / maxLength || 1) - center,
-      []
+      [center]
     );
     const t = useTransform(
       scrollX,
@@ -272,7 +276,20 @@ const ScaleChildren = memo(
         `}
         {...rest}
       >
-        <m.div style={{ scale: t }}>{children}</m.div>
+        <m.div
+          css={css`
+            border: ${selectedIndex === index
+              ? `0.3em solid ${theme.color.yellow}`
+              : "0.3em solid transparent"};
+            border-radius: 0.85em;
+            transition: border-color 0.2s ease-in-out;
+          `}
+          style={{
+            scale: t,
+          }}
+        >
+          {children}
+        </m.div>
       </div>
     );
   }

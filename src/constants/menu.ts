@@ -21,7 +21,7 @@ type MenuData = {
 };
 export const menuContent: MenuData = {
   단원고416기억교실: {
-    title: "단원고 4.16 기억교실",
+    title: "단원고 4.16기억교실",
     description: "단원고 4.16 기억교실을 소개합니다.",
     src: 메뉴이미지들.단원고416기억교실,
     imagePainter: "천천중학교 최시진",

@@ -19,7 +19,7 @@ import QRCode from "react-qr-code";
 
 const memoryItems = [
   { title: "기억과 약속의 길" as const },
-  { title: "단원고4.16기억교실" as const, a11y: "tour_01" },
+  { title: "단원고 4.16기억교실" as const, a11y: "tour_01" },
   { title: "단원고등학교" as const, a11y: "tour_02" },
   { title: "4.16기억전시관" as const, a11y: "tour_03" },
   { title: "(가칭)4.16생명안전공원" as const, a11y: "tour_04" },
@@ -1038,6 +1038,10 @@ const SummaryTitle = styled(H4)`
   margin-bottom: 1rem;
 `;
 
+const BOLD = styled.b`
+  color: ${(props) => props.theme.color.yellow};
+`;
+
 const memorySummaryComponents: {
   [key in (typeof memoryItems)[number]["title"]]: ReactNode;
 } = {
@@ -1065,13 +1069,12 @@ const memorySummaryComponents: {
           text-align: start;
         `}
       >
-        희생자들이 걷고 뛰어 다녔던 그 길을 따라 걷다보면 단원고등학교에
+        희생자들이 걷고 뛰어다녔던 그 길을 따라 걷다 보면 단원고등학교에
         도착합니다.
         <br />
         2018년, ‘4ㆍ16 세월호 참사로 희생된 학생 및 교원이 못다 이룬 꿈을 단원고
-        학생들이 실현하는 모습의 조형물’
-        <br />
-        공모전 당선작 ‘노란 고래의 꿈‘을 설치하였습니다.
+        학생들이 실현하는 모습의 조형물’ 공모전 당선작 ‘노란 고래의 꿈‘을
+        설치하였습니다.
         <br />
         추모 조형물 ‘노란 고래의 꿈’은 수면에서 승천하는 고래의 모습을 형상화한
         것으로 희생된 분들의 꿈과 뜻을 이뤘으면 하는 소망을 담고 있습니다.
@@ -1082,7 +1085,7 @@ const memorySummaryComponents: {
           font-weight: 700;
         `}
       >
-        주소: 경기도 안산시 단원구 고잔동 단원로 55
+        주소: 경기도 안산시 단원구 고잔동 단원로55
       </h2>
     </div>
   ),
@@ -1111,13 +1114,11 @@ const memorySummaryComponents: {
         `}
       >
         4.16생명안전공원은 세월호 참사로 희생된 단원고 희생학생 250명을 잊지
-        않고 기억하겠다는 우리들의 약속이며,
+        않고 기억하겠다는 우리들의 약속이며, 슬픔을 딛고 안전한 대한민국을
+        만들고자 하는 우리 모두의 다짐과 희망입니다.
         <br />
-        슬픔을 딛고 안전한 대한민국을 만들고자 하는 우리 모두의 다짐과
-        희망입니다.
-        <br />
-        전국 8곳에 흩어져있는 단원고 희생학생들의 추억이 깃들어있는 화랑유원지에
-        4.16생명안전공원이 건립될 것입니다.
+        전국 8곳에 흩어져 있는 단원고 희생학생들의 추억이 깃들어 있는
+        화랑유원지에 4.16생명안전공원이 건립될 것입니다.
       </P3>
       <h2
         css={css`
@@ -1125,7 +1126,7 @@ const memorySummaryComponents: {
           font-weight: 700;
         `}
       >
-        주소: 안산시 단원구 동산로 268(화랑유원지)
+        주소: 안산시 단원구 동산로268 화랑유원지
       </h2>
     </div>
   ),
@@ -1167,7 +1168,7 @@ const memorySummaryComponents: {
           font-weight: 700;
         `}
       >
-        주소: 경기도 안산시 단원구 인현중앙길 38 현대상가 302호
+        주소: 경기도 안산시 단원구 인현중앙길38 현대상가 302호
       </h2>
     </div>
   ),
@@ -1188,8 +1189,9 @@ const memorySummaryComponents: {
         <MemoryRoadAccentText>사전 예약</MemoryRoadAccentText>을 하실 수
         있습니다.
       </MemoryRoadContentTitle>
+      <br />
       <MemoryRoadContentDescription>
-        단원고4.16기억교실, 단원고등학교 추모조형물, 4.16기억전시관,
+        단원고 4.16기억교실, 단원고등학교 추모조형물, 4.16기억전시관,
         (가칭)4.16생명안전공원 부지를
         <br />
         함께 둘러보며 걸어가는 길인 ‘기억과 약속의 길’을 운영하고 있습니다.
@@ -1222,7 +1224,7 @@ const memorySummaryComponents: {
               padding: 0.2rem;
               background-color: white;
             `}
-            value="https://me-qr.com/ko/r22wvb5O"
+            value="http://www.416memory.org/remember/road"
           />
           <MemoryQRDescription>
             해당 QR을 통해
@@ -1310,7 +1312,7 @@ const memorySummaryComponents: {
       </div>
     </div>
   ),
-  "단원고4.16기억교실": (
+  "단원고 4.16기억교실": (
     <div
       css={css`
         display: flex;
@@ -1328,23 +1330,24 @@ const memorySummaryComponents: {
         }
       `}
     >
-      <SummaryTitle>단원고4.16기억교실</SummaryTitle>
+      <SummaryTitle>단원고 4.16기억교실</SummaryTitle>
       <P3
         css={css`
           text-align: start;
         `}
       >
         단원고 희생자 가족들은 참사의 현장이자 교육의 현장인 [단원고 교실
-        존치]를 원하셨지만 2016년 5월 단원고 교육 정상화를 위해 사회적 합의로
-        이전을 결정하였습니다.
+        존치]를 원하셨지만 <BOLD>2016년 5월 9일</BOLD> 단원고 교육 정상화를 위해
+        사회적 합의로 이전을 결정하였습니다.
         <br />
-        단원고 4.16기억교실은 2016년 8월 안산교육지원청 별관으로 이전, 2018년
-        8월 안산교육지원청 본관으로 이전, 2020년 4.16민주시민교육원 기억관 2층,
-        3층에 원형 복원, 2021년 4월 12일 정식 개방하였습니다. 그리고 단원고
-        4.16기억교실 기록물류는 2021년 12월 27일 국가지정기록물 제14호로
-        지정되었습니다.
+        단원고 4.16기억교실은 <BOLD>2016년 8월 20~21일</BOLD> 안산교육지원청
+        별관으로 이전, <BOLD>2018년 8월 15~16일</BOLD> 안산교육지원청 본관으로
+        이전, <BOLD>2020년 12월 14일</BOLD> 4.16민주시민교육원 기억관 2층, 3층에
+        원형 복원, <BOLD>2021년 4월 12일</BOLD> 정식 개방하였습니다. 그리고
+        단원고 4.16기억교실 기록물류는 <BOLD>2021년 12월 27일</BOLD>{" "}
+        국가지정기록물 제14호로 지정되었습니다.
         <br />
-        (소장기관: 4.16민주시민교육원, 4.16기억저장소)
+        <b>(소장기관: 4.16민주시민교육원, 4.16기억저장소)</b>
       </P3>
       <h2
         css={css`
