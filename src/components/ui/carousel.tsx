@@ -39,6 +39,7 @@ interface EmblaCarouselProps<T> {
   carouselType: UseEmblaCarouselType;
   aspect?: number;
   showArrow?: boolean;
+  outline?: boolean;
   onIndexChange?: (index: number) => void;
   children?: ReactNode | ((item: T, index: number) => ReactNode);
   arrow?: (
@@ -55,6 +56,7 @@ const EmblaCarousel = <T,>({
   arrow,
   onIndexChange,
   showArrow = true,
+  outline = true,
   options = {},
 }: EmblaCarouselProps<T>) => {
   const { animate, button: { leftStyle = "", rightStyle = "" } = {} } = {
@@ -118,6 +120,7 @@ const EmblaCarousel = <T,>({
               {typeof children === "function"
                 ? slides.map((item, index) => (
                     <ScaleChildren
+                      outline={outline}
                       onFocus={() => {
                         emblaApi?.scrollTo(index);
                       }}
@@ -240,9 +243,11 @@ const ScaleChildren = memo(
     maxLength,
     scrollX,
     enabled,
+    outline,
     aspect = 0.33,
     ...rest
   }: PropsWithChildren<{
+    outline: boolean;
     selectedIndex: number;
     index: number;
     maxLength: number;
@@ -278,13 +283,29 @@ const ScaleChildren = memo(
       >
         <m.div
           css={css`
-            outline: ${selectedIndex === index
-              ? `0.3em solid ${theme.color.yellow}`
-              : "0.3em solid transparent"};
-            border-radius: 0.85em;
-            outline-offset: -2px;
-            overflow: hidden;
+            ${outline
+              ? `outline: ${
+                  selectedIndex === index
+                    ? `0.3em solid ${theme.color.yellow}`
+                    : "0.3em solid transparent"
+                };
+            outline-offset: -2px !important;
+            a:focus {
+
+          outline: none !important;
+          
+}
+            `
+              : `& {
+                 a:focus {
+
+                   outline: 0.3em solid ${theme.color.yellow} !important;
+                   outline-offset: -2px !important;
+                 }
+              }`}
+
             transition: outline-color 0.2s ease-in-out;
+            border-radius: 0.85em;
           `}
           style={{
             scale: t,

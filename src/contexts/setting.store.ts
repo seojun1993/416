@@ -231,7 +231,6 @@ const createSoundSlice: StateCreator<
       if (audio) {
         audio.SetVolume(get().volumeRange[vol]);
       }
-      console.log("VOLUME ACTIONS");
     }
   },
 });

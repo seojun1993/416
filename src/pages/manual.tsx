@@ -102,7 +102,6 @@ function MemoryContent({ item }: MemoryContentProps) {
       >
         키오스크 사용 안내
       </H1>
-
       <TitleDescription
         variants={fadeInOutVariants}
         initial="initial"

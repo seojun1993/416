@@ -86,6 +86,7 @@ const Stars = () => {
       </StarsSpace>
       {students ? (
         <EmblaCarousel
+          outline={false}
           aspect={1 / SlideCardAspect}
           cssSlide={css`
             width: calc((9.2rem + 1.6rem) * ${SlideCardAspect});
@@ -418,6 +419,7 @@ const CardContentHeader = styled(H5)<{ contentHeaderStyle?: SerializedStyles }>`
   margin: 0 auto;
   padding: 0.5rem 0;
   color: ${(props) => props.theme.color.text.main};
+  font-size: calc(var(--font-size) * 1.1);
   ${(props) => props.contentHeaderStyle && props.contentHeaderStyle}
   > span:first-of-type {
     display: inline-flex;

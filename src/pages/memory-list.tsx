@@ -158,7 +158,7 @@ const MemoryList = () => {
                     <EmblaCarousel
                       carouselType={[emblaRef, emblaApi]}
                       slides={students}
-                      aspect={0.35}
+                      aspect={0.34}
                       onIndexChange={(index) =>
                         sendA11yEvent(students?.[index].voicekey)
                       }
@@ -612,7 +612,7 @@ function OnBoardItem({
     <SmallCard
       a11y={item.voicekey}
       linkStyle={css`
-        width: 10rem;
+        width: 100%;
         height: 12rem;
       `}
       // contentHeaderStyle={css`

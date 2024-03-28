@@ -55,6 +55,7 @@ const SearchResult = () => {
       {students ? (
         <LazyMotion features={domAnimation}>
           <EmblaCarousel
+            outline={false}
             cssSlide={css`
               width: calc((18rem + 1.6rem) * ${SlideCardAspect});
             `}
