@@ -22,7 +22,7 @@ const ModeSelect = () => {
   return (
     <ModeSelectShell
       css={css`
-        row-gap: 3rem;
+        row-gap: 1rem;
       `}
     >
       <motion.div
@@ -30,9 +30,16 @@ const ModeSelect = () => {
         css={css`
           flex: 1;
           width: 100%;
+          display: flex;
+          justify-content: center;
         `}
       >
-        <ImageX src={mainImage} />
+        <img src={mainImage} />
+        <H1>
+          단원고 4.16기억교실에 오신 것을 환영합니다.
+          <br />
+          (소장기관: 4.16민주시민교육원, 4.16기억저장소)
+        </H1>
       </motion.div>
       <div
         css={css`
@@ -176,7 +183,7 @@ const ModeSelect = () => {
               </svg>
             </div>
             <div>
-              <H3>터치 안내</H3>
+              <H3>글자 안내</H3>
             </div>
           </ModelSelectCard>
           <ModelSelectCard

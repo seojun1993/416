@@ -23,7 +23,7 @@ const memoryItems = [
     title: "점자 및 키패드" as const,
     a11y: "",
     description: [
-      "기기 왼쪽 아래에는 <b>점자 패드</b>가 있습니다. 점자 패드를 사용하시면 주요 콘텐츠의 내용을 <b>점자로 확인</b>할 수 있습니다.",
+      "기기 왼쪽 아래에는 <b>점자 패드</b>가 있습니다.<br/>점자 패드를 사용하시면 주요 콘텐츠의 내용을 <b>점자로 확인</b>할 수 있습니다.",
       `키패드의 네모는 숫자, 삼각형은 방향, 동그라미는 확인, 세모는 홈 확인 및 취소 버튼 입니다.<br/>
   <b>키패드의 숫자로 메뉴와 정보를 선택</b>할 수 있습니다.`,
     ],
@@ -58,8 +58,6 @@ const MemoryRoad = () => {
   return (
     <MemoryShell>
       <LazyMotion features={domAnimation}>
-        <H1>키오스크 사용 안내</H1>
-
         <MemoryContent
           key={memoryItems[selected].title}
           item={memoryItems[selected]}
@@ -97,6 +95,14 @@ function MemoryContent({ item }: MemoryContentProps) {
   const [page, setPage] = useState(0);
   return (
     <>
+      <H1
+        css={css`
+          text-align: center;
+        `}
+      >
+        키오스크 사용 안내
+      </H1>
+
       <TitleDescription
         variants={fadeInOutVariants}
         initial="initial"
@@ -106,7 +112,8 @@ function MemoryContent({ item }: MemoryContentProps) {
           margin-top: 0.4rem;
           color: white;
           font-weight: 400;
-          margin-bottom: 1.6rem;
+          height: calc(var(--font-size) * 4.5);
+          /* margin-bottom: 1.6rem; */
           b {
             color: #fff500;
             font-weight: 800;
@@ -129,83 +136,97 @@ function MemoryContent({ item }: MemoryContentProps) {
       >
         <div
           css={css`
-            width: 48rem;
-            height: 18.8rem;
-            margin: 0 auto;
-            border: 4px solid white;
+            display: flex;
+            flex-grow: 1;
+            flex: 1;
+            justify-content: center;
           `}
         >
-          <ContentImage key={page + item.title} src={item.image[page]} />
-          <AnimatePresence mode="wait"></AnimatePresence>
-        </div>
-        {item.image.length > 1 ? (
           <div
             css={css`
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              column-gap: 1rem;
+              width: 48rem;
+              height: 18.8rem;
+              margin: 0 auto;
+              border: 4px solid white;
+              position: relative;
             `}
           >
-            <LeftButton
-              data-disable-focus-effect="true"
-              data-a11y-id="이전"
-              onClick={() => {
-                if (page > 0) setPage((prev) => prev - 1);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="36.07"
-                height="64.141"
-                viewBox="0 0 36.07 64.141"
+            <ContentImage key={page + item.title} src={item.image[page]} />
+            {item.image.length > 1 ? (
+              <div
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  column-gap: 1rem;
+                  position: absolute;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  top: calc(100% + 1rem);
+                `}
               >
-                <path
-                  id="naxt_icon"
-                  d="M-20094.957-17310.031l-24,25,24,25"
-                  transform="translate(20123.957 17317.102)"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="10"
-                />
-              </svg>
+                <LeftButton
+                  data-disable-focus-effect="true"
+                  data-a11y-id="이전"
+                  onClick={() => {
+                    if (page > 0) setPage((prev) => prev - 1);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36.07"
+                    height="64.141"
+                    viewBox="0 0 36.07 64.141"
+                  >
+                    <path
+                      id="naxt_icon"
+                      d="M-20094.957-17310.031l-24,25,24,25"
+                      transform="translate(20123.957 17317.102)"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="10"
+                    />
+                  </svg>
 
-              <P3 css={css``}>이전</P3>
-            </LeftButton>
-            <H4>
-              <b>{page + 1}</b>&nbsp; /&nbsp;{item.image.length}
-            </H4>
-            <RightButton
-              data-disable-focus-effect="true"
-              data-a11y-id="다음"
-              onClick={() => {
-                if (page < item.image.length - 1) setPage((prev) => prev + 1);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="36.07"
-                height="64.141"
-                viewBox="0 0 36.07 64.141"
-              >
-                <path
-                  id="naxt_icon"
-                  d="M-20118.957-17310.031l24,25-24,25"
-                  transform="translate(20126.027 17317.102)"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="10"
-                />
-              </svg>
+                  <P3 css={css``}>이전</P3>
+                </LeftButton>
+                <H4>
+                  <b>{page + 1}</b>&nbsp; /&nbsp;{item.image.length}
+                </H4>
+                <RightButton
+                  data-disable-focus-effect="true"
+                  data-a11y-id="다음"
+                  onClick={() => {
+                    if (page < item.image.length - 1)
+                      setPage((prev) => prev + 1);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36.07"
+                    height="64.141"
+                    viewBox="0 0 36.07 64.141"
+                  >
+                    <path
+                      id="naxt_icon"
+                      d="M-20118.957-17310.031l24,25-24,25"
+                      transform="translate(20126.027 17317.102)"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="10"
+                    />
+                  </svg>
 
-              <P3 css={css``}>다음</P3>
-            </RightButton>
+                  <P3 css={css``}>다음</P3>
+                </RightButton>
+              </div>
+            ) : null}
           </div>
-        ) : null}
+        </div>
       </MemoryRoadContent>
     </>
   );
@@ -253,7 +274,6 @@ const MemoryRoadContent = styled(m.div)`
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  row-gap: 1rem;
 `;
 
 const TitleDescription = m(P3);

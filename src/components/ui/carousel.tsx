@@ -278,11 +278,13 @@ const ScaleChildren = memo(
       >
         <m.div
           css={css`
-            border: ${selectedIndex === index
+            outline: ${selectedIndex === index
               ? `0.3em solid ${theme.color.yellow}`
               : "0.3em solid transparent"};
             border-radius: 0.85em;
-            transition: border-color 0.2s ease-in-out;
+            outline-offset: -2px;
+            overflow: hidden;
+            transition: outline-color 0.2s ease-in-out;
           `}
           style={{
             scale: t,
