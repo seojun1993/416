@@ -361,8 +361,8 @@ const RightButton = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: row-reverse;
-  border: none;
   column-gap: 0.3rem;
+  border: none;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
   background-color: ${(props) =>
     props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};

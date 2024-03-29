@@ -188,7 +188,7 @@ const createCombineUserModeSlice: StateCreator<
 const createSignLangSlice: StateCreator<SignSlice> = (set) => ({
   signVideoUrl: "",
   setSignVideoUrl: (url) => set({ signVideoUrl: url }),
-  signActivate: false,
+  signActivate: true,
   setSignActivate: (state) => set({ signActivate: state }),
   isPlaying: false,
   setIsPlaying: (isPlaying) => set({ isPlaying }),

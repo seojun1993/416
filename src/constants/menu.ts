@@ -2,6 +2,7 @@ import 메뉴이미지들 from "@/assets/images/menu";
 type MenuTitle =
   | "세월호타임라인"
   | "기억명단"
+  | "이달의 생일자"
   | "별을통한만남"
   | "단원고416기억교실"
   | "기억과약속의길"
@@ -35,6 +36,14 @@ export const menuContent: MenuData = {
     imagePainter: "영덕고등학교 정하은",
     href: "/memory-list",
     a11y: "menu_memory_list",
+  },
+  "이달의 생일자": {
+    title: "이달의 생일자",
+    description: "이달의 생일을 맞이한\n희생자를 기억하고 축하해 주세요.",
+    src: 메뉴이미지들.이달의생일자,
+    imagePainter: "영덕고등학교 정하은",
+    href: "/birthday",
+    a11y: "silence",
   },
   별을통한만남: {
     title: "별을 통한 만남",

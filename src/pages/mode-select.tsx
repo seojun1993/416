@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { MainShell } from "@/components/common/main-shell";
-import ImageX from "@/components/ui/image";
 import { H1, H3 } from "@/components/ui/text";
 import { useSettingStore } from "@/contexts/setting.store";
 import { useA11y } from "@/hooks/use-a11y";
@@ -21,8 +20,9 @@ const ModeSelect = () => {
 
   return (
     <ModeSelectShell
+      key="ModeSelectShell"
       css={css`
-        row-gap: 1rem;
+        padding: 2rem 1.6em 1.8rem 1.6em;
       `}
     >
       <motion.div
@@ -31,21 +31,49 @@ const ModeSelect = () => {
           flex: 1;
           width: 100%;
           display: flex;
-          justify-content: center;
+          flex-direction: column;
+          align-items: center;
         `}
       >
-        <img src={mainImage} />
-        <H1>
-          단원고 4.16기억교실에 오신 것을 환영합니다.
+        <img
+          src={mainImage}
+          css={css`
+            height: 5rem;
+            width: fit-content;
+            object-fit: contain;
+            margin-bottom: 1.44rem;
+          `}
+        />
+        <ModeSelectTitle>
+          <b>단원고 4.16기억교실에</b>
           <br />
+          오신 것을 환영합니다.
+          <br />
+        </ModeSelectTitle>
+        <p
+          css={css`
+            font-size: calc(var(--font-size) * 1.4);
+          `}
+        >
           (소장기관: 4.16민주시민교육원, 4.16기억저장소)
-        </H1>
+        </p>
       </motion.div>
+      <div
+        css={css`
+          width: 36rem;
+          height: 4px;
+          background-color: white;
+          box-shadow: 0 0 20px white;
+        `}
+      />
       <div
         css={css`
           flex: 1;
           width: 100%;
           text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
         `}
       >
         <H1>
@@ -54,7 +82,7 @@ const ModeSelect = () => {
         <ModeSelectList>
           <ModelSelectCard
             data-a11y-id="터치안내"
-            to="birthday"
+            to="menu"
             onDoubleClick={() => {
               changeMode("normal");
             }}
@@ -462,6 +490,17 @@ const ModelSelectCard = ({
 };
 
 export default ModeSelect;
+
+const ModeSelectTitle = styled(H1)`
+  font-size: calc(var(--font-size) * 2.8);
+  line-height: 3.2rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  b {
+    color: ${(props) => props.theme.color.yellow};
+    font-weight: 800;
+  }
+`;
 
 const ModeColoredTitle = styled.span`
   color: ${(props) => props.theme.color.accent.foreground};

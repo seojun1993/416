@@ -99,7 +99,7 @@ const BottomBar = () => {
         break;
       case "normal":
       default:
-        setSignOn(false);
+        setSignOn(true);
     }
   }, [mode, pathname]);
 

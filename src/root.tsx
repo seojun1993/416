@@ -3,7 +3,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentsQuery } from "./queries/student";
-import { lazy, useCallback, useEffect, useRef } from "react";
+import { lazy, useCallback, useEffect, useId, useRef } from "react";
 import Loadable from "./components/common/loadable";
 import Stars from "./pages/stars";
 import { sendA11yEvent } from "./libs/utils";
@@ -27,6 +27,7 @@ function Root() {
   const location = useLocation();
   useQuery(getStudentsQuery());
   const pathname = useLocation().pathname;
+  const id = useId();
   const navigate = useNavigate();
   const timeoutId = useRef<NodeJS.Timeout>();
 
@@ -85,7 +86,7 @@ function Root() {
   return (
     <AppShell>
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname ?? "root"}>
+        <Routes location={location} key={(location.pathname ?? "root") + id}>
           <Route path="" element={<ModeSelect />} />
           <Route path="birthday" element={<Birthday />} />
           <Route path="board" element={<Board />} />

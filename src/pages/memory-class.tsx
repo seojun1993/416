@@ -3,7 +3,14 @@ import { MainShell } from "@/components/common/main-shell";
 import ImageX from "@/components/ui/image";
 import { H1, H2, P3 } from "@/components/ui/text";
 import styled from "@emotion/styled";
-import { ComponentType, useRef, useState } from "react";
+import {
+  ComponentType,
+  MouseEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import classImg from "@/assets/images/classinfo";
 import {
   AnimatePresence,
@@ -18,6 +25,7 @@ import { useSettingStore } from "@/contexts/setting.store";
 import PreloadVideo from "@/components/ui/preload-video";
 import { useA11y } from "@/hooks/use-a11y";
 import { sendA11yEvent } from "@/libs/utils";
+import SignController from "@/components/ui/sign-controller";
 
 const memoryItems = [
   { title: "기억교실 연혁" as const, sign: "/videos/0.webm", a11y: "c_time" },
@@ -43,51 +51,262 @@ const MemoryClass = () => {
       mode,
     })
   );
+  const [delaySignActive, setDelaySignActive] = useState(signActivate);
   const Description = memorySummaryComponents[memoryItems[selected].title];
   const [signRef, animate] = useAnimate();
   const timeoutId = useRef<NodeJS.Timeout>();
   const videoSrc = memoryItems[selected].sign;
 
+  const handleScrollClick = useCallback(
+    (dir: "TOP" | "BOTTOM") => () => {
+      const scroller = document.querySelector("article");
+      if (scroller) {
+        const top =
+          scroller.scrollTop +
+          (dir === "TOP" ? -scroller.clientHeight : scroller.clientHeight);
+        scroller.scrollTo({ top, behavior: "smooth" });
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    async function toggleActive() {
+      if (!signActivate && signRef.current) {
+        await animate(
+          signRef.current,
+          {
+            opacity: 0,
+          },
+          {
+            duration: 0.5,
+          }
+        );
+      }
+      setDelaySignActive(signActivate);
+    }
+    toggleActive();
+  }, [signActivate]);
   useA11y(mode === "sound" ? "class_detail" : "class");
   return (
-    <MemoryShell>
-      {mode === "wheel" ? (
-        <>
-          <motion.div
-            layout
-            data-isopen
-            css={css`
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-              justify-content: space-between;
-              transform-origin: right;
-              padding-bottom: 1.6rem;
-              &[data-isOpen="true"] {
-                width: 100%;
-              }
-            `}
-            transition={{
-              type: "tween",
-              ease: "linear",
-            }}
-          >
-            <div
+    <MemoryShell key="memory-class">
+      <AnimatePresence mode="wait">
+        {mode === "wheel" ? (
+          <>
+            <motion.div
+              layout
+              data-isopen={signActivate}
               css={css`
                 display: flex;
                 flex-direction: column;
-                flex: 1;
+                height: 100%;
+                justify-content: space-between;
+                transform-origin: right;
+                padding-bottom: 1.6rem;
+                &[data-isOpen="true"] {
+                  width: 100%;
+                }
               `}
+              transition={{
+                type: "tween",
+                ease: "linear",
+              }}
+            >
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: column;
+                  flex: 1;
+                `}
+              >
+                <MemoryHeader>
+                  <H1>단원고 4.16기억교실</H1>
+                </MemoryHeader>
+                <LazyMotion features={domAnimation}>
+                  <AnimatePresence mode="wait">
+                    <MemoryClassContent
+                      css={css`
+                        margin-top: 1.6rem;
+                      `}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      key={memoryItems[selected].title}
+                    >
+                      <MemoryClassContentImage>
+                        <MemoryClassImg src={classImg[selected]} />
+                      </MemoryClassContentImage>
+                      <Description />
+                    </MemoryClassContent>
+                  </AnimatePresence>
+                </LazyMotion>
+                {(!delaySignActive || !videoSrc) && (
+                  <div
+                    css={css`
+                      margin-left: 20.2rem;
+                      padding-top: 0.6rem;
+                      padding-bottom: 1rem;
+                      display: flex;
+                    `}
+                  >
+                    <MemoryClassScrollButton
+                      data-disable-focus-effect="true"
+                      onClick={handleScrollClick("TOP")}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="64.141"
+                        height="36.07"
+                        viewBox="0 0 64.141 36.07"
+                      >
+                        <path
+                          id="naxt_icon"
+                          d="M-20094.957-17310.031l-24,25,24,25"
+                          transform="translate(-17252.961 20123.957) rotate(90)"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="10"
+                        />
+                      </svg>
+
+                      <P3>위</P3>
+                    </MemoryClassScrollButton>
+                    <MemoryClassScrollButton
+                      data-disable-focus-effect="true"
+                      onClick={handleScrollClick("BOTTOM")}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="64.139"
+                        height="36.07"
+                        viewBox="0 0 64.139 36.07"
+                      >
+                        <path
+                          id="naxt_icon"
+                          d="M24,50,0,25,24,0"
+                          transform="translate(7.07 31.07) rotate(-90)"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="10"
+                        />
+                      </svg>
+
+                      <P3>아래</P3>
+                    </MemoryClassScrollButton>
+                  </div>
+                )}
+                <MemoryClassNav css={css``}>
+                  {memoryItems.map((item, index) => (
+                    <MemoryClassButton
+                      onFocus={() => {
+                        timeoutId.current = setTimeout(() => {
+                          sendA11yEvent(item.a11y);
+                        }, 150);
+                      }}
+                      layoutId={item.title}
+                      onClick={() => {
+                        clearTimeout(timeoutId.current);
+                        setSelected(index);
+                      }}
+                      selected={index === selected}
+                      key={item.title}
+                    >
+                      {item.title}
+                    </MemoryClassButton>
+                  ))}
+                </MemoryClassNav>
+              </div>
+            </motion.div>
+            {delaySignActive && videoSrc && (
+              <motion.div
+                key={videoSrc}
+                ref={signRef}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    delay: 0.5,
+                  },
+                }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  type: "tween",
+                  ease: "linear",
+                }}
+                css={css`
+                  /* width: 36rem; */
+                  flex: 0 0 21.7rem;
+                  display: flex;
+                  flex-direction: column;
+                  height: 100%;
+                `}
+              >
+                <PreloadVideo
+                  key={videoSrc}
+                  src={videoSrc}
+                  autoPlay
+                  muted
+                ></PreloadVideo>
+              </motion.div>
+            )}
+          </>
+        ) : (
+          <>
+            <motion.div
+              layout
+              data-isopen={signActivate}
+              css={css`
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                justify-content: space-between;
+                transform-origin: right;
+                padding-bottom: 1.6rem;
+                &[data-isOpen="true"] {
+                  width: 100%;
+                }
+              `}
+              transition={{
+                type: "tween",
+                ease: "linear",
+              }}
             >
               <MemoryHeader>
                 <H1>단원고 4.16기억교실</H1>
+                <MemoryClassNav
+                  css={css`
+                    margin-bottom: 2rem;
+                  `}
+                >
+                  {memoryItems.map((item, index) => (
+                    <MemoryClassButton
+                      onFocus={() => {
+                        timeoutId.current = setTimeout(() => {
+                          sendA11yEvent(item.a11y);
+                        }, 150);
+                      }}
+                      layoutId={item.title}
+                      onClick={() => {
+                        clearTimeout(timeoutId.current);
+                        setSelected(index);
+                      }}
+                      selected={index === selected}
+                      key={item.title}
+                    >
+                      {item.title}
+                    </MemoryClassButton>
+                  ))}
+                </MemoryClassNav>
               </MemoryHeader>
               <LazyMotion features={domAnimation}>
                 <AnimatePresence mode="wait">
                   <MemoryClassContent
-                    css={css`
-                      margin-top: 1.6rem;
-                    `}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -100,35 +319,8 @@ const MemoryClass = () => {
                   </MemoryClassContent>
                 </AnimatePresence>
               </LazyMotion>
-
-              <MemoryClassNav
-                css={css`
-                  margin-top: 2rem;
-                `}
-              >
-                {memoryItems.map((item, index) => (
-                  <MemoryClassButton
-                    onFocus={() => {
-                      timeoutId.current = setTimeout(() => {
-                        sendA11yEvent(item.a11y);
-                      }, 150);
-                    }}
-                    layoutId={item.title}
-                    onClick={() => {
-                      clearTimeout(timeoutId.current);
-                      setSelected(index);
-                    }}
-                    selected={index === selected}
-                    key={item.title}
-                  >
-                    {item.title}
-                  </MemoryClassButton>
-                ))}
-              </MemoryClassNav>
-            </div>
-          </motion.div>
-          <AnimatePresence mode="wait">
-            {videoSrc && (
+            </motion.div>
+            {delaySignActive && videoSrc && (
               <motion.div
                 key={videoSrc}
                 ref={signRef}
@@ -162,118 +354,54 @@ const MemoryClass = () => {
                 ></PreloadVideo>
               </motion.div>
             )}
-          </AnimatePresence>
-        </>
-      ) : (
-        <>
-          <motion.div
-            layout
-            css={css`
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-              justify-content: space-between;
-              transform-origin: right;
-              padding-bottom: 1.6rem;
-              &[data-isOpen="true"] {
-                width: 100%;
-              }
-            `}
-            transition={{
-              type: "tween",
-              ease: "linear",
-            }}
-          >
-            <MemoryHeader>
-              <H1>단원고 4.16기억교실</H1>
-              <MemoryClassNav
-                css={css`
-                  margin-bottom: 2rem;
-                `}
-              >
-                {memoryItems.map((item, index) => (
-                  <MemoryClassButton
-                    onFocus={() => {
-                      timeoutId.current = setTimeout(() => {
-                        sendA11yEvent(item.a11y);
-                      }, 150);
-                    }}
-                    layoutId={item.title}
-                    onClick={() => {
-                      clearTimeout(timeoutId.current);
-                      setSelected(index);
-                    }}
-                    selected={index === selected}
-                    key={item.title}
-                  >
-                    {item.title}
-                  </MemoryClassButton>
-                ))}
-              </MemoryClassNav>
-            </MemoryHeader>
-            <LazyMotion features={domAnimation}>
-              <AnimatePresence mode="wait">
-                <MemoryClassContent
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  key={memoryItems[selected].title}
-                >
-                  <MemoryClassContentImage
-                  // css={css`
-                  //   transform: scale(${zoom});
-                  // `}
-                  >
-                    <MemoryClassImg src={classImg[selected]} />
-                  </MemoryClassContentImage>
-                  <Description />
-                </MemoryClassContent>
-              </AnimatePresence>
-            </LazyMotion>
-          </motion.div>
-          <AnimatePresence mode="wait">
-            {videoSrc && (
-              <motion.div
-                key={videoSrc}
-                ref={signRef}
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    delay: 0.5,
-                  },
-                }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  type: "tween",
-                  ease: "linear",
-                }}
-                css={css`
-                  /* width: 36rem; */
-                  flex: 0 0 21.7rem;
-                  display: flex;
-                  flex-direction: column;
-                  height: 100%;
-                `}
-              >
-                <PreloadVideo
-                  key={videoSrc}
-                  src={videoSrc}
-                  autoPlay
-                  muted
-                ></PreloadVideo>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </>
-      )}
+          </>
+        )}
+      </AnimatePresence>
+      <div
+        css={css`
+          position: absolute;
+          right: 4.5rem;
+          bottom: ${mode === "wheel" && !signActivate ? "8rem" : "1rem"};
+          transition: bottom 0.5s ease-in-out;
+        `}
+      >
+        <SignController />
+      </div>
     </MemoryShell>
   );
 };
 
 export default MemoryClass;
+
+const MemoryClassScrollButton = styled.button`
+  width: 5.2rem;
+  height: 2.6rem;
+  border-radius: 0.4rem;
+  margin-left: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.4rem;
+  border: none;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  background-color: ${(props) =>
+    props.theme.themeMode === "light" ? "#ffffff" : props.theme.color.yellow};
+  row-gap: 0.48rem;
+  path {
+    stroke: ${(props) =>
+      props.theme.themeMode === "light"
+        ? props.theme.color.accent.foreground
+        : "black"};
+  }
+  transition: opacity 0.2s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
+  p {
+    color: black;
+  }
+`;
+
 const MemoryClassImg = styled(ImageX)`
   img {
     border-radius: 0.6rem;
@@ -357,6 +485,7 @@ const MemoryHeader = styled.div`
 `;
 
 const MemoryShell = styled(MainShell)`
+  position: relative;
   /* flex-direction: column; */
   align-items: center;
   /* padding-bottom: 1.6rem; */
