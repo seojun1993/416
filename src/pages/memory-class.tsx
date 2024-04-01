@@ -447,7 +447,7 @@ const DescriptionWrapper = styled.div`
 const MemoryClassContentDescription = styled.article`
   overflow-y: scroll;
   width: 100%;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
   margin-left: 1rem;
 `;
 
@@ -1670,7 +1670,6 @@ const memorySummaryComponents: {
               꿈을 가진 이정인
             </li>
           </ul>
-          <br />
           <br />이 교실에 남은 아이들의 손길과 시간을 가슴에 새기겠습니다.
           <br />
           <br />
