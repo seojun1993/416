@@ -45,7 +45,7 @@ const ModeSelect = () => {
           `}
         />
         <ModeSelectTitle>
-          <b>단원고 4.16기억교실에</b>
+          <b>단원고 4.16기억교실</b>에
           <br />
           오신 것을 환영합니다.
           <br />

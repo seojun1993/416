@@ -1081,7 +1081,7 @@ const memorySummaryComponents: {
         <br />
         못다 이룬 꿈을 단원고 학생들이
         <br />
-        실현하는 모습의 조형물’ 공모전 당선작
+        실현하는 모습의 조형물’ 공모전 당선작,
         <br />
         ‘노란 고래의 꿈‘을 설치하였습니다.
         <br />
@@ -1381,7 +1381,7 @@ const memorySummaryComponents: {
         <br />
         <BOLD>2020년 12월</BOLD> 4.16민주시민교육원 기억관 2층, 3층에
         <br />
-        원형 복원, <BOLD>2021년 4월 12일</BOLD> 정식 개방하였습니다.
+        원형 복원하여 <BOLD>2021년 4월 12일</BOLD> 정식 개방하였습니다.
         <br />
         <br />
         그리고 단원고 4.16기억교실 기록물류는
@@ -1399,7 +1399,8 @@ const memorySummaryComponents: {
       >
         주소: 경기도 안산시 단원구 적금로 134,
         <br />
-        4.16민주시민교육원 기억관 2~3층
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.16민주시민교육원
+        기억관 2~3층
       </h2>
     </div>
   ),

@@ -22,10 +22,8 @@ import {
 } from "framer-motion";
 import { css, useTheme } from "@emotion/react";
 import { useSettingStore } from "@/contexts/setting.store";
-import PreloadVideo from "@/components/ui/preload-video";
 import { useA11y } from "@/hooks/use-a11y";
 import { sendA11yEvent } from "@/libs/utils";
-import SignController from "@/components/ui/sign-controller";
 
 const memoryItems = [
   { title: "기억교실 연혁" as const, sign: "/videos/0.webm", a11y: "c_time" },
@@ -221,40 +219,6 @@ const MemoryClass = () => {
                 </MemoryClassNav>
               </div>
             </motion.div>
-            {delaySignActive && videoSrc && (
-              <motion.div
-                key={videoSrc}
-                ref={signRef}
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    delay: 0.5,
-                  },
-                }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  type: "tween",
-                  ease: "linear",
-                }}
-                css={css`
-                  /* width: 36rem; */
-                  flex: 0 0 21.7rem;
-                  display: flex;
-                  flex-direction: column;
-                  height: 100%;
-                `}
-              >
-                <PreloadVideo
-                  key={videoSrc}
-                  src={videoSrc}
-                  autoPlay
-                  muted
-                ></PreloadVideo>
-              </motion.div>
-            )}
           </>
         ) : (
           <>
@@ -320,40 +284,6 @@ const MemoryClass = () => {
                 </AnimatePresence>
               </LazyMotion>
             </motion.div>
-            {delaySignActive && videoSrc && (
-              <motion.div
-                key={videoSrc}
-                ref={signRef}
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    delay: 0.5,
-                  },
-                }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  type: "tween",
-                  ease: "linear",
-                }}
-                css={css`
-                  /* width: 36rem; */
-                  flex: 0 0 21.7rem;
-                  display: flex;
-                  flex-direction: column;
-                  height: 100%;
-                `}
-              >
-                <PreloadVideo
-                  key={videoSrc}
-                  src={videoSrc}
-                  autoPlay
-                  muted
-                ></PreloadVideo>
-              </motion.div>
-            )}
           </>
         )}
       </AnimatePresence>
@@ -365,7 +295,7 @@ const MemoryClass = () => {
           transition: bottom 0.5s ease-in-out;
         `}
       >
-        <SignController />
+        {/* <SignController /> */}
       </div>
     </MemoryShell>
   );
@@ -555,7 +485,7 @@ const memorySummaryComponents: {
                 color: ${theme.color.yellow};
               `}
             >
-              2020년 12월 24일
+              2020년 12월 14일
             </b>{" "}
             임시공간에서
             <br />
@@ -581,7 +511,7 @@ const memorySummaryComponents: {
         <DescriptionWrapper>
           <DescriptionTitle>최초이전</DescriptionTitle>
           <DescriptionContent>
-            <strong>단원고 - 구) 안산교육지원청 별관</strong>
+            <strong>단원고등학교 - 구) 안산교육지원청 별관</strong>
             <br />
             <br />
             2016. 8. 20. ~ 2016. 8. 21.
@@ -606,7 +536,7 @@ const memorySummaryComponents: {
             <strong>구) 안산교육지원청 별관 – 구) 안산교육지원청 본관</strong>
             <br />
             <br />
-            2018. 8. 15. ~ 2018. 8. 16.
+            2018. 8. 1. ~ 2018. 8. 11.
             <br />
             2층
             <br />
@@ -697,7 +627,7 @@ const memorySummaryComponents: {
           <br />
           살며시 의자에 앉아, 기억노트에 메시지를 작성해 주세요.
           <br />
-          또, 책상 위 우측 상단에 있는 QR코드를 통해
+          또, 책상 위 우측 상단에 QR코드를 통해
           <br />
           아이들과 선생님들의 이야기를 보실 수 있습니다.
           <br />
@@ -777,7 +707,7 @@ const memorySummaryComponents: {
           <br />
           설레는 마음으로 교실을 장식하던
           <br />
-          18명의 소녀들을 떠올려 봅니다.
+          18명의 아이들을 떠올려 봅니다.
           <br />
           <br />
           <ul
@@ -1297,7 +1227,7 @@ const memorySummaryComponents: {
           <br />
           36명의 학생이 수학여행을 떠나
           <br />
-          27명의 학생이 희생되고 9명의 학생이
+          27명의 학생이 희생되고, 9명의 학생이
           <br />
           돌아왔습니다.
           <br />
@@ -1328,6 +1258,7 @@ const memorySummaryComponents: {
           다른 반 교실과 달리 복도 쪽 창이 작고 커튼 대신
           <br />
           암막 블라인드가 설치되어 있습니다.
+          <br />
           <br />
           또한 2학년 5반 교실을 둘러보면
           <br />
@@ -1554,7 +1485,7 @@ const memorySummaryComponents: {
           <br />
           33명의 학생이 수학여행을 떠나
           <br />
-          32명의 학생이 희생되고 단 한 명의 학생이 돌아왔습니다.
+          32명의 학생이 희생되고, 단 한 명의 학생이 돌아왔습니다.
           <br />
           <br />
           7반은 가장 많은 학생이 희생된 반이고,
@@ -1702,7 +1633,7 @@ const memorySummaryComponents: {
           <br />
           31명의 학생이 수학여행을 떠나
           <br />
-          29명의 학생이 희생되고 두 명의 학생이 돌아왔습니다.
+          29명의 학생이 희생되고, 두 명의 학생이 돌아왔습니다.
           <br />
           <br />
           2학년 8반 아이들이 교실 달력에 ‘수, 학, 여, 행’
@@ -1817,7 +1748,7 @@ const memorySummaryComponents: {
             </li>
           </ul>
           <br />
-          이 교실에서 피어났을 소년들의 다채로운 꿈과
+          이 교실에서 피어났을 아이들의 다채로운 꿈과
           <br />
           고민들을 마음에 담아 가겠습니다.
           <br />
@@ -1860,15 +1791,15 @@ const memorySummaryComponents: {
           <br />
           "지킬 것들을 제대로 지켰다면,
           <br />
-          &nbsp;&nbsp;세월호는 그렇게 출항하지 않았을 것입니다."
+          &nbsp;&nbsp;&nbsp;&nbsp;세월호는 그렇게 출항하지 않았을 것입니다."
           <br />
           "묶을 것들을 제대로 묶었다면,
           <br />
-          &nbsp;&nbsp;세월호는 그렇게 넘어지지 않았을 것입니다."
+          &nbsp;&nbsp;&nbsp;&nbsp;세월호는 그렇게 넘어지지 않았을 것입니다."
           <br />
           "닫을 것들을 제대로 닫았다면,
           <br />
-          &nbsp;&nbsp;세월호는 그렇게 가라앉지 않았을 것입니다."
+          &nbsp;&nbsp;&nbsp;&nbsp;세월호는 그렇게 가라앉지 않았을 것입니다."
           <br />
           <br />
           9반 교실 칠판 옆 게시판에는 아이들이 함께 쓰는 공간을 잘 유지하기 위한
@@ -2204,9 +2135,9 @@ const memorySummaryComponents: {
             <li>아침마다 손을 크게 흔들며 학생들을 맞이하는 선생님 고창석</li>
             <li>학생들이 ‘아빠’라고 부를 만큼 다정한 선생님 김응현</li>
             <li>
-              학생들의 개성을 키우는 맵시 있는 교육을
+              학생들의 개성을 키우는 맵시 있는 교육을 고민하는
               <br />
-              고민하는 선생님 김초원
+              선생님 김초원
             </li>
 
             <li>
@@ -2264,3 +2195,38 @@ const memorySummaryComponents: {
     );
   },
 };
+
+// {delaySignActive && videoSrc && (
+//   <motion.div
+//     key={videoSrc}
+//     ref={signRef}
+//     initial={{
+//       opacity: 0,
+//     }}
+//     animate={{
+//       opacity: 1,
+//       transition: {
+//         delay: 0.5,
+//       },
+//     }}
+//     exit={{ opacity: 0 }}
+//     transition={{
+//       type: "tween",
+//       ease: "linear",
+//     }}
+//     css={css`
+//       /* width: 36rem; */
+//       flex: 0 0 21.7rem;
+//       display: flex;
+//       flex-direction: column;
+//       height: 100%;
+//     `}
+//   >
+//     <PreloadVideo
+//       key={videoSrc}
+//       src={videoSrc}
+//       autoPlay
+//       muted
+//     ></PreloadVideo>
+//   </motion.div>
+// )}
