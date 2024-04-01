@@ -3,13 +3,14 @@ import { HTMLMotionProps, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { m, LazyMotion, domAnimation } from "framer-motion";
 import { fadeInOutVariants } from "@/variants";
-import { VideoSpeeds, useSettingStore } from "@/contexts/setting.store";
+import { useSettingStore } from "@/contexts/setting.store";
 import { css, useTheme } from "@emotion/react";
 import { P3 } from "./text";
 import styled from "@emotion/styled";
-import { isVideoPlaying, sendA11yEvent } from "@/libs/utils";
-import Switch from "../common/switch";
-interface PreloadVideoProps extends HTMLMotionProps<"video"> {}
+import { isVideoPlaying } from "@/libs/utils";
+interface PreloadVideoProps extends HTMLMotionProps<"video"> {
+  videoSize?: number;
+}
 
 const PreloadVideo = (props: PreloadVideoProps) => {
   const {
@@ -40,7 +41,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
     })
   );
   const controls = useAnimation();
-  const { src } = props;
+  const { src, videoSize } = props;
   const theme = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
@@ -89,7 +90,7 @@ const PreloadVideo = (props: PreloadVideoProps) => {
         <m.div
           css={css`
             position: relative;
-            height: 70%;
+            height: ${videoSize ?? 70}%;
           `}
           initial="initial"
           animate={controls}

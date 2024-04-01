@@ -19,7 +19,6 @@ import { useSettingStore } from "@/contexts/setting.store";
 import { useA11y } from "@/hooks/use-a11y";
 import PreloadVideo from "@/components/ui/preload-video";
 import { fadeInOutVariants } from "@/variants";
-import SignController from "@/components/ui/sign-controller";
 
 const Birthday = () => {
   const { data: students } = useSuspenseQuery(
@@ -27,7 +26,7 @@ const Birthday = () => {
   );
 
   const signActive = useSettingStore((state) => state.signActivate);
-  console.log(signActive, "<<signActive");
+
   const [id, setId] = useState(() => {
     const id = sessionStorage.getItem("redirect_id");
     if (id) {
@@ -137,6 +136,7 @@ const Birthday = () => {
             >
               {signActive ? (
                 <PreloadVideo
+                  videoSize={78}
                   key="video"
                   src={"/videos/birthday.webm"}
                   autoPlay
@@ -314,7 +314,7 @@ function Birth({ students }: BirthProps) {
             </g>
           </g>
         </svg>
-        이번달 생일자
+        이달의 생일자
       </H4>
       <div
         css={css`
@@ -453,4 +453,62 @@ const Saver = styled.div`
   align-items: center;
   max-width: 100dvw;
   flex: 1 1 100%;
+`;
+
+/** @jsxImportSource @emotion/react */
+
+const SignController = () => {
+  const { signActivate, setSignActivate } = useSettingStore(
+    ({ signActivate, setSignActivate }) => ({
+      signActivate,
+      setSignActivate,
+    })
+  );
+  return (
+    <SignControllerWrapper>
+      <SignControllerButton
+        data-a11y-id="sign_language_on"
+        onClick={() => {
+          sendA11yEvent("sign_language_on");
+          setSignActivate(true);
+        }}
+        active={signActivate}
+      >
+        <P3>수어보기</P3>
+      </SignControllerButton>
+      <SignControllerButton
+        data-a11y-id="sign_language_off"
+        onClick={() => {
+          sendA11yEvent("sign_language_off");
+          setSignActivate(false);
+        }}
+        active={!signActivate}
+      >
+        <P3>전체보기</P3>
+      </SignControllerButton>
+    </SignControllerWrapper>
+  );
+};
+
+const SignControllerWrapper = styled.div`
+  height: 5.4rem;
+  padding: 0 1rem;
+  padding-top: 1.2rem;
+  display: flex;
+  border-radius: 0.4rem;
+  justify-content: center;
+  column-gap: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+`;
+const SignControllerButton = styled.button<{ active: boolean }>`
+  border-radius: 0.4rem;
+  padding: 0.8rem 2.6rem;
+  background-color: ${(props) =>
+    props.active ? props.theme.color.accent.foreground : "white"};
+  p {
+    color: ${(props) =>
+      props.active ? props.theme.color.secondary.foreground : "black"};
+  }
 `;

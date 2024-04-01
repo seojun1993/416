@@ -110,16 +110,19 @@ const CardLink = styled(m(Link))`
 `;
 
 const CardBadge = styled(P2)`
-  white-space: nowrap;
   position: absolute;
   top: 0.8rem;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.3rem 2rem;
+  padding: 0.3rem;
   border-radius: 9999rem;
   border: 0.16rem solid ${(props) => props.theme.color.badge.border};
   background-color: ${(props) => props.theme.color.badge.background};
   color: ${(props) => props.theme.color.badge.text};
+  text-align: center;
+  width: max-content;
+  max-width: 76%;
+  min-width: 50%;
 `;
 
 const CardAvatar = styled(ImageX)`
