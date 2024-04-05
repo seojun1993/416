@@ -262,7 +262,7 @@ const MemoryRoadContentDescription = styled.p`
 
 const MemoryBadge = styled.button`
   height: 6rem;
-  width: 17rem;
+  width: 18rem;
   border-radius: 0.8rem;
   padding: 1rem;
   display: flex;
