@@ -109,6 +109,8 @@ export const MenuCard = ({
             display: flex;
             align-items: flex-end;
             overflow: hidden;
+            background-color: #394154;
+            border-radius: 1rem;
           `}
         >
           <img

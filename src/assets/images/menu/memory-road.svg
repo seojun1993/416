@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1304" height="1072" viewBox="0 0 1304 1072">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="스크린샷_2024-01-10_오후_1.13.14" data-name="스크린샷 2024-01-10 오후 1.13.14" width="1304" height="1057" rx="40" transform="translate(130 0)" fill="#ffdab6"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="사각형_864" data-name="사각형 864" width="1151.531" height="1223.027" fill="#f2d49b"/>
+    </clipPath>
+    <filter id="_가칭_4.16_생명안전공원" x="213" y="513" width="322" height="164" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="패스_2109" x="335" y="455" width="78" height="78" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="_4.16_기억전시관" x="278" y="235" width="272" height="164" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-3"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="패스_2110" x="540" y="278" width="78" height="78" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-4"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="단원고_4.16_기억교실" x="926" y="773" width="304" height="166" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-5"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="빼기_4" x="1026.001" y="667.5" width="105.999" height="127.093" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-6"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="_단원고_추모조형물" x="471" y="0" width="272" height="164" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-7"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="패스_3325" x="737" y="55" width="78" height="78" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-8"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_934" data-name="그룹 934" transform="translate(-380 -748)">
+    <g id="마스크_그룹_9" data-name="마스크 그룹 9" transform="translate(250 763)" clip-path="url(#clip-path)">
+      <g id="그룹_630" data-name="그룹 630" transform="translate(139.916 58.311) rotate(-9)">
+        <path id="패스_1763" data-name="패스 1763" d="M113.749,166.2,135.226,17.5,23.068,0,0,150.062Z" transform="translate(901.916 708.659)" fill="#f2d49b"/>
+        <path id="패스_1764" data-name="패스 1764" d="M116.139,218.728l30.4-201.309L29.422,0,0,190.47l14.711,13.547Z" transform="translate(869.122 874.864)" fill="#f2d49b"/>
+        <path id="패스_1765" data-name="패스 1765" d="M0,189.632l119.195,15.1,12.591-73.787,74.706,9.233,17.627-116.1L26.861,0Z" transform="translate(927.412 503.927)" fill="#f2d49b"/>
+        <path id="패스_1766" data-name="패스 1766" d="M0,119.243,15.906,0l88.346,23.168L87.9,126.738Z" transform="translate(799.78 558.49)" fill="#f2d49b"/>
+        <g id="그룹_629" data-name="그룹 629" transform="translate(0 0)">
+          <g id="그룹_628" data-name="그룹 628" clip-path="url(#clip-path-2)">
+            <path id="패스_1767" data-name="패스 1767" d="M221.618,390.416,205.251,511.254,3.907,482.313c-4.07-27.163-7.844-56.364,4.51-80.895,9.731-19.321,28.566-33.527,35.425-54.044,3.736-11.175,3.544-23.238,3.092-35.012-.951-24.819-2.876-49.7-.821-74.454s8.354-49.71,22.444-70.164c11.176-16.223,27.5-30.407,30.387-49.894,1.98-13.35-2.862-26.643-4.79-40a93.792,93.792,0,0,1,8.573-54.342L176.054,0l91.128,53.207L215.055,376.9Z" transform="translate(584.724 167.294)" fill="#f2d49b"/>
+            <path id="패스_1768" data-name="패스 1768" d="M126.23,30.774,107,5.769,52.878,0,0,66.065l83.132,59.02A256.292,256.292,0,0,0,118.091,112c4.813-2.215,9.688-4.674,13.195-8.647,5.079-5.755,6.538-13.774,7.526-21.386,2-15.4,3.987-32.056,3.767-47.588Z" transform="translate(610.681 40.486)" fill="#f2d49b"/>
+            <path id="패스_1769" data-name="패스 1769" d="M217.556,254.24c7.076-16.8,14.2-33.692,23.911-49.12,6.02-9.56,13-18.5,18.7-28.257S270.321,156.292,270.605,145c.193-7.663-1.531-15.224-2.612-22.813a137.733,137.733,0,0,1,8.154-69.528l.111.553L191.871,0,0,33.744,27.837,230.458l191.235,23.278" transform="translate(405.449 131.031)" fill="#f2d49b"/>
+            <path id="패스_1770" data-name="패스 1770" d="M2.914,182.811l10.2-53.9V72.833L0,0,186.523,24.151c4.37,32.813,8.725,66.314,2.55,98.83a97.311,97.311,0,0,1-6.72,22.291c-8.245,18.08-23.744,31.972-32.169,49.967-12.02,25.671-8.085,55.7-3.9,83.781L19.665,258.558Z" transform="translate(434.024 369.885)" fill="#f2d49b"/>
+            <path id="패스_1771" data-name="패스 1771" d="M49.491,0l74.654,4.568L78.424,332.729,0,312.584Z" transform="translate(838.545 215.417)" fill="#f2d49b"/>
+            <path id="패스_1772" data-name="패스 1772" d="M181.968,77.414,166.046,201.379H122.828l-20.472,151.26L0,337.855l38.013-263.7a153.587,153.587,0,0,1,17.729-34.33c4.9-7.113,10.385-13.8,15.866-20.474L87.493,0Z" transform="translate(955.663 155.845)" fill="#f2d49b"/>
+            <path id="패스_1773" data-name="패스 1773" d="M58.192,546.421l17.1,73.712,37.021,4.4-18.59-78.114,10.145-96.162L35.726,0,0,1.526,66.744,450.259Z" transform="translate(330.154 1.725)" fill="#f8ed7f"/>
+            <path id="패스_1774" data-name="패스 1774" d="M53.01,60.766,42.054,7.926,0,0,13.119,64.383l68.089,95.155,17.309,83.253,6.595,51.106L94.4,384.569l34.62,6.595,12.365-86.551v-23.9L120.773,150.783,98.517,111.961Z" transform="translate(405.449 640.978)" fill="#f8ed7f"/>
+            <path id="패스_1775" data-name="패스 1775" d="M281.956,157.694H7.1L0,78.6,14.193,0l258.3,49.083,23.654,22.43Z" transform="translate(543.643 1033.633)" fill="#f2d49b"/>
+            <path id="패스_1776" data-name="패스 1776" d="M20.079,0,55.428,3.928l-17.675,130.8H0Z" transform="translate(476.139 1056.991)" fill="#f8ed7f"/>
+            <path id="패스_1777" data-name="패스 1777" d="M0,0,19.344,129.306l200.81-35.025,58.032-68.2L226.526,0Z" transform="translate(378.402 14.405)" fill="#f2d49b"/>
+            <path id="패스_1778" data-name="패스 1778" d="M107.826,0,54.39,169,37.718,286.14,0,381.9V556.765l380.41,58.41-9.092-68.754,9.092-65.77L376.337,416.4,315.1,0Z" transform="translate(0 1.725)" fill="#f2d49b"/>
+            <path id="패스_1779" data-name="패스 1779" d="M0,84.388,36.693,64.442,40.107,0l71.132,34.531,45.052,34.945-49.82,64.764-81.7-3.986L0,101.857Z" transform="translate(872.642 79.229)" fill="#f2d49b"/>
+            <path id="패스_1780" data-name="패스 1780" d="M276.157,1.725,91.934,0,37.307,191.04v82.593L0,355.032l7.239,11.529L175.648,393.73l135.708-38.7,7.088-65.777Z" transform="translate(38.941 0)" fill="#f0be76"/>
+            <path id="패스_1781" data-name="패스 1781" d="M190.205,126.507l-9.092,58.056,3.21,24.269L115.57,188.349,0,174.087l7.958-135.8H44.15L161.9,0l18.146,13.131Z" transform="translate(190.205 363.583)" fill="#efb162"/>
+            <path id="패스_1782" data-name="패스 1782" d="M6.725,0,0,70.7,2.6,81.011l88.183,64.763,5.188-32.648,13.492-9.415,28.02-17.14,5.707-7.8,5.807-63.343Z" transform="translate(750.63 66.311)" fill="#f2d49b"/>
+            <path id="패스_1783" data-name="패스 1783" d="M422.868,57.223,0,0C.553,24.949,13.4,47.93,27.915,68.232s31.2,39.417,41.38,62.2c7.778,17.4,11.462,36.313,14.958,55.052,11.029,59.129,20.787,119.89,10.4,179.134l276.318,41.026Z" transform="translate(466.976 654.803)" fill="#f2d49b"/>
+            <path id="패스_1784" data-name="패스 1784" d="M314.541,46.309c-6.932,18.461.559,38.9,2.868,58.559,3.022,25.733-3.12,51.8-12.475,75.852s-21.891,46.634-32.466,70.143a464.81,464.81,0,0,0-37.6,136.171L98.482,367.153q.918-4.715,1.7-9.46a371.71,371.71,0,0,0,4.215-77.741A471.382,471.382,0,0,0,94.057,202.74c-5.382-24.943-12.069-50.03-21.665-73.625A180.316,180.316,0,0,0,55.228,96.223c-7.1-10.546-15.395-20.155-22.765-30.492A215.275,215.275,0,0,1,.874,0L0,.838,316.333,46.414" transform="translate(461.348 653.019)" fill="#f1c786"/>
+            <path id="패스_1785" data-name="패스 1785" d="M.941.518,0,0" transform="translate(816.191 161.585)" fill="#f2d49b"/>
+            <path id="패스_1789" data-name="패스 1789" d="M7.976,0,0,435.906l468.394,74.186,5.675-154.353-30.16-131.569-63.681-83.777L367.217,64.976Z" transform="translate(2.9 575.691)" fill="#f2d49b"/>
+            <path id="패스_1790" data-name="패스 1790" d="M224.6,21.308,90.072,0l10.77,256.884L.223,240.948,0,365.135l313.968,49.728,7.891-122.973L296.016,177.333,240.364,93.77Z" transform="translate(124.895 637.269)" fill="#eeb262"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="그룹_933" data-name="그룹 933">
+      <g id="place" transform="translate(-129)">
+        <g id="그룹_633" data-name="그룹 633" transform="translate(114 246)">
+          <rect id="사각형_929" data-name="사각형 929" width="257" height="66" transform="translate(641 1030)" opacity="0.5"/>
+          <rect id="사각형_930" data-name="사각형 930" width="292" height="66" transform="translate(622 1098)" opacity="0.5"/>
+          <g transform="matrix(1, 0, 0, 1, 395, 502)" filter="url(#_가칭_4.16_생명안전공원)">
+            <text id="_가칭_4.16_생명안전공원-2" data-name="(가칭)4.16
+생명안전공원" transform="translate(374 582)" fill="#fff" font-size="56" font-family="Pretendard-Black, Pretendard" font-weight="800"><tspan x="-129.164" y="0">(가칭)4.16</tspan><tspan x="-145.152" y="67">생명안전공원</tspan></text>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, 395, 502)" filter="url(#패스_2109)">
+            <path id="패스_2109-2" data-name="패스 2109" d="M534,497a24,24,0,1,1-24-24,24,24,0,0,1,24,24" transform="translate(-136 -3)" fill="#fff"/>
+          </g>
+        </g>
+        <g id="그룹_638" data-name="그룹 638" transform="translate(319 59)">
+          <rect id="사각형_927" data-name="사각형 927" width="123" height="66" transform="translate(607 940)" opacity="0.5"/>
+          <rect id="사각형_928" data-name="사각형 928" width="246" height="66" transform="translate(484 1008)" opacity="0.5"/>
+          <g transform="matrix(1, 0, 0, 1, 190, 689)" filter="url(#_4.16_기억전시관)">
+            <text id="_4.16_기억전시관-2" data-name="4.16
+기억전시관" transform="translate(535 304)" fill="#fff" font-size="56" font-family="Pretendard-Black, Pretendard" font-weight="800"><tspan x="-114.072" y="0">4.16</tspan><tspan x="-241.92" y="67">기억전시관</tspan></text>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, 190, 689)" filter="url(#패스_2110)">
+            <path id="패스_2110-2" data-name="패스 2110" d="M534,497a24,24,0,1,1-24-24,24,24,0,0,1,24,24" transform="translate(69 -180)" fill="#fff"/>
+          </g>
+        </g>
+        <g id="그룹_632" data-name="그룹 632" transform="translate(114 108)">
+          <rect id="사각형_931" data-name="사각형 931" width="272" height="66" transform="translate(1337 1429)" opacity="0.5"/>
+          <rect id="사각형_932" data-name="사각형 932" width="200" height="66" transform="translate(1374 1497)" opacity="0.5"/>
+          <g transform="matrix(1, 0, 0, 1, 395, 640)" filter="url(#단원고_4.16_기억교실)">
+            <text id="단원고_4.16_기억교실-2" data-name="단원고 4.16
+기억교실" transform="translate(1078 843)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-width="1" font-size="56" font-family="Pretendard-Black, Pretendard" font-weight="800"><tspan x="-135.716" y="0">단원고 4.16</tspan><tspan x="-96.768" y="67">기억교실</tspan></text>
+          </g>
+          <g id="그룹_709" data-name="그룹 709" transform="translate(679.361 1143)">
+            <g transform="matrix(1, 0, 0, 1, -284.36, -503)" filter="url(#빼기_4)">
+              <path id="빼기_4-2" data-name="빼기 4" d="M15698.323-3952.782h0a127.544,127.544,0,0,1-10.627-10.266,163.879,163.879,0,0,1-12.36-14.891,100.8,100.8,0,0,1-10.24-16.979c-2.832-6.163-4.269-11.726-4.269-16.532a36.962,36.962,0,0,1,2.946-14.532,37.219,37.219,0,0,1,8.036-11.866,37.386,37.386,0,0,1,11.92-8,37.411,37.411,0,0,1,14.6-2.934,37.413,37.413,0,0,1,14.6,2.934,37.4,37.4,0,0,1,11.921,8,37.216,37.216,0,0,1,8.036,11.866,36.96,36.96,0,0,1,2.946,14.532c0,4.806-1.366,10.215-4.06,16.074a93.5,93.5,0,0,1-9.892,16.215c-7.3,9.855-16,18.865-23.549,26.379Zm.149-84a26.7,26.7,0,0,0-10.482,2.123,26.835,26.835,0,0,0-8.559,5.788,26.919,26.919,0,0,0-5.771,8.585,26.9,26.9,0,0,0-2.116,10.513,26.9,26.9,0,0,0,2.116,10.513,26.914,26.914,0,0,0,5.771,8.585,26.83,26.83,0,0,0,8.559,5.788,26.7,26.7,0,0,0,10.482,2.123,26.711,26.711,0,0,0,10.485-2.123,26.816,26.816,0,0,0,8.56-5.788,26.911,26.911,0,0,0,5.772-8.585,26.9,26.9,0,0,0,2.116-10.513,26.9,26.9,0,0,0-2.116-10.513,26.911,26.911,0,0,0-5.772-8.585,26.82,26.82,0,0,0-8.56-5.788A26.711,26.711,0,0,0,15698.473-4036.781Z" transform="translate(-14619.32 4731.78)" fill="#fff500" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+            </g>
+          </g>
+        </g>
+        <g id="그룹_635" data-name="그룹 635" transform="translate(65 229)">
+          <rect id="사각형_925" data-name="사각형 925" width="197" height="66" transform="translate(975 536)" opacity="0.5"/>
+          <rect id="사각형_926" data-name="사각형 926" width="246" height="66" transform="translate(926 604)" opacity="0.5"/>
+          <g transform="matrix(1, 0, 0, 1, 444, 519)" filter="url(#_단원고_추모조형물)">
+            <text id="_단원고_추모조형물-2" data-name="(단원고)
+추모조형물" transform="translate(728 69)" fill="#fff" font-size="56" font-family="Pretendard-Black, Pretendard" font-weight="800"><tspan x="-192.64" y="0">(단원고)</tspan><tspan x="-241.92" y="67">추모조형물</tspan></text>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, 444, 519)" filter="url(#패스_3325)">
+            <path id="패스_3325-2" data-name="패스 3325" d="M534,497a24,24,0,1,1-24-24,24,24,0,0,1,24,24" transform="translate(266 -403)" fill="#fff"/>
+          </g>
+        </g>
+        <g id="그룹_640" data-name="그룹 640" transform="translate(-14 -44)">
+          <text id="화랑_유원지" data-name="화랑 유원지" transform="translate(769 1063)" fill="#6c481a" font-size="56" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-127.624" y="0">화랑 유원지</tspan></text>
+        </g>
+        <g id="그룹_639" data-name="그룹 639" transform="translate(188 615)">
+          <text id="안산_와스타디움" data-name="안산
+와스타디움" transform="translate(769 1030)" fill="#6c481a" font-size="56" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-48.384" y="0">안산</tspan><tspan x="-120.96" y="67">와스타디움</tspan></text>
+        </g>
+        <g id="그룹_634" data-name="그룹 634" transform="translate(154 44)">
+          <text id="고잔역" transform="translate(1192 1763)" fill="#6c481a" font-size="56" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-72.576" y="0">고잔역</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
