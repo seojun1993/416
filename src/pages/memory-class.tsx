@@ -793,7 +793,7 @@ const memorySummaryComponents: {
               「단원고 4.16기억교실 기록물류」 국가지정기록물 제14호 지정
             </strong>
             <br />
-            (소장기관: 4.16민주시민교욱원, 4.16기억저장소)
+            (소장기관: 4.16민주시민교육원, 4.16기억저장소)
           </DescriptionContent>
         </DescriptionWrapper>
       </MemoryClassContentDescription>
