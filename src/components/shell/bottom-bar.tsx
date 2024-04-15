@@ -94,7 +94,11 @@ const BottomBar = () => {
         }
         break;
       case "sound":
-        setSignOn(false);
+        if (SIGN_SUPPORT_PATH.includes(pathname)) {
+          setSignOn(true);
+        } else {
+          setSignOn(false);
+        }
         setSoundOn(true);
         break;
       case "normal":
